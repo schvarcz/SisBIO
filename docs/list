@@ -1,0 +1,43 @@
+
+PPBio
+    Grade - 5km-5km - Unidade amostral
+        Parcelas Terrestres 250metros comp... Largura variavel.
+            Micro parcelas
+        Parcelas aquaticas 50 metros comp.... largura = curso da agua
+        
+SisBiota
+    UAR - 8.5km 
+        UAP 2km-2km sempre um por UAR
+            UAL 70m (vegetacao e artrópodes)
+            UAL >70m (aves)
+
+PELD
+    3xParcelas 70x70 metros (Bloco experimental) 8x Blocos experientais no estado
+        9x Subparcelas(1m²)
+            Amostra d solo
+            Vegetacao
+        Armadilhas de Artrópodes sõ a nivel de parcelas
+
+Filo - Atributos
+    Ordem
+        Familia
+            Genero
+                Especie
+
+
+Entrada:(sisbiota e ppbio)
+    Aves
+    Peixes(não tem no sisbiota)
+    Anfibios
+    Artrópodes
+    Vegetacao
+        Florestal - Individuo
+        Arbustiva e Herbacea - Cobertura
+    Variaveis ambientais - Geralmente da Grade ou UAP - Variaveis ecossitemicas
+        Solo (dentro de parcela)
+        Clima
+        Uso da terra
+        Qualidade da agua (UAL)
+        
+        
+
