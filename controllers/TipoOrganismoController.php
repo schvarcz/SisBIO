@@ -50,7 +50,7 @@ class TipoOrganismoController extends Controller {
     public function actionCreate() {
         $model = new TipoOrganismo;
         try {
-            if ($model->load($_POST) && $model->save()) {
+            if ($model->saveWithRelated($_POST)) {
                 return $this->redirect(Url::previous());
             } elseif (!\Yii::$app->request->isPost) {
                 $model->load($_GET);
@@ -71,7 +71,7 @@ class TipoOrganismoController extends Controller {
     public function actionUpdate($idTipoOrganismo) {
         $model = $this->findModel($idTipoOrganismo);
 
-        if ($model->load($_POST) && $model->save()) {
+        if ($model->saveWithRelated($_POST)) {
             return $this->redirect(Url::previous());
         } else {
             return $this->render('update', [
