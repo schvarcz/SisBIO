@@ -37,6 +37,7 @@ AppAsset::register($this);
                 'options' => ['class' => 'navbar-nav navbar-right'],
                 'items' => [
                     ['label' => 'Home', 'url' => ['/site/index']],
+                    ['label' => '+ Coleta', 'url' => ['/coleta']],
                     ['label' => 'Base', 'items' => [
                             ['label' => 'Pesquisadores', 'url' => ['/pesquisador']],
                             ['label' => 'Projetos', 'url' => ['/projeto']],
