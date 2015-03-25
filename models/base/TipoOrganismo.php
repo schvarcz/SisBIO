@@ -15,7 +15,7 @@ use Yii;
  * @property TipoOrganismoHasAtributo[] $tipoOrganismoHasAtributos
  * @property Atributo[] $idAtributos
  */
-class TipoOrganismo extends \yii\db\ActiveRecord
+class TipoOrganismo extends \app\models\MActiveRecord
 {
     /**
      * @inheritdoc

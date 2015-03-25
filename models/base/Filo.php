@@ -14,7 +14,7 @@ use Yii;
  *
  * @property Ordem[] $ordems
  */
-class Filo extends \yii\db\ActiveRecord
+class Filo extends \app\models\MActiveRecord
 {
     /**
      * @inheritdoc

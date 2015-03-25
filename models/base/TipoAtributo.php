@@ -13,7 +13,7 @@ use Yii;
  *
  * @property Atributo[] $atributos
  */
-class TipoAtributo extends \yii\db\ActiveRecord
+class TipoAtributo extends \app\models\MActiveRecord
 {
     /**
      * @inheritdoc

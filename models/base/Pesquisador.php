@@ -23,7 +23,7 @@ use Yii;
  * @property Projeto[] $projetos
  * @property UnidadeGeografica[] $unidadeGeograficas
  */
-class Pesquisador extends \yii\db\ActiveRecord
+class Pesquisador extends \app\models\MActiveRecord
 {
     /**
      * @inheritdoc

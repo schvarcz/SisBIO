@@ -16,7 +16,7 @@ use Yii;
  * @property Especie[] $especies
  * @property Familia $idFamilia0
  */
-class Genero extends \yii\db\ActiveRecord
+class Genero extends \app\models\MActiveRecord
 {
     /**
      * @inheritdoc

@@ -16,7 +16,7 @@ use Yii;
  * @property Familia[] $familias
  * @property Filo $idFilo0
  */
-class Ordem extends \yii\db\ActiveRecord
+class Ordem extends \app\models\MActiveRecord
 {
     /**
      * @inheritdoc

@@ -13,7 +13,7 @@ use Yii;
  *
  * @property Atributo[] $atributos
  */
-class TipoDado extends \yii\db\ActiveRecord
+class TipoDado extends \app\models\MActiveRecord
 {
     /**
      * @inheritdoc

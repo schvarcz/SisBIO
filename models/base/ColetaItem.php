@@ -15,7 +15,7 @@ use Yii;
  * @property Especie $idEspecie0
  * @property ColetaItemPropriedade[] $coletaItemPropriedades
  */
-class ColetaItem extends \yii\db\ActiveRecord
+class ColetaItem extends \app\models\MActiveRecord
 {
     /**
      * @inheritdoc

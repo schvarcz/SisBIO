@@ -21,7 +21,7 @@ use Yii;
  * @property UnidadeGeografica $idUnidadeGeograficaPai0
  * @property UnidadeGeografica[] $unidadeGeograficas
  */
-class UnidadeGeografica extends \yii\db\ActiveRecord
+class UnidadeGeografica extends \app\models\MActiveRecord
 {
     /**
      * @inheritdoc

@@ -18,7 +18,7 @@ use Yii;
  * @property Genero $idGenero0
  * @property TipoOrganismo $idTipoOrganismo
  */
-class Especie extends \yii\db\ActiveRecord
+class Especie extends \app\models\MActiveRecord
 {
     /**
      * @inheritdoc

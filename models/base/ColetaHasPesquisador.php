@@ -13,7 +13,7 @@ use Yii;
  * @property Coleta $idColeta0
  * @property Pesquisador $idPesquisador0
  */
-class ColetaHasPesquisador extends \yii\db\ActiveRecord
+class ColetaHasPesquisador extends \app\models\MActiveRecord
 {
     /**
      * @inheritdoc

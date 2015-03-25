@@ -16,7 +16,7 @@ use Yii;
  * @property Ordem $idOrdem0
  * @property Genero[] $generos
  */
-class Familia extends \yii\db\ActiveRecord
+class Familia extends \app\models\MActiveRecord
 {
     /**
      * @inheritdoc
