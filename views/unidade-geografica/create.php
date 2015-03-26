@@ -7,8 +7,8 @@ use yii\helpers\Html;
 * @var app\models\UnidadeGeografica $model
 */
 
-$this->title = 'Create';
-$this->params['breadcrumbs'][] = ['label' => 'Unidade Geograficas', 'url' => ['index']];
+$this->title = 'Novo';
+$this->params['breadcrumbs'][] = ['label' => 'Unidades Geográficas', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="unidade-geografica-create">

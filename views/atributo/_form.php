@@ -49,10 +49,10 @@ $form->field($model, 'idTipoAtributo')->dropDownList(
     ?>
         <hr/>
 
-        <?= Html::submitButton('<span class="glyphicon glyphicon-check"></span> '.($model->isNewRecord ? 'Create' : 'Save'), ['class' => $model->isNewRecord ?
+        <?= Html::submitButton('<span class="glyphicon glyphicon-check"></span> '.($model->isNewRecord ? 'Criar' : 'Salvar'), ['class' => $model->isNewRecord ?
         'btn btn-primary' : 'btn btn-primary']) ?>
 
-        <?= Html::a('Cancel', \yii\helpers\Url::previous(), ['class' => 'btn btn-default']) ?>
+        <?= Html::a('Cancelar', \yii\helpers\Url::previous(), ['class' => 'btn btn-default']) ?>
         <?php ActiveForm::end(); ?>
 
     </div>

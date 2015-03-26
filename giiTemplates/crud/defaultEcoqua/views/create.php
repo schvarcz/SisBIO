@@ -18,7 +18,7 @@ use yii\helpers\Html;
 * @var <?= ltrim($generator->modelClass, '\\') ?> $model
 */
 
-$this->title = 'Create';
+$this->title = 'Novo';
 $this->params['breadcrumbs'][] = ['label' => '<?= Inflector::pluralize(
     Inflector::camel2words(StringHelper::basename($generator->modelClass))
 ) ?>', 'url' => ['index']];

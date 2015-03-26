@@ -7,15 +7,15 @@ use yii\helpers\Html;
  * @var app\models\Especie $model
  */
 
-$this->title = 'Especie Update ' . $model->idEspecie . '';
-$this->params['breadcrumbs'][] = ['label' => 'Especies', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => (string)$model->idEspecie, 'url' => ['view', 'idEspecie' => $model->idEspecie]];
-$this->params['breadcrumbs'][] = 'Edit';
+$this->title = 'Editar Espécie ' . $model->label . '';
+$this->params['breadcrumbs'][] = ['label' => 'Espécies', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => (string)$model->label, 'url' => ['view', 'idEspecie' => $model->idEspecie]];
+$this->params['breadcrumbs'][] = 'Editar';
 ?>
 <div class="especie-update">
 
     <p>
-        <?= Html::a('<span class="glyphicon glyphicon-eye-open"></span> View', ['view', 'idEspecie' => $model->idEspecie], ['class' => 'btn btn-info']) ?>
+        <?= Html::a('<span class="glyphicon glyphicon-eye-open"></span> Detalhes', ['view', 'idEspecie' => $model->idEspecie], ['class' => 'btn btn-info']) ?>
     </p>
 
 	<?php echo $this->render('_form', [

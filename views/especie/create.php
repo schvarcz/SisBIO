@@ -7,8 +7,8 @@ use yii\helpers\Html;
 * @var app\models\Especie $model
 */
 
-$this->title = 'Create';
-$this->params['breadcrumbs'][] = ['label' => 'Especies', 'url' => ['index']];
+$this->title = 'Nova';
+$this->params['breadcrumbs'][] = ['label' => 'Espécies', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="especie-create">

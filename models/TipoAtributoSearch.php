@@ -4,22 +4,22 @@ namespace app\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\TipoOrganismo;
+use app\models\TipoAtributo;
 
 /**
- * TipoOrganismoSearch represents the model behind the search form about TipoOrganismo.
+ * TipoAtributoSearch represents the model behind the search form about TipoAtributo.
  */
-class TipoOrganismoSearch extends Model
+class TipoAtributoSearch extends Model
 {
-	public $idTipoOrganismo;
-	public $Nome;
+	public $idTipoAtributo;
+	public $Tipo;
 	public $Descricao;
 
 	public function rules()
 	{
 		return [
-			[['idTipoOrganismo'], 'integer'],
-			[['Nome', 'Descricao'], 'safe'],
+			[['idTipoAtributo'], 'integer'],
+			[['Tipo', 'Descricao'], 'safe'],
 		];
 	}
 
@@ -29,15 +29,15 @@ class TipoOrganismoSearch extends Model
 	public function attributeLabels()
 	{
 		return [
-			'idTipoOrganismo' => 'Id Tipo de Organismo',
-			'Nome' => 'Nome',
-			'Descricao' => 'Descricao',
+			'idTipoAtributo' => 'Identificador do Tipo de Atributo',
+			'Tipo' => 'Tipo de Atributo',
+			'Descricao' => 'Descrição',
 		];
 	}
 
 	public function search($params)
 	{
-		$query = TipoOrganismo::find();
+		$query = TipoAtributo::find();
 		$dataProvider = new ActiveDataProvider([
 			'query' => $query,
 		]);
@@ -47,10 +47,10 @@ class TipoOrganismoSearch extends Model
 		}
 
 		$query->andFilterWhere([
-            'idTipoOrganismo' => $this->idTipoOrganismo,
+            'idTipoAtributo' => $this->idTipoAtributo,
         ]);
 
-		$query->andFilterWhere(['like', 'Nome', $this->Nome])
+		$query->andFilterWhere(['like', 'Tipo', $this->Tipo])
             ->andFilterWhere(['like', 'Descricao', $this->Descricao]);
 
 		return $dataProvider;

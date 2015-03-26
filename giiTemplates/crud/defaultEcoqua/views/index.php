@@ -36,7 +36,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <div class="clearfix">
         <p class="pull-left">
-            <?= "<?= " ?>Html::a('<span class="glyphicon glyphicon-plus"></span> New <?= Inflector::camel2words(StringHelper::basename($generator->modelClass)) ?>', ['create'], ['class' => 'btn btn-success']) ?>
+            <?= "<?= " ?>Html::a('<span class="glyphicon glyphicon-plus"></span> Novo <?= Inflector::camel2words(StringHelper::basename($generator->modelClass)) ?>', ['create'], ['class' => 'btn btn-success']) ?>
         </p>
 
         <div class="pull-right">
@@ -72,7 +72,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 [
                     'id'       => 'giiant-relations',
                     'encodeLabel' => false,
-                    'label'    => '<span class="glyphicon glyphicon-paperclip"></span> Relations',
+                    'label'    => '<span class="glyphicon glyphicon-paperclip"></span> Relacionados',
                     'dropdown' => [
                         'options'      => [
                             'class' => 'dropdown-menu-right'

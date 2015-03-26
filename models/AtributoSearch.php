@@ -34,7 +34,7 @@ class AtributoSearch extends Model
 			'idAtributo' => 'Id Atributo',
 			'Nome' => 'Nome',
 			'idTipoDado' => 'Id Tipo Dado',
-			'idTipoAtributo' => 'Id Tipo Atributo',
+			'idTipoAtributo' => 'Id Tipo de Atributo',
 			'Descricao' => 'Descricao',
 		];
 	}

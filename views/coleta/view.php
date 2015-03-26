@@ -13,19 +13,19 @@ use yii\widgets\Pjax;
 $this->title = 'Coleta View ' . $model->idColeta . '';
 $this->params['breadcrumbs'][] = ['label' => 'Coletas', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => (string)$model->label, 'url' => ['view', 'idColeta' => $model->idColeta]];
-$this->params['breadcrumbs'][] = 'View';
+$this->params['breadcrumbs'][] = 'Detalhes';
 ?>
 <div class="coleta-view">
 
     <p class='pull-left'>
-        <?= Html::a('<span class="glyphicon glyphicon-pencil"></span> Edit', ['update', 'idColeta' => $model->idColeta],
+        <?= Html::a('<span class="glyphicon glyphicon-pencil"></span> Editar', ['update', 'idColeta' => $model->idColeta],
         ['class' => 'btn btn-info']) ?>
-        <?= Html::a('<span class="glyphicon glyphicon-plus"></span> New Coleta', ['create'], ['class' => 'btn
+        <?= Html::a('<span class="glyphicon glyphicon-plus"></span> Novo Coleta', ['create'], ['class' => 'btn
         btn-success']) ?>
     </p>
 
         <p class='pull-right'>
-        <?= Html::a('<span class="glyphicon glyphicon-list"></span> List', ['index'], ['class'=>'btn btn-default']) ?>
+        <?= Html::a('<span class="glyphicon glyphicon-list"></span> Lista', ['index'], ['class'=>'btn btn-default']) ?>
     </p><div class='clearfix'></div> 
 
     
@@ -53,10 +53,10 @@ $this->params['breadcrumbs'][] = 'View';
 
     <hr/>
 
-    <?php echo Html::a('<span class="glyphicon glyphicon-trash"></span> Delete', ['delete', 'idColeta' => $model->idColeta],
+    <?php echo Html::a('<span class="glyphicon glyphicon-trash"></span> Deletar', ['delete', 'idColeta' => $model->idColeta],
     [
     'class' => 'btn btn-danger',
-    'data-confirm' => Yii::t('app', 'Are you sure to delete this item?'),
+    'data-confirm' => Yii::t('app', 'Tem certeza que quer deletar esse item?'),
     'data-method' => 'post',
     ]); ?>
 
@@ -67,12 +67,12 @@ $this->params['breadcrumbs'][] = 'View';
 <?php $this->beginBlock('ColetaItems'); ?>
 <p class='pull-right'>
   <?= \yii\helpers\Html::a(
-            '<span class="glyphicon glyphicon-list"></span> List All Coleta Items',
+            '<span class="glyphicon glyphicon-list"></span> Listar todos Coleta Items',
             ['coleta-item/index'],
             ['class'=>'btn text-muted btn-xs']
         ) ?>
   <?= \yii\helpers\Html::a(
-            '<span class="glyphicon glyphicon-plus"></span> New Coleta Item',
+            '<span class="glyphicon glyphicon-plus"></span> Novo Coleta Item',
             ['coleta-item/create', 'ColetaItem'=>['idColeta'=>$model->idColeta]],
             ['class'=>'btn btn-success btn-xs']
         ) ?>
@@ -117,12 +117,12 @@ $this->params['breadcrumbs'][] = 'View';
 <?php $this->beginBlock('IdPesquisadors'); ?>
 <p class='pull-right'>
   <?= \yii\helpers\Html::a(
-            '<span class="glyphicon glyphicon-list"></span> List All Id Pesquisadors',
+            '<span class="glyphicon glyphicon-list"></span> Listar todos Id Pesquisadors',
             ['pesquisador/index'],
             ['class'=>'btn text-muted btn-xs']
         ) ?>
   <?= \yii\helpers\Html::a(
-            '<span class="glyphicon glyphicon-plus"></span> New Id Pesquisador',
+            '<span class="glyphicon glyphicon-plus"></span> Novo Id Pesquisador',
             ['pesquisador/create', 'IdPesquisador'=>['idPesquisador'=>$model->idColeta]],
             ['class'=>'btn btn-success btn-xs']
         ) ?>

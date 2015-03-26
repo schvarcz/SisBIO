@@ -12,26 +12,28 @@ use yii\widgets\ActiveForm;
 
 <div class="ordem-search">
 
-	<?php $form = ActiveForm::begin([
-		'action' => ['index'],
-		'method' => 'get',
-	]); ?>
+    <?php
+    $form = ActiveForm::begin([
+                'action' => ['index'],
+                'method' => 'get',
+    ]);
+    ?>
 
-		<?= $form->field($model, 'idOrdem') ?>
+    <?= $form->field($model, 'idOrdem') ?>
 
-		<?= $form->field($model, 'NomeCientifico') ?>
+    <?= $form->field($model, 'NomeCientifico') ?>
 
-		<?= $form->field($model, 'NomeComum') ?>
+    <?= $form->field($model, 'NomeComum') ?>
 
-		<?= $form->field($model, 'Descricao') ?>
+    <?= $form->field($model, 'Descricao') ?>
 
-		<?= $form->field($model, 'idFilo') ?>
+    <?= $form->field($model, 'idFilo') ?>
 
-		<div class="form-group">
-			<?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
-			<?= Html::resetButton('Reset', ['class' => 'btn btn-default']) ?>
-		</div>
+    <div class="form-group">
+        <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
+        <?= Html::resetButton('Reset', ['class' => 'btn btn-default']) ?>
+    </div>
 
-	<?php ActiveForm::end(); ?>
+    <?php ActiveForm::end(); ?>
 
 </div>

@@ -9,7 +9,7 @@ use yii\grid\GridView;
 * @var app\models\UnidadeGeograficaSearch $searchModel
 */
 
-$this->title = 'Unidade Geograficas';
+$this->title = 'Unidades Geográficas';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
@@ -20,7 +20,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <div class="clearfix">
         <p class="pull-left">
-            <?= Html::a('<span class="glyphicon glyphicon-plus"></span> New Unidade Geografica', ['create'], ['class' => 'btn btn-success']) ?>
+            <?= Html::a('<span class="glyphicon glyphicon-plus"></span> Novo Unidade Geografica', ['create'], ['class' => 'btn btn-success']) ?>
         </p>
 
         <div class="pull-right">
@@ -32,7 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 [
                     'id'       => 'giiant-relations',
                     'encodeLabel' => false,
-                    'label'    => '<span class="glyphicon glyphicon-paperclip"></span> Relations',
+                    'label'    => '<span class="glyphicon glyphicon-paperclip"></span> Relacionados',
                     'dropdown' => [
                         'options'      => [
                             'class' => 'dropdown-menu-right'

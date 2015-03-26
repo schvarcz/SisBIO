@@ -42,12 +42,13 @@ AppAsset::register($this);
                             ['label' => 'Pesquisadores', 'url' => ['/pesquisador']],
                             ['label' => 'Projetos', 'url' => ['/projeto']],
                             ['label' => 'Atributos', 'url' => ['/atributo']],
-                            ['label' => 'Tipos de Dados', 'url' => ['/tipo-dado']],
+                            ['label' => 'Tipos de Atributo', 'url' => ['/tipo-atributo']],
+                            ['label' => 'Tipos de Dado', 'url' => ['/tipo-dado']],
                             ['label' => 'Unidade Geográfica', 'url' => ['/unidade-geografica']],
                         
                         ]],
                     ['label' => 'Taxonomia', 'items' => [
-                            ['label' => 'Tipo de Organimos', 'url' => ['/tipo-organismo']],
+                            ['label' => 'Tipos de Organimo', 'url' => ['/tipo-organismo']],
                             ['label' => 'Filo/Divisão', 'url' => ['/filo']],
                         ]],
                     ['label' => 'About', 'url' => ['/site/about']],

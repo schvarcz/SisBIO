@@ -7,7 +7,7 @@ use yii\helpers\Html;
 * @var app\models\Familia $model
 */
 
-$this->title = 'Create';
+$this->title = 'Nova';
 $this->params['breadcrumbs'][] = ['label' => 'Familias', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>

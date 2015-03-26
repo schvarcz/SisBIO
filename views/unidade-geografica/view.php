@@ -11,21 +11,21 @@ use yii\widgets\Pjax;
 */
 
 $this->title = 'Unidade Geografica View ' . $model->idUnidadeGeografica . '';
-$this->params['breadcrumbs'][] = ['label' => 'Unidade Geograficas', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Unidades Geográficas', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => (string)$model->label, 'url' => ['view', 'idUnidadeGeografica' => $model->idUnidadeGeografica]];
-$this->params['breadcrumbs'][] = 'View';
+$this->params['breadcrumbs'][] = 'Detalhes';
 ?>
 <div class="unidade-geografica-view">
 
     <p class='pull-left'>
-        <?= Html::a('<span class="glyphicon glyphicon-pencil"></span> Edit', ['update', 'idUnidadeGeografica' => $model->idUnidadeGeografica],
+        <?= Html::a('<span class="glyphicon glyphicon-pencil"></span> Editar', ['update', 'idUnidadeGeografica' => $model->idUnidadeGeografica],
         ['class' => 'btn btn-info']) ?>
-        <?= Html::a('<span class="glyphicon glyphicon-plus"></span> New Unidade Geografica', ['create'], ['class' => 'btn
+        <?= Html::a('<span class="glyphicon glyphicon-plus"></span> Novo Unidade Geografica', ['create'], ['class' => 'btn
         btn-success']) ?>
     </p>
 
         <p class='pull-right'>
-        <?= Html::a('<span class="glyphicon glyphicon-list"></span> List', ['index'], ['class'=>'btn btn-default']) ?>
+        <?= Html::a('<span class="glyphicon glyphicon-list"></span> Lista', ['index'], ['class'=>'btn btn-default']) ?>
     </p><div class='clearfix'></div> 
 
     
@@ -65,10 +65,10 @@ $this->params['breadcrumbs'][] = 'View';
 
     <hr/>
 
-    <?php echo Html::a('<span class="glyphicon glyphicon-trash"></span> Delete', ['delete', 'idUnidadeGeografica' => $model->idUnidadeGeografica],
+    <?php echo Html::a('<span class="glyphicon glyphicon-trash"></span> Deletar', ['delete', 'idUnidadeGeografica' => $model->idUnidadeGeografica],
     [
     'class' => 'btn btn-danger',
-    'data-confirm' => Yii::t('app', 'Are you sure to delete this item?'),
+    'data-confirm' => Yii::t('app', 'Tem certeza que quer deletar esse item?'),
     'data-method' => 'post',
     ]); ?>
 
@@ -79,12 +79,12 @@ $this->params['breadcrumbs'][] = 'View';
 <?php $this->beginBlock('Coletas'); ?>
 <p class='pull-right'>
   <?= \yii\helpers\Html::a(
-            '<span class="glyphicon glyphicon-list"></span> List All Coletas',
+            '<span class="glyphicon glyphicon-list"></span> Listar todos Coletas',
             ['coleta/index'],
             ['class'=>'btn text-muted btn-xs']
         ) ?>
   <?= \yii\helpers\Html::a(
-            '<span class="glyphicon glyphicon-plus"></span> New Coleta',
+            '<span class="glyphicon glyphicon-plus"></span> Novo Coleta',
             ['coleta/create', 'Coleta'=>['idUnidadeGeografica'=>$model->idUnidadeGeografica]],
             ['class'=>'btn btn-success btn-xs']
         ) ?>
@@ -119,12 +119,12 @@ $this->params['breadcrumbs'][] = 'View';
 <?php $this->beginBlock('UnidadeGeograficas'); ?>
 <p class='pull-right'>
   <?= \yii\helpers\Html::a(
-            '<span class="glyphicon glyphicon-list"></span> List All Unidade Geograficas',
+            '<span class="glyphicon glyphicon-list"></span> Listar todos Unidades Geográficas',
             ['unidade-geografica/index'],
             ['class'=>'btn text-muted btn-xs']
         ) ?>
   <?= \yii\helpers\Html::a(
-            '<span class="glyphicon glyphicon-plus"></span> New Unidade Geografica',
+            '<span class="glyphicon glyphicon-plus"></span> Novo Unidade Geografica',
             ['unidade-geografica/create', 'UnidadeGeografica'=>['idUnidadeGeograficaPai'=>$model->idUnidadeGeografica]],
             ['class'=>'btn btn-success btn-xs']
         ) ?>
@@ -196,7 +196,7 @@ $this->params['breadcrumbs'][] = 'View';
     'content' => $this->blocks['Coletas'],
     'active'  => false,
 ],[
-    'label'   => '<small><span class="glyphicon glyphicon-paperclip"></span> Unidade Geograficas</small>',
+    'label'   => '<small><span class="glyphicon glyphicon-paperclip"></span> Unidades Geográficas</small>',
     'content' => $this->blocks['UnidadeGeograficas'],
     'active'  => false,
 ], ]

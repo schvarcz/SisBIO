@@ -7,7 +7,7 @@ use yii\helpers\Html;
 * @var app\models\Coleta $model
 */
 
-$this->title = 'Create';
+$this->title = 'Novo';
 $this->params['breadcrumbs'][] = ['label' => 'Coletas', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>

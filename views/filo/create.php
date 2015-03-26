@@ -7,7 +7,7 @@ use yii\helpers\Html;
 * @var app\models\Filo $model
 */
 
-$this->title = 'Create';
+$this->title = 'Novo';
 $this->params['breadcrumbs'][] = ['label' => 'Filos', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>

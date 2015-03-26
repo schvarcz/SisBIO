@@ -11,77 +11,74 @@ use app\models\Pesquisador;
  */
 class PesquisadorSearch extends Model
 {
-	public $idPesquisador;
-	public $Nome;
-	public $email;
-	public $lattes;
-	public $login;
-	public $senha;
-	public $foto;
-	public $Resumo;
 
-	public function rules()
-	{
-		return [
-			[['idPesquisador'], 'integer'],
-			[['Nome', 'email', 'lattes', 'login', 'senha', 'foto', 'Resumo'], 'safe'],
-		];
-	}
+    public $idPesquisador;
+    public $Nome;
+    public $email;
+    public $lattes;
+    public $Resumo;
 
-	/**
-	 * @inheritdoc
-	 */
-	public function attributeLabels()
-	{
-		return [
-			'idPesquisador' => 'Id Pesquisador',
-			'Nome' => 'Nome',
-			'email' => 'Email',
-			'lattes' => 'Lattes',
-			'login' => 'Login',
-			'senha' => 'Senha',
-			'foto' => 'Foto',
-			'Resumo' => 'Resumo',
-		];
-	}
+    public function rules()
+    {
+        return [
+            [['idPesquisador'], 'integer'],
+            [['Nome', 'email', 'lattes', 'Resumo'], 'safe'],
+        ];
+    }
 
-	public function search($params)
-	{
-		$query = Pesquisador::find();
-		$dataProvider = new ActiveDataProvider([
-			'query' => $query,
-		]);
+    /**
+     * @inheritdoc
+     */
+    public function attributeLabels()
+    {
+        return [
+            'idPesquisador' => 'Id Pesquisador',
+            'Nome' => 'Nome',
+            'email' => 'Email',
+            'lattes' => 'Lattes',
+            'Resumo' => 'Resumo',
+        ];
+    }
 
-		if (!($this->load($params) && $this->validate())) {
-			return $dataProvider;
-		}
+    public function search($params)
+    {
+        $query = Pesquisador::find();
+        $dataProvider = new ActiveDataProvider([
+            'query' => $query,
+        ]);
 
-		$query->andFilterWhere([
+        if (!($this->load($params) && $this->validate()))
+        {
+            return $dataProvider;
+        }
+
+        $query->andFilterWhere([
             'idPesquisador' => $this->idPesquisador,
         ]);
 
-		$query->andFilterWhere(['like', 'Nome', $this->Nome])
-            ->andFilterWhere(['like', 'email', $this->email])
-            ->andFilterWhere(['like', 'lattes', $this->lattes])
-            ->andFilterWhere(['like', 'login', $this->login])
-            ->andFilterWhere(['like', 'senha', $this->senha])
-            ->andFilterWhere(['like', 'foto', $this->foto])
-            ->andFilterWhere(['like', 'Resumo', $this->Resumo]);
+        $query->andFilterWhere(['like', 'Nome', $this->Nome])
+                ->andFilterWhere(['like', 'email', $this->email])
+                ->andFilterWhere(['like', 'lattes', $this->lattes])
+                ->andFilterWhere(['like', 'Resumo', $this->Resumo]);
 
-		return $dataProvider;
-	}
+        return $dataProvider;
+    }
 
-	protected function addCondition($query, $attribute, $partialMatch = false)
-	{
-		$value = $this->$attribute;
-		if (trim($value) === '') {
-			return;
-		}
-		if ($partialMatch) {
-			$value = '%' . strtr($value, ['%'=>'\%', '_'=>'\_', '\\'=>'\\\\']) . '%';
-			$query->andWhere(['like', $attribute, $value]);
-		} else {
-			$query->andWhere([$attribute => $value]);
-		}
-	}
+    protected function addCondition($query, $attribute, $partialMatch = false)
+    {
+        $value = $this->$attribute;
+        if (trim($value) === '')
+        {
+            return;
+        }
+        if ($partialMatch)
+        {
+            $value = '%' . strtr($value, ['%' => '\%', '_' => '\_', '\\' => '\\\\']) . '%';
+            $query->andWhere(['like', $attribute, $value]);
+        } else
+        {
+            $query->andWhere([$attribute => $value]);
+        }
+    }
+
 }

@@ -7,8 +7,8 @@ use yii\helpers\Html;
 * @var app\models\TipoOrganismo $model
 */
 
-$this->title = 'Create';
-$this->params['breadcrumbs'][] = ['label' => 'Tipo Organismos', 'url' => ['index']];
+$this->title = 'Novo';
+$this->params['breadcrumbs'][] = ['label' => 'Tipos de Organismo', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="tipo-organismo-create">

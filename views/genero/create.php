@@ -7,8 +7,8 @@ use yii\helpers\Html;
 * @var app\models\Genero $model
 */
 
-$this->title = 'Create';
-$this->params['breadcrumbs'][] = ['label' => 'Generos', 'url' => ['index']];
+$this->title = 'Novo';
+$this->params['breadcrumbs'][] = ['label' => 'Gêneros', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="genero-create">

@@ -10,12 +10,12 @@ use yii\helpers\Html;
 $this->title = 'Coleta Update ' . $model->idColeta . '';
 $this->params['breadcrumbs'][] = ['label' => 'Coletas', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => (string)$model->idColeta, 'url' => ['view', 'idColeta' => $model->idColeta]];
-$this->params['breadcrumbs'][] = 'Edit';
+$this->params['breadcrumbs'][] = 'Editar';
 ?>
 <div class="coleta-update">
 
     <p>
-        <?= Html::a('<span class="glyphicon glyphicon-eye-open"></span> View', ['view', 'idColeta' => $model->idColeta], ['class' => 'btn btn-info']) ?>
+        <?= Html::a('<span class="glyphicon glyphicon-eye-open"></span> Detalhes', ['view', 'idColeta' => $model->idColeta], ['class' => 'btn btn-info']) ?>
     </p>
 
 	<?php echo $this->render('_form', [

@@ -7,8 +7,8 @@ use yii\helpers\Html;
 * @var app\models\Pesquisador $model
 */
 
-$this->title = 'Create';
-$this->params['breadcrumbs'][] = ['label' => 'Pesquisadors', 'url' => ['index']];
+$this->title = 'Novo';
+$this->params['breadcrumbs'][] = ['label' => 'Pesquisadores', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="pesquisador-create">

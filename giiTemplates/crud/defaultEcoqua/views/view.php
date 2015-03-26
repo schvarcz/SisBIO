@@ -32,14 +32,14 @@ Inflector::pluralize(
     Inflector::camel2words(StringHelper::basename($generator->modelClass))
 ) ?>', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => (string)$model->label, 'url' => ['view', <?= $urlParams ?>]];
-$this->params['breadcrumbs'][] = 'View';
+$this->params['breadcrumbs'][] = 'Detalhes';
 ?>
 <div class="<?= Inflector::camel2id(StringHelper::basename($generator->modelClass), '-', true) ?>-view">
 
     <p class='pull-left'>
-        <?= "<?= " ?>Html::a('<span class="glyphicon glyphicon-pencil"></span> Edit', ['update', <?= $urlParams ?>],
+        <?= "<?= " ?>Html::a('<span class="glyphicon glyphicon-pencil"></span> Editar', ['update', <?= $urlParams ?>],
         ['class' => 'btn btn-info']) ?>
-        <?= "<?= " ?>Html::a('<span class="glyphicon glyphicon-plus"></span> New <?=
+        <?= "<?= " ?>Html::a('<span class="glyphicon glyphicon-plus"></span> Novo <?=
         Inflector::camel2words(
             StringHelper::basename($generator->modelClass)
         ) ?>', ['create'], ['class' => 'btn
@@ -48,7 +48,7 @@ $this->params['breadcrumbs'][] = 'View';
 
     <?php
     echo "    <p class='pull-right'>\n";
-    echo "        <?= Html::a('<span class=\"glyphicon glyphicon-list\"></span> List', ['index'], ['class'=>'btn btn-default']) ?>\n";
+    echo "        <?= Html::a('<span class=\"glyphicon glyphicon-list\"></span> Lista', ['index'], ['class'=>'btn btn-default']) ?>\n";
     echo "    </p><div class='clearfix'></div> \n";
     ?>
 
@@ -81,10 +81,10 @@ $this->params['breadcrumbs'][] = 'View';
 
     <hr/>
 
-    <?= "<?php " ?>echo Html::a('<span class="glyphicon glyphicon-trash"></span> Delete', ['delete', <?= $urlParams ?>],
+    <?= "<?php " ?>echo Html::a('<span class="glyphicon glyphicon-trash"></span> Deletar', ['delete', <?= $urlParams ?>],
     [
     'class' => 'btn btn-danger',
-    'data-confirm' => Yii::t('app', 'Are you sure to delete this item?'),
+    'data-confirm' => Yii::t('app', 'Tem certeza que quer deletar esse item?'),
     'data-method' => 'post',
     ]); ?>
 
@@ -129,14 +129,14 @@ EOS;
         echo "<p class='pull-right'>\n";
 
         echo "  <?= \\yii\\helpers\\Html::a(
-            '<span class=\"glyphicon glyphicon-list\"></span> List All " .
+            '<span class=\"glyphicon glyphicon-list\"></span> Listar todos " .
             Inflector::camel2words($name) . "',
             ['" . $generator->createRelationRoute($relation, 'index') . "'],
             ['class'=>'btn text-muted btn-xs']
         ) ?>\n";
         // TODO: support multiple PKs, VarDumper?
         echo "  <?= \\yii\\helpers\\Html::a(
-            '<span class=\"glyphicon glyphicon-plus\"></span> New " .
+            '<span class=\"glyphicon glyphicon-plus\"></span> Novo " .
             Inflector::singularize(Inflector::camel2words($name)) . "',
             ['" . $generator->createRelationRoute($relation, 'create') . "', '" .
             Inflector::singularize($name) . "'=>['" . key($relation->link) . "'=>\$model->" . $model->primaryKey()[0] . "]],

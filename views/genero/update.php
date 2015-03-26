@@ -7,15 +7,15 @@ use yii\helpers\Html;
  * @var app\models\Genero $model
  */
 
-$this->title = 'Genero Update ' . $model->idGenero . '';
-$this->params['breadcrumbs'][] = ['label' => 'Generos', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => (string)$model->idGenero, 'url' => ['view', 'idGenero' => $model->idGenero]];
-$this->params['breadcrumbs'][] = 'Edit';
+$this->title = 'Editar Gênero ' . $model->label . '';
+$this->params['breadcrumbs'][] = ['label' => 'Gêneros', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => (string)$model->label, 'url' => ['view', 'idGenero' => $model->idGenero]];
+$this->params['breadcrumbs'][] = 'Editar';
 ?>
 <div class="genero-update">
 
     <p>
-        <?= Html::a('<span class="glyphicon glyphicon-eye-open"></span> View', ['view', 'idGenero' => $model->idGenero], ['class' => 'btn btn-info']) ?>
+        <?= Html::a('<span class="glyphicon glyphicon-eye-open"></span> Detalhes', ['view', 'idGenero' => $model->idGenero], ['class' => 'btn btn-info']) ?>
     </p>
 
 	<?php echo $this->render('_form', [

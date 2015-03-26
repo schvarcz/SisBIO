@@ -24,15 +24,7 @@ use yii\widgets\ActiveForm;
 		<?= $form->field($model, 'email') ?>
 
 		<?= $form->field($model, 'lattes') ?>
-
-		<?= $form->field($model, 'login') ?>
-
-		<?php // echo $form->field($model, 'senha') ?>
-
-		<?php // echo $form->field($model, 'foto') ?>
-
-		<?php // echo $form->field($model, 'Resumo') ?>
-
+    
 		<div class="form-group">
 			<?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
 			<?= Html::resetButton('Reset', ['class' => 'btn btn-default']) ?>
