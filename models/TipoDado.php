@@ -9,4 +9,16 @@ use Yii;
  */
 class TipoDado extends \app\models\base\TipoDado
 {
+
+    /**
+     * @inheritdoc
+     */
+    public function attributeLabels()
+    {
+        return [
+            'idTipoDado' => Yii::t('app', 'Identificador do Tipo de Dado'),
+            'Tipo' => Yii::t('app', 'Tipo de Dado'),
+            'Descricao' => Yii::t('app', 'Descrição'),
+        ];
+    }
 }

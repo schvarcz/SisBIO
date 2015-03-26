@@ -9,4 +9,15 @@ use Yii;
  */
 class PesquisadorHasProjeto extends \app\models\base\PesquisadorHasProjeto
 {
+
+    /**
+     * @inheritdoc
+     */
+    public function attributeLabels()
+    {
+        return [
+            'idPesquisador' => Yii::t('app', 'Pesquisador'),
+            'idProjeto' => Yii::t('app', 'Projeto'),
+        ];
+    }
 }

@@ -9,4 +9,17 @@ use Yii;
  */
 class Filo extends \app\models\base\Filo
 {
+
+    /**
+     * @inheritdoc
+     */
+    public function attributeLabels()
+    {
+        return [
+            'idFilo' => Yii::t('app', 'Identificador do Filo'),
+            'NomeCientifico' => Yii::t('app', 'Nome Científico'),
+            'NomeComum' => Yii::t('app', 'Nome Comum'),
+            'Descricao' => Yii::t('app', 'Descrição'),
+        ];
+    }
 }

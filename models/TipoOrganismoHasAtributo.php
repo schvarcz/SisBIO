@@ -9,4 +9,15 @@ use Yii;
  */
 class TipoOrganismoHasAtributo extends \app\models\base\TipoOrganismoHasAtributo
 {
+
+    /**
+     * @inheritdoc
+     */
+    public function attributeLabels()
+    {
+        return [
+            'idTipoOrganismo' => Yii::t('app', 'Tipo de Organismo'),
+            'idAtributo' => Yii::t('app', 'Atributo'),
+        ];
+    }
 }
