@@ -37,22 +37,26 @@ AppAsset::register($this);
                 'options' => ['class' => 'navbar-nav navbar-right'],
                 'items' => [
                     ['label' => 'Home', 'url' => ['/site/index']],
-                    ['label' => '+ Coleta', 'url' => ['/coleta']],
+                    ['label' => '+ Coleta', 'url' => ['/coleta'], 'visible' => !Yii::$app->user->isGuest],
+                    ['label' => 'Unidade Geográfica', 'url' => ['/unidade-geografica'], 'visible' => !Yii::$app->user->isGuest],
+                    ['label' => 'Tipos de Organimo', 'url' => ['/tipo-organismo'], 'visible' => !Yii::$app->user->isGuest],
+                    ['label' => 'Taxonomia', 'items' => [
+                            ['label' => 'Filo/Divisão', 'url' => ['/filo']],
+                            ['label' => 'Ordem', 'url' => ['/ordem']],
+                            ['label' => 'Família', 'url' => ['/familia']],
+                            ['label' => 'Gênero', 'url' => ['/genero']],
+                            ['label' => 'Espécie', 'url' => ['/especie']],
+                        ], 'visible' => !Yii::$app->user->isGuest],
                     ['label' => 'Base', 'items' => [
                             ['label' => 'Pesquisadores', 'url' => ['/pesquisador']],
                             ['label' => 'Projetos', 'url' => ['/projeto']],
                             ['label' => 'Atributos', 'url' => ['/atributo']],
                             ['label' => 'Tipos de Atributo', 'url' => ['/tipo-atributo']],
                             ['label' => 'Tipos de Dado', 'url' => ['/tipo-dado']],
-                            ['label' => 'Unidade Geográfica', 'url' => ['/unidade-geografica']],
                         
-                        ]],
-                    ['label' => 'Taxonomia', 'items' => [
-                            ['label' => 'Tipos de Organimo', 'url' => ['/tipo-organismo']],
-                            ['label' => 'Filo/Divisão', 'url' => ['/filo']],
-                        ]],
-                    ['label' => 'About', 'url' => ['/site/about']],
-                    ['label' => 'Contact', 'url' => ['/site/contact']],
+                        ], 'visible' => !Yii::$app->user->isGuest],
+                    ['label' => 'About', 'url' => ['/site/about'], 'visible' => Yii::$app->user->isGuest],
+                    ['label' => 'Contact', 'url' => ['/site/contact'], 'visible' => Yii::$app->user->isGuest],
                     Yii::$app->user->isGuest ?
                             ['label' => 'Login', 'url' => ['/site/login']] :
                             ['label' => 'Logout (' . Yii::$app->user->identity->username . ')',
