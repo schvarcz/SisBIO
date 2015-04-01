@@ -55,8 +55,7 @@ AppAsset::register($this);
                             ['label' => 'Tipos de Dado', 'url' => ['/tipo-dado']],
                         
                         ], 'visible' => !Yii::$app->user->isGuest],
-                    ['label' => 'About', 'url' => ['/site/about'], 'visible' => Yii::$app->user->isGuest],
-                    ['label' => 'Contact', 'url' => ['/site/contact'], 'visible' => Yii::$app->user->isGuest],
+                    ['label' => 'Contato', 'url' => ['/site/contato'], 'visible' => Yii::$app->user->isGuest],
                     Yii::$app->user->isGuest ?
                             ['label' => 'Login', 'url' => ['/site/login']] :
                             ['label' => 'Logout (' . Yii::$app->user->identity->username . ')',
