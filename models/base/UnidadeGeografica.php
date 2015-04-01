@@ -46,7 +46,6 @@ class UnidadeGeografica extends \app\models\MActiveRecord
     {
         return [
             [['Nome', 'shape', 'idProjeto', 'idPesquisador'], 'required'],
-            [['shape'], 'string'],
             [['Data_Criacao'], 'safe'],
             [['idProjeto', 'idPesquisador', 'idUnidadeGeograficaPai'], 'integer'],
             [['Nome'], 'string', 'max' => 255]
