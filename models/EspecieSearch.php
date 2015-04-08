@@ -14,6 +14,7 @@ class EspecieSearch extends Model
 	public $idEspecie;
 	public $NomeCientifico;
 	public $NomeComum;
+	public $Autor;
 	public $Descricao;
 	public $idGenero;
 	public $idTipo_Organismo;
@@ -22,7 +23,7 @@ class EspecieSearch extends Model
 	{
 		return [
 			[['idEspecie', 'idGenero', 'idTipo_Organismo'], 'integer'],
-			[['NomeCientifico', 'NomeComum', 'Descricao'], 'safe'],
+			[['NomeCientifico', 'NomeComum', 'Autor', 'Descricao'], 'safe'],
 		];
 	}
 
@@ -32,12 +33,13 @@ class EspecieSearch extends Model
 	public function attributeLabels()
 	{
 		return [
-			'idEspecie' => 'Id Especie',
-			'NomeCientifico' => 'Nome Cientifico',
+			'idEspecie' => 'Identificador da Espécie',
+			'NomeCientifico' => 'Nome Científico',
 			'NomeComum' => 'Nome Comum',
-			'Descricao' => 'Descricao',
-			'idGenero' => 'Id Genero',
-			'idTipo_Organismo' => 'Id Tipo  Organismo',
+			'Autor' => 'Autor',
+			'Descricao' => 'Descrição',
+			'idGenero' => 'Gênero',
+			'idTipo_Organismo' => 'Tipo de Organismo',
 		];
 	}
 
@@ -60,6 +62,7 @@ class EspecieSearch extends Model
 
 		$query->andFilterWhere(['like', 'NomeCientifico', $this->NomeCientifico])
             ->andFilterWhere(['like', 'NomeComum', $this->NomeComum])
+            ->andFilterWhere(['like', 'Autor', $this->Autor])
             ->andFilterWhere(['like', 'Descricao', $this->Descricao]);
 
 		return $dataProvider;

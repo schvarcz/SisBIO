@@ -23,9 +23,11 @@ use yii\widgets\ActiveForm;
 
 		<?= $form->field($model, 'NomeComum') ?>
 
+		<?= $form->field($model, 'Autor') ?>
+
 		<?= $form->field($model, 'Descricao') ?>
 
-		<?= $form->field($model, 'idGenero') ?>
+		<?php // echo $form->field($model, 'idGenero') ?>
 
 		<?php // echo $form->field($model, 'idTipo_Organismo') ?>
 

@@ -1,0 +1,623 @@
+1,Aburria jacutinga,jacutinga,"Spix, 1825",,1,1
+2,Accipiter bicolor ,gavião-bombachinha-grande,"Vieillot, 1817",,2,1
+3,Accipiter poliogaster ,tauató-pintado,"Temminck, 1824",,2,1
+4,Accipiter striatus ,gaviãozinho,"Vieillot, 1808",,2,1
+5,Accipiter superciliosus ,gavião-miudinho,"Linnaeus, 1766",,2,1
+6,Actitis macularius ,maçarico-pintado,"Linnaeus, 1766",,3,1
+7,Aegolius harrisii ,caburé-acanelado,"Cassin, 1849",,4,1
+8,Agelaioides badius ,asa-de-telha,"Vieillot, 1819",,5,1
+9,Agelasticus cyanopus ,carretão,"Vieillot, 1819",,6,1
+10,Agelasticus thilius ,sargento,"Molina, 1782",,7,1
+11,Agriornis murinus ,gauchinho,"Orbigny & Lafresnaye, 1837",,8,1
+12,Alectrurus risora ,tesoura-do-campo,"Vieillot, 1824",,9,1
+13,Alectrurus tricolor ,galito,"Vieillot, 1816",,9,1
+14,Alopochelidon fucata ,andorinha-morena,"Temminck, 1822",,10,1
+15,Amazilia fimbriata ,beija-flor-de-garganta-verde,"Gmelin, 1788",,11,1
+16,Amazilia versicolor ,beija-flor-de-banda-branca,"Vieillot, 1818",,11,1
+17,Amazona aestiva ,papagaio-verdadeiro,"Linnaeus, 1758",,12,1
+18,Amazona pretrei,charão,"Temminck, 1830",,12,1
+19,Amazona vinacea ,papagaio-de-peito-roxo,"Kuhl, 1820",,12,1
+20,Amazonetta brasiliensis ,marreca-pé-vermelho,"Gmelin, 1789",,13,1
+21,Amblyramphus holosericeus ,cardeal-do-banhado,"Scopoli, 1786",,14,1
+22,Ammodramus humeralis ,tico-tico-do-campo,"Bosc, 1792",,15,1
+23,Anabacerthia amaurotis ,limpa-folha-miúdo,"Temminck, 1823",,16,1
+24,Anas bahamensis,marreca-toicinho,"Linnaeus, 1758",,17,1
+25,Anas cyanoptera ,marreca-colorada,"Vieillot, 1816",,17,1
+26,Anas discors ,marreca-de-asa-azul,"Linnaeus, 1766",,17,1
+27,Anas flavirostris ,marreca-pardinha,"Vieillot, 1816",,17,1
+28,Anas georgica ,marreca-parda,"Gmelin, 1789",,17,1
+29,Anas platalea ,marreca-colhereira,"Vieillot, 1816",,17,1
+30,Anas sibilatrix ,marreca-oveira,"Poeppig, 1829",,17,1
+31,Anas versicolor ,marreca-cricri,"Vieillot, 1816",,17,1
+32,Anhinga anhinga ,biguatinga,"Linnaeus, 1766",,18,1
+33,Anodorhynchus glaucus ,arara-azul-pequena,"Vieillot, 1816",,19,1
+34,Anous stolidus ,trinta-réis-escuro,"Linnaeus, 1758",,20,1
+35,Anthracothorax nigricollis,beija-flor-de-veste-preta,"Vieillot, 1817",,21,1
+36,Anthus correndera ,caminheiro-de-espora,"Vieillot, 1818",,22,1
+37,Anthus furcatus ,caminheiro-de-unha-curta,"d'Orbigny & Lafresnaye, 1837",,22,1
+38,Anthus hellmayri ,caminheiro-de-barriga-acanelada,"Hartert, 1909",,22,1
+39,Anthus lutescens ,caminheiro-zumbidor,"Pucheran, 1855",,22,1
+40,Anthus nattereri ,caminheiro-grande,"Sclater, 1878",,22,1
+41,Antrostomus rufus ,joão-corta-pau,"Boddaert, 1783",,23,1
+42,Antrostomus sericocaudatus ,bacurau-rabo-de-seda,"Cassin, 1849",,23,1
+43,Anumbius annumbi,cochicho,"Vieillot, 1817",,24,1
+44,Aphantochroa cirrochloris ,beija-flor-cinza,"Vieillot, 1818",,25,1
+45,Aramides cajanea ,três-potes,"Statius Muller, 1776",,26,1
+46,Aramides saracura,saracura-do-mato,"Spix, 1825",,26,1
+47,Aramides ypecaha,saracuruçu,"Vieillot, 1819",,26,1
+48,Aramus c,carão,"Linnaeus, 1766",,27,1
+49,Aratinga leucophthalma,maracanã-malhada,"Statius Muller, 1776",,28,1
+50,Ardea alba ,garça-branca-grande," Linnaeus, 1758",,29,1
+51,Ardea cocoi ,garça-moura ou socó-grande,"Linnaeus, 1766",,29,1
+52,Arenaria interpres ,vira-pedra,"Linnaeus, 1758",,30,1
+53,Arremon semitorquatus ,tico-tico-do-mato,"Swainson, 1838",,31,1
+54,Arundinicola leucocephala ,freirinha,"Linnaeus, 1764",,32,1
+55,Asio clamator ,coruja-orelhuda,"Vieillot, 1808",,33,1
+56,Asio flammeus ,mocho-dos-banhados,"Pontoppidan, 1763",,33,1
+57,Asio stygius ,mocho-diabo,"Wagler, 1832",,33,1
+58,Asthenes baeri ,lenheiro,"Berlepsch, 1906",,34,1
+59,Asthenes hudsoni ,lenheiro-platino,"Sclater, 1874",,34,1
+60,Asthenes pyrrholeuca,lenheiro-de-rabo-comprido,"Vieillot, 1817",,34,1
+61,Athene cunicularia ,coruja-do-campo,"Molina, 1782",,35,1
+62,Attila phoenicurus ,capitão-castanho,"Pelzeln, 1868",,36,1
+63,Attila rufus ,capitão-de-saíra,"Vieillot, 1819",,37,1
+64,Automolus leucophthalmus ,barranqueiro-de-olho-branco,"Wied, 1821",,38,1
+65,Bartramia longicauda ,maçarico-do-campo,"Bechstein, 1812",,39,1
+66,Baryphthengus ruficapillus ,juruva,"Vieillot, 1818",,40,1
+67,Basileuterus culicivorus,pula-pula,"Deppe, 1830",,42,1
+68,Basileuterus leucoblepharus ,pula-pula-assobiador,"Vieillot, 1817",,41,1
+69,Batara cinerea,matracão,"Vieillot, 1819",,43,1
+70,Botaurus pinnatus ,socó-boi-baio,"Wagler, 1829",,44,1
+71,Brotogeris chiriri ,periquito-de-encontro-amarelo,"Vieillot, 1818",,45,1
+72,Brotogeris tirica ,periquito-rico,"Gmelin, 1788",,45,1
+73,Bubo virginianus ,jacurutu,"Gmelin, 1788",,46,1
+74,Bubulcus ibis ,garça-vaqueira,"Linnaeus, 1758",,47,1
+75,Busarellus nigricollis ,gavião-velho,"Latham, 1790",,48,1
+76,Buteo brachyurus ,gavião-de-rabo-curto,"Vieillot, 1816",,49,1
+77,Buteo swainsoni ,gavião-papa-gafanhoto,"Bonaparte, 1838",,49,1
+78,Butorides striata ,socozinho,"Linnaeus, 1758",,50,1
+79,Cacicus chrysopterus ,tecelão,"Vigors, 1825",,51,1
+80,Cacicus haemorrhous ,guaxe,"Linnaeus, 1766",,51,1
+81,Cairina moschata ,pato-do-mato,"Linnaeus, 1758",,52,1
+82,Calidris alba ,maçarico-branco,"Pallas, 1764",,53,1
+83,Calidris bairdii ,maçarico-de-bico-fino,"Coues, 1861",,53,1
+84,Calidris canutus ,maçarico-de-papo-vermelho,"Linnaeus, 1758",,53,1
+85,Calidris fuscicollis ,maçarico-de-sobre-branco,"Vieillot, 1819",,53,1
+86,Calidris himantopus ,maçarico-pernilongo,"Bonaparte, 1826",,53,1
+87,Calidris melanotos ,maçarico-de-colete,"Vieillot, 1819",,53,1
+88,Calidris minutilla,maçariquinho,"Vieillot, 1819",,53,1
+89,Calidris pusilla ,maçarico-miúdo,"Linnaeus, 1766",,53,1
+90,Calliphlox amethystina ,estrelinha,"Boddaert, 1783",,54,1
+91,Callonetta leucophrys ,marreca-de-coleira,"Vieillot, 1816",,55,1
+92,Campephilus leucopogon ,pica-pau-de-barriga-preta,"Valenciennes, 1826",,56,1
+93,Campephilus robustus,pica-pau-rei,"Lichtenstein, 1818",,56,1
+94,Camptostoma obsoletum ,risadinha,"Temminck, 1824",,57,1
+95,Campylorhamphus falcularius ,arapaçu-de-bico-torto,"Vieillot, 1822",,58,1
+96,Capsiempis flaveola,marianinha-amarela,"Lichtenstein, 1823",,59,1
+97,Caracara plancus ,caracará,"Miller, 1777",,60,1
+98,Carduelis carduelis,pintassilgo-europeu,"Linnaeus, 1758",,61,1
+99,Cariama cristata ,seriema,"Linnaeus, 1766",,62,1
+100,Carpornis cucullata ,corocoxó,"Swainson, 1821",,63,1
+101,Cathartes aura ,urubu-de-cabeça-vermelha,"Linnaeus, 1758",,64,1
+102,Cathartes burrovianus ,urubu-de-cabeça-amarela,"Cassin, 1845",,64,1
+103,Celeus flavescens ,joão-velho,"Gmelin, 1788",,65,1
+104,Certhiaxis cinnamomeus,curutié,"Gmelin, 1788",,66,1
+105,Chaetura cinereiventris ,andorinhão-de-sobre-cinzento,"Sclater, 1862",,67,1
+106,Chaetura meridionalis ,andorinhão-do-temporal,"Hellmayr, 1907",,67,1
+107,Chamaeza campanisona ,tovaca-campainha,"Lichtenstein, 1823",,68,1
+108,Chamaeza ruficauda ,tovaca-de-rabo-vermelho,"Cabanis & Heine, 1859",,68,1
+109,Charadrius collaris ,batuíra-de-coleira,"Vieillot, 1818",,69,1
+110,Charadrius falklandicus ,batuíra-de-coleira-dupla,"Latham, 1790",,69,1
+111,Charadrius modestus ,batuíra-de-peito-avermelhado,"Lichtenstein, 1823",,69,1
+112,Charadrius semipalmatus ,batuíra-norte-americana,"Bonaparte, 1825",,70,1
+113,Chauna torquata,tachã,"Oken, 1816",,71,1
+114,Chionis albus ,pomba-antártica,"Gmelin, 1789",,72,1
+115,Chiroxiphia caudata ,dançador,"Shaw & Nodder, 1793",,73,1
+116,Chlidonias leucopterus ,trinta-réis-negro-de-asa-branca,"Temminck, 1815",,74,1
+117,Chlidonias niger ,trinta-réis-negro,"Linnaeus, 1758",,74,1
+118,Chloris chloris,verdelhão,"Linnaeus, 1758",,75,1
+119,Chloroceryle amazona ,martim-pescador-verde,"Latham, 1790",,77,1
+120,Chloroceryle americana ,martim-pescador-pequeno,"Gmelin, 1788",,76,1
+121,Chlorophonia cyanea ,bandeirinha ou bonito-do-campo,"Thunberg, 1822",,78,1
+122,Chlorostilbon lucidus ,besourinho-de-bico-vermelho,"Shaw, 1812",,79,1
+123,Chondrohierax uncinatus ,caracoleiro,"Temminck, 1822",,80,1
+124,Chordeiles minor ,bacurau-norte-americano,"Forster, 1771",,81,1
+125,Chordeiles nacunda ,corucão,"Vieillot, 1817",,81,1
+126,Chordeiles pusillus ,bacurauzinho,"Gould, 1861",,81,1
+127,Chroicocephalus cirrocephalus ,gaivota-de-cabeça-cinza,"Vieillot, 1818",,83,1
+128,Chroicocephalus maculipennis ,gaivota-maria-velha,"Lichtenstein, 1823",,82,1
+129,Chrysomus ruficapillus ,garibaldi,"Vieillot, 1819",,84,1
+130,Cichlocolaptes leucophrus ,trepador-sobrancelha,"Jardine & Selby, 1830",,85,1
+131,Ciconia maguari ,joão-grande,"Gmelin, 1789",,86,1
+132,Cinclodes fuscus ,pedreiro-dos-andes,"Vieillot, 1818",,87,1
+133,Cinclodes pabsti ,teresinha ou pedreiro,"Sick, 1969",,87,1
+134,Circus buffoni ,gavião-do-banhado,"Gmelin, 1788",,88,1
+135,Circus cinereus,gavião-cinza," Vieillot, 1816",,89,1
+136,Cissopis leverianus ,tiê-tinga,"Gmelin, 1788",,90,1
+137,Cistothorus platensis ,corruíra-do-campo,"Latham, 1790",,91,1
+138,Claravis pretiosa ,rola-azul,"Ferrari-Perez, 1886",,92,1
+139,Clibanornis dendrocolaptoides ,cisqueiro,"Pelzeln, 1859",,93,1
+140,Clytolaema rubricauda ,beija-flor-papo-de-fogo,"Boddaert, 1783",,94,1
+141,Cnemotriccus fuscatus ,guaracavuçu,"Wied, 1831",,95,1
+142,Coccyzus americanus ,papa-lagarta-norte-americano,"Linnaeus, 1758",,96,1
+143,Coccyzus euleri ,papa-lagarta-de-euler,"Cabanis, 1873",,97,1
+144,Coccyzus melacoryphus ,papa-lagarta-verdadeiro,"Vieillot, 1817",,96,1
+145,Coereba flaveola ,cambacica,"Linnaeus, 1758",,98,1
+146,Colaptes campestris,pica-pau-do-campo,"Vieillot, 1818",,99,1
+147,Colaptes melanochloros ,pica-pau-verde-barrado,"Gmelin, 1788",,99,1
+148,Colibri serrirostris ,beija-flor-de-orelha-violeta,"Vieillot, 1816",,100,1
+149,Colonia colonus ,viuvinha,"Vieillot, 1818",,101,1
+150,Columba livia ,pombo-doméstico,"Gmelin, 1789",,102,1
+151,Columbina picui ,rolinha-picuí,"Temminck, 1813",,103,1
+152,Columbina squammata ,fogo-apagou,"Lesson, 1831",,103,1
+153,Columbina talpacoti,rolinha-roxa,"Temminck, 1811",,103,1
+154,Conirostrum speciosum ,figuinha-de-rabo-castanho,"Temminck, 1824",,104,1
+155,Conopophaga lineata ,chupa-dente,"Wied, 1831",,105,1
+156,Contopus cinereus,papa-moscas-cinzento,"Spix, 1825",,106,1
+157,Coragyps atratus ,urubu-de-cabeça-preta,"Bechstein, 1793",,107,1
+158,Coryphistera alaudina ,corredor-crestudo,"Burmeister, 1860",,108,1
+159,Corythopis delalandi ,estalador,"Lesson, 1830",,109,1
+160,Coscoroba coscoroba ,capororoca,"Molina, 1782",,110,1
+161,Coturnicops notatus,pinto-d'água-pintalgado,"Gould, 1841",,111,1
+162,Cranioleuca obsoleta ,arredio-oliváceo,"Reichenbach, 1853",,112,1
+163,Cranioleuca pyrrhophia,arredio,"Vieillot, 1818",,112,1
+164,Cranioleuca sulphurifera,arredio-de-papo-manchado,"Burmeister, 1869",,112,1
+165,Crotophaga ani ,anu-preto,"Linnaeus, 1758",,113,1
+166,Crotophaga major ,anu-coroca,"Gmelin, 1788",,113,1
+167,Crypturellus noctivagus ,jaó-do-litoral,"Wied, 1820",,115,1
+168,Crypturellus obsoletus ,inambuguaçu,"Temminck, 1815",,115,1
+169,Crypturellus parvirostris ,inambuxororó,"Wagler, 1827",,114,1
+170,Crypturellus tataupa,inambuxintã,"Temminck, 1815",,114,1
+171,Culicivora caudacuta ,papa-moscas-do-campo,"Vieillot, 1818",,116,1
+172,Cyanocorax caeruleus ,gralha-azul,"Vieillot, 1818",,117,1
+173,Cyanocorax chrysops ,gralha-picaça,"Vieillot, 1818",,117,1
+174,Cyanoloxia brissonii ,azulão,"Lichtenstein, 1823",,118,1
+175,Cyanoloxia glaucocaerulea ,azulinho,"d'Orbigny & Lafresnaye, 1837",,118,1
+176,Cyanoloxia moesta ,negrinho-do-mato,"Hartlaub, 1853",,118,1
+177,Cyclarhis gujanensis ,gente-de-fora-vem ou pitiguari,"Gmelin, 1789",,119,1
+178,Cygnus melancoryphus ,cisne-de-pescoço-preto,"Molina, 1782",,120,1
+179,Cypseloides fumigatus,andorinhão-preto-da-cascata,"Streubel, 1848",,121,1
+180,Cypseloides senex,andorinhão-velho-da-cascata,"Temminck, 1826",,121,1
+181,Dacnis cayana ,saí-azul,"Linnaeus, 1766",,122,1
+182,Dendrocincla turdina ,arapaçu-liso,"Lichtenstein, 1820",,123,1
+183,Dendrocolaptes platyrostris,arapaçu-grande," Spix, 1825",,124,1
+184,Dendrocygna autumnalis ,marreca-asa-branca,"Linnaeus, 1758",,125,1
+185,Dendrocygna bicolor,marreca-caneleira,"Vieillot, 1816",,125,1
+186,Dendrocygna viduata ,marreca-piadeira ou irerê,"Linnaeus, 1766",,125,1
+187,Diuca diuca ,diuca,"Molina, 1782",,126,1
+188,Dolichonyx oryzivorus,triste-pia,"Linnaeus, 1758",,127,1
+189,Donacospiza albifrons ,tico-tico-do-banhado,"Vieillot, 1817",,128,1
+190,Dromococcyx pavoninus ,peixe-frito-pavonino,"Pelzeln, 1870",,129,1
+191,Dromococcyx phasianellus ,peixe-frito-verdadeiro,"Spix, 1824",,129,1
+192,Drymophila malura ,choquinha-carijó,"Temminck, 1825",,130,1
+193,Drymophila rubricollis ,trovoada-de-bertoni,"Bertoni, 1901",,131,1
+194,Drymornis bridgesii ,arapaçu-do-espinilho,"Eyton, 1850",,132,1
+195,Dryocopus galeatus,pica-pau-de-cara-amarela,"Temminck, 1822",,133,1
+196,Dryocopus lineatus ,pica-pau-de-banda-branca,"Linnaeus, 1766",,56,1
+197,Dysithamnus mentalis ,choquinha-lisa,"Temminck, 1823",,134,1
+198,Egretta caerulea,garça-azul,"Linnaeus, 1758",,135,1
+199,Egretta thula ,garça-branca-pequena,"Molina, 1782",,136,1
+200,Elaenia chilensis ,guaracava-de-crista-branca,"Hellmayr, 1927",,137,1
+201,Elaenia flavogaster ,guaracava-de-barriga-amarela,"Thunberg, 1822",,137,1
+202,Elaenia mesoleuca ,tuque,"Deppe, 1830",,137,1
+203,Elaenia obscura,tucão,"d'Orbigny & Lafresnaye, 1837",,137,1
+204,Elaenia parvirostris ,guaracava-de-bico-curto,"Pelzeln, 1868",,137,1
+205,Elaenia spectabilis ,guaracava-grande,"Pelzeln, 1868",,137,1
+206,Elanoides forficatus ,gavião-tesoura,"Linnaeus, 1758",,138,1
+207,Elanus leucurus ,gavião-peneira,"Vieillot, 1818",,139,1
+208,Eleoscytalopus indigoticus,macuquinho,"Wied, 1831",,140,1
+209,Emberizoides herbicola ,canário-do-campo,"Vieillot, 1817",,141,1
+210,Emberizoides ypiranganus ,canário-do-brejo,"Ihering & Ihering, 1907",,141,1
+211,Embernagra platensis ,sabiá-do-banhado,"Gmelin, 1789",,141,1
+212,Empidonomus varius ,peitica,"Vieillot, 1818",,142,1
+213,Estrilda astrild ,bico-de-lacre,"Linnaeus, 1758",,143,1
+214,Eupetomena macroura ,beija-flor-tesoura,"Gmelin, 1788",,144,1
+215,Euphonia chalybea ,cais-cais,"Mikan, 1825",,145,1
+216,Euphonia chlorotica ,fim-fim,"Linnaeus, 1766",,145,1
+217,Euphonia cyanocephala ,gaturamo-rei,"Vieillot, 1818",,145,1
+218,Euphonia pectoralis ,gaturamo-serrador ou ferro-velho,"Latham, 1801",,145,1
+219,Euphonia violacea ,gaturamo-verdadeiro,"Linnaeus, 1758",,145,1
+220,Euscarthmus meloryphus ,barulhento,"Wied, 1831",,146,1
+221,Falco deiroleucus ,falcão-de-peito-vermelho,"Temminck, 1825",,147,1
+222,Falco femoralis ,falcão-de-coleira,"Temminck, 1822",,147,1
+223,Falco peregrinus ,falcão-peregrino,"Tunstall, 1771",,147,1
+224,Falco rufigularis ,falcão-de-garganta-branca,"Daudin, 1800",,147,1
+225,Falco sparverius ,quiriquiri,"Linnaeus, 1758",,147,1
+226,Florisuga fusca ,beija-flor-preto-de-rabo-branco,"Vieillot, 1817",,148,1
+227,Fluvicola albiventer ,lavadeira-de-cara-branca,"Spix, 1825",,149,1
+228,Formicarius colma ,galinha-do-mato,"Boddaert, 1783",,150,1
+229,Fulica armillata ,carqueja-de-bico-manchado,"Vieillot, 1817",,151,1
+230,Fulica leucoptera ,carqueja-de-bico-amarelo,"Vieillot, 1817",,151,1
+231,Fulica rufifrons ,carqueja-de-escudo-vermelho,"Philippi & Landbeck, 1861",,151,1
+232,Furnarius rufus ,joão-de-barro,"Gmelin, 1788",,152,1
+233,Gallinago paraguaiae ,narceja,"Vieillot, 1816",,153,1
+234,Gallinago undulata ,narcejão,"Boddaert, 1783",,153,1
+235,Gallinula galeata ,galinhola ou frango-d'água,"Lichtenstein,1818",,154,1
+236,Gallinula melanops,frango-d'água-carijó,"Vieillot, 1819",,154,1
+237,Gelochelidon nilotica,trinta-réis-de-bico-preto,"Gmelin, 1789",,155,1
+238,Geositta cunicularia ,curriqueiro,"Vieillot, 1816",,156,1
+239,Geothlypis aequinoctialis ,pia-cobra,"Gmelin, 1789",,157,1
+240,Geotrygon montana ,pariri,"Linnaeus, 1758",,158,1
+241,Geranoaetus albicaudatus ,gavião-de-rabo-branco,"Vieillot, 1816",,159,1
+242,Geranoaetus melanoleucus,águia-chilena,"Vieillot, 1819",,159,1
+243,Geranospiza caerulescens ,gavião-pernilongo,"Vieillot, 1817",,160,1
+244,Glaucidium brasilianum ,caburé,"Gmelin, 1788",,161,1
+245,Gnorimopsar chopi ,chopim ou graúna,"Vieillot, 1819",,162,1
+246,Grallaria varia,tovacuçu,"Boddaert, 1783",,163,1
+247,Griseotyrannus aurantioatrocristatus ,peitica-de-chapéu-preto,"d'Orbigny & Lafresnaye, 1837",,164,1
+248,Gubernatrix cristata ,cardeal-amarelo,"Vieillot, 1817",,165,1
+249,Gubernetes yetapa ,tesoura-do-brejo,"Vieillot, 1818",,166,1
+250,Guira guira ,anu-branco,"Gmelin, 1788",,167,1
+251,Habia rubica,tiê-do-mato-grosso,"Vieillot, 1817",,168,1
+252,Haematopus palliatus ,piru-piru,"Temminck, 1820",,169,1
+253,Haplospiza unicolor,cigarra-bambu," Cabanis, 1851",,170,1
+254,Harpagus diodon,gavião-bombachinha,"Temminck, 1823",,171,1
+255,Harpia harpyja ,gavião-real,"Linnaeus, 1758",,172,1
+256,Heliobletus contaminatus ,trepadorzinho,"Berlepsch, 1885",,173,1
+257,Heliomaster furcifer ,beija-flor-de-barba-azul,"Shaw, 1812",,174,1
+258,Hemithraupis guira ,papo-preto,"Linnaeus, 1766",,175,1
+259,Hemithraupis ruficapilla ,saíra-ferrugem,"Vieillot, 1818",,175,1
+260,Hemitriccus diops,olho-falso,"Temminck, 1822",,177,1
+261,Hemitriccus margaritaceiventer ,olho-de-ouro,"d'Orbigny & Lafresnaye, 1837",,176,1
+262,Hemitriccus obsoletus ,catraca,"Miranda-Ribeiro, 1906",,176,1
+263,Hemitriccus orbitatus ,tiririzinho-do-mato,"Wied, 1831",,176,1
+264,Herpetotheres cachinnans ,acauã,"Linnaeus, 1758",,178,1
+265,Heteronetta atricapilla ,marreca-de-cabeça-preta,"Merrem, 1841",,179,1
+266,Heterospizias meridionalis ,gavião-caboclo,"Latham, 1790",,180,1
+267,Himantopus melanurus ,pernilongo,"Vieillot, 1817",,181,1
+268,Hirundinea ferruginea,birro,"Gmelin, 1788",,182,1
+269,Hirundo rustica,andorinha-de-bando,"Linnaeus, 1758",,183,1
+270,Hydropsalis albicollis ,bacurau,"Gmelin, 1789",,184,1
+271,Hydropsalis anomala ,curiango-do-banhado,"Gould, 1838",,184,1
+272,Hydropsalis forcipata ,bacurau-tesoura-gigante,"Nitzsch, 1840",,184,1
+273,Hydropsalis longirostris ,bacurau-da-telha,"Bonaparte, 1825",,184,1
+274,Hydropsalis parvula ,bacurau-pequeno,"Gould, 1837",,184,1
+275,Hydropsalis torquata ,bacurau-tesoura,"Gmelin, 1789",,184,1
+276,Hylocharis chrysura ,beija-flor-dourado,"Shaw, 1812",,185,1
+277,Hylopezus nattereri ,pinto-do-mato,"Pinto, 1937",,186,1
+278,Hylophilus poicilotis ,verdinho-coroado,"Temminck, 1822",,187,1
+279,Hymenops perspicillatus ,viuvinha-de-óculos,"Gmelin, 1789",,188,1
+280,Hypoedaleus guttatus ,chocão-carijó,"Vieillot, 1816",,189,1
+281,Icterus pyrrhopterus  ,encontro,"Vieillot, 1819",,190,1
+282,Ictinia plumbea,sovi,"Gmelin, 1788",,191,1
+283,Ixobrychus exilis ,socoí-vermelho,"Gmelin, 1789",,192,1
+284,Ixobrychus involucris ,socoí-amarelo,"Vieillot, 1823",,192,1
+285,Jabiru mycteria ,jabiru ou tuiuiú,"Lichtenstein, 1819",,193,1
+286,Jacana jacana ,jaçanã,"Linnaeus, 1766",,194,1
+287,Knipolegus cyanirostris ,maria-preta-de-bico-azulado,"Vieillot, 1818",,195,1
+288,Knipolegus lophotes ,maria-preta-de-penacho,"Boie, 1828",,195,1
+289,Knipolegus nigerrimus ,maria-preta-de-garganta-vermelha,"Vieillot, 1818",,195,1
+290,Lanio cucullatus ,tico-tico-rei,"Statius Muller, 1776",,196,1
+291,Lanio melanops ,tiê-de-topete,"Vieillot, 1818",,196,1
+292,Larus atlanticus,gaivota-de-rabo-preto," Olrog, 1958",,197,1
+293,Larus dominicanus ,gaivotão,"Lichtenstein, 1823",,197,1
+294,Laterallus leucopyrrhus ,pinto-d'água-avermelhado,"Vieillot, 1819",,198,1
+295,Laterallus melanophaius,pinto-d'água-comum,"Vieillot, 1819",,199,1
+296,Lathrotriccus euleri ,enferrujado,"Cabanis, 1868",,200,1
+297,Legatus leucophaius ,bem-te-vi-pirata,"Vieillot, 1818",,201,1
+298,Lepidocolaptes angustirostris ,arapaçu-do-cerrado,"Vieillot, 1818",,202,1
+299,Lepidocolaptes falcinellus ,arapaçu-escamoso-do-sul,"Cabanis & Heine, 1859",,202,1
+300,Leptasthenura platensis,rabudinho," Reichenbach, 1853",,203,1
+301,Leptasthenura setaria ,grimpeiro,"Temminck, 1824",,203,1
+302,Leptasthenura striolata,grimpeirinho,"Pelzeln, 1856",,203,1
+303,Leptodon cayanensis ,gavião-de-cabeça-cinza,"Latham, 1790",,204,1
+304,Leptopogon amaurocephalus ,cabeçudo,"Tschudi, 1846",,205,1
+305,Leptotila rufaxilla,juriti-gemedeira,"Richard & Bernard, 1792",,207,1
+306,Leptotila verreauxi ,juriti-pupu,"Bonaparte, 1855",,206,1
+307,Lessonia rufa ,colegial,"Gmelin, 1789",,208,1
+308,Leucochloris albicollis ,beija-flor-de-papo-branco,"Vieillot, 1818",,209,1
+309,Leucophaeus pipixcan ,gaivota-de-franklin,"Wagler, 1831",,210,1
+310,Limnoctites rectirostris ,arredio-do-gravatá,"Gould, 1839",,211,1
+311,Limnodromus griseus ,maçarico-de-costas-brancas,"Gmelin, 1789",,212,1
+312,Limnornis curvirostris ,joão-da-palha,"Gould, 1839",,213,1
+313,Limosa haemastica ,maçarico-de-bico-virado,"Linnaeus, 1758",,214,1
+314,Lochmias nematura ,joão-porca,"Lichtenstein, 1823",,215,1
+315,Lophornis magnificus,topetinho-vermelho,"Vieillot, 1817",,216,1
+316,Lurocalis semitorquatus ,tuju,"Gmelin, 1789",,217,1
+317,Machetornis rixosa ,suiriri-cavaleiro,"Vieillot, 1819",,218,1
+318,Mackenziaena leachii ,brujarara-assobiador,"Such, 1825",,219,1
+319,Mackenziaena severa ,borralhara,"Lichtenstein, 1823",,220,1
+320,Manacus manacus ,rendeira,"Linnaeus, 1766",,221,1
+321,Megaceryle torquata ,martim-pescador-grande,"Linnaeus, 1766",,222,1
+322,Megarynchus pitangua ,neinei,"Linnaeus, 1766",,223,1
+323,Megascops choliba ,corujinha-do-mato,"Vieillot, 1817",,224,1
+324,Megascops sanctaecatarinae ,corujinha-do-sul,"Salvin, 1897",,224,1
+325,Melanerpes candidus ,pica-pau-branco,"Otto, 1796",,225,1
+326,Melanerpes flavifrons ,benedito-de-testa-amarela,"Vieillot, 1818",,225,1
+327,Mesembrinibis cayennensis,coró-coró,"Gmelin, 1789",,226,1
+328,Micrastur ruficollis ,gavião-caburé,"Vieillot, 1817",,227,1
+329,Micrastur semitorquatus ,gavião-relógio,"Vieillot, 1817",,227,1
+330,Micrococcyx cinereus ,papa-lagarta-cinzento,"Vieillot, 1817",,228,1
+331,Milvago chimachima ,carrapateiro,"Vieillot, 1816",,229,1
+332,Milvago chimango ,chimango,"Vieillot, 1816",,229,1
+333,Mimus saturninus ,sabiá-do-campo,"Lichtenstein, 1823",,230,1
+334,Mimus triurus ,calhandra-de-três-rabos,"Vieillot, 1818",,230,1
+335,Mionectes rufiventris ,supi-de-cabeça-cinza,"Cabanis, 1846",,231,1
+336,Molothrus oryzivorus ,iraúna-grande,"Gmelin, 1788",,232,1
+337,Molothrus oryzivorus ,vira-bosta,"Gmelin, 1789",,232,1
+338,Molothrus rufoaxillaris ,vira-bosta-picumã,"Cassin, 1866",,233,1
+339,Morphnus guianensis ,uiraçu-falso,"Daudin, 1800",,234,1
+340,Muscipipra vetula ,tesoura-cinzenta,"Lichtenstein, 1823",,235,1
+341,Mycteria americana ,cabeça-seca,"Linnaeus, 1758",,236,1
+342,Myiarchus ferox ,maria-cavaleira,"Gmelin, 1789",,237,1
+343,Myiarchus swainsoni ,irré,"Cabanis & Heine, 1859",,237,1
+344,Myiarchus tyrannulus ,maria-cavaleira-de-rabo-ferrugem,"Statius Muller, 1776",,238,1
+345,Myiodynastes maculatus ,bem-te-vi-rajado,"Statius Muller, 1776",,239,1
+346,Myiopagis caniceps,guaracava-cinzenta,"Swainson, 1835",,240,1
+347,Myiopagis viridicata ,guaracava-de-crista-alaranjada,"Vieillot, 1817",,240,1
+348,Myiophobus fasciatus ,filipe,"Statius Muller, 1776",,241,1
+349,Myiopsitta monachus ,caturrita,"Boddaert, 1783",,242,1
+350,Myiornis auricularis,miudinho,"Vieillot, 1818",,243,1
+351,Myiozetetes similis ,bem-te-vi-pequeno,"Spix, 1825",,244,1
+352,Myrmeciza squamosa ,papa-formiga-de-grota,"Pelzeln, 1868Pelzeln, 1868",,245,1
+353,Myrmotherula gularis ,choquinha-de-garganta-pintada,"Spix, 1825",,246,1
+354,Myrmotherula unicolor ,choquinha-cinzenta,"Ménétriès, 1835",,382,1
+355,Nemosia pileata ,saíra-de-chapéu-preto,"Boddaert, 1783",,247,1
+356,Neocrex erythrops,turu-turu,"Sclater, 1867",,248,1
+357,Neoxolmis rufiventris,gaúcho-chocolate,"Vieillot, 1823",,249,1
+358,Netta peposaca,Marrecão,,,251,1
+359,Netta peposaca ,marrecão,"Vieillot, 1816",,251,1
+360,Nomonyx dominica ,marreca-de-bico-roxo,"Linnaeus, 1766",,252,1
+361,Nonnula rubecula ,macuru,"Spix, 1824",,253,1
+362,Notharchus swainsoni ,capitão-do-mato,"Gray, 1846",,254,1
+363,Nothura maculosa ,perdiz ou codorna,"Temminck, 1815",,255,1
+364,Numenius phaeopus ,maçarico-de-bico-torto,"Linnaeus, 1758",,256,1
+365,Nyctanassa violacea ,savacu-de-coroa,"Linnaeus, 1758",,257,1
+366,Nyctibius griseus ,urutau,"Gmelin, 1789",,258,1
+367,Nycticorax nycticorax ,savacu,"Linnaeus, 1758",,259,1
+368,Nycticryphes semicollaris ,narceja-de-bico-torto,"Vieillot, 1816",,260,1
+369,Nystalus chacuru,joão-bobo,"Vieillot, 1816",,261,1
+370,Odontophorus capueira ,uru,"Spix, 1825",,262,1
+371,Oreopholus ruficollis ,batuíra-de-papo-ferrugíneo,"Wagler, 1829",,263,1
+372,Ortalis guttata ,aracuã,"Spix, 1825",,264,1
+373,Orthogonys chloricterus ,catirumbava,"Vieillot, 1819",,265,1
+374,Oxyruncus cristatus ,araponga-do-horto,"Swainson, 1821",,266,1
+375,Oxyura vittata ,marreca-pés-na-bunda,"Philippi, 1860",,267,1
+376,Pachyramphus castaneus ,caneleirinho,"Jardine & Selby, 1827",,268,1
+377,Pachyramphus polychopterus ,caneleirinho-preto,"Vieillot, 1818",,269,1
+378,Pachyramphus validus ,caneleiro-de-chapéu-preto,"Lichtenstein, 1823",,269,1
+379,Pachyramphus viridis ,caneleirinho-verde,"Vieillot, 1816",,269,1
+380,Pandion haliaetus ,águia-pescadora,"Linnaeus, 1758",,270,1
+381,Parabuteo leucorrhous ,gavião-de-sobre-branco,"Quoy & Gaimard, 1824",,271,1
+382,Parabuteo unicinctus ,gavião-asa-de-telha,"Temminck, 1824",,271,1
+383,Pardirallus maculatus ,saracura-carijó,"Boddaert, 1783",,272,1
+384,Pardirallus nigricans ,saracura-sanã,"Vieillot, 1819",,273,1
+385,Pardirallus sanguinolentus ,saracura-do-banhado,"Swainson, 1837",,272,1
+386,Paroaria capitata ,cavalaria,"d'Orbigny & Lafresnaye, 1837",,274,1
+387,Paroaria coronata ,cardeal,"Miller, 1776",,274,1
+388,Parula pitiayumi ,mariquita,"Vieillot, 1817",,275,1
+389,Passer domesticus,pardal,"Linnaeus, 1758",,276,1
+390,Patagioenas cayennensis ,pomba-galega,"Bonnaterre, 1792",,277,1
+391,Patagioenas maculosa ,pomba-do-orvalho,"Temminck, 1813",,277,1
+392,Patagioenas picazuro ,asa-branca ou pombão,"Temminck, 1813",,277,1
+393,Patagioenas plumbea,pomba-amargosa,"Vieillot, 1818",,277,1
+394,Penelope obscura ,jacuaçu,"Temminck, 1815",,279,1
+395,Penelope superciliaris ,jacu-velho ou jacupemba,"Temminck, 1815",,278,1
+396,Petrochelidon pyrrhonota ,andorinha-de-sobre-acanelado,"Vieillot, 1817",,280,1
+397,Phacellodomus ferrugineigula ,joão-botina,"Pelzeln, 1858",,281,1
+398,Phacellodomus ruber ,graveteiro,"Vieillot, 1817",,281,1
+399,Phacellodomus striaticollis ,tio-tio,"d'Orbigny & Lafresnaye, 1838",,281,1
+400,Phaethornis eurynome ,rabo-branco-de-garganta-rajada,"Lesson, 1832",,282,1
+401,Phaethornis pretrei ,rabo-branco-acanelado,"Lesson & Delattre, 1839",,282,1
+402,Phaetusa simplex ,trinta-réis-grande,"Gmelin, 1789",,283,1
+403,Phalacrocorax brasilianus ,biguá,"Gmelin, 1789",,284,1
+404,Phalaropus tricolor ,pisa-n'água,"Vieillot, 1819",,285,1
+405,Phibalura flavirostris ,tesourinha-do-mato,"Vieillot, 1816",,286,1
+406,Philomachus pugnax,combatente,"Linnaeus, 1758",,287,1
+407,Philydor atricapillus ,limpa-folha-coroado,"Wied, 1821",,288,1
+408,Philydor lichtensteini ,limpa-folha-ocráceo,"Cabanis & Heine, 1859",,289,1
+409,Philydor rufum ,limpa-folha-de-testa-baia,"Vieillot, 1818",,289,1
+410,Phimosus infuscatus ,maçarico-de-cara-pelada ou chapéu-velho,"Lichtenstein, 1823",,290,1
+411,Phleocryptes melanops ,bate-bico,"Vieillot, 1817",,291,1
+412,Phoenicoparrus andinus ,flamingo-andino,"Philippi, 1854",,292,1
+413,Phoenicopterus chilensis ,flamingo,"Molina, 1782",,293,1
+414,Phrygilus fruticeti ,canário-andino-negro,"Kittlitz, 1833",,294,1
+415,Phyllomyias fasciatus ,piolhinho,"Thunberg, 1822",,296,1
+416,Phyllomyias griseocapilla ,piolhinho-serrano,"Sclater, 1862",,296,1
+417,Phyllomyias virescens ,piolhinho-verdoso,"Temminck, 1824",,295,1
+418,Phylloscartes difficilis ,estalinho,"Ihering & Ihering, 1907",,297,1
+419,Phylloscartes eximius ,barbudinho,"Temminck, 1822",,297,1
+420,Phylloscartes kronei ,maria-da-restinga,"Willis & Oniki, 1992",,297,1
+421,Phylloscartes ventralis ,borboletinha-do-mato,"Temminck, 1824",,297,1
+422,Phytotoma rutila,corta-ramos-de-rabo-branco," Vieillot, 1818",,298,1
+423,Piaya cayana ,alma-de-gato,"Linnaeus, 1766",,299,1
+424,Piculus aurulentus ,pica-pau-dourado,"Temminck, 1821",,300,1
+425,Picumnus nebulosus ,pica-pau-anão-carijó,"Sundevall, 1866",,302,1
+426,Picumnus temminckii ,pica-pau-anão-de-coleira,"Lafresnaye, 1845",,301,1
+427,Pionopsitta pileata ,cuiú-cuiú,"Scopoli, 1769",,303,1
+428,Pionus maximiliani ,maitaca-bronzeada,"Kuhl, 1820",,304,1
+429,Pipraeidea bonariensis,sanhaçu-papa-laranja,"Gmelin, 1789",,305,1
+430,Pipraeidea melanonota ,saíra-viúva,"Vieillot, 1819",,305,1
+431,Piprites chloris ,papinho-amarelo,"Temminck, 1822",,307,1
+432,Piprites pileata,caneleirinho-de-boné-preto,"Temminck, 1822",,306,1
+433,Piranga flava,sanhaçu-de-fogo,"Vieillot, 1822",,308,1
+434,Pitangus sulphuratus ,bem-te-vi,"Linnaeus, 1766",,309,1
+435,Platalea ajaja ,colhereiro,"Linnaeus, 1758",,310,1
+436,Platyrinchus leucoryphus,patinho-gigante," Wied, 1831",,311,1
+437,Platyrinchus mystaceus ,patinho,"Vieillot, 1818",,311,1
+438,Plegadis chihi ,maçarico-preto,"Vieillot, 1817",,312,1
+439,Pluvialis dominica ,batuiruçu,"Statius Muller, 1776",,314,1
+440,Pluvialis squatarola ,batuiruçu-de-axila-preta,"Linnaeus, 1758",,313,1
+441,Podicephorus major ,mergulhão-grande,"Boddaert, 1783",,315,1
+442,Podilymbus podiceps ,mergulhão,"Linnaeus, 1758",,316,1
+443,Poecilotriccus plumbeiceps ,tororó,"Lafresnaye, 1846",,317,1
+444,Polioptila dumicola ,balança-rabo-de-máscara,"Vieillot, 1817",,319,1
+445,Polioptila lactea ,balança-rabo-leitoso,"Sharpe, 1885",,318,1
+446,Polystictus pectoralis ,papa-moscas-canela,"Vieillot, 1817",,320,1
+447,Polytmus guainumbi ,beija-flor-de-bico-curvo,"Pallas, 1764",,321,1
+448,Poospiza cabanisi ,quete,"Bonaparte, 1850",,322,1
+449,Poospiza melanoleuca ,capacetinho,"d'Orbigny & Lafresnaye, 1837",,322,1
+450,Poospiza nigrorufa,quem-te-vestiu,"d'Orbigny & Lafresnaye, 1837",,322,1
+451,Poospiza thoracica,peito-pinhão,"Nordmann, 1835",,322,1
+452,Porphyrio flavirostris ,frango-d'água-pequeno,"Gmelin, 1789",,323,1
+453,Porphyrio martinica ,frango-d'água-azul,"Linnaeus, 1766",,323,1
+454,Porzana albicollis,sanã-carijó,"Vieillot, 1819",,324,1
+455,Porzana flaviventer ,sanã-amarela,"Boddaert, 1783",,324,1
+456,Porzana spiloptera ,sanã-cinza,"Durnford, 1877",,324,1
+457,Primolius maracana ,maracanã,"Vieillot, 1816",,325,1
+458,Procacicus solitarius,iraúna-de-bico-branco,"Vieillot, 1816",,326,1
+459,Procnias nudicollis ,araponga ou ferreiro,"Vieillot, 1817",,327,1
+460,Progne chalybea ,andorinha-doméstica-grande,"Gmelin, 1789",,328,1
+461,Progne tapera,andorinha-do-campo,"Vieillot, 1817",,328,1
+462,Pseudastur polionotus ,gavião-pombo-branco,"Kaup, 1847",,329,1
+463,Pseudocolopteryx flaviventris,amarelinho-do-junco,"d'Orbigny & Lafresnaye, 1837",,331,1
+464,Pseudocolopteryx sclateri ,tricolino,"Oustalet, 1892",,330,1
+465,Pseudoleistes guirahuro ,chopim-do-brejo,"Vieillot, 1819",,332,1
+466,Pseudoleistes virescens ,dragão,"Vieillot, 1819",,333,1
+467,Pseudoseisura lophotes ,coperete,"Reichenbach, 1853",,334,1
+468,Psilorhamphus guttatus ,macuquinho-pintado,"Ménétriès, 1835",,335,1
+469,Pteroglossus bailloni ,araçari-banana,"Vieillot, 1819",,336,1
+470,Pteroglossus castanotis ,araçari-castanho,"Gould, 1834",,336,1
+471,Pulsatrix koeniswaldiana ,murucututu-de-barriga-amarela,"Bertoni & Bertoni, 1901",,337,1
+472,Pulsatrix perspicillata ,murucututu,"Salvin, 1897",,337,1
+473,Pygochelidon cyanoleuca,andorinha-pequena-de-casa,"Vieillot, 1817",,338,1
+474,Pyriglena leucoptera ,papa-taoca,"Vieillot, 1818",,339,1
+475,Pyrocephalus rubinus ,príncipe,"Boddaert, 1783",,340,1
+476,Pyroderus scutatus ,pavó,"Shaw, 1792",,341,1
+477,Pyrrhocoma ruficeps ,cabecinha-castanha,"Strickland, 1844",,342,1
+478,Pyrrhura frontalis ,tiriba-de-testa-vermelha,"Vieillot, 1817",,343,1
+479,Ramphastos dicolorus,tucano-de-bico-verde," Linnaeus, 1766",,345,1
+480,Ramphastos toco ,tucanuçu,"Statius Muller, 1776",,344,1
+481,Rhea americana ,ema,"Linnaeus, 1758",,346,1
+482,Rhynchotus rufescens ,perdigão,"Temminck, 1815",,347,1
+483,Riparia riparia ,andorinha-do-barranco,"Linnaeus, 1758",,348,1
+484,Rollandia rolland,mergulhão-de-orelha-branca,"Quoy & Gaimard, 1824",,349,1
+485,Rostrhamus sociabilis ,gavião-caramujeiro,"Vieillot, 1817",,350,1
+486,Rupornis magnirostris ,gavião-carijó,"Gmelin, 1788",,351,1
+487,Rynchops niger ,talha-mar,"Linnaeus, 1758",,352,1
+488,Saltator aurantiirostris,bico-duro ou bico-de-ouro," Vieillot, 1817",,353,1
+489,Saltator coerulescens,sabiá-gongá," Vieillot, 1817",,353,1
+490,Saltator fuliginosus ,bico-de-pimenta,"Daudin, 1800",,353,1
+491,Saltator maxillosus ,bico-grosso,"Cabanis, 1851",,353,1
+492,Saltator similis ,trinca-ferro-verdadeiro,"d'Orbigny & Lafresnaye, 1837",,353,1
+493,Sarcoramphus papa ,urubu-rei,"Linnaeus, 1758",,354,1
+494,Sarkidiornis sylvicola ,pato-de-crista,"hering & Ihering, 1907",,355,1
+495,Satrapa icterophrys,suiriri-pequeno,"Vieillot, 1818",,356,1
+496,Schiffornis virescens,flautim,"Lafresnaye, 1838",,357,1
+497,Schoeniophylax phryganophilus,bichoita,"Vieillot, 1817",,358,1
+498,Sclerurus scansor ,vira-folha,"Ménétriès, 1835",,359,1
+499,Scytalopus iraiensis ,macuquinho-da-várzea,"Bornschein, Reinert & Pichorim, 1998",,360,1
+500,Scytalopus pachecoi ,tapaculo-ferreirinho,"Maurício, 2005",,360,1
+501,Scytalopus speluncae ,tapaculo-preto,"Wied, 1831",,360,1
+502,Selenidera maculirostris ,araçaripoca,"Lichtenstein, 1823",,361,1
+503,Serpophaga griseicapilla ,alegrinho-trinador,"Straneck, 2007",,362,1
+504,Serpophaga munda ,alegrinho-de-barriga-branca,"Berlepsch, 1893",,362,1
+505,Serpophaga nigricans,joão-pobre,"Vieillot, 1817",,362,1
+506,Serpophaga subcristata ,alegrinho,"Vieillot, 1817",,362,1
+507,Sicalis flaveola,canário-da-terra-verdadeiro,"Linnaeus, 1766",,363,1
+508,Sicalis luteola ,tipio,"Sparrman, 1789",,363,1
+509,Sirystes sibilator ,suiriri-assobiador,"Vieillot, 1818",,364,1
+510,Sittasomus griseicapillus ,arapaçu-verde,"Vieillot, 1818",,365,1
+511,Spartonoica maluroides ,boininha,"d'Orbigny & Lafresnaye, 1837",,366,1
+512,Spizaetus melanoleucus ,gavião-pato,"Vieillot, 1816",,368,1
+513,Spizaetus ornatus ,gavião-de-penacho,"Daudin, 1800",,367,1
+514,Spizaetus tyrannus,gavião-pega-macaco,"Wied, 1820",,368,1
+515,Sporagra magellanica ,pintassilgo,"Vieillot, 1805",,369,1
+516,Sporophila angolensis,curió,"Linnaeus, 1766",,370,1
+517,Sporophila bouvreuil,caboclinho,"Statius Muller, 1776",,370,1
+518,Sporophila caerulescens ,coleirinho,"Vieillot, 1823",,370,1
+519,Sporophila cinnamomea ,caboclinho-de-chapéu-cinzento,"Lafresnaye, 1839",,370,1
+520,Sporophila collaris,coleiro-do-brejo,"Boddaert, 1783",,370,1
+521,Sporophila frontalis ,pixoxó,"Verreaux, 1869",,370,1
+522,Sporophila hypoxantha,caboclinho-de-barriga-vermelha,"Cabanis, 1851",,370,1
+523,Sporophila leucoptera ,chorão,"Vieillot, 1817",,370,1
+524,Sporophila lineola ,bigodinho,"Linnaeus, 1758",,370,1
+525,Sporophila melanogaster ,caboclinho-de-barriga-preta,"Pelzeln, 1870",,370,1
+526,Sporophila palustris ,caboclinho-de-papo-branco,"Barrows, 1883",,370,1
+527,Sporophila plumbea ,patativa,"Wied, 1830",,370,1
+528,Sporophila ruficollis ,caboclinho-de-papo-escuro,"Cabanis, 1851",,370,1
+529,Stelgidopteryx ruficollis,andorinha-serradora,"Vieillot, 1817",,371,1
+530,Stephanophorus diadematus ,sanhaçu-frade,"Temminck, 1823",,372,1
+531,Stephanoxis lalandi ,beija-flor-de-topete,"Vieillot, 1818",,373,1
+532,Stercorarius antarcticus ,gaivota-rapineira-antártica,"Lesson, 1831",,374,1
+533,Stercorarius chilensis ,gaivota-rapineira-chilena,"Bonaparte, 1857",,374,1
+534,Stercorarius longicaudus ,gaivota-rapineira-de-cauda-comprida,"Vieillot, 1819",,374,1
+535,Stercorarius parasiticus ,gaivota-rapineira-comum,"Linnaeus, 1758",,374,1
+536,Stercorarius pomarinus ,gaivota-rapineira-pomarina,"Temminck, 1815",,374,1
+537,Sterna hirundinacea ,trinta-réis-de-bico-vermelho,"Lesson, 1831",,375,1
+538,Sterna hirundo ,trinta-réis-boreal,"Linnaeus, 1758",,376,1
+539,Sterna paradisaea ,trinta-réis-ártico,"Pontoppidan, 1763",,375,1
+540,Sterna trudeaui ,trinta-réis-de-coroa-branca,"Audubon, 1838",,375,1
+541,Sternula antillarum ,trinta-réis-miúdo,"Lesson, 1847",,377,1
+542,Sternula superciliaris,trinta-réis-anão,"Vieillot, 1819",,377,1
+543,Streptoprocne biscutata ,andorinhão-de-coleira-falha,"Sclater, 1866",,378,1
+544,Streptoprocne zonaris ,andorinhão-de-coleira,"Shaw, 1796",,378,1
+545,Strix hylophila ,coruja-listrada,"Temminck, 1825",,379,1
+546,Strix virgata ,coruja-do-mato,"Cassin, 1849",,379,1
+547,Sturnella defilippii ,peito-vermelho-grande,"Bonaparte, 1850",,381,1
+548,Sturnella superciliaris ,polícia-inglesa,"Bonaparte, 1850",,380,1
+549,Stymphalornis acutirostris ,bicudinho-do-brejo,"Bornschein, Reinert & Teixeira, 1995",,382,1
+550,Sublegatus modestus,guaracava-modesta,"Wied, 1831",,383,1
+551,Suiriri suiriri ,suiriri-cinzento,"Vieillot, 1818",,384,1
+552,Synallaxis albescens ,uí-pi,"Temminck, 1823",,385,1
+553,Synallaxis cinerascens ,pi-puí,"Temminck, 1823",,385,1
+554,Synallaxis frontalis ,petrim,"Pelzeln, 1859",,385,1
+555,Synallaxis ruficapilla ,pichororé,"Vieillot, 1819",,385,1
+556,Synallaxis spixi ,joão-teneném,"Sclater, 1856",,385,1
+557,Syndactyla rufosuperciliata ,trepador-quiete,"Lafresnaye, 1832",,386,1
+558,Syrigma sibilatrix ,maria-faceira,"Temminck, 1824",,387,1
+559,Tachuris rubrigastra,papa-piri,"Vieillot, 1817",,388,1
+560,Tachybaptus dominicus ,mergulhão-pequeno,"Linnaeus, 1766",,389,1
+561,Tachycineta albiventer ,andorinha-do-rio,"Boddaert, 1783",,391,1
+562,Tachycineta leucopyga ,andorinha-chilena,"Meyen ,1834",,390,1
+563,Tachycineta leucorrhoa ,andorinha-de-testa-branca,"Vieillot, 1817",,390,1
+564,Tachyphonus coronatus ,tiê-preto,"Vieillot, 1822",,392,1
+565,Tangara cyanocephala ,saíra-militar,"Statius Muller, 1776",,393,1
+566,Tangara cyanoptera ,sanhaçu-de-encontro-azul,"Vieillot, 1817",,393,1
+567,Tangara palmarum,sanhaçu-do-coqueiro,"Wied, 1823",,393,1
+568,Tangara peruviana,saíra-sapucaia,"Desmarest, 1806",,393,1
+569,Tangara preciosa ,saíra-preciosa,"Cabanis, 1850",,393,1
+570,Tangara sayaca,sanhaçu-cinzento,"Linnaeus, 1766",,393,1
+571,Tangara seledon ,saíra-de-sete-cores,"Statius Muller, 1776",,393,1
+572,Tapera naevia ,saci,"Linnaeus, 1766",,394,1
+573,Tersina viridis ,saí-andorinha,"Illiger, 1811",,395,1
+574,Thalasseus acuflavidus ,trinta-réis-de-bico-amarelo,"Cabot, 1847",,396,1
+575,Thalasseus maximus ,trinta-réis-real,"Boddaert, 1783",,396,1
+576,Thalurania glaucopis ,beija-flor-de-fronte-violeta,"Gmelin, 1788",,397,1
+577,Thamnophilus caerulescens ,choca-da-mata,"Vieillot, 1816",,398,1
+578,Thamnophilus ruficapillus ,choca-de-boné-vermelho,"Vieillot, 1816",,398,1
+579,Theristicus caerulescens,maçarico-real,"Vieillot, 1817",,399,1
+580,Theristicus caudatus ,curicaca,"Boddaert, 1783",,399,1
+581,Tigrisoma lineatum ,socó-boi-verdadeiro,"Boddaert, 1783",,400,1
+582,Tinamus solitarius ,macuco,"Vieillot, 1819",,401,1
+583,Tityra cayana ,anambé-branco-de-rabo-preto,"Linnaeus, 1766",,402,1
+584,Tityra inquisitor,anambé-branco-de-bochecha-parda,"Lichtenstein, 1823",,402,1
+585,Tolmomyias sulphurescens ,bico-chato-de-orelha-preta,"Spix, 1825",,403,1
+586,Triclaria malachitacea,sabiá-cica,"Spix, 1824",,404,1
+587,Tringa flavipes,maçarico-de-perna-amarela,"Gmelin, 1789",,405,1
+588,Tringa melanoleuca ,maçarico-grande-de-perna-amarela,"Gmelin, 1789",,405,1
+589,Tringa semipalmata ,maçarico-de-asa-branca,"Gmelin, 1789",,405,1
+590,Tringa solitaria ,maçarico-solitário,"Wilson, 1813",,405,1
+591,Troglodytes musculus ,corruíra,"Naumann, 1823",,406,1
+592,Trogon rufus ,surucuá-de-barriga-amarela,"Gmelin, 1788",,407,1
+593,Trogon surrucura ,surucuá-variado,"Vieillot, 1817",,407,1
+594,Tryngites subruficollis ,maçarico-acanelado,"Vieillot, 1819",,408,1
+595,Turdus albicollis ,sabiá-coleira,"Vieillot, 1818",,409,1
+596,Turdus amaurochalinus ,sabiá-poca,"Cabanis, 1850",,409,1
+597,Turdus flavipes ,sabiá-una,"Vieillot, 1818",,410,1
+598,Turdus leucomelas ,sabiá-barranco,"Vieillot, 1818",,409,1
+599,Turdus rufiventris ,sabiá-laranjeira,"Vieillot, 1818",,409,1
+600,Turdus subalaris ,sabiá-ferreiro,"Seebohm, 1887",,409,1
+601,Tyranniscus burmeisteri ,piolhinho-chiador,"Cabanis & Heine, 1859",,411,1
+602,Tyrannus melancholicus ,suiriri,"Vieillot, 1819",,412,1
+603,Tyrannus savana ,tesourinha,"Vieillot, 1808",,413,1
+604,Tyto alba ,coruja-de-igreja,"Scopoli, 1769",,414,1
+605,Urubitinga coronata ,águia-cinzenta,"Vieillot, 1817",,415,1
+606,Urubitinga urubitinga ,gavião-preto,"Gmelin, 1788",,415,1
+607,Vanellus chilensis,quero-quero,"Molina, 1782",,416,1
+608,Veniliornis mixtus ,picapauzinho-chorão,"Boddaert, 1783",,418,1
+609,Veniliornis spilogaster ,picapauzinho-verde-carijó,"Wagler, 1827",,417,1
+610,Vireo olivaceus ,juruviara,"Linnaeus, 1766",,419,1
+611,Volatinia jacarina ,tiziu,"Linnaeus, 1766",,420,1
+612,Xanthopsar flavus ,veste-amarela,"Gmelin, 1788",,421,1
+613,Xema sabini ,gaivota-de-sabine,"Sabine, 1819",,422,1
+614,Xenops rutilans ,bico-virado-carijó,"Temminck, 1821",,423,1
+615,Xenopsaris albinucha ,tijerila,"Burmeister, 1869",,424,1
+616,Xiphocolaptes albicollis ,arapaçu-grande-de-garganta-branca,"Vieillot, 1818",,425,1
+617,Xiphorhynchus fuscus ,arapaçu-rajado,"Vieillot, 1818",,426,1
+618,Xolmis cinereus,primavera,"Vieillot, 1816",,427,1
+619,Xolmis coronatus ,noivinha-coroada,"Vieillot, 1823",,427,1
+620,Xolmis dominicanus ,noivinha-de-rabo-preto,"Vieillot, 1823",,427,1
+621,Xolmis irupero ,noivinha,"Vieillot, 1823",,427,1
+622,Zenaida auriculata ,pomba-de-bando,"Des Murs, 1847",,428,1
+623,Zonotrichia capensis ,tico-tico,"Statius Muller, 1776",,429,1

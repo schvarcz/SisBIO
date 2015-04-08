@@ -10,6 +10,7 @@ use Yii;
  * @property integer $idEspecie
  * @property string $NomeCientifico
  * @property string $NomeComum
+ * @property string $Autor
  * @property string $Descricao
  * @property integer $idGenero
  * @property integer $idTipo_Organismo
@@ -45,7 +46,7 @@ class Especie extends \app\models\MActiveRecord
             [['NomeCientifico', 'idGenero', 'idTipo_Organismo'], 'required'],
             [['Descricao'], 'string'],
             [['idGenero', 'idTipo_Organismo'], 'integer'],
-            [['NomeCientifico', 'NomeComum'], 'string', 'max' => 255]
+            [['NomeCientifico', 'NomeComum', 'Autor'], 'string', 'max' => 255]
         ];
     }
 
@@ -58,6 +59,7 @@ class Especie extends \app\models\MActiveRecord
             'idEspecie' => Yii::t('app', 'Id Especie'),
             'NomeCientifico' => Yii::t('app', 'Nome Cientifico'),
             'NomeComum' => Yii::t('app', 'Nome Comum'),
+            'Autor' => Yii::t('app', 'Autor'),
             'Descricao' => Yii::t('app', 'Descricao'),
             'idGenero' => Yii::t('app', 'Id Genero'),
             'idTipo_Organismo' => Yii::t('app', 'Id Tipo  Organismo'),
