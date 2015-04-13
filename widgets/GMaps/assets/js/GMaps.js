@@ -6,14 +6,9 @@
  */
 
 (function ($) {
-    $.fn.gmaps = function (options) {
-        settings = $.extend(settings, options);
-        var center = settings.mapsOptions.center;
-        settings.mapsOptions.center = new google.maps.LatLng(center[0], center[1]);
-        console.log(settings);
-        methods.init(this);
-        return this;
-    }
+    
+    var map;
+    var polygon;
     var settings = {
         editable: false,
         showType: "POLYGON",
@@ -30,9 +25,8 @@
             fillOpacity: 0.35
         }
     };
-    var map;
-    var polygon;
-    methods = {
+    
+    var methods = {
         /** 
          * Editar polygon
          * Mostrar polygons
@@ -82,8 +76,9 @@
             
         },
         updateMap: function(){
-            var value = $(this).val();
-            if(value.trim() == "")
+            var value = $(polygon.getMap().getDiv()).prev().val();
+            if(value.trim() === "")
+                polygon.setPath(new google.maps.MVCArray());
                 return;
             value = value.substring(value.lastIndexOf("(")+1,value.indexOf(")"));
             var points = value.split(",");
@@ -96,5 +91,52 @@
             polygon.setPath(path);
         }
     };
+    
+    var publicMethods = {
+        updateMap: function(coords){
+            var value = "";
+            coords = coords.split("\n");
+            var firstCoord = "NaN";
+            for(var idx in coords)
+            {
+                var coord = coords[idx].split(",");
+                coord[0] = parseFloat(coord[0]);
+                coord[1] = parseFloat(coord[1]);
+                if(isNaN(coord[0]) || isNaN(coord[1]))
+                    continue;
+                
+                value += coord[0]+" "+coord[1]+",";
+                
+                if (isNaN(firstCoord))
+                    firstCoord = value;
+                
+            }
+            if (!isNaN(firstCoord))
+            {
+                value += firstCoord;
+                value = value.substr(0,value.length-1);
+                value = settings.showType+"(("+value+"))";
+            }
+            $(polygon.getMap().getDiv()).prev().val(value);
+            $(polygon.getMap().getDiv()).prev().change();
+            
+            return true;
+        }
+    };
+    
+    $.fn.gmaps = function (options) {
+        if (publicMethods[options])
+        {
+            return publicMethods[options].apply(this,Array.prototype.slice.call( arguments, 1 ));
+        } else if ( typeof options === 'object' || ! options ) 
+        {
+            settings = $.extend(settings, options);
+            var center = settings.mapsOptions.center;
+            settings.mapsOptions.center = new google.maps.LatLng(center[0], center[1]);
+            console.log(settings);
+            methods.init(this);
+            return this;
+        }
+    }
 
 })(jQuery);
