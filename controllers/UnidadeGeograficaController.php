@@ -122,4 +122,31 @@ class UnidadeGeograficaController extends Controller
         }
     }
 
+    /**
+     * Finds the UnidadeGeografica model based on its name.
+     * @param String $name
+     * @return Json the list of models
+     */
+    public function actionFindug($nomeUnidadeGeografica = null, $id = null)
+    {
+        $out = [];
+
+        if (!is_null( $nomeUnidadeGeografica ))
+        {
+            $unidades = UnidadeGeografica::find()->where(["like", "Nome", $nomeUnidadeGeografica])->all();
+            $json = [];
+            foreach ($unidades as $unidade)
+            {
+                $json[] = ["id" => $unidade->primaryKey, "text" => $unidade->getLabel()];
+            }
+            $out['results'] = $json;
+        } elseif ($id > 0)
+        {
+            $out['results'] = ['id' => $id, 'text' => UnidadeGeografica::findOne($id)->getLabel()];
+        } else
+        {
+            $out['results'] = ['id' => 0, 'text' => 'No matching records found'];
+        }
+        return \yii\helpers\Json::encode($out);
+    }
 }
