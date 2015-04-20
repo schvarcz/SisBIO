@@ -64,23 +64,25 @@ class GMaps extends InputWidget
             echo Html::hiddenInput($this->name, $this->value, $this->options);
         }
         
-        Modal::begin([
-            'header' => '<h2>Informar coordenadas geográficas</h2>',
-            'toggleButton' => ['label' => 'Informar coordenadas por texto.', 'tag' => 'a'],
-            'footer' => Button::widget([
-                            'label'=>'Atualizar',
-                            'clientEvents' => [
-                                'click' => "function(e) { return jQuery('#$id').gmaps('updateMap',$('.coordsInfo').val());}"
-                            ],
-                            'options' => [
-                                'class' => 'btn-primary',
-                                'data-dismiss' => 'modal'
-                            ]]),
-        ]);
-        echo Html::tag("h5","Informe as coordenadas geográficas separadas por virgula. Um coordenada por linha. ". Html::tag("br") . Html::tag("em",Html::tag("small","Ex: 57.08, 56.98 ")));
+        if ($this->clientOptions["editable"])
+        {
+            Modal::begin([
+                'header' => '<h2>Informar coordenadas geográficas</h2>',
+                'toggleButton' => ['label' => 'Informar coordenadas por texto.', 'tag' => 'a'],
+                'footer' => Button::widget([
+                                'label'=>'Atualizar',
+                                'clientEvents' => [
+                                    'click' => "function(e) { return jQuery('#$id').gmaps('updateMap',$('.coordsInfo').val());}"
+                                ],
+                                'options' => [
+                                    'class' => 'btn-primary',
+                                    'data-dismiss' => 'modal'
+                                ]]),
+            ]);
+            echo Html::tag("h5","Informe as coordenadas geográficas separadas por virgula. Um coordenada por linha. ". Html::tag("br") . Html::tag("em",Html::tag("small","Ex: 57.08, 56.98 ")));
 
-        echo Html::textarea("Coords","",["style"=>"width:100%;height:200px;", "class" => "coordsInfo"]);
-
-        Modal::end();
+            echo Html::textarea("Coords","",["style"=>"width:100%;height:200px;", "class" => "coordsInfo"]);
+            Modal::end();
+        }
     }           
 }

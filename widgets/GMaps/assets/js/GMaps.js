@@ -60,7 +60,6 @@
         },
         addPoint2Polygon: function (e) {
             var path = polygon.getPath();
-            console.log(path.getArray());
             path.push(e.latLng);
             polygon.setPath(path);
             methods.updateBox();
@@ -78,8 +77,10 @@
         updateMap: function(){
             var value = $(polygon.getMap().getDiv()).prev().val();
             if(value.trim() === "")
+            {
                 polygon.setPath(new google.maps.MVCArray());
                 return;
+            }
             value = value.substring(value.lastIndexOf("(")+1,value.indexOf(")"));
             var points = value.split(",");
             var path = new google.maps.MVCArray();
@@ -133,7 +134,6 @@
             settings = $.extend(settings, options);
             var center = settings.mapsOptions.center;
             settings.mapsOptions.center = new google.maps.LatLng(center[0], center[1]);
-            console.log(settings);
             methods.init(this);
             return this;
         }
