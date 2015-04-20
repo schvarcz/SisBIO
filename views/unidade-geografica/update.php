@@ -6,9 +6,9 @@ use yii\helpers\Html;
  * @var yii\web\View $this
  * @var app\models\UnidadeGeografica $model
  */
-$this->title = 'Unidade Geografica Update ' . $model->idUnidadeGeografica . '';
+$this->title = 'Editar Unidade Geográfica ' . $model->getLabel() . '';
 $this->params['breadcrumbs'][] = ['label' => 'Unidades Geográficas', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => (string) $model->idUnidadeGeografica, 'url' => ['view', 'idUnidadeGeografica' => $model->idUnidadeGeografica]];
+$this->params['breadcrumbs'][] = ['label' => (string) $model->getLabel(), 'url' => ['view', 'idUnidadeGeografica' => $model->idUnidadeGeografica]];
 $this->params['breadcrumbs'][] = 'Editar';
 ?>
 <div class="unidade-geografica-update">

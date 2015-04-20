@@ -39,33 +39,21 @@ $this->params['breadcrumbs'][] = $this->title;
                             'encodeLabels' => false,
                             'items' => [
                                 [
-                                    'label' => '<i class="glyphicon glyphicon-arrow-right"> Coleta</i>',
+                                    'label' => '<i class="glyphicon glyphicon-arrow-right"> Coletas</i>',
                                     'url' => [
                                         'coleta/index',
                                     ],
                                 ],
                                 [
-                                    'label' => '<i class="glyphicon glyphicon-arrow-left"> Projeto</i>',
+                                    'label' => '<i class="glyphicon glyphicon-arrow-left"> Projetos</i>',
                                     'url' => [
                                         'projeto/index',
                                     ],
                                 ],
                                 [
-                                    'label' => '<i class="glyphicon glyphicon-arrow-left"> Pesquisador</i>',
+                                    'label' => '<i class="glyphicon glyphicon-arrow-left"> Pesquisadores</i>',
                                     'url' => [
                                         'pesquisador/index',
-                                    ],
-                                ],
-                                [
-                                    'label' => '<i class="glyphicon glyphicon-arrow-left"> Unidade Geografica</i>',
-                                    'url' => [
-                                        'unidade-geografica/index',
-                                    ],
-                                ],
-                                [
-                                    'label' => '<i class="glyphicon glyphicon-arrow-right"> Unidade Geografica</i>',
-                                    'url' => [
-                                        'unidade-geografica/index',
                                     ],
                                 ],
                             ]],

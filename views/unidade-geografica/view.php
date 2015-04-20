@@ -10,7 +10,7 @@ use app\widgets\GMaps\GMaps;
  * @var yii\web\View $this
  * @var app\models\UnidadeGeografica $model
  */
-$this->title = 'Unidade Geografica View ' . $model->idUnidadeGeografica . '';
+$this->title = 'Unidade Geografica ' . $model->getLabel() . '';
 $this->params['breadcrumbs'][] = ['label' => 'Unidades Geográficas', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => (string) $model->label, 'url' => ['view', 'idUnidadeGeografica' => $model->idUnidadeGeografica]];
 $this->params['breadcrumbs'][] = 'Detalhes';
