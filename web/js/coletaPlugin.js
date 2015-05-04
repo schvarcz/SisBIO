@@ -13,6 +13,7 @@
     var methods = {
         init: function($this){
             $this.click(methods.add);
+            $this.parents("form").find(".close-btn").click(methods.remove);
         },
         add: function(){
             var id = $("input[name="+settings.inputName+"]").val();

@@ -15,7 +15,9 @@ use Yii;
  * @property integer $impossivelColetar
  *
  * @property ColetaItem $idColetaItem0
- * @property TipoOrganismoHasAtributo $idTipoOrganismo0
+ * @property TipoOrganismoHasAtributo $idTipoOrganismoHasAtributo
+ * @property TipoOrganismo $idTipoOrganismo0
+ * @property Atributo $idAtributo0
  */
 class ColetaItemPropriedade extends \app\models\MActiveRecord
 {
@@ -41,7 +43,7 @@ class ColetaItemPropriedade extends \app\models\MActiveRecord
     public function rules()
     {
         return [
-            [['idColetaItem', 'idTipoOrganismo', 'idAtributo', 'value'], 'required'],
+            [['idColetaItem', 'idTipoOrganismo', 'idAtributo'], 'required'],
             [['idColetaItem', 'idTipoOrganismo', 'idAtributo', 'impossivelColetar'], 'integer'],
             [['value'], 'string']
         ];
@@ -73,8 +75,23 @@ class ColetaItemPropriedade extends \app\models\MActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getIdTipoOrganismo0()
+    public function getIdTipoOrganismoHasAtributo()
     {
         return $this->hasOne(\app\models\TipoOrganismoHasAtributo::className(), ['idTipoOrganismo' => 'idTipoOrganismo', 'idAtributo' => 'idAtributo']);
+    }
+    
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getIdAtributo0()
+    {
+        return $this->hasOne(\app\models\Atributo::className(), ['idAtributo' => 'idAtributo']);
+    }
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getIdTipoOrganismo0()
+    {
+        return $this->hasOne(\app\models\TipoOrganismo::className(), ['idTipoOrganismo' => 'idTipoOrganismo']);
     }
 }

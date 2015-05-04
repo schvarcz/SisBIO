@@ -94,4 +94,12 @@ class Coleta extends \app\models\MActiveRecord
     {
         return $this->hasMany(\app\models\Pesquisador::className(), ['idPesquisador' => 'idPesquisador'])->viaTable('Coleta_has_Pesquisador', ['idColeta' => 'idColeta']);
     }
+    
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getColetaItemPropriedades()
+    {
+        return $this->hasMany(\app\models\ColetaItemPropriedade::className(), ['idColetaItem' => 'idColetaItem'])->viaTable('ColetaItem', ['idColeta' => 'idColeta']);
+    }
 }

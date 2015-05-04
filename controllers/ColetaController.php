@@ -56,7 +56,7 @@ class ColetaController extends Controller
 
         try
         {
-            if ($model->load($_POST) && $model->save())
+            if ($model->saveWithRelated($_POST))
             {
                 return $this->redirect(Url::previous());
             } elseif (!\Yii::$app->request->isPost)
@@ -81,7 +81,7 @@ class ColetaController extends Controller
     {
         $model = $this->findModel($idColeta);
 
-        if ($model->load($_POST) && $model->save())
+        if ($model->saveWithRelated($_POST))
         {
             return $this->redirect(Url::previous());
         } else

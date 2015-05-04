@@ -13,7 +13,7 @@ class MActiveRecord extends \yii\db\ActiveRecord
 
     public function saveWithRelated($data, $formName = null)
     {
-        $saved = $this->load($_POST) && $this->save();
+        $saved = $this->load($data) && $this->save();
         if ($saved)
         {
             $scope = $formName === null ? $this->formName() : $formName;
@@ -27,17 +27,32 @@ class MActiveRecord extends \yii\db\ActiveRecord
                 {
                     foreach ($relation->all() as $modelRelation)
                     {
-                        print_r($modelRelation);
                         $this->unlink("$dataName", $modelRelation, true);
                     }
 
                     if (is_array($dataValue))
+                        
                     {
-                        foreach ($dataValue as $value)
+                        if (is_array($dataValue[array_keys($dataValue)[0]]))
                         {
-                            $modelRelationClass = $relation->modelClass;
-                            $modelRelation = $modelRelationClass::findOne($value);
-                            $this->link("$dataName", $modelRelation);
+                            foreach ($dataValue as $value)
+                            {
+                                $modelRelation = new $relation->modelClass;
+                                foreach($relation->link as $keyModel => $keyRelation)
+                                {
+                                    $modelRelation->$keyRelation = $this->$keyModel;
+                                }
+                                $modelRelation->saveWithRelated([$modelRelation->formName()=>$value]);
+                            }
+                        }
+                        else
+                        {
+                            foreach ($dataValue as $value)
+                            {
+                                $modelRelationClass = $relation->modelClass;
+                                $modelRelation = $modelRelationClass::findOne($value);
+                                $this->link("$dataName", $modelRelation);
+                            }
                         }
                     }
                 }

@@ -24,4 +24,17 @@ class ColetaItemPropriedade extends \app\models\base\ColetaItemPropriedade
             'impossivelColetar' => Yii::t('app', 'Impossível Coletar'),
         ];
     }
+    
+    public function load($data, $formName = null)
+    {
+        $flag = parent::load($data, $formName);
+        if (empty($this->value))
+        {
+            $this->impossivelColetar = true;
+//            print_r($this->attributes);
+//            print_r($this->save());
+//            exit();
+        }
+        return $flag;
+    }
 }
