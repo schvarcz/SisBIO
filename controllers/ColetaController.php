@@ -6,110 +6,160 @@ use app\models\Coleta;
 use app\models\ColetaSearch;
 use yii\web\Controller;
 use yii\web\HttpException;
-use yii\filters\VerbFilter;
-use yii\filters\AccessControl;
+use app\models\Especie;
 use yii\helpers\Url;
+use app\widgets\AtributosEspecie\AtributosEspecie;
 
 /**
  * ColetaController implements the CRUD actions for Coleta model.
  */
 class ColetaController extends Controller
 {
-	/**
-	 * Lists all Coleta models.
-	 * @return mixed
-	 */
-	public function actionIndex()
-	{
-		$searchModel = new ColetaSearch;
-		$dataProvider = $searchModel->search($_GET);
+
+    /**
+     * Lists all Coleta models.
+     * @return mixed
+     */
+    public function actionIndex()
+    {
+        $searchModel = new ColetaSearch;
+        $dataProvider = $searchModel->search($_GET);
 
         Url::remember();
-		return $this->render('index', [
-			'dataProvider' => $dataProvider,
-			'searchModel' => $searchModel,
-		]);
-	}
+        return $this->render('index', [
+                    'dataProvider' => $dataProvider,
+                    'searchModel' => $searchModel,
+        ]);
+    }
 
-	/**
-	 * Displays a single Coleta model.
-	 * @param integer $id
-	 * @return mixed
-	 */
-	public function actionView($idColeta)
-	{
+    /**
+     * Displays a single Coleta model.
+     * @param integer $id
+     * @return mixed
+     */
+    public function actionView($idColeta)
+    {
         Url::remember();
         return $this->render('view', [
-			'model' => $this->findModel($idColeta),
-		]);
-	}
+                    'model' => $this->findModel($idColeta),
+        ]);
+    }
 
-	/**
-	 * Creates a new Coleta model.
-	 * If creation is successful, the browser will be redirected to the 'view' page.
-	 * @return mixed
-	 */
-	public function actionCreate()
-	{
-		$model = new Coleta;
+    /**
+     * Creates a new Coleta model.
+     * If creation is successful, the browser will be redirected to the 'view' page.
+     * @return mixed
+     */
+    public function actionCreate()
+    {
+        $model = new Coleta;
 
-		try {
-            if ($model->load($_POST) && $model->save()) {
+        try
+        {
+            if ($model->load($_POST) && $model->save())
+            {
                 return $this->redirect(Url::previous());
-            } elseif (!\Yii::$app->request->isPost) {
+            } elseif (!\Yii::$app->request->isPost)
+            {
                 $model->load($_GET);
             }
-        } catch (\Exception $e) {
-            $msg = (isset($e->errorInfo[2]))?$e->errorInfo[2]:$e->getMessage();
+        } catch (\Exception $e)
+        {
+            $msg = (isset($e->errorInfo[2])) ? $e->errorInfo[2] : $e->getMessage();
             $model->addError('_exception', $msg);
-		}
+        }
         return $this->render('create', ['model' => $model,]);
-	}
+    }
 
-	/**
-	 * Updates an existing Coleta model.
-	 * If update is successful, the browser will be redirected to the 'view' page.
-	 * @param integer $id
-	 * @return mixed
-	 */
-	public function actionUpdate($idColeta)
-	{
-		$model = $this->findModel($idColeta);
+    /**
+     * Updates an existing Coleta model.
+     * If update is successful, the browser will be redirected to the 'view' page.
+     * @param integer $id
+     * @return mixed
+     */
+    public function actionUpdate($idColeta)
+    {
+        $model = $this->findModel($idColeta);
 
-		if ($model->load($_POST) && $model->save()) {
+        if ($model->load($_POST) && $model->save())
+        {
             return $this->redirect(Url::previous());
-		} else {
-			return $this->render('update', [
-				'model' => $model,
-			]);
-		}
-	}
+        } else
+        {
+            return $this->render('update', [
+                        'model' => $model,
+            ]);
+        }
+    }
 
-	/**
-	 * Deletes an existing Coleta model.
-	 * If deletion is successful, the browser will be redirected to the 'index' page.
-	 * @param integer $id
-	 * @return mixed
-	 */
-	public function actionDelete($idColeta)
-	{
-		$this->findModel($idColeta)->delete();
-		return $this->redirect(Url::previous());
-	}
+    /**
+     * Deletes an existing Coleta model.
+     * If deletion is successful, the browser will be redirected to the 'index' page.
+     * @param integer $id
+     * @return mixed
+     */
+    public function actionDelete($idColeta)
+    {
+        $this->findModel($idColeta)->delete();
+        return $this->redirect(Url::previous());
+    }
 
-	/**
-	 * Finds the Coleta model based on its primary key value.
-	 * If the model is not found, a 404 HTTP exception will be thrown.
-	 * @param integer $id
-	 * @return Coleta the loaded model
-	 * @throws HttpException if the model cannot be found
-	 */
-	protected function findModel($idColeta)
-	{
-		if (($model = Coleta::findOne($idColeta)) !== null) {
-			return $model;
-		} else {
-			throw new HttpException(404, 'The requested page does not exist.');
-		}
-	}
+    /**
+     * Finds the Coleta model based on its primary key value.
+     * If the model is not found, a 404 HTTP exception will be thrown.
+     * @param integer $id
+     * @return Coleta the loaded model
+     * @throws HttpException if the model cannot be found
+     */
+    protected function findModel($idColeta)
+    {
+        if (($model = Coleta::findOne($idColeta)) !== null)
+        {
+            return $model;
+        } else
+        {
+            throw new HttpException(404, 'The requested page does not exist.');
+        }
+    }
+
+    /**
+     * Finds the Éspecie model based on its name.
+     * @param String $name
+     * @return Json the list of models
+     */
+    public function actionFindesp($nomeEspecie = null)
+    {
+        $out = [];
+
+        if (!is_null($nomeEspecie))
+        {
+            $unidades = Especie::find()->where(["like", "NomeComum", $nomeEspecie])->where(["like", "NomeCientifico", $nomeEspecie])->all();
+            $json = [];
+            foreach ($unidades as $especie)
+            {
+                $json[] = ["id" => $especie->primaryKey, "text" => $especie->getLabel()];
+            }
+            $out['results'] = $json;
+        } else
+        {
+            $out['results'] = ['id' => 0, 'text' => 'No matching records found'];
+        }
+        return \yii\helpers\Json::encode($out);
+    }
+
+    /**
+     * Finds the Éspecie model based on its name.
+     * @param String $name
+     * @return Json the list of models
+     */
+    public function actionAddatributosespecie($idEspecie)
+    {
+        $model = Especie::findOne($idEspecie);
+        $out = [];
+        if ($model !== null)
+        {
+            return AtributosEspecie::widget(["name" => "especie", "model" => $model]);
+        }
+    }
+
 }

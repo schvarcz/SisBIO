@@ -1,0 +1,27 @@
+/* 
+    Created on : Apr 29, 2015, 6:16:20 PM
+    Author     : schvarcz
+*/
+
+
+fieldset.coleta.highlight{
+    background-color: #337ab7;
+    transition: all 0.5s;
+}
+fieldset.coleta legend{
+    position: relative;
+    overflow: hidden;
+}
+fieldset.coleta legend .close-btn{
+    position: absolute;
+    right: 0px;
+    top:50px;
+    width:30px;
+    height:30px;
+    border-radius: 100%;
+    text-align: center;
+    transition: all 0.5s;
+}
+fieldset.coleta legend:hover .close-btn{
+    top:0px;
+}
