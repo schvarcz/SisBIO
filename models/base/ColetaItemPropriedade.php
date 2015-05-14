@@ -10,14 +10,14 @@ use Yii;
  * @property integer $idColetaItemPropriedade
  * @property integer $idColetaItem
  * @property integer $idTipoOrganismo
- * @property integer $idAtributo
+ * @property integer $idDescritor
  * @property string $value
  * @property integer $impossivelColetar
  *
  * @property ColetaItem $idColetaItem0
- * @property TipoOrganismoHasAtributo $idTipoOrganismoHasAtributo
+ * @property TipoOrganismoHasDescritor $idTipoOrganismoHasDescritor
  * @property TipoOrganismo $idTipoOrganismo0
- * @property Atributo $idAtributo0
+ * @property Descritor $idDescritor0
  */
 class ColetaItemPropriedade extends \app\models\MActiveRecord
 {
@@ -43,8 +43,8 @@ class ColetaItemPropriedade extends \app\models\MActiveRecord
     public function rules()
     {
         return [
-            [['idColetaItem', 'idTipoOrganismo', 'idAtributo'], 'required'],
-            [['idColetaItem', 'idTipoOrganismo', 'idAtributo', 'impossivelColetar'], 'integer'],
+            [['idColetaItem', 'idTipoOrganismo', 'idDescritor'], 'required'],
+            [['idColetaItem', 'idTipoOrganismo', 'idDescritor', 'impossivelColetar'], 'integer'],
             [['value'], 'string']
         ];
     }
@@ -58,7 +58,7 @@ class ColetaItemPropriedade extends \app\models\MActiveRecord
             'idColetaItemPropriedade' => Yii::t('app', 'Id Coleta Item Propriedade'),
             'idColetaItem' => Yii::t('app', 'Id Coleta Item'),
             'idTipoOrganismo' => Yii::t('app', 'Id Tipo Organismo'),
-            'idAtributo' => Yii::t('app', 'Id Atributo'),
+            'idDescritor' => Yii::t('app', 'Id Descritor'),
             'value' => Yii::t('app', 'Value'),
             'impossivelColetar' => Yii::t('app', 'Impossivel Coletar'),
         ];
@@ -75,17 +75,17 @@ class ColetaItemPropriedade extends \app\models\MActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getIdTipoOrganismoHasAtributo()
+    public function getIdTipoOrganismoHasDescritor()
     {
-        return $this->hasOne(\app\models\TipoOrganismoHasAtributo::className(), ['idTipoOrganismo' => 'idTipoOrganismo', 'idAtributo' => 'idAtributo']);
+        return $this->hasOne(\app\models\TipoOrganismoHasDescritor::className(), ['idTipoOrganismo' => 'idTipoOrganismo', 'idDescritor' => 'idDescritor']);
     }
     
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getIdAtributo0()
+    public function getIdDescritor0()
     {
-        return $this->hasOne(\app\models\Atributo::className(), ['idAtributo' => 'idAtributo']);
+        return $this->hasOne(\app\models\Descritor::className(), ['idDescritor' => 'idDescritor']);
     }
     /**
      * @return \yii\db\ActiveQuery

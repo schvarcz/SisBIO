@@ -19,7 +19,7 @@ class ColetaItemPropriedade extends \app\models\base\ColetaItemPropriedade
             'idColetaItemPropriedade' => Yii::t('app', 'Id Coleta Item Propriedade'),
             'idColetaItem' => Yii::t('app', 'Item da Coleta'),
             'idTipoOrganismo' => Yii::t('app', 'Tipo de Organismo'),
-            'idAtributo' => Yii::t('app', 'Atributo'),
+            'idDescritor' => Yii::t('app', 'Descritor'),
             'value' => Yii::t('app', 'Valor'),
             'impossivelColetar' => Yii::t('app', 'Impossível Coletar'),
         ];

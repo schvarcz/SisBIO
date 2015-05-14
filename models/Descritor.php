@@ -5,9 +5,9 @@ namespace app\models;
 use Yii;
 
 /**
- * This is the model class for table "Atributo".
+ * This is the model class for table "Descritor".
  */
-class Atributo extends \app\models\base\Atributo
+class Descritor extends \app\models\base\Descritor
 {
 
     /**
@@ -16,10 +16,10 @@ class Atributo extends \app\models\base\Atributo
     public function attributeLabels()
     {
         return [
-            'idAtributo' => Yii::t('app', 'Identificador do Atributo'),
+            'idDescritor' => Yii::t('app', 'Identificador do Descritor'),
             'Nome' => Yii::t('app', 'Nome'),
             'idTipoDado' => Yii::t('app', 'Tipo de dado'),
-            'idTipoAtributo' => Yii::t('app', 'Tipo de atributo'),
+            'idTipoDescritor' => Yii::t('app', 'Tipo de Descritor'),
             'Descricao' => Yii::t('app', 'Descrição'),
         ];
     }

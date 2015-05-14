@@ -5,25 +5,25 @@ use yii\widgets\ActiveForm;
 
 /**
  * @var yii\web\View $this
- * @var app\models\AtributoSearch $model
+ * @var app\models\DescritorSearch $model
  * @var yii\widgets\ActiveForm $form
  */
 ?>
 
-<div class="atributo-search">
+<div class="descritor-search">
 
 	<?php $form = ActiveForm::begin([
 		'action' => ['index'],
 		'method' => 'get',
 	]); ?>
 
-		<?= $form->field($model, 'idAtributo') ?>
+		<?= $form->field($model, 'idDescritor') ?>
 
 		<?= $form->field($model, 'Nome') ?>
 
 		<?= $form->field($model, 'idTipoDado') ?>
 
-		<?= $form->field($model, 'idTipoAtributo') ?>
+		<?= $form->field($model, 'idTipoDescritor') ?>
 
 		<?= $form->field($model, 'Descricao') ?>
 

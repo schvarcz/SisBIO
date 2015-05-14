@@ -5,9 +5,9 @@ namespace app\models;
 use Yii;
 
 /**
- * This is the model class for table "TipoOrganismo_has_Atributo".
+ * This is the model class for table "TipoOrganismo_has_Descritor".
  */
-class TipoOrganismoHasAtributo extends \app\models\base\TipoOrganismoHasAtributo
+class TipoOrganismoHasDescritor extends \app\models\base\TipoOrganismoHasDescritor
 {
 
     /**
@@ -17,7 +17,7 @@ class TipoOrganismoHasAtributo extends \app\models\base\TipoOrganismoHasAtributo
     {
         return [
             'idTipoOrganismo' => Yii::t('app', 'Tipo de Organismo'),
-            'idAtributo' => Yii::t('app', 'Atributo'),
+            'idDescritor' => Yii::t('app', 'Descritor'),
         ];
     }
 }

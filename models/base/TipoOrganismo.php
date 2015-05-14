@@ -12,8 +12,8 @@ use Yii;
  * @property string $Descricao
  *
  * @property Especie[] $especies
- * @property TipoOrganismoHasAtributo[] $tipoOrganismoHasAtributos
- * @property Atributo[] $idAtributos
+ * @property TipoOrganismoHasDescritor[] $tipoOrganismoHasDescritores
+ * @property Descritor[] $idDescritores
  */
 class TipoOrganismo extends \app\models\MActiveRecord
 {
@@ -68,16 +68,16 @@ class TipoOrganismo extends \app\models\MActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getTipoOrganismoHasAtributos()
+    public function getTipoOrganismoHasDescritores()
     {
-        return $this->hasMany(\app\models\TipoOrganismoHasAtributo::className(), ['idTipoOrganismo' => 'idTipoOrganismo']);
+        return $this->hasMany(\app\models\TipoOrganismoHasDescritor::className(), ['idTipoOrganismo' => 'idTipoOrganismo']);
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getIdAtributos()
+    public function getIdDescritores()
     {
-        return $this->hasMany(\app\models\Atributo::className(), ['idAtributo' => 'idAtributo'])->viaTable('TipoOrganismo_has_Atributo', ['idTipoOrganismo' => 'idTipoOrganismo']);
+        return $this->hasMany(\app\models\Descritor::className(), ['idDescritor' => 'idDescritor'])->viaTable('TipoOrganismo_has_Descritor', ['idTipoOrganismo' => 'idTipoOrganismo']);
     }
 }

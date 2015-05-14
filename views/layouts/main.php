@@ -50,8 +50,8 @@ AppAsset::register($this);
                     ['label' => 'Base', 'items' => [
                             ['label' => 'Pesquisadores', 'url' => ['/pesquisador']],
                             ['label' => 'Projetos', 'url' => ['/projeto']],
-                            ['label' => 'Atributos', 'url' => ['/atributo']],
-                            ['label' => 'Tipos de Atributo', 'url' => ['/tipo-atributo']],
+                            ['label' => 'Descritores', 'url' => ['/descritor']],
+                            ['label' => 'Tipos de Descritor', 'url' => ['/tipo-descritor']],
                             ['label' => 'Tipos de Dado', 'url' => ['/tipo-dado']],
                         
                         ], 'visible' => !Yii::$app->user->isGuest],

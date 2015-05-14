@@ -5,29 +5,30 @@ namespace app\models\base;
 use Yii;
 
 /**
- * This is the base-model class for table "Atributo".
+ * This is the base-model class for table "Descritor".
  *
- * @property integer $idAtributo
+ * @property integer $idDescritor
  * @property string $Nome
  * @property integer $idTipoDado
- * @property integer $idTipoAtributo
+ * @property integer $idTipoDescritor
  * @property string $Descricao
  *
- * @property TipoAtributo $idTipoAtributo0
+ * @property TipoDescritor $idTipoDescritor0
  * @property TipoDado $idTipoDado0
- * @property TipoOrganismoHasAtributo[] $tipoOrganismoHasAtributos
+ * @property TipoOrganismoHasDescritor[] $tipoOrganismoHasDescritores
  * @property TipoOrganismo[] $idTipoOrganismos
  */
-class Atributo extends \app\models\MActiveRecord
+class Descritor extends \app\models\MActiveRecord
 {
+
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return 'Atributo';
+        return 'Descritor';
     }
-    
+
     /**
      * @inheritdoc
      */
@@ -42,8 +43,8 @@ class Atributo extends \app\models\MActiveRecord
     public function rules()
     {
         return [
-            [['Nome', 'idTipoDado', 'idTipoAtributo'], 'required'],
-            [['idTipoDado', 'idTipoAtributo'], 'integer'],
+            [['Nome', 'idTipoDado', 'idTipoDescritor'], 'required'],
+            [['idTipoDado', 'idTipoDescritor'], 'integer'],
             [['Descricao'], 'string'],
             [['Nome'], 'string', 'max' => 255]
         ];
@@ -55,10 +56,10 @@ class Atributo extends \app\models\MActiveRecord
     public function attributeLabels()
     {
         return [
-            'idAtributo' => Yii::t('app', 'Id Atributo'),
+            'idDescritor' => Yii::t('app', 'Id Descritor'),
             'Nome' => Yii::t('app', 'Nome'),
             'idTipoDado' => Yii::t('app', 'Id Tipo Dado'),
-            'idTipoAtributo' => Yii::t('app', 'Id Tipo Atributo'),
+            'idTipoDescritor' => Yii::t('app', 'Id Tipo Descritor'),
             'Descricao' => Yii::t('app', 'Descricao'),
         ];
     }
@@ -66,9 +67,9 @@ class Atributo extends \app\models\MActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getIdTipoAtributo0()
+    public function getIdTipoDescritor0()
     {
-        return $this->hasOne(\app\models\TipoAtributo::className(), ['idTipoAtributo' => 'idTipoAtributo']);
+        return $this->hasOne(\app\models\TipoDescritor::className(), ['idTipoDescritor' => 'idTipoDescritor']);
     }
 
     /**
@@ -82,9 +83,9 @@ class Atributo extends \app\models\MActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getTipoOrganismoHasAtributos()
+    public function getTipoOrganismoHasDescritores()
     {
-        return $this->hasMany(\app\models\TipoOrganismoHasAtributo::className(), ['idAtributo' => 'idAtributo']);
+        return $this->hasMany(\app\models\TipoOrganismoHasDescritor::className(), ['idDescritor' => 'idDescritor']);
     }
 
     /**
@@ -92,6 +93,7 @@ class Atributo extends \app\models\MActiveRecord
      */
     public function getIdTipoOrganismos()
     {
-        return $this->hasMany(\app\models\TipoOrganismo::className(), ['idTipoOrganismo' => 'idTipoOrganismo'])->viaTable('TipoOrganismo_has_Atributo', ['idAtributo' => 'idAtributo']);
+        return $this->hasMany(\app\models\TipoOrganismo::className(), ['idTipoOrganismo' => 'idTipoOrganismo'])->viaTable('TipoOrganismo_has_Descritor', ['idDescritor' => 'idDescritor']);
     }
+
 }

@@ -4,22 +4,24 @@ namespace app\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\TipoAtributo;
+use app\models\Descritor;
 
 /**
- * TipoAtributoSearch represents the model behind the search form about TipoAtributo.
+ * DescritorSearch represents the model behind the search form about Descritor.
  */
-class TipoAtributoSearch extends Model
+class DescritorSearch extends Model
 {
-	public $idTipoAtributo;
-	public $Tipo;
+	public $idDescritor;
+	public $Nome;
+	public $idTipoDado;
+	public $idTipoDescritor;
 	public $Descricao;
 
 	public function rules()
 	{
 		return [
-			[['idTipoAtributo'], 'integer'],
-			[['Tipo', 'Descricao'], 'safe'],
+			[['idDescritor', 'idTipoDado', 'idTipoDescritor'], 'integer'],
+			[['Nome', 'Descricao'], 'safe'],
 		];
 	}
 
@@ -29,15 +31,17 @@ class TipoAtributoSearch extends Model
 	public function attributeLabels()
 	{
 		return [
-			'idTipoAtributo' => 'Identificador do Tipo de Atributo',
-			'Tipo' => 'Tipo de Atributo',
-			'Descricao' => 'Descrição',
+			'idDescritor' => 'Id Descritor',
+			'Nome' => 'Nome',
+			'idTipoDado' => 'Id Tipo Dado',
+			'idTipoDescritor' => 'Id Tipo de Descritor',
+			'Descricao' => 'Descricao',
 		];
 	}
 
 	public function search($params)
 	{
-		$query = TipoAtributo::find();
+		$query = Descritor::find();
 		$dataProvider = new ActiveDataProvider([
 			'query' => $query,
 		]);
@@ -47,10 +51,12 @@ class TipoAtributoSearch extends Model
 		}
 
 		$query->andFilterWhere([
-            'idTipoAtributo' => $this->idTipoAtributo,
+            'idDescritor' => $this->idDescritor,
+            'idTipoDado' => $this->idTipoDado,
+            'idTipoDescritor' => $this->idTipoDescritor,
         ]);
 
-		$query->andFilterWhere(['like', 'Tipo', $this->Tipo])
+		$query->andFilterWhere(['like', 'Nome', $this->Nome])
             ->andFilterWhere(['like', 'Descricao', $this->Descricao]);
 
 		return $dataProvider;

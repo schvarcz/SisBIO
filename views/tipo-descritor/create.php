@@ -4,13 +4,13 @@ use yii\helpers\Html;
 
 /**
  * @var yii\web\View $this
- * @var app\models\TipoAtributo $model
+ * @var app\models\TipoDescritor $model
  */
 $this->title = 'Novo';
-$this->params['breadcrumbs'][] = ['label' => 'Tipos de Atributo', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Tipos de Descritor', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="tipo-atributo-create">
+<div class="tipo-descritor-create">
 
     <?php
     echo $this->render('_form', [

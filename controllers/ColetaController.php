@@ -8,7 +8,7 @@ use yii\web\Controller;
 use yii\web\HttpException;
 use app\models\Especie;
 use yii\helpers\Url;
-use app\widgets\AtributosEspecie\AtributosEspecie;
+use app\widgets\DescritoresEspecie\DescritoresEspecie;
 
 /**
  * ColetaController implements the CRUD actions for Coleta model.
@@ -152,13 +152,13 @@ class ColetaController extends Controller
      * @param String $name
      * @return Json the list of models
      */
-    public function actionAddatributosespecie($idEspecie)
+    public function actionAdddescritoresespecie($idEspecie)
     {
         $model = Especie::findOne($idEspecie);
         $out = [];
         if ($model !== null)
         {
-            return AtributosEspecie::widget(["name" => "especie", "model" => $model]);
+            return DescritoresEspecie::widget(["name" => "especie", "model" => $model]);
         }
     }
 

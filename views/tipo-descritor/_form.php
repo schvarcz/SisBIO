@@ -5,12 +5,12 @@ use yii\bootstrap\ActiveForm;
 
 /**
  * @var yii\web\View $this
- * @var app\models\TipoAtributo $model
+ * @var app\models\TipoDescritor $model
  * @var yii\widgets\ActiveForm $form
  */
 ?>
 
-<div class="tipo-atributo-form">
+<div class="tipo-descritor-form">
 
     <?php $form = ActiveForm::begin(['layout' => 'horizontal', 'enableClientValidation' => false]); ?>
 
@@ -30,7 +30,7 @@ use yii\bootstrap\ActiveForm;
                 [
                     'encodeLabels' => false,
                     'items' => [ [
-                            'label' => 'Tipo de Atributo',
+                            'label' => 'Tipo de Descritor',
                             'content' => $this->blocks['main'],
                             'active' => true,
                         ],]

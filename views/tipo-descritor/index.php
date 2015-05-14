@@ -6,20 +6,20 @@ use yii\grid\GridView;
 /**
  * @var yii\web\View $this
  * @var yii\data\ActiveDataProvider $dataProvider
- * @var app\models\TipoAtributoSearch $searchModel
+ * @var app\models\TipoDescritorSearch $searchModel
  */
-$this->title = 'Tipos de Atributo';
+$this->title = 'Tipos de Descritor';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
-<div class="tipo-atributo-index">
+<div class="tipo-descritor-index">
 
     <?php //     echo $this->render('_search', ['model' =>$searchModel]);
     ?>
 
     <div class="clearfix">
         <p class="pull-left">
-            <?= Html::a('<span class="glyphicon glyphicon-plus"></span> Novo Tipo de Atributo', ['create'], ['class' => 'btn btn-success']) ?>
+            <?= Html::a('<span class="glyphicon glyphicon-plus"></span> Novo Tipo de Descritor', ['create'], ['class' => 'btn btn-success']) ?>
         </p>
 
         <div class="pull-right">
@@ -39,9 +39,9 @@ $this->params['breadcrumbs'][] = $this->title;
                             'encodeLabels' => false,
                             'items' => [
                                 [
-                                    'label' => '<i class="glyphicon glyphicon-arrow-right"> Atributo</i>',
+                                    'label' => '<i class="glyphicon glyphicon-arrow-right"> Descritor</i>',
                                     'url' => [
-                                        'atributo/index',
+                                        'descritor/index',
                                     ],
                                 ],
                             ]],
@@ -56,7 +56,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'filterModel' => $searchModel,
         'columns' => [
 
-            'idTipoAtributo',
+            'idTipoDescritor',
             'Tipo',
             'Descricao:ntext',
             [

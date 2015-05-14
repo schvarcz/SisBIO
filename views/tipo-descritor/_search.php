@@ -5,12 +5,12 @@ use yii\widgets\ActiveForm;
 
 /**
  * @var yii\web\View $this
- * @var app\models\TipoAtributoSearch $model
+ * @var app\models\TipoDescritorSearch $model
  * @var yii\widgets\ActiveForm $form
  */
 ?>
 
-<div class="tipo-atributo-search">
+<div class="tipo-descritor-search">
 
     <?php
     $form = ActiveForm::begin([
@@ -19,7 +19,7 @@ use yii\widgets\ActiveForm;
     ]);
     ?>
 
-    <?= $form->field($model, 'idTipoAtributo') ?>
+    <?= $form->field($model, 'idTipoDescritor') ?>
 
     <?= $form->field($model, 'Tipo') ?>
 

@@ -5,23 +5,23 @@ namespace app\models\base;
 use Yii;
 
 /**
- * This is the base-model class for table "TipoOrganismo_has_Atributo".
+ * This is the base-model class for table "TipoOrganismo_has_Descritor".
  *
  * @property integer $idTipoOrganismo
- * @property integer $idAtributo
+ * @property integer $idDescritor
  *
  * @property ColetaItemPropriedade[] $coletaItemPropriedades
  * @property TipoOrganismo $idTipoOrganismo0
- * @property Atributo $idAtributo0
+ * @property Descritor $idDescritor0
  */
-class TipoOrganismoHasAtributo extends \app\models\MActiveRecord
+class TipoOrganismoHasDescritor extends \app\models\MActiveRecord
 {
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return 'TipoOrganismo_has_Atributo';
+        return 'TipoOrganismo_has_Descritor';
     }
     
     /**
@@ -29,7 +29,7 @@ class TipoOrganismoHasAtributo extends \app\models\MActiveRecord
      */
     public function getLabel()
     {
-        return $this->idAtributo;
+        return $this->idDescritor;
     }
 
     /**
@@ -38,8 +38,8 @@ class TipoOrganismoHasAtributo extends \app\models\MActiveRecord
     public function rules()
     {
         return [
-            [['idTipoOrganismo', 'idAtributo'], 'required'],
-            [['idTipoOrganismo', 'idAtributo'], 'integer']
+            [['idTipoOrganismo', 'idDescritor'], 'required'],
+            [['idTipoOrganismo', 'idDescritor'], 'integer']
         ];
     }
 
@@ -50,7 +50,7 @@ class TipoOrganismoHasAtributo extends \app\models\MActiveRecord
     {
         return [
             'idTipoOrganismo' => Yii::t('app', 'Id Tipo Organismo'),
-            'idAtributo' => Yii::t('app', 'Id Atributo'),
+            'idDescritor' => Yii::t('app', 'Id Descritor'),
         ];
     }
 
@@ -59,7 +59,7 @@ class TipoOrganismoHasAtributo extends \app\models\MActiveRecord
      */
     public function getColetaItemPropriedades()
     {
-        return $this->hasMany(\app\models\ColetaItemPropriedade::className(), ['idTipoOrganismo' => 'idTipoOrganismo', 'idAtributo' => 'idAtributo']);
+        return $this->hasMany(\app\models\ColetaItemPropriedade::className(), ['idTipoOrganismo' => 'idTipoOrganismo', 'idDescritor' => 'idDescritor']);
     }
 
     /**
@@ -73,8 +73,8 @@ class TipoOrganismoHasAtributo extends \app\models\MActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getIdAtributo0()
+    public function getIdDescritor0()
     {
-        return $this->hasOne(\app\models\Atributo::className(), ['idAtributo' => 'idAtributo']);
+        return $this->hasOne(\app\models\Descritor::className(), ['idDescritor' => 'idDescritor']);
     }
 }

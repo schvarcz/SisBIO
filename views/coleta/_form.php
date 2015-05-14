@@ -24,7 +24,6 @@ $this->registerJs($script);
 
     <div class="">
         <?php echo $form->errorSummary($model); ?>
-        <?php $this->beginBlock('main'); ?>
 
         <p>
 
@@ -45,6 +44,10 @@ $this->registerJs($script);
             );
             ?>
             <?= $form->field($model, 'coordenadaGeografica')->textInput() ?>
+            
+        </p>
+        
+        <?php $this->beginBlock('individuo'); ?>
         <div class="form-group">
             <label class="control-label col-sm-3">Espécies</label>
             <div class = "col-sm-6">
@@ -84,12 +87,64 @@ $this->registerJs($script);
             <div class = "col-sm-12 coletaItensContainer">
                 <?= Html::hiddenInput("Coleta[coletaItems][][]");?>
                 <?= 
-                    \app\widgets\AtributosEspecie\AtributosEspecie::widget(["name" => "especie", "model" => $model]);
-//                   $form->field($model, 'coletaItems')->widget(\app\widgets\AtributosEspecie\AtributosEspecie::className())->label(false)
+                    \app\widgets\DescritoresEspecie\DescritoresEspecie::widget(["name" => "especie", "model" => $model]);
+//                   $form->field($model, 'coletaItems')->widget(\app\widgets\DescritoresEspecie\DescritoresEspecie::className())->label(false)
                 ?>
             </div>
         </div>
-        </p>
+        <?php $this->endBlock(); ?>
+        
+        <?php $this->beginBlock('comunidade'); ?>
+        <div class="form-group">
+            <label class="control-label col-sm-3">Espécies</label>
+            <div class = "col-sm-6">
+                <?=
+                Select2::widget([
+                    'name' => 'especie_add',
+                    'data' => $data,
+                    'options' => [
+                        'placeholder' => 'Selecione a espécie a ser adicionada',
+                    ],
+                    'pluginOptions' => [
+                        'allowClear' => true,
+                        'minimumInputLength' => 0,
+                        'ajax' => [
+                            'url' => yii\helpers\Url::to(["coleta/findesp"]),
+                            'dataType' => 'json',
+                            'data' => new JsExpression('function(term,page) { return {nomeEspecie:term}; }'),
+                            'results' => new JsExpression('function(data,page) { return {results:data.results}; }'),
+                        ]
+                    ],
+                    'addon' => [
+                        'append' => [
+                            'content' => Html::button('<span class="glyphicon glyphicon-plus"></span>', [
+                                'class' => 'btn btn-primary plus-coleta',
+                                'title' => 'Adiciona espécie a sua coleta',
+                                'data-toggle' => 'tooltip'
+                            ]),
+                            'asButton' => true
+                        ]
+                    ]
+                ]);
+                ?>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class = "col-sm-12 coletaItensContainer">
+                <?= Html::hiddenInput("Coleta[coletaItems][][]");?>
+                <?= 
+                    \app\widgets\DescritoresEspecie\DescritoresEspecie::widget(["name" => "especie", "model" => $model]);
+//                   $form->field($model, 'coletaItems')->widget(\app\widgets\DescritoresEspecie\DescritoresEspecie::className())->label(false)
+                ?>
+            </div>
+        </div>
+        <?php $this->endBlock(); ?>
+        
+        <?php $this->beginBlock('variaveisambientais'); ?>
+        <div class="form-group">
+            <label class="control-label col-sm-3">Variáveis</label>
+        </div>
         <?php $this->endBlock(); ?>
 
         <?=
@@ -97,9 +152,17 @@ $this->registerJs($script);
                 [
                     'encodeLabels' => false,
                     'items' => [ [
-                            'label' => 'Coleta',
-                            'content' => $this->blocks['main'],
+                            'label' => 'Individuo',
+                            'content' => $this->blocks['individuo'],
                             'active' => true,
+                        ],[
+                            'label' => 'Comunidade',
+                            'content' => $this->blocks['comunidade'],
+                            'active' => false,
+                        ],[
+                            'label' => 'Variáveis Ambientais',
+                            'content' => $this->blocks['variaveisambientais'],
+                            'active' => false,
                         ],]
                 ]
         );
