@@ -50,6 +50,11 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
+        if (!\Yii::$app->user->isGuest)
+        {
+            return Yii::$app->getResponse()->redirect(\yii\helpers\Url::to("coleta/index"));
+        }
+        $this->layout = "welcome";
         return $this->render('index');
     }
 

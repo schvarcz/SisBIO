@@ -92,4 +92,18 @@ a.desc:after {
 
 .presentation-1{
     min-height: 400px;
+    font-size:17px;
+}
+
+.parallax-window {
+    background: transparent;
+    position:relative;
+}
+
+.content{
+    background: #efefef;
+    overflow: hidden;
+}
+.window-height .container{
+    margin: 100px auto;
 }
