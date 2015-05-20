@@ -77,14 +77,13 @@ $this->registerJs($script);
             ]);
             ?>
             <?=
-            $form->field($model, 'Data_Coleta')->widget(\zhuravljov\widgets\DateTimePicker::className(), [
+            $form->field($model, 'Data_Coleta')->widget(\app\widgets\DateTime\DateTimePicker::classname(), [ 
                 'options' => ['class' => 'form-control'],
-                'clientOptions' => [
-                    'autoclose' => true,
+                'pluginOptions' => [
+                    'autoclose'=>true,
                     'todayHighlight' => true,
-                ],
-            ])
-            ?>
+                ]
+            ]);?>
             <?= $form->field($model, 'Observacao')->textarea(['rows' => 6]) ?>
             <?= $form->field($model, 'coordenadaGeografica')->textInput() ?>
             

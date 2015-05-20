@@ -45,6 +45,10 @@ $config = [
             // ...
             ],
         ],
+        
+        'formatter' => [
+            'locale' => 'pt-BR'
+       ],
         'db' => require(__DIR__ . '/db.php'),
     ],
     'params' => $params,

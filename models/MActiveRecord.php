@@ -62,34 +62,34 @@ class MActiveRecord extends \yii\db\ActiveRecord
         return $saved;
     }
 
-//    public function beforeSave($event)
-//    {
-//        $owner = $event->sender;
-//        foreach ($this->spatialFields as $field)
-//        {
-//            if (!is_array($owner->$field))
-//                continue;
-//            $type = $this->getTableSchema()->getColumn($field)->dbType;
-//            $lineString = $this->arrayToGeom($owner->$field);
-//            $this->_storedFields[$field] = $owner->$field;
-//            $owner->$field = new \yii\db\Expression("GeomFromText(:data" . $field . ")", array(":data" . $field => $type . '(' . $lineString . ')'));
-//        }
-//        $event->isValid = true;
-//    }
-//
-//    public function afterSave($event)
-//    {
-//        $owner = $event->sender;
-//        foreach ($owner->spatialFields as $field)
-//        {
-//            if (isset($owner->$field))
-//            {
-//                if (isset($this->_storedFields[$field]))
-//                {
-//                    $owner->$field = $this->_storedFields[$field];
-//                }
-//            }
-//        }
-//    }
+    public function beforeSave($event)
+    {
+        $dateFormats = ["date"=>"d/m/Y", "datetime" =>"d/m/Y H:i", "timestamp"=>"d/m/Y H:i"];
+        foreach ($this->attributes as $name => $value)
+        {
+            $type = $this->getTableSchema()->getColumn($name)->dbType;
+            if (isset($dateFormats[$type]))
+            {
+                $date = \DateTime::createFromFormat($dateFormats[$type], $value);
+                $this->$name = $date->format("Y-m-d H:i");
+            }
+        }
+        return parent::beforeSave($event);
+    }
+  
+    public function afterFind()
+    {
+        $dateFormats = ["date"=>"d/m/Y", "datetime" =>"d/m/Y H:i", "timestamp"=>"d/m/Y H:i"];
+        foreach ($this->attributes as $name => $value)
+        {
+            $type = $this->getTableSchema()->getColumn($name)->dbType;
+            if (isset($dateFormats[$type]))
+            {
+                $date = new \DateTime($value);
+                $this->$name = $date->format($dateFormats[$type]);
+            }
+        }
+        parent::afterFind();
+    }
 
 }
