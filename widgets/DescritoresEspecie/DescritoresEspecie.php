@@ -21,6 +21,7 @@ class DescritoresEspecie extends InputWidget
     private $hash;
     private $propCounter = 1;
     public $tipoDescritor = 1;
+    private static $key = 1;
 
     public function init()
     {
@@ -64,7 +65,8 @@ class DescritoresEspecie extends InputWidget
             echo Html::label("&times;",null,["class" => "btn-primary close-btn"]);
             echo Html::endTag("legend");
 
-            $this->hash = md5(rand());
+            $this->hash = md5(time() +DescritoresEspecie::$key);
+            DescritoresEspecie::$key++;
 
             echo Html::activeHiddenInput($coletaItem, "idEspecie", ["name" => $this->getInputName($model, "coletaItems.idEspecie")]);
             foreach($coletaItem->coletaItemPropriedades as $coletaItemProp)
@@ -114,7 +116,7 @@ class DescritoresEspecie extends InputWidget
         $coleta = new Coleta();
         $coletaItem = new ColetaItem();
         $coletaItem->idEspecie = $model;
-        $this->hash = md5(rand());
+        $this->hash = md5(time());
 
         echo Html::activeHiddenInput($coletaItem, "idEspecie", ["name" => $this->getInputName($coleta, "coletaItems.idEspecie")]);
 

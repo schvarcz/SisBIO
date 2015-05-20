@@ -50,6 +50,7 @@ $this->registerJs($script);
                 <?=
                 \app\widgets\GMaps\GMaps::widget([
                     "name" => "map",
+                    "value" => $model->idUnidadeGeografica0->shape,
                     'options' => ['class' => 'form-control maps'],
                     'clientOptions' => [
                         "mapsOptions" => [
