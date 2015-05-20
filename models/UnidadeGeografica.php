@@ -58,4 +58,22 @@ class UnidadeGeografica extends \app\models\base\UnidadeGeografica
         return $query;
     }
 
+    function getShapeAsArray()
+    {
+        $pts = explode(",",substr($this->shape, strpos($this->shape,"((")+2,-2));
+        $ret = [];
+        foreach($pts as $pt)
+        {
+            $pt = explode(" ",$pt);
+            $pt[0] = (float)$pt[0];
+            $pt[1] = (float)$pt[1];
+            $ret[] = $pt;
+        }        
+        return $ret;
+    }
+
+    function getShapeGeometry()
+    {
+        return substr($this->shape,0, strpos($this->shape,"(("));
+    }
 }

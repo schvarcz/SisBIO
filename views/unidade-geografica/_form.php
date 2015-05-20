@@ -52,7 +52,7 @@ use yii\web\JsExpression;
                     'ajax' => [
                         'url' => yii\helpers\Url::to(["unidade-geografica/findug"]),
                         'dataType' => 'json',
-                        'data' => new JsExpression('function(term,page) { return {nomeUnidadeGeografica:term}; }'),
+                        'data' => new JsExpression('function(term,page) { return {nomeUnidadeGeografica:term.term}; }'),
                         'results' => new JsExpression('function(data,page) { return {results:data.results}; }'),
                     ],
                     'initSelection' => true

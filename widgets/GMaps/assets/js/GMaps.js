@@ -84,12 +84,18 @@
             value = value.substring(value.lastIndexOf("(")+1,value.indexOf(")"));
             var points = value.split(",");
             var path = new google.maps.MVCArray();
+            var bounds = new google.maps.LatLngBounds();
             for(var idx in points)
             {
                 var pt = points[idx].split(" ");
-                path.push(new google.maps.LatLng(pt[0],pt[1]));
+                var point = new google.maps.LatLng(pt[0],pt[1]);
+                path.push(point);
+                bounds.extend(point);
             }
             polygon.setPath(path);
+            if (!bounds.isEmpty())
+                map.fitBounds(bounds);
+            
         }
     };
     
@@ -122,6 +128,25 @@
             $(polygon.getMap().getDiv()).prev().change();
             
             return true;
+        },
+        updateMapByArray: function(type,coords){
+            var value = "";
+            for(var idx in coords)
+            {
+                var coord = coords[idx];
+                value += coord[0]+" "+coord[1]+",";
+            }
+            value = value.substr(0,value.length-1);
+            value = type+"(("+value+"))";
+            console.log(value);
+            $(polygon.getMap().getDiv()).prev().val(value);
+            $(polygon.getMap().getDiv()).prev().change();
+            
+            return true;
+        },
+        clear: function(){
+            $(polygon.getMap().getDiv()).prev().val("");
+            $(polygon.getMap().getDiv()).prev().change();
         }
     };
     

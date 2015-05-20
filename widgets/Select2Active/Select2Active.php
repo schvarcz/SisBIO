@@ -19,7 +19,7 @@ class Select2Active extends Select2
         {
             $initConfigs = [
                 "url" => "",
-                "dataName" => "ïd",
+                "dataName" => "id",
                 "returnData" => "data.results"
             ];
             

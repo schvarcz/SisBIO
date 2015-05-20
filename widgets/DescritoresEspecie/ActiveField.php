@@ -6,7 +6,7 @@
  * @author Schvarcz
  */
 
-namespace app\widgets\AtributosEspecie;
+namespace app\widgets\DescritoresEspecie;
 
 use yii\helpers\Html;
 

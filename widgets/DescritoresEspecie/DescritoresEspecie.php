@@ -20,6 +20,7 @@ class DescritoresEspecie extends InputWidget
 
     private $hash;
     private $propCounter = 1;
+    public $tipoDescritor = 1;
 
     public function init()
     {
@@ -54,7 +55,8 @@ class DescritoresEspecie extends InputWidget
      */
     public function editColeta($model)
     {
-        foreach($model->coletaItems as $coletaItem)
+        foreach($model->getColetaItems()->select("ColetaItem.*")->joinWith(
+            "coletaItemPropriedades.idDescritor0",true,"INNER JOIN")->where(["idTipoDescritor" =>$this->tipoDescritor])->all() as $coletaItem)
         {
             echo Html::beginTag("fieldset", ["class" =>"coleta"]);
             echo Html::beginTag("legend");
@@ -62,13 +64,10 @@ class DescritoresEspecie extends InputWidget
             echo Html::label("&times;",null,["class" => "btn-primary close-btn"]);
             echo Html::endTag("legend");
 
-            $this->hash = md5(time());
+            $this->hash = md5(rand());
 
             echo Html::activeHiddenInput($coletaItem, "idEspecie", ["name" => $this->getInputName($model, "coletaItems.idEspecie")]);
             foreach($coletaItem->coletaItemPropriedades as $coletaItemProp)
-//            $descritores = $coletaItem->idEspecie0->idTipoOrganismo->idDescritores;
-//
-//            foreach ($descritores as $descritor)
             {
                 $descritor = $coletaItemProp->idDescritor0;
                 echo Html::beginTag("div",["class" => "form-group"]);
@@ -94,18 +93,12 @@ class DescritoresEspecie extends InputWidget
                         $field->textarea(["name" => $this->getInputName($model, "coletaItems.coletaItemPropriedades.value")]);
                         break;
                 }
-    //            $field->label($descritor->Nome,["class" => "control-label col-sm-2"]);
                 $field->label(false);
                 $this->propCounter++;
                 echo $field;
                 
-//                $field = new ActiveField(["model" => $coletaItemProp, "attribute" => "impossivelColetar"]);
-//                $field->checkbox(["name" => $this->getInputName($model, "coletaItems.coletaItemPropriedades.impossivelColetar")]);
-//                $field->label(false);
-//                echo $field;
                 echo Html::endTag("div");
                 echo Html::endTag("div");
-                //echo $field;
             }
             echo Html::endTag("fieldset");
         }
@@ -121,11 +114,13 @@ class DescritoresEspecie extends InputWidget
         $coleta = new Coleta();
         $coletaItem = new ColetaItem();
         $coletaItem->idEspecie = $model;
-        $this->hash = md5(time());
+        $this->hash = md5(rand());
 
         echo Html::activeHiddenInput($coletaItem, "idEspecie", ["name" => $this->getInputName($coleta, "coletaItems.idEspecie")]);
 
-        $descritores = $model->idTipoOrganismo->idDescritores;
+        $descritores = $model->idTipoOrganismo->getIdDescritores()->where([
+            "idTipoDescritor" => $this->tipoDescritor // PAYATTETION: Descritores Funcionais 
+        ])->all();
 
         foreach ($descritores as $descritor)
         {
@@ -155,13 +150,11 @@ class DescritoresEspecie extends InputWidget
                     $field->textarea(["name" => $this->getInputName($coleta, "coletaItems.coletaItemPropriedades.value")]);
                     break;
             }
-//            $field->label($descritor->Nome,["class" => "control-label col-sm-2"]);
             $field->label(false);
             $this->propCounter++;
             
             echo Html::tag("div",$field,["class" => "col-sm-8"]);
             echo Html::endTag("div");
-            //echo $field;
         }
         echo Html::endTag("fieldset");
     }

@@ -7,6 +7,7 @@ use app\models\ColetaSearch;
 use yii\web\Controller;
 use yii\web\HttpException;
 use app\models\Especie;
+use app\models\TipoOrganismo;
 use yii\helpers\Url;
 use app\widgets\DescritoresEspecie\DescritoresEspecie;
 
@@ -129,22 +130,40 @@ class ColetaController extends Controller
      */
     public function actionFindesp($nomeEspecie = null)
     {
-        $out = [];
-
         if (!is_null($nomeEspecie))
         {
-            $unidades = Especie::find()->where(["like", "NomeComum", $nomeEspecie])->where(["like", "NomeCientifico", $nomeEspecie])->all();
-            $json = [];
-            foreach ($unidades as $especie)
-            {
-                $json[] = ["id" => $especie->primaryKey, "text" => $especie->getLabel()];
-            }
-            $out['results'] = $json;
+            $especies = Especie::find()->where(["like", "NomeComum", $nomeEspecie])->where(["like", "NomeCientifico", $nomeEspecie])->all();
         } else
         {
-            $out['results'] = ['id' => 0, 'text' => 'No matching records found'];
+            $especies = Especie::find()->limit(10)->all();
         }
-        return \yii\helpers\Json::encode($out);
+        $jsonEspecie = [];
+        foreach ($especies as $especie)
+        {
+            $jsonEspecie[] = ["id" => $especie->primaryKey, "text" => $especie->getLabel()];
+        }
+        
+        if (!is_null($nomeEspecie))
+        {
+            $tipoOrganismo = TipoOrganismo::find()->where(["like", "Nome", $nomeEspecie])->all();
+        } else
+        {
+            $tipoOrganismo = TipoOrganismo::find()->limit(10)->all();
+        }
+        $jsonOrganismos = [];
+        foreach ($tipoOrganismo as $organismo)
+        {
+            $jsonOrganismos[] = ["id" => $organismo->primaryKey, "text" => $organismo->getLabel()];
+        }
+        $out = [];
+        
+        if ($jsonEspecie != [])
+            $out[] = ["text"=> "Espécies", "children" => $jsonEspecie];
+            
+        if ($jsonOrganismos != [])
+            $out[] = ["text"=> "Grupo Biológico", "children" => $jsonOrganismos];
+        
+        return \yii\helpers\Json::encode(["results" => $out]);
     }
 
     /**
@@ -152,13 +171,13 @@ class ColetaController extends Controller
      * @param String $name
      * @return Json the list of models
      */
-    public function actionAdddescritoresespecie($idEspecie)
+    public function actionAdddescritoresespecie($tipoDescritor,$idEspecie)
     {
         $model = Especie::findOne($idEspecie);
         $out = [];
         if ($model !== null)
         {
-            return DescritoresEspecie::widget(["name" => "especie", "model" => $model]);
+            return DescritoresEspecie::widget(["name" => "especie", "model" => $model,"tipoDescritor"=>$tipoDescritor]);
         }
     }
 

@@ -124,7 +124,8 @@ class UnidadeGeograficaController extends Controller
 
     /**
      * Finds the UnidadeGeografica model based on its name.
-     * @param String $name
+     * @param String $nomeUnidadeGeografica
+     * @param int $id PK of UnidadeGeografica
      * @return Json the list of models
      */
     public function actionFindug($nomeUnidadeGeografica = null, $id = null)
@@ -145,7 +146,33 @@ class UnidadeGeograficaController extends Controller
             $out['results'] = ['id' => $id, 'text' => UnidadeGeografica::findOne($id)->getLabel()];
         } else
         {
-            $out['results'] = ['id' => 0, 'text' => 'No matching records found'];
+            $unidades = UnidadeGeografica::find()->all();
+            $json = [];
+            foreach ($unidades as $unidade)
+            {
+                $json[] = ["id" => $unidade->primaryKey, "text" => $unidade->getLabel()];
+            }
+            $out['results'] = $json;
+        }
+        return \yii\helpers\Json::encode($out);
+    }
+
+    /**
+     * Retrieve polygon information about the UnidadeGeografica model based on its name.
+     * @param int $id PK of UnidadeGeografica
+     * @return Json the list of models
+     */
+    public function actionUgpolygon($idUnidadeGeografica)
+    {
+        $out = [];
+
+        if ($idUnidadeGeografica > 0)
+        {
+            $ug = UnidadeGeografica::findOne($idUnidadeGeografica);
+            $out['results'] = ["type" => $ug->getShapeGeometry(), "coords" => $ug->getShapeAsArray()];
+        } else
+        {
+            $out['results'] = [];
         }
         return \yii\helpers\Json::encode($out);
     }
