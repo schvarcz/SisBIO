@@ -20,6 +20,7 @@ class Coleta extends \app\models\base\Coleta
             'Observacao' => Yii::t('app', 'Observação'),
             'idUnidadeGeografica' => Yii::t('app', 'Unidade Geográfica'),
             'coordenadaGeografica' => Yii::t('app', 'Coordenada Geográfica'),
+            'idPesquisadores' => Yii::t('app', 'Pesquisadores'),
         ];
     }
 }

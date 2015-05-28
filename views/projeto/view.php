@@ -71,7 +71,7 @@ $this->params['breadcrumbs'][] = 'Detalhes';
 
 
 
-    <?php $this->beginBlock('IdPesquisadors'); ?>
+    <?php $this->beginBlock('IdPesquisadores'); ?>
     <p class='pull-right'>
         <?=
         \yii\helpers\Html::a(
@@ -84,7 +84,7 @@ $this->params['breadcrumbs'][] = 'Detalhes';
         )
         ?>
     </p><div class='clearfix'></div>
-    <?php Pjax::begin(['id' => 'pjax-IdPesquisadors', 'linkSelector' => '#pjax-IdPesquisadors ul.pagination a']) ?>
+    <?php Pjax::begin(['id' => 'pjax-IdPesquisadores', 'linkSelector' => '#pjax-IdPesquisadores ul.pagination a']) ?>
     <?=
     \yii\grid\GridView::widget([
         'dataProvider' => new \yii\data\ActiveDataProvider(['query' => $model->getPesquisadorHasProjetos(), 'pagination' => ['pageSize' => 10]]),
@@ -219,7 +219,7 @@ $this->params['breadcrumbs'][] = 'Detalhes';
                                                 'active' => true,
                                             ], [
                                                 'label' => '<small><span class="glyphicon glyphicon-paperclip"></span> Pesquisadores envolvidos</small>',
-                                                'content' => $this->blocks['IdPesquisadors'],
+                                                'content' => $this->blocks['IdPesquisadores'],
                                                 'active' => false,
                                             ], [
                                                 'label' => '<small><span class="glyphicon glyphicon-paperclip"></span> Unidades geográficas associadas</small>',

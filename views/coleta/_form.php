@@ -18,7 +18,7 @@ $script = <<<END
             container: ".coletaIndividuosContainer",
             inputName: "especie_add",
             ajax: {
-                url: "http://localhost/sisbio/web/coleta/adddescritoresespecie?tipoDescritor=1"
+                url: "http://localhost/sisbio/web/coleta/adddescritor?tipoDescritor=1"
             }
         });
 END;
@@ -30,7 +30,7 @@ $script = <<<END
             inputName: "comunidade_add",
             uniqueWidget:true,
             ajax: {
-                url: "http://localhost/sisbio/web/coleta/adddescritoresespecie?tipoDescritor=2"
+                url: "http://localhost/sisbio/web/coleta/adddescritor?tipoDescritor=2"
             }
         });
 END;
@@ -70,6 +70,23 @@ $this->registerJs($script);
                         'url' => yii\helpers\Url::to(["unidade-geografica/findug"]),
                         'dataType' => 'json',
                         'data' => new JsExpression('function(term,page) { return {nomeUnidadeGeografica:term.term}; }'),
+                        'results' => new JsExpression('function(data,page) { return {results:data.results}; }'),
+                    ],
+                    'initSelection' => true
+                ],
+            ]);
+            ?>
+            <?=
+            $form->field($model, 'idPesquisadores')->widget(\app\widgets\Select2Active\Select2Active::classname(), [
+                'options' => [
+                    "multiple" => true
+                ],
+                'pluginOptions' => [
+                    'allowClear' => true,
+                    'ajax' => [
+                        'url' => yii\helpers\Url::to(["pesquisador/findpesquisador"]),
+                        'dataType' => 'json',
+                        'data' => new JsExpression('function(term,page) { return {pesquisador:term.term}; }'),
                         'results' => new JsExpression('function(data,page) { return {results:data.results}; }'),
                     ],
                     'initSelection' => true
@@ -127,7 +144,6 @@ $this->registerJs($script);
 
         <div class="form-group">
             <div class = "col-sm-12 coletaIndividuosContainer">
-                <?= Html::hiddenInput("Coleta[coletaItems][][]");?>
                 <?= 
                     \app\widgets\DescritoresEspecie\DescritoresEspecie::widget(["name" => "especie", "model" => $model,"tipoDescritor"=>1]);
                 ?>
@@ -174,7 +190,6 @@ $this->registerJs($script);
 
         <div class="form-group">
             <div class = "col-sm-12 coletaComunidadeContainer">
-                <?= Html::hiddenInput("Coleta[coletaItems][][]");?>
                 <?= 
                     \app\widgets\DescritoresEspecie\DescritoresEspecie::widget(["name" => "especie", "model" => $model,"tipoDescritor"=>2]);
                 ?>
@@ -186,6 +201,37 @@ $this->registerJs($script);
         <br/>
         <div class="form-group">
             <label class="control-label col-sm-3">Variáveis</label>
+            <div class = "col-sm-6">
+                <?=
+                Select2::widget([
+                    'name' => 'ambiental_add',
+                    'data' => $data,
+                    'options' => [
+                        'placeholder' => 'Selecione a variável ambiental a ser adicionada',
+                    ],
+                    'pluginOptions' => [
+                        'allowClear' => true,
+                        'minimumInputLength' => 0,
+                        'ajax' => [
+                            'url' => yii\helpers\Url::to(["coleta/findesp"]),
+                            'dataType' => 'json',
+                            'data' => new JsExpression('function(term,page) { return {nomeEspecie:term.term}; }'),
+                            'results' => new JsExpression('function(data,page) { return {results:data.results}; }'),
+                        ]
+                    ],
+                    'addon' => [
+                        'append' => [
+                            'content' => Html::button('<span class="glyphicon glyphicon-plus"></span>', [
+                                'class' => 'btn btn-primary plus-coleta-comunidade',
+                                'title' => 'Adiciona espécie a sua coleta',
+                                'data-toggle' => 'tooltip'
+                            ]),
+                            'asButton' => true
+                        ]
+                    ]
+                ]);
+                ?>
+            </div>
         </div>
         <?php $this->endBlock(); ?>
 

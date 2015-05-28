@@ -18,6 +18,7 @@ use Yii;
  * @property ColetaItem[] $coletaItems
  * @property Genero $idGenero0
  * @property TipoOrganismo $idTipoOrganismo
+ * @property NaoIdentificado[] $naoIdentificados
  */
 class Especie extends \app\models\MActiveRecord
 {
@@ -34,7 +35,7 @@ class Especie extends \app\models\MActiveRecord
      */
     public function getLabel()
     {
-        return $this->NomeCientifico . " - " . $this->NomeComum ;
+        return $this->NomeCientifico;
     }
 
     /**
@@ -88,5 +89,13 @@ class Especie extends \app\models\MActiveRecord
     public function getIdTipoOrganismo()
     {
         return $this->hasOne(\app\models\TipoOrganismo::className(), ['idTipoOrganismo' => 'idTipo_Organismo']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getNaoIdentificados()
+    {
+        return $this->hasMany(\app\models\NaoIdentificado::className(), ['idEspecie' => 'idEspecie']);
     }
 }

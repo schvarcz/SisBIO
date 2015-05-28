@@ -41,6 +41,23 @@ class Select2Active extends Select2
                     return;
                 }
             }
+            if($this->hasModel())
+            {
+                $model = $this->model;
+                $relation = $model->getRelation($this->attribute,false);
+                if($relation->multiple)
+                {
+                    $attr = $this->attribute;
+                    $data = $model->$attr;
+                    $dataR = [];
+                    
+                    foreach( $data as $modelRelation)
+                    {
+                        $dataR[$modelRelation->primaryKey] = $modelRelation->label;
+                    }
+                    $this->data = $dataR;
+                }
+            }
             $initScript = <<< SCRIPT
 function (element, callback) {
     var id=\$(element).val();
@@ -54,7 +71,9 @@ SCRIPT;
 
             $this->pluginOptions['initSelection'] = new \yii\web\JsExpression($initScript);
         }
+        
         parent::init();
+        
     }
 
 }

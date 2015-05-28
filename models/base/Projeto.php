@@ -16,7 +16,7 @@ use Yii;
  * @property string $Descricao
  *
  * @property PesquisadorHasProjeto[] $pesquisadorHasProjetos
- * @property Pesquisador[] $idPesquisadors
+ * @property Pesquisador[] $idPesquisadores
  * @property Pesquisador $idPesquisadorResponsavel0
  * @property UnidadeGeografica[] $unidadeGeograficas
  */
@@ -79,7 +79,7 @@ class Projeto extends \app\models\MActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getIdPesquisadors()
+    public function getIdPesquisadores()
     {
         return $this->hasMany(\app\models\Pesquisador::className(), ['idPesquisador' => 'idPesquisador'])->viaTable('Pesquisador_has_Projeto', ['idProjeto' => 'idProjeto']);
     }

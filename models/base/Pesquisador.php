@@ -18,6 +18,7 @@ use Yii;
  *
  * @property ColetaHasPesquisador[] $coletaHasPesquisadors
  * @property Coleta[] $idColetas
+ * @property NaoIdentificado[] $naoIdentificados
  * @property PesquisadorHasProjeto[] $pesquisadorHasProjetos
  * @property Projeto[] $idProjetos
  * @property Projeto[] $projetos
@@ -86,6 +87,14 @@ class Pesquisador extends \app\models\MActiveRecord
     public function getIdColetas()
     {
         return $this->hasMany(\app\models\Coleta::className(), ['idColeta' => 'idColeta'])->viaTable('Coleta_has_Pesquisador', ['idPesquisador' => 'idPesquisador']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getNaoIdentificados()
+    {
+        return $this->hasMany(\app\models\NaoIdentificado::className(), ['idPesquisadorIdentificacao' => 'idPesquisador']);
     }
 
     /**

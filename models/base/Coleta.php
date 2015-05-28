@@ -16,7 +16,7 @@ use Yii;
  * @property UnidadeGeografica $idUnidadeGeografica0
  * @property ColetaItem[] $coletaItems
  * @property ColetaHasPesquisador[] $coletaHasPesquisadors
- * @property Pesquisador[] $idPesquisadors
+ * @property Pesquisador[] $idPesquisadores
  */
 class Coleta extends \app\models\MActiveRecord
 {
@@ -90,7 +90,7 @@ class Coleta extends \app\models\MActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getIdPesquisadors()
+    public function getIdPesquisadores()
     {
         return $this->hasMany(\app\models\Pesquisador::className(), ['idPesquisador' => 'idPesquisador'])->viaTable('Coleta_has_Pesquisador', ['idColeta' => 'idColeta']);
     }

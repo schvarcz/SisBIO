@@ -8,6 +8,7 @@ use yii\web\Controller;
 use yii\web\HttpException;
 use app\models\Especie;
 use app\models\TipoOrganismo;
+use app\models\NaoIdentificado;
 use yii\helpers\Url;
 use app\widgets\DescritoresEspecie\DescritoresEspecie;
 
@@ -140,7 +141,7 @@ class ColetaController extends Controller
         $jsonEspecie = [];
         foreach ($especies as $especie)
         {
-            $jsonEspecie[] = ["id" => $especie->primaryKey, "text" => $especie->getLabel()];
+            $jsonEspecie[] = ["id" => "E".$especie->primaryKey, "text" => $especie->getLabel()];
         }
         
         if (!is_null($nomeEspecie))
@@ -153,7 +154,7 @@ class ColetaController extends Controller
         $jsonOrganismos = [];
         foreach ($tipoOrganismo as $organismo)
         {
-            $jsonOrganismos[] = ["id" => $organismo->primaryKey, "text" => $organismo->getLabel()];
+            $jsonOrganismos[] = ["id" => "O".$organismo->primaryKey, "text" => $organismo->getLabel()];
         }
         $out = [];
         
@@ -167,11 +168,32 @@ class ColetaController extends Controller
     }
 
     /**
-     * Finds the Éspecie model based on its name.
+     * Finds the Especie model based on its name.
      * @param String $name
      * @return Json the list of models
      */
-    public function actionAdddescritoresespecie($tipoDescritor,$idEspecie)
+    public function actionAdddescritor($tipoDescritor,$primaryKey)
+    {
+        $entidade = $primaryKey[0];
+        $primaryKey[0] = 0;
+        $primaryKey = (int)$primaryKey;
+        if ($entidade == "O")
+            $model = TipoOrganismo::findOne($primaryKey);
+        else
+            $model = Especie::findOne($primaryKey);
+        $out = [];
+        if ($model !== null)
+        {
+            return DescritoresEspecie::widget(["name" => "especie", "model" => $model,"tipoDescritor"=>$tipoDescritor]);
+        }
+    }
+
+    /**
+     * Localiza o model da Variável Ambiental com base no nome.
+     * @param String $name
+     * @return Json Lista de models
+     */
+    public function actionAdddescritoresambiental($tipoDescritor,$idEspecie)
     {
         $model = Especie::findOne($idEspecie);
         $out = [];

@@ -10,9 +10,13 @@ use Yii;
  * @property integer $idColetaItem
  * @property integer $idColeta
  * @property integer $idEspecie
+ * @property integer $idUnidadeGeografica
+ * @property integer $idNaoIdentificado
  *
  * @property Coleta $idColeta0
  * @property Especie $idEspecie0
+ * @property NaoIdentificado $idNaoIdentificado0
+ * @property UnidadeGeografica $idUnidadeGeografica0
  * @property ColetaItemPropriedade[] $coletaItemPropriedades
  */
 class ColetaItem extends \app\models\MActiveRecord
@@ -39,8 +43,8 @@ class ColetaItem extends \app\models\MActiveRecord
     public function rules()
     {
         return [
-            [['idColeta', 'idEspecie'], 'required'],
-            [['idColeta', 'idEspecie'], 'integer']
+            [['idColeta'], 'required'],
+            [['idColeta', 'idEspecie', 'idUnidadeGeografica', 'idNaoIdentificado'], 'integer']
         ];
     }
 
@@ -53,6 +57,8 @@ class ColetaItem extends \app\models\MActiveRecord
             'idColetaItem' => Yii::t('app', 'Id Coleta Item'),
             'idColeta' => Yii::t('app', 'Id Coleta'),
             'idEspecie' => Yii::t('app', 'Id Especie'),
+            'idUnidadeGeografica' => Yii::t('app', 'Id Unidade Geografica'),
+            'idNaoIdentificado' => Yii::t('app', 'Id Nao Identificado'),
         ];
     }
 
@@ -70,6 +76,22 @@ class ColetaItem extends \app\models\MActiveRecord
     public function getIdEspecie0()
     {
         return $this->hasOne(\app\models\Especie::className(), ['idEspecie' => 'idEspecie']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getIdNaoIdentificado0()
+    {
+        return $this->hasOne(\app\models\NaoIdentificado::className(), ['idNaoIdentificado' => 'idNaoIdentificado']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getIdUnidadeGeografica0()
+    {
+        return $this->hasOne(\app\models\UnidadeGeografica::className(), ['idUnidadeGeografica' => 'idUnidadeGeografica']);
     }
 
     /**

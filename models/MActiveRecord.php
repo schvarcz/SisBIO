@@ -23,40 +23,55 @@ class MActiveRecord extends \yii\db\ActiveRecord
             foreach ($data as $dataName => $dataValue)
             {
                 $relation = $this->getRelation($dataName, false);
-                if ($relation && $relation->multiple)
+                if ($relation)
                 {
-                    foreach ($relation->all() as $modelRelation)
+                    if($relation->multiple)
                     {
-                        $this->unlink("$dataName", $modelRelation, true);
-                    }
+                        foreach ($relation->all() as $modelRelation)
+                        {
+                            $this->unlink("$dataName", $modelRelation, true);
+                        }
 
-                    if (is_array($dataValue))
-                        
-                    {
-                        if (is_array($dataValue[array_keys($dataValue)[0]]))
+                        if (is_array($dataValue))
                         {
-                            foreach ($dataValue as $value)
+                            if (is_array($dataValue[array_keys($dataValue)[0]]))
                             {
-                                $modelRelation = new $relation->modelClass;
-                                foreach($relation->link as $keyModel => $keyRelation)
+                                foreach ($dataValue as $value)
                                 {
-                                    $modelRelation->$keyRelation = $this->$keyModel;
+                                    $modelRelation = new $relation->modelClass;
+                                    
+                                    //We dont use $this->link here, because that method save the model in the database and we are not ready to that yet.
+                                    foreach($relation->link as $keyModel => $keyRelation)
+                                    {
+                                        $modelRelation->$keyRelation = $this->$keyModel;
+                                    }
+                                    $modelRelation->saveWithRelated([$modelRelation->formName()=>$value]);
                                 }
-                                $modelRelation->saveWithRelated([$modelRelation->formName()=>$value]);
                             }
-                        }
-                        else
-                        {
-                            foreach ($dataValue as $value)
+                            else
                             {
-                                $modelRelationClass = $relation->modelClass;
-                                $modelRelation = $modelRelationClass::findOne($value);
-                                $this->link("$dataName", $modelRelation);
+                                foreach ($dataValue as $value)
+                                {
+                                    $modelRelationClass = $relation->modelClass;
+                                    $modelRelation = $modelRelationClass::findOne($value);
+                                    $this->link("$dataName", $modelRelation);
+                                }
                             }
                         }
+                    }
+                    elseif (is_array($dataValue))
+                    {
+                        if($this->$dataName != null)
+                            $modelRelation = $this->$dataName;
+                        else
+                            $modelRelation = new $relation->modelClass;
+                        $modelRelation->saveWithRelated([$modelRelation->formName()=>$dataValue]);
+                        $this->link("$dataName", $modelRelation);
                     }
                 }
             }
+//            if ($this->className() == "app\models\Coleta")
+//            exit();
             return true;
         }
         return $saved;
@@ -67,11 +82,14 @@ class MActiveRecord extends \yii\db\ActiveRecord
         $dateFormats = ["date"=>"d/m/Y", "datetime" =>"d/m/Y H:i", "timestamp"=>"d/m/Y H:i"];
         foreach ($this->attributes as $name => $value)
         {
-            $type = $this->getTableSchema()->getColumn($name)->dbType;
-            if (isset($dateFormats[$type]))
+            if($value)
             {
-                $date = \DateTime::createFromFormat($dateFormats[$type], $value);
-                $this->$name = $date->format("Y-m-d H:i");
+                $type = $this->getTableSchema()->getColumn($name)->dbType;
+                if (isset($dateFormats[$type]))
+                {
+                    $date = \DateTime::createFromFormat($dateFormats[$type], $value);
+                        $this->$name = $date->format("Y-m-d H:i");
+                }
             }
         }
         return parent::beforeSave($event);
@@ -82,11 +100,14 @@ class MActiveRecord extends \yii\db\ActiveRecord
         $dateFormats = ["date"=>"d/m/Y", "datetime" =>"d/m/Y H:i", "timestamp"=>"d/m/Y H:i"];
         foreach ($this->attributes as $name => $value)
         {
-            $type = $this->getTableSchema()->getColumn($name)->dbType;
-            if (isset($dateFormats[$type]))
+            if($value)
             {
-                $date = new \DateTime($value);
-                $this->$name = $date->format($dateFormats[$type]);
+                $type = $this->getTableSchema()->getColumn($name)->dbType;
+                if (isset($dateFormats[$type]))
+                {
+                    $date = new \DateTime($value);
+                    $this->$name = $date->format($dateFormats[$type]);
+                }
             }
         }
         parent::afterFind();

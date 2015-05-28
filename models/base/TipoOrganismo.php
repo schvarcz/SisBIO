@@ -12,6 +12,7 @@ use Yii;
  * @property string $Descricao
  *
  * @property Especie[] $especies
+ * @property NaoIdentificado[] $naoIdentificados
  * @property TipoOrganismoHasDescritor[] $tipoOrganismoHasDescritores
  * @property Descritor[] $idDescritores
  */
@@ -63,6 +64,14 @@ class TipoOrganismo extends \app\models\MActiveRecord
     public function getEspecies()
     {
         return $this->hasMany(\app\models\Especie::className(), ['idTipo_Organismo' => 'idTipoOrganismo']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getNaoIdentificados()
+    {
+        return $this->hasMany(\app\models\NaoIdentificado::className(), ['idTipoOrganismo' => 'idTipoOrganismo']);
     }
 
     /**

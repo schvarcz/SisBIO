@@ -4,7 +4,7 @@
     var settings = {
         container: ".coletaItensContainer",
         inputName: "especie_add",
-        postVar: "idEspecie",
+        postVar: "primaryKey",
         uniqueWidget: false,
         ajax: {
             url: "http://localhost/sisbio/web/coleta/adddescritoresespecie"
@@ -65,6 +65,7 @@
                 opacity:1,
                 height: height
             });
+            $data.find('[data-toggle="popover"]').popover();
         }
     };
     
