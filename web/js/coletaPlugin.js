@@ -7,7 +7,7 @@
         postVar: "primaryKey",
         uniqueWidget: false,
         ajax: {
-            url: "http://localhost/sisbio/web/coleta/adddescritoresespecie"
+            url: "http://localhost/SisBIO/web/coleta/adddescritoresespecie"
         }
     };
     var settingsInstance = {};

@@ -6,7 +6,7 @@
                 $(".maps").gmaps("clear");
             else
                 $.ajax({
-                    url: "http://localhost/sisbio/web/unidade-geografica/ugpolygon",
+                    url: "http://localhost/SisBIO/web/unidade-geografica/ugpolygon",
                     dataType: "json",
                     data: "idUnidadeGeografica="+$(this).val(),
                     success: function(data){
