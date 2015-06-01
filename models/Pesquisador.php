@@ -6,10 +6,23 @@ use Yii;
 
 /**
  * This is the model class for table "Pesquisador".
+ * 
+ * @property UploadedFile $photo 
  */
 class Pesquisador extends \app\models\base\Pesquisador
 {
+    public $photo;
 
+    /**
+     * @inheritdoc
+     */
+    public function rules()
+    {
+        return array_merge(parent::rules(),
+                [
+            [['photo'], 'file']
+        ]);
+    }
     /**
      * @inheritdoc
      */
@@ -23,6 +36,7 @@ class Pesquisador extends \app\models\base\Pesquisador
             'login' => Yii::t('app', 'Login'),
             'senha' => Yii::t('app', 'Senha'),
             'foto' => Yii::t('app', 'Foto'),
+            'photo' => Yii::t('app', 'Foto'),
             'Resumo' => Yii::t('app', 'Resumo'),
         ];
     }

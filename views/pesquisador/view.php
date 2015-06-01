@@ -29,7 +29,9 @@ $this->params['breadcrumbs'][] = 'Detalhes';
 
 
     <h3>
-        <?= $model->label ?>    </h3>
+        <?= $model->label ?>    
+    </h3>
+    <?= Html::img(yii\helpers\Url::to([$model->foto]),["class"=>"img-thumbnail img-responsive","style"=>"width:360px"]); ?>
 
 
     <?php $this->beginBlock('app\models\Pesquisador'); ?>
@@ -38,7 +40,6 @@ $this->params['breadcrumbs'][] = 'Detalhes';
     echo DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'foto',
             'idPesquisador',
             'Nome',
             'email:email',
