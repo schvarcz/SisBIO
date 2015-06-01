@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
+use kartik\widgets\FileInput;
 
 /**
 * @var yii\web\View $this
@@ -20,12 +21,28 @@ use yii\bootstrap\ActiveForm;
 
         <p>
             
+                        <?php
+                            // Multiple file/image selection with image only preview
+                            // Note for multiple file upload, the attribute name must be appended with 
+                            // `[]` for PHP to be able to read an array of files
+                            echo $form->field($model, 'foto')->widget(FileInput::classname(), [
+                                'options' => [ 'accept' => 'image/*'],
+                                'pluginOptions' => [
+                                    'previewFileType' => 'image',
+        'showCaption' => false,
+        'showRemove' => true,
+        'showUpload' => false
+                                    ]
+                            ]);
+                        ?>
 			<?= $form->field($model, 'Nome')->textInput(['maxlength' => 255]) ?>
 			<?= $form->field($model, 'foto')->textInput(['maxlength' => 255]) ?>
 			<?= $form->field($model, 'email')->textInput(['maxlength' => 255]) ?>
-			<?= $form->field($model, 'lattes')->textInput(['maxlength' => 255]) ?>
-			<?= $form->field($model, 'senha')->textInput(['maxlength' => 255]) ?>
-			<?= $form->field($model, 'login')->textInput(['maxlength' => 45]) ?>
+                        <?= $form->field($model, 'lattes')->textInput(['maxlength' => 255]) ?>
+			<?php
+//			<= $form->field($model, 'senha')->textInput(['maxlength' => 255]) >
+//			<= $form->field($model, 'login')->textInput(['maxlength' => 45]) >
+                        ?>
 			<?= $form->field($model, 'Resumo')->textarea(['rows' => 6]) ?>
         </p>
         <?php $this->endBlock(); ?>
