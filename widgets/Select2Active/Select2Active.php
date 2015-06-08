@@ -51,9 +51,15 @@ class Select2Active extends Select2
                     $data = $model->$attr;
                     $dataR = [];
                     
-                    foreach( $data as $modelRelation)
+                    foreach($data as $modelRelation)
                     {
                         $dataR[$modelRelation->primaryKey] = $modelRelation->label;
+                    }
+                    if ($dataR == [])
+                    {
+                        unset($this->pluginOptions['initSelection']);
+                        parent::init();
+                        return;
                     }
                     $this->data = $dataR;
                 }
@@ -61,7 +67,7 @@ class Select2Active extends Select2
             $initScript = <<< SCRIPT
 function (element, callback) {
     var id=\$(element).val();
-    if (id !== "") {
+    if (id !== "" && id != null) {
         \$.ajax("{$initConfigs["url"]}?{$initConfigs["dataName"]}=" + id, {
             dataType: "json"
         }).done(function(data) { callback({$initConfigs["returnData"]});});
