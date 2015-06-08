@@ -9,6 +9,7 @@ use yii\web\HttpException;
 use app\models\Especie;
 use app\models\TipoOrganismo;
 use app\models\NaoIdentificado;
+use app\models\Descritor;
 use yii\helpers\Url;
 use app\widgets\DescritoresEspecie\DescritoresEspecie;
 
@@ -168,6 +169,29 @@ class ColetaController extends Controller
     }
 
     /**
+     * Finds the Descritor model based on its name.
+     * @param String $name
+     * @return Json the list of models
+     */
+    public function actionFindvariavelambiental($nomeDescritor = null)
+    {
+
+        if (!is_null($nomeDescritor))
+        {
+            $descritores = Descritor::find()->where(["like", "Nome", $nomeDescritor])->andWhere(["idTipoDescritor" => 3])->all();
+        } else
+        {
+            $descritores = Descritor::find()->where(["idTipoDescritor" => 3])->limit(10)->all();
+        }
+        $json = [];
+        foreach ($descritores as $descritor)
+        {
+            $json[] = ["id" => $descritor->primaryKey, "text" => $descritor->getLabel()];
+        }
+        return \yii\helpers\Json::encode(["results" => $json]);
+    }
+
+    /**
      * Finds the Especie model based on its name.
      * @param String $name
      * @return Json the list of models
@@ -193,13 +217,13 @@ class ColetaController extends Controller
      * @param String $name
      * @return Json Lista de models
      */
-    public function actionAdddescritoresambiental($tipoDescritor,$idEspecie)
+    public function actionAdddescritoresambiental($tipoDescritor,$primaryKey)
     {
-        $model = Especie::findOne($idEspecie);
-        $out = [];
+        $model = Descritor::findOne($primaryKey);
+        
         if ($model !== null)
         {
-            return DescritoresEspecie::widget(["name" => "especie", "model" => $model,"tipoDescritor"=>$tipoDescritor]);
+            return DescritoresEspecie::widget(["name" => "variavel-ambiental", "model" => $model,"tipoDescritor"=>$tipoDescritor]);
         }
     }
 

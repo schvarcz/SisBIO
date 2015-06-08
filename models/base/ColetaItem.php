@@ -16,7 +16,6 @@ use Yii;
  * @property Coleta $idColeta0
  * @property Especie $idEspecie0
  * @property NaoIdentificado $idNaoIdentificado0
- * @property UnidadeGeografica $idUnidadeGeografica0
  * @property ColetaItemPropriedade[] $coletaItemPropriedades
  */
 class ColetaItem extends \app\models\MActiveRecord
@@ -44,7 +43,7 @@ class ColetaItem extends \app\models\MActiveRecord
     {
         return [
             [['idColeta'], 'required'],
-            [['idColeta', 'idEspecie', 'idUnidadeGeografica', 'idNaoIdentificado'], 'integer']
+            [['idColeta', 'idEspecie', 'idNaoIdentificado'], 'integer']
         ];
     }
 
@@ -85,15 +84,7 @@ class ColetaItem extends \app\models\MActiveRecord
     {
         return $this->hasOne(\app\models\NaoIdentificado::className(), ['idNaoIdentificado' => 'idNaoIdentificado']);
     }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getIdUnidadeGeografica0()
-    {
-        return $this->hasOne(\app\models\UnidadeGeografica::className(), ['idUnidadeGeografica' => 'idUnidadeGeografica']);
-    }
-
+    
     /**
      * @return \yii\db\ActiveQuery
      */

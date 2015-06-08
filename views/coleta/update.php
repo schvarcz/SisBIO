@@ -7,9 +7,9 @@ use yii\helpers\Html;
  * @var app\models\Coleta $model
  */
 
-$this->title = 'Coleta Update ' . $model->idColeta . '';
+$this->title = 'Editar Coleta ' . $model->label . '';
 $this->params['breadcrumbs'][] = ['label' => 'Coletas', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => (string)$model->idColeta, 'url' => ['view', 'idColeta' => $model->idColeta]];
+$this->params['breadcrumbs'][] = ['label' => (string)$model->label, 'url' => ['view', 'idColeta' => $model->idColeta]];
 $this->params['breadcrumbs'][] = 'Editar';
 ?>
 <div class="coleta-update">

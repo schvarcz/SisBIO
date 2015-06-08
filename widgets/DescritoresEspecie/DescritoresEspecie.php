@@ -16,6 +16,7 @@ use app\models\Especie;
 use app\models\TipoOrganismo;
 use app\models\ColetaItemPropriedade;
 use app\models\NaoIdentificado;
+use app\models\Descritor;
 use app\widgets\DescritoresEspecie\ActiveField;
 
 class DescritoresEspecie extends InputWidget
@@ -39,16 +40,16 @@ class DescritoresEspecie extends InputWidget
         {
             $this->newFieldSetTipoOrganismo($model);
         }
+        elseif ($model instanceof Descritor)
+        {
+            $this->newFieldSetDescritor($model);
+        }
         elseif($model instanceof Coleta)
         {
             $this->editColeta($model);
         }
         
     }
-    
-    /************
-     * TODO: Probably, the next three methods cand be done in one.
-     * ***/
 
     /**
      * Generates an appropriate input name for the specified attribute name or expression.
@@ -72,12 +73,12 @@ class DescritoresEspecie extends InputWidget
         {
             echo Html::beginTag("fieldset", ["class" =>"coleta"]);
             echo Html::beginTag("legend");
-            if ($coletaItem->idEspecie0 == null)
-            {
-                $modelItem = $coletaItem->idNaoIdentificado0;
-            }
-            else
+            if ($coletaItem->idEspecie0 != null)
                 $modelItem = $coletaItem->idEspecie0;
+            elseif($coletaItem->idNaoIdentificado0 != null)
+                $modelItem = $coletaItem->idNaoIdentificado0;
+            else
+                $modelItem = $coletaItem->coletaItemPropriedades[0]->idDescritor0;
             
             echo Html::label($modelItem->getLabel());
             echo Html::label("&times;",null,["class" => "btn-primary close-btn"]);
@@ -91,39 +92,13 @@ class DescritoresEspecie extends InputWidget
             foreach($coletaItem->coletaItemPropriedades as $coletaItemProp)
             {
                 $descritor = $coletaItemProp->idDescritor0;
-                echo Html::beginTag("div",["class" => "form-group"]);
-
-                echo Html::activeHiddenInput($coletaItemProp, "idDescritor", ["name" => $this->getInputName($model, "coletaItems.coletaItemPropriedades.idDescritor")]);
-
-                echo Html::label($descritor->Nome,null, ["class" => "control-label col-sm-2"]);
-                echo Html::beginTag("div",["class" => "col-sm-8"]);
-                $field = new ActiveField(["model" => $coletaItemProp, "attribute" => "value"]);
-                switch ($descritor->idTipoDado)
-                {
-                    case 1:
-                        $field->textInput(["name" => $this->getInputName($model, "coletaItems.coletaItemPropriedades.value")]);
-                        break;
-                    case 2:
-                        $field->textInput(["name" => $this->getInputName($model, "coletaItems.coletaItemPropriedades.value")]);
-                        break;
-                    case 3:
-                        $field->textInput(["name" => $this->getInputName($model, "coletaItems.coletaItemPropriedades.value")]);
-                        break;
-                    case 4:
-                        $field->textarea(["name" => $this->getInputName($model, "coletaItems.coletaItemPropriedades.value")]);
-                        break;
-                }
-                $field->label(false);
-                $this->propCounter++;
-                echo $field;
                 
-                echo Html::endTag("div");
-                echo Html::endTag("div");
+                $this->generateDescritorField($model,$coletaItemProp,$descritor);
+                
             }
             echo Html::endTag("fieldset");
         }
     }
-    
     
     
     /**
@@ -154,32 +129,9 @@ class DescritoresEspecie extends InputWidget
             $coletaItemProp = new ColetaItemPropriedade([
                 "idDescritor" => $descritor,
             ]);
-            echo Html::beginTag("div",["class" => "form-group"]);
-
-            echo Html::activeHiddenInput($coletaItemProp, "idDescritor", ["name" => $this->getInputName($coleta, "coletaItems.coletaItemPropriedades.idDescritor")]);
-
-            echo Html::label($descritor->Nome,null, ["class" => "control-label col-sm-2"]);
-            $field = new ActiveField(["model" => $coletaItemProp, "attribute" => "value"]);
-            switch ($descritor->idTipoDado)
-            {
-                case 1:
-                    $field->textInput(["name" => $this->getInputName($coleta, "coletaItems.coletaItemPropriedades.value")]);
-                    break;
-                case 2:
-                    $field->textInput(["name" => $this->getInputName($coleta, "coletaItems.coletaItemPropriedades.value")]);
-                    break;
-                case 3:
-                    $field->textInput(["name" => $this->getInputName($coleta, "coletaItems.coletaItemPropriedades.value")]);
-                    break;
-                case 4:
-                    $field->textarea(["name" => $this->getInputName($coleta, "coletaItems.coletaItemPropriedades.value")]);
-                    break;
-            }
-            $field->label(false);
-            $this->propCounter++;
             
-            echo Html::tag("div",$field,["class" => "col-sm-8"]);
-            echo Html::endTag("div");
+            $this->generateDescritorField($coleta,$coletaItemProp,$descritor);
+            
         }
         echo Html::endTag("fieldset");
     }
@@ -211,7 +163,6 @@ class DescritoresEspecie extends InputWidget
         $naoIdentificado->idTipoOrganismo = $model;
         $this->hash = md5(time());
 
-        //echo Html::activeHiddenInput($coletaItem, "idNaoIdentificado", ["name" => $this->getInputName($coleta, "coletaItems.idNaoIdentificado")]);
         echo Html::activeHiddenInput($naoIdentificado, "idTipoOrganismo", ["name" => $this->getInputName($coleta, "coletaItems.idNaoIdentificado0.idTipoOrganismo")]);
 
         $descritores = $model->getIdDescritores()->where([
@@ -223,34 +174,67 @@ class DescritoresEspecie extends InputWidget
             $coletaItemProp = new ColetaItemPropriedade([
                 "idDescritor" => $descritor,
             ]);
-            echo Html::beginTag("div",["class" => "form-group"]);
-
-            echo Html::activeHiddenInput($coletaItemProp, "idDescritor", ["name" => $this->getInputName($coleta, "coletaItems.coletaItemPropriedades.idDescritor")]);
-
-            echo Html::label($descritor->Nome,null, ["class" => "control-label col-sm-2"]);
-            $field = new ActiveField(["model" => $coletaItemProp, "attribute" => "value"]);
-            switch ($descritor->idTipoDado)
-            {
-                case 1:
-                    $field->textInput(["name" => $this->getInputName($coleta, "coletaItems.coletaItemPropriedades.value")]);
-                    break;
-                case 2:
-                    $field->textInput(["name" => $this->getInputName($coleta, "coletaItems.coletaItemPropriedades.value")]);
-                    break;
-                case 3:
-                    $field->textInput(["name" => $this->getInputName($coleta, "coletaItems.coletaItemPropriedades.value")]);
-                    break;
-                case 4:
-                    $field->textarea(["name" => $this->getInputName($coleta, "coletaItems.coletaItemPropriedades.value")]);
-                    break;
-            }
-            $field->label(false);
-            $this->propCounter++;
             
-            echo Html::tag("div",$field,["class" => "col-sm-8"]);
-            echo Html::endTag("div");
+            $this->generateDescritorField($coleta,$coletaItemProp,$descritor);
+            
         }
         echo Html::endTag("fieldset");
+    }
+    
+    
+    /**
+     * @param TipoOrganismo $model the model object
+     * @return string the generated input name
+     */
+    public function newFieldSetDescritor($model)
+    {
+        echo Html::beginTag("fieldset", ["class" =>"coleta"]);
+        echo Html::beginTag("legend");
+        echo Html::label($model->getLabel());
+        echo Html::label("&times;",null,["class" => "btn-primary close-btn"]);
+        echo Html::endTag("legend");
+
+        $this->hash = md5(time());
+
+
+        $coleta = new Coleta();
+        $coletaItemProp = new ColetaItemPropriedade([
+            "idDescritor" => $model,
+        ]);
+
+        $this->generateDescritorField($coleta,$coletaItemProp,$model);
+            
+        echo Html::endTag("fieldset");
+    }
+    
+    
+    public function generateDescritorField($coleta,$coletaItemProp,$descritor){
+        echo Html::beginTag("div",["class" => "form-group"]);
+
+        echo Html::activeHiddenInput($coletaItemProp, "idDescritor", ["name" => $this->getInputName($coleta, "coletaItems.coletaItemPropriedades.idDescritor")]);
+
+        echo Html::label($descritor->Nome,null, ["class" => "control-label col-sm-2"]);
+        $field = new ActiveField(["model" => $coletaItemProp, "attribute" => "value"]);
+        switch ($descritor->idTipoDado)
+        {
+            case 1:
+                $field->textInput(["name" => $this->getInputName($coleta, "coletaItems.coletaItemPropriedades.value")]);
+                break;
+            case 2:
+                $field->textInput(["name" => $this->getInputName($coleta, "coletaItems.coletaItemPropriedades.value")]);
+                break;
+            case 3:
+                $field->textInput(["name" => $this->getInputName($coleta, "coletaItems.coletaItemPropriedades.value")]);
+                break;
+            case 4:
+                $field->textarea(["name" => $this->getInputName($coleta, "coletaItems.coletaItemPropriedades.value")]);
+                break;
+        }
+        $field->label(false);
+        $this->propCounter++;
+
+        echo Html::tag("div",$field,["class" => "col-sm-8"]);
+        echo Html::endTag("div");
     }
     
     

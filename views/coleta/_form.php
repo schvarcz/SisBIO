@@ -35,6 +35,19 @@ $script = <<<END
         });
 END;
 $this->registerJs($script);
+
+$script = <<<END
+        jQuery(".plus-coleta-ambiental").coletaPlus({
+            container: ".coletaAmbientalContainer",
+            inputName: "ambiental_add",
+            uniqueWidget:true,
+            uniqueId: "#coletaitempropriedade-iddescritor",
+            ajax: {
+                url: "http://localhost/SisBIO/web/coleta/adddescritoresambiental?tipoDescritor=3"
+            }
+        });
+END;
+$this->registerJs($script);
 ?>
 
 <div class="coleta-form">
@@ -213,16 +226,16 @@ $this->registerJs($script);
                         'allowClear' => true,
                         'minimumInputLength' => 0,
                         'ajax' => [
-                            'url' => yii\helpers\Url::to(["coleta/findesp"]),
+                            'url' => yii\helpers\Url::to(["coleta/findvariavelambiental"]),
                             'dataType' => 'json',
-                            'data' => new JsExpression('function(term,page) { return {nomeEspecie:term.term}; }'),
+                            'data' => new JsExpression('function(term,page) { return {nomeDescritor:term.term}; }'),
                             'results' => new JsExpression('function(data,page) { return {results:data.results}; }'),
                         ]
                     ],
                     'addon' => [
                         'append' => [
                             'content' => Html::button('<span class="glyphicon glyphicon-plus"></span>', [
-                                'class' => 'btn btn-primary plus-coleta-comunidade',
+                                'class' => 'btn btn-primary plus-coleta-ambiental',
                                 'title' => 'Adiciona espécie a sua coleta',
                                 'data-toggle' => 'tooltip'
                             ]),
@@ -230,6 +243,13 @@ $this->registerJs($script);
                         ]
                     ]
                 ]);
+                ?>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class = "col-sm-12 coletaAmbientalContainer">
+                <?= 
+                    \app\widgets\DescritoresEspecie\DescritoresEspecie::widget(["name" => "variavel-ambiental", "model" => $model,"tipoDescritor"=>3]);
                 ?>
             </div>
         </div>

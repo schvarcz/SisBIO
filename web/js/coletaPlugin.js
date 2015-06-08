@@ -6,6 +6,7 @@
         inputName: "especie_add",
         postVar: "primaryKey",
         uniqueWidget: false,
+        uniqueId: "#coletaitem-idespecie",
         ajax: {
             url: "http://localhost/SisBIO/web/coleta/adddescritoresespecie"
         }
@@ -22,7 +23,7 @@
             var id = $("select[name="+set.inputName+"]").val();
             if(set.uniqueWidget)
             {
-                var $exist = $(set.container).find("#coletaitem-idespecie[value="+id+"]");
+                var $exist = $(set.container).find(set.uniqueId+"[value="+(isNaN(parseInt(id))?id.substr(1):id)+"]");
                 if ($exist.size() != 0)
                 {
                     $exist.parents("fieldset").animate({
