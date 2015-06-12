@@ -37,6 +37,23 @@ use yii\web\JsExpression;
             ]);
             ?>
             <?=
+            $form->field($model, 'idPesquisadores')->widget(\app\widgets\Select2Active\Select2Active::classname(), [
+                'options' => [
+                    "multiple" => true
+                ],
+                'pluginOptions' => [
+                    'allowClear' => true,
+                    'ajax' => [
+                        'url' => yii\helpers\Url::to(["pesquisador/findpesquisador"]),
+                        'dataType' => 'json',
+                        'data' => new JsExpression('function(term,page) { return {pesquisador:term.term}; }'),
+                        'results' => new JsExpression('function(data,page) { return {results:data.results}; }'),
+                    ],
+                    'initSelection' => true
+                ],
+            ]);
+            ?>
+            <?=
             $form->field($model, 'Data_Inicio')->widget(\app\widgets\DateTime\DateTimePicker::classname(), [ 
                 'options' => ['class' => 'form-control'],
                 'pluginOptions' => [
@@ -52,8 +69,8 @@ use yii\web\JsExpression;
                     'todayHighlight' => true,
                 ]
             ]);?>
-        <?= $form->field($model, 'ativo')->checkbox() ?>
         <?= $form->field($model, 'Descricao')->textarea(['rows' => 6]) ?>
+        <?= $form->field($model, 'ativo')->checkbox() ?>
         </p>
         <?php $this->endBlock(); ?>
 
