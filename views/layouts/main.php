@@ -38,6 +38,7 @@ AppAsset::register($this);
                 'items' => [
                     ['label' => 'Home', 'url' => ['/site/index']],
                     ['label' => '+ Coleta', 'url' => ['/coleta'], 'visible' => !Yii::$app->user->isGuest],
+                    ['label' => 'Não Identificados', 'url' => ['/nao-identificado'], 'visible' => !Yii::$app->user->isGuest],
                     ['label' => 'Unidade Geográfica', 'url' => ['/unidade-geografica'], 'visible' => !Yii::$app->user->isGuest],
                     ['label' => 'Tipos de Organimo', 'url' => ['/tipo-organismo'], 'visible' => !Yii::$app->user->isGuest],
                     ['label' => 'Taxonomia', 'items' => [

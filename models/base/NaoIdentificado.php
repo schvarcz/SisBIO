@@ -75,6 +75,14 @@ class NaoIdentificado extends \app\models\MActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
+    public function getColetas()
+    {
+        return $this->hasMany(\app\models\Coleta::className(), ['idColeta' => 'idColeta'])->viaTable('ColetaItem', ['idNaoIdentificado' => 'idNaoIdentificado']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
     public function getIdEspecie0()
     {
         return $this->hasOne(\app\models\Especie::className(), ['idEspecie' => 'idEspecie']);

@@ -112,4 +112,40 @@ class EspecieController extends Controller
 			throw new HttpException(404, 'The requested page does not exist.');
 		}
 	}
+        
+
+        /**
+         * Finds the Especie model based on its name.
+         * @param String $nomeEspecie
+         * @param int $id PK of Especie
+         * @return Json the list of models
+         */
+        public function actionFindespecie($nomeEspecie = null, $id = null)
+        {
+            $out = [];
+
+            if (!is_null( $nomeEspecie ))
+            {
+                $especies = Especie::find()->where(["like", "Nome", $nomeEspecie])->all();
+                $json = [];
+                foreach ($especies as $especie)
+                {
+                    $json[] = ["id" => $especie->primaryKey, "text" => $especie->getLabel()];
+                }
+                $out['results'] = $json;
+            } elseif ($id > 0)
+            {
+                $out['results'] = ['id' => $id, 'text' => Especie::findOne($id)->getLabel()];
+            } else
+            {
+                $especies = Especie::find()->all();
+                $json = [];
+                foreach ($especies as $especie)
+                {
+                    $json[] = ["id" => $especie->primaryKey, "text" => $especie->getLabel()];
+                }
+                $out['results'] = $json;
+            }
+            return \yii\helpers\Json::encode($out);
+        }
 }
