@@ -8,6 +8,8 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use app\models\Pesquisador;
+use yii\web\HttpException;
 
 class SiteController extends Controller
 {
@@ -69,6 +71,30 @@ class SiteController extends Controller
             return $this->render('login', [
                         'model' => $model,
             ]);
+        }
+    }
+
+    public function actionActive($authKey)
+    {
+        if (!\Yii::$app->user->isGuest)
+        {
+            return $this->goHome();
+        }
+        $model = Pesquisador::findOne(["authKey"=>$authKey]);
+        if ($model->load(Yii::$app->request->post()) && $model->save())
+        {
+            return $this->redirect("login");
+        }
+        
+        if($model)
+        {
+            return $this->render('active', [
+                        'model' => $model,
+            ]);
+        }
+        else
+        {
+            throw new HttpException(404,"Chame de autenticação de conta não encontrada.");
         }
     }
 

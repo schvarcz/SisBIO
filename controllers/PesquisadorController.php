@@ -6,8 +6,6 @@ use app\models\Pesquisador;
 use app\models\PesquisadorSearch;
 use yii\web\Controller;
 use yii\web\HttpException;
-use yii\filters\VerbFilter;
-use yii\filters\AccessControl;
 use yii\helpers\Url;
 
 /**
@@ -58,6 +56,8 @@ class PesquisadorController extends Controller
         {
             if ($model->load($_POST) && $model->save())
             {
+                if (isset($_REQUEST["invite"]))
+                    $model->generateAuthKey();
                 return $this->redirect(Url::previous());
             } elseif (!\Yii::$app->request->isPost)
             {
@@ -80,7 +80,9 @@ class PesquisadorController extends Controller
     public function actionUpdate($idPesquisador)
     {
         $model = $this->findModel($idPesquisador);
-
+        
+        if (isset($_REQUEST["invite"]))
+            $model->generateAuthKey();
         if ($model->load($_POST) && $model->save())
         {
             return $this->redirect(Url::previous());
@@ -89,6 +91,22 @@ class PesquisadorController extends Controller
             return $this->render('update', [
                         'model' => $model,
             ]);
+        }
+    }
+
+    /**
+     * Invite a Pesquisador and generate a rescpecive token.
+     * If update is successful, the browser will be redirected to the 'view' page.
+     * @param integer $id
+     * @return mixed
+     */
+    public function actionInvite($idPesquisador)
+    {
+        $model = $this->findModel($idPesquisador);
+
+        if ($model->generateAuthKey())
+        {
+            return $this->redirect(Url::previous());
         }
     }
 

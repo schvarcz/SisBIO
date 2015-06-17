@@ -25,9 +25,17 @@ class Pesquisador extends \app\models\base\Pesquisador implements \yii\web\Ident
             'Resumo' => Yii::t('app', 'Resumo'),
         ];
     }
+    
+    public function beforeSave($event) {
+        if($this->senha != $this->oldAttributes["senha"])
+        {
+            $this->senha = md5($this->senha);
+            $this->authKey = Null;
+        }
+        return parent::beforeSave($event);
+    }
 
-
-    /**
+        /**
      * @inheritdoc
      */
     public static function findIdentity($id)
@@ -70,7 +78,7 @@ class Pesquisador extends \app\models\base\Pesquisador implements \yii\web\Ident
      */
     public function getAuthKey()
     {
-        return $this->authKey;
+        return md5($this->primaryKey.time()); //$this->authKey;
     }
 
     /**
@@ -102,6 +110,15 @@ class Pesquisador extends \app\models\base\Pesquisador implements \yii\web\Ident
     public function validatePassword($password)
     {
         return $this->senha === md5($password);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function generateAuthKey()
+    {
+        $this->authKey = $this->getAuthKey();
+        return $this->save();
     }
 
 }

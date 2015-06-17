@@ -19,6 +19,12 @@ $this->params['breadcrumbs'][] = 'Detalhes';
     <p class='pull-left'>
         <?= Html::a('<span class="glyphicon glyphicon-pencil"></span> Editar', ['update', 'idPesquisador' => $model->idPesquisador], ['class' => 'btn btn-info'])
         ?>
+        <?php
+        if ($model->senha == null)
+            echo Html::a('<span class="glyphicon glyphicon-certificate"></span> Enviar convite ao sistema', ['invite', 'idPesquisador' => $model->idPesquisador], ['class' => 'btn btn-info']);
+        else
+            echo Html::a('<span class="glyphicon glyphicon-certificate"></span> Resetar senha', ['invite', 'idPesquisador' => $model->idPesquisador], ['class' => 'btn btn-info']);
+        ?>
         <?= Html::a('<span class="glyphicon glyphicon-plus"></span> Novo Pesquisador', ['create'], ['class' => 'btn
         btn-success']) ?>
     </p>

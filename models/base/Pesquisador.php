@@ -11,7 +11,7 @@ use Yii;
  * @property string $Nome
  * @property string $email
  * @property string $lattes
- * @property string $login
+ * @property string $authKey
  * @property string $senha
  * @property string $foto
  * @property string $Resumo
@@ -51,8 +51,7 @@ class Pesquisador extends \app\models\MActiveRecord
             [['Nome', 'email'], 'required'],
             [['Resumo'], 'string'],
             [['Nome', 'email', 'lattes', 'senha', 'foto'], 'string', 'max' => 255],
-            [['login'], 'string', 'max' => 45],
-            [['lattes'], 'unique']
+            [['authKey'], 'string', 'max' => 32]
         ];
     }
 
@@ -66,7 +65,7 @@ class Pesquisador extends \app\models\MActiveRecord
             'Nome' => Yii::t('app', 'Nome'),
             'email' => Yii::t('app', 'Email'),
             'lattes' => Yii::t('app', 'Lattes'),
-            'login' => Yii::t('app', 'Login'),
+            'authKey' => Yii::t('app', 'Auth Key'),
             'senha' => Yii::t('app', 'Senha'),
             'foto' => Yii::t('app', 'Foto'),
             'Resumo' => Yii::t('app', 'Resumo'),
