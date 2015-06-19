@@ -25,6 +25,27 @@ return [
                 ],
             ],
         ],
+        'urlManager' => [
+            'baseURl' => 'http://localhost/sisbio/web',
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
+            'enableStrictParsing' => false,
+            'rules' => [
+            // ...
+            ],
+        ],
+        'mailer' => [
+            'class' => 'yii\swiftmailer\Mailer',
+            'useFileTransport' => false,
+            'transport' => [
+                'class' => 'Swift_SmtpTransport',
+                'host' => 'smtp.mandrillapp.com', // e.g. smtp.mandrillapp.com or smtp.gmail.com
+                'username' => 'guilhermfrancosi@gmail.com',
+                'password' => 'rMJz8X3uZDMJYNaz82EjBQ',
+                'port' => '587', // Port 25 is a very common port too
+                'encryption' => 'tls', // It is often used, check your provider or mail server specs
+            ],
+        ],
         'db' => $db,
     ],
     'params' => $params,

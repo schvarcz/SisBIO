@@ -15,10 +15,12 @@ use Yii;
  * @property string $senha
  * @property string $foto
  * @property string $Resumo
+ * @property integer $idCronTask
  *
  * @property ColetaHasPesquisador[] $coletaHasPesquisadors
  * @property Coleta[] $idColetas
  * @property NaoIdentificado[] $naoIdentificados
+ * @property CronTask $idCronTask0
  * @property PesquisadorHasProjeto[] $pesquisadorHasProjetos
  * @property Projeto[] $idProjetos
  * @property Projeto[] $projetos
@@ -50,6 +52,7 @@ class Pesquisador extends \app\models\MActiveRecord
         return [
             [['Nome', 'email'], 'required'],
             [['Resumo'], 'string'],
+            [['idCronTask'], 'integer'],
             [['Nome', 'email', 'lattes', 'senha', 'foto'], 'string', 'max' => 255],
             [['authKey'], 'string', 'max' => 32]
         ];
@@ -69,6 +72,7 @@ class Pesquisador extends \app\models\MActiveRecord
             'senha' => Yii::t('app', 'Senha'),
             'foto' => Yii::t('app', 'Foto'),
             'Resumo' => Yii::t('app', 'Resumo'),
+            'idCronTask' => Yii::t('app', 'Id Cron Task'),
         ];
     }
 
@@ -94,6 +98,14 @@ class Pesquisador extends \app\models\MActiveRecord
     public function getNaoIdentificados()
     {
         return $this->hasMany(\app\models\NaoIdentificado::className(), ['idPesquisadorIdentificacao' => 'idPesquisador']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getIdCronTask0()
+    {
+        return $this->hasOne(\app\models\CronTask::className(), ['idCronTask' => 'idCronTask']);
     }
 
     /**

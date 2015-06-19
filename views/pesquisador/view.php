@@ -1,9 +1,13 @@
 <?php
 
 use yii\helpers\Html;
-use yii\grid\GridView;
 use yii\widgets\DetailView;
 use yii\widgets\Pjax;
+use kartik\growl\GrowlAsset;
+use kartik\base\AnimateAsset;
+
+GrowlAsset::register($this);
+AnimateAsset::register($this);
 
 /**
  * @var yii\web\View $this
@@ -13,6 +17,21 @@ $this->title = 'Pesquisador ' . $model->label . '';
 $this->params['breadcrumbs'][] = ['label' => 'Pesquisadores', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => (string) $model->label, 'url' => ['view', 'idPesquisador' => $model->idPesquisador]];
 $this->params['breadcrumbs'][] = 'Detalhes';
+$url = yii\helpers\Url::to(['invite-reset', 'idPesquisador' => $model->idPesquisador]);
+$js = <<<eof
+$.ajax({
+    url: "$url",
+    success:function(data){
+        $.notify({
+            message: 'Email enviado com sucesso!'
+        },{
+            type: 'success',
+            offset:{y:70,x:20},
+            z_index:1029
+        });
+    }
+});
+eof;
 ?>
 <div class="pesquisador-view">
 
@@ -21,9 +40,9 @@ $this->params['breadcrumbs'][] = 'Detalhes';
         ?>
         <?php
         if ($model->senha == null)
-            echo Html::a('<span class="glyphicon glyphicon-certificate"></span> Enviar convite ao sistema', ['invite', 'idPesquisador' => $model->idPesquisador], ['class' => 'btn btn-info']);
+            echo Html::a('<span class="glyphicon glyphicon-certificate"></span> Enviar convite ao sistema', ['invite-reset', 'idPesquisador' => $model->idPesquisador], ['class' => 'btn btn-info', 'onclick' => $js]);
         else
-            echo Html::a('<span class="glyphicon glyphicon-certificate"></span> Resetar senha', ['invite', 'idPesquisador' => $model->idPesquisador], ['class' => 'btn btn-info']);
+            echo Html::a('<span class="glyphicon glyphicon-certificate"></span> Resetar senha', null, ['onclick'=>$js, 'class' => 'btn btn-info']);
         ?>
         <?= Html::a('<span class="glyphicon glyphicon-plus"></span> Novo Pesquisador', ['create'], ['class' => 'btn
         btn-success']) ?>

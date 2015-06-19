@@ -100,13 +100,18 @@ class PesquisadorController extends Controller
      * @param integer $id
      * @return mixed
      */
-    public function actionInvite($idPesquisador)
+    public function actionInviteReset($idPesquisador)
     {
         $model = $this->findModel($idPesquisador);
-
+        
+        if($model->senha != null)
+            $model->idCronTask = 2; //Resetar senha
+        else
+            $model->idCronTask = 1; //Enviar convite
+        
         if ($model->generateAuthKey())
         {
-            return $this->redirect(Url::previous());
+            //return $this->redirect(Url::previous());
         }
     }
 
