@@ -15,12 +15,13 @@ class ColetaSearch extends Model
 	public $Data_Coleta;
 	public $Observacao;
 	public $idUnidadeGeografica;
+	public $idMetodo;
 	public $coordenadaGeografica;
 
 	public function rules()
 	{
 		return [
-			[['idColeta', 'idUnidadeGeografica'], 'integer'],
+			[['idColeta', 'idUnidadeGeografica', 'idMetodo'], 'integer'],
 			[['Data_Coleta', 'Observacao', 'coordenadaGeografica'], 'safe'],
 		];
 	}
@@ -31,11 +32,12 @@ class ColetaSearch extends Model
 	public function attributeLabels()
 	{
 		return [
-			'idColeta' => 'Id Coleta',
-			'Data_Coleta' => 'Data  Coleta',
-			'Observacao' => 'Observacao',
-			'idUnidadeGeografica' => 'Id Unidade Geografica',
-			'coordenadaGeografica' => 'Coordenada Geografica',
+			'idColeta' => 'Identificador da Coleta',
+			'Data_Coleta' => 'Data da Coleta',
+			'Observacao' => 'Observação',
+			'idUnidadeGeografica' => 'Unidade Geográfica',
+			'idMetodo' => 'Método de Coleta',
+			'coordenadaGeografica' => 'Coordenada Geográfica',
 		];
 	}
 
@@ -54,6 +56,7 @@ class ColetaSearch extends Model
             'idColeta' => $this->idColeta,
             'Data_Coleta' => $this->Data_Coleta,
             'idUnidadeGeografica' => $this->idUnidadeGeografica,
+            'idMetodo' => $this->idMetodo,
         ]);
 
 		$query->andFilterWhere(['like', 'Observacao', $this->Observacao])

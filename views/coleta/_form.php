@@ -68,7 +68,7 @@ $this->registerJs($script);
                     'clientOptions' => [
                         "mapsOptions" => [
                             "zoom" => 8,
-                            "center" => [-30.0393227, -51.2325482]
+                            "center" => $model->idUnidadeGeografica0?$model->idUnidadeGeografica0->getShapeCenter():[-30.0393227, -51.2325482]
                         ]
                     ]
                 ]);
@@ -83,6 +83,21 @@ $this->registerJs($script);
                         'url' => yii\helpers\Url::to(["unidade-geografica/findug"]),
                         'dataType' => 'json',
                         'data' => new JsExpression('function(term,page) { return {nomeUnidadeGeografica:term.term}; }'),
+                        'results' => new JsExpression('function(data,page) { return {results:data.results}; }'),
+                    ],
+                    'initSelection' => true
+                ],
+            ]);
+            ?>
+            <?=
+            $form->field($model, 'idMetodo')->widget(\app\widgets\Select2Active\Select2Active::classname(), [
+                'options' => ['placeholder' => 'Método de coleta'],
+                'pluginOptions' => [
+                    'allowClear' => true,
+                    'ajax' => [
+                        'url' => yii\helpers\Url::to(["metodo/findmetodo"]),
+                        'dataType' => 'json',
+                        'data' => new JsExpression('function(term,page) { return {nomeMetodo:term.term}; }'),
                         'results' => new JsExpression('function(data,page) { return {results:data.results}; }'),
                     ],
                     'initSelection' => true

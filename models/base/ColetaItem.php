@@ -10,7 +10,6 @@ use Yii;
  * @property integer $idColetaItem
  * @property integer $idColeta
  * @property integer $idEspecie
- * @property integer $idUnidadeGeografica
  * @property integer $idNaoIdentificado
  *
  * @property Coleta $idColeta0
@@ -56,7 +55,6 @@ class ColetaItem extends \app\models\MActiveRecord
             'idColetaItem' => Yii::t('app', 'Id Coleta Item'),
             'idColeta' => Yii::t('app', 'Id Coleta'),
             'idEspecie' => Yii::t('app', 'Id Especie'),
-            'idUnidadeGeografica' => Yii::t('app', 'Id Unidade Geografica'),
             'idNaoIdentificado' => Yii::t('app', 'Id Nao Identificado'),
         ];
     }
@@ -84,7 +82,7 @@ class ColetaItem extends \app\models\MActiveRecord
     {
         return $this->hasOne(\app\models\NaoIdentificado::className(), ['idNaoIdentificado' => 'idNaoIdentificado']);
     }
-    
+
     /**
      * @return \yii\db\ActiveQuery
      */

@@ -11,8 +11,10 @@ use Yii;
  * @property string $Data_Coleta
  * @property string $Observacao
  * @property integer $idUnidadeGeografica
+ * @property integer $idMetodo
  * @property string $coordenadaGeografica
  *
+ * @property Metodo $idMetodo0
  * @property UnidadeGeografica $idUnidadeGeografica0
  * @property ColetaItem[] $coletaItems
  * @property ColetaHasPesquisador[] $coletaHasPesquisadors
@@ -45,7 +47,7 @@ class Coleta extends \app\models\MActiveRecord
             [['Data_Coleta', 'idUnidadeGeografica'], 'required'],
             [['Data_Coleta'], 'safe'],
             [['Observacao', 'coordenadaGeografica'], 'string'],
-            [['idUnidadeGeografica'], 'integer']
+            [['idUnidadeGeografica', 'idMetodo'], 'integer']
         ];
     }
 
@@ -59,8 +61,17 @@ class Coleta extends \app\models\MActiveRecord
             'Data_Coleta' => Yii::t('app', 'Data  Coleta'),
             'Observacao' => Yii::t('app', 'Observacao'),
             'idUnidadeGeografica' => Yii::t('app', 'Id Unidade Geografica'),
+            'idMetodo' => Yii::t('app', 'Id Metodo'),
             'coordenadaGeografica' => Yii::t('app', 'Coordenada Geografica'),
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getIdMetodo0()
+    {
+        return $this->hasOne(\app\models\Metodo::className(), ['idMetodo' => 'idMetodo']);
     }
 
     /**
@@ -94,7 +105,7 @@ class Coleta extends \app\models\MActiveRecord
     {
         return $this->hasMany(\app\models\Pesquisador::className(), ['idPesquisador' => 'idPesquisador'])->viaTable('Coleta_has_Pesquisador', ['idColeta' => 'idColeta']);
     }
-    
+        
     /**
      * @return \yii\db\ActiveQuery
      */

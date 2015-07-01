@@ -16,13 +16,10 @@ use Yii;
  * @property integer $idUnidadeGeograficaPai
  *
  * @property Coleta[] $coletas
- * @property ColetaItem[] $coletaItems
  * @property Pesquisador $idPesquisador0
  * @property Projeto $idProjeto0
  * @property UnidadeGeografica $idUnidadeGeograficaPai0
  * @property UnidadeGeografica[] $unidadeGeograficas
- * @property UnidadeGeograficaHasDescritor[] $unidadeGeograficaHasDescritores
- * @property Descritor[] $idDescritores
  */
 class UnidadeGeografica extends \app\models\MActiveRecord
 {
@@ -83,14 +80,6 @@ class UnidadeGeografica extends \app\models\MActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getColetaItems()
-    {
-        return $this->hasMany(\app\models\ColetaItem::className(), ['idUnidadeGeografica' => 'idUnidadeGeografica']);
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
     public function getIdPesquisador0()
     {
         return $this->hasOne(\app\models\Pesquisador::className(), ['idPesquisador' => 'idPesquisador']);
@@ -118,21 +107,5 @@ class UnidadeGeografica extends \app\models\MActiveRecord
     public function getUnidadeGeograficas()
     {
         return $this->hasMany(\app\models\UnidadeGeografica::className(), ['idUnidadeGeograficaPai' => 'idUnidadeGeografica']);
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getUnidadeGeograficaHasDescritores()
-    {
-        return $this->hasMany(\app\models\UnidadeGeograficaHasDescritor::className(), ['idUnidadeGeografica' => 'idUnidadeGeografica']);
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getIdDescritores()
-    {
-        return $this->hasMany(\app\models\Descritor::className(), ['idDescritor' => 'idDescritor'])->viaTable('UnidadeGeografica_has_Descritor', ['idUnidadeGeografica' => 'idUnidadeGeografica']);
     }
 }

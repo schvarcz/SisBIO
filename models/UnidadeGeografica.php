@@ -71,6 +71,23 @@ class UnidadeGeografica extends \app\models\base\UnidadeGeografica
         }        
         return $ret;
     }
+    
+    function getShapeCenter()
+    {
+        $pts = $this->getShapeAsArray();
+        $center = [0, 0];
+        foreach($pts as $pt)
+        {
+            $center[0] += $pt[0];
+            $center[1] += $pt[1];
+        }
+        
+        $len = count($pts);
+        $center[0] /= $len;
+        $center[1] /= $len;
+
+        return $center;
+    }
 
     function getShapeGeometry()
     {

@@ -9,10 +9,6 @@ use Yii;
  *
  * @property integer $idTipoOrganismo
  * @property integer $idDescritor
- *
- * @property ColetaItemPropriedade[] $coletaItemPropriedades
- * @property TipoOrganismo $idTipoOrganismo0
- * @property Descritor $idDescritor0
  */
 class TipoOrganismoHasDescritor extends \app\models\MActiveRecord
 {
@@ -52,29 +48,5 @@ class TipoOrganismoHasDescritor extends \app\models\MActiveRecord
             'idTipoOrganismo' => Yii::t('app', 'Id Tipo Organismo'),
             'idDescritor' => Yii::t('app', 'Id Descritor'),
         ];
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getColetaItemPropriedades()
-    {
-        return $this->hasMany(\app\models\ColetaItemPropriedade::className(), ['idTipoOrganismo' => 'idTipoOrganismo', 'idDescritor' => 'idDescritor']);
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getIdTipoOrganismo0()
-    {
-        return $this->hasOne(\app\models\TipoOrganismo::className(), ['idTipoOrganismo' => 'idTipoOrganismo']);
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getIdDescritor0()
-    {
-        return $this->hasOne(\app\models\Descritor::className(), ['idDescritor' => 'idDescritor']);
     }
 }
