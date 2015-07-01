@@ -79,6 +79,31 @@ return [
 ];
 ```
 
+Edit the file `config/console.php` with real data, for example:
+
+```php
+...
+
+    'mailer' => [
+        'class' => 'yii\swiftmailer\Mailer',
+        'useFileTransport' => false,
+        'transport' => [
+            'class' => 'Swift_SmtpTransport',
+            'host' => 'smtp.mandrillapp.com', // e.g. smtp.mandrillapp.com or smtp.gmail.com
+            'username' => 'your@mail.com',
+            'password' => 'password',
+            'port' => '587', // Port 25 is a very common port too
+            'encryption' => 'tls', // It is often used, check your provider or mail server specs
+        ],
+    ],
+...
+```
+
+And add a job to send the invitation mails at your crontab:
+```
+*	*	*	*	*	/usr/bin/php /path/to/webserver/SisBIO/yii mail-sender-cron
+```
+
 **NOTE:** Yii won't create the database for you, this has to be done manually before you can access it.
 
 Also check and edit the other files in the `config/` directory to customize your application.
