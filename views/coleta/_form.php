@@ -4,6 +4,9 @@ use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 use yii\web\JsExpression;
 use kartik\select2\Select2;
+use yii\bootstrap\Modal;
+use yii\bootstrap\Button;
+use yii\bootstrap\Collapse;
 
 /**
  * @var yii\web\View $this
@@ -59,81 +62,82 @@ $this->registerJs($script);
 
         <p>
 
-            <div class="form-group ">
-                <?=
-                \app\widgets\GMaps\GMaps::widget([
-                    "name" => "map",
-                    "value" => $model->idUnidadeGeografica0->shape,
-                    'options' => ['class' => 'form-control maps'],
-                    'clientOptions' => [
-                        "mapsOptions" => [
-                            "zoom" => 8,
-                            "center" => $model->idUnidadeGeografica0?$model->idUnidadeGeografica0->getShapeCenter():[-30.0393227, -51.2325482]
-                        ]
+        <div class="form-group ">
+            <?=
+            \app\widgets\GMaps\GMaps::widget([
+                "name" => "map",
+                "value" => $model->idUnidadeGeografica0->shape,
+                'options' => ['class' => 'form-control maps'],
+                'clientOptions' => [
+                    "mapsOptions" => [
+                        "zoom" => 8,
+                        "center" => $model->idUnidadeGeografica0 ? $model->idUnidadeGeografica0->getShapeCenter() : [-30.0393227, -51.2325482]
                     ]
-                ]);
-                ?>
-            </div>
-            <?=
-            $form->field($model, 'idUnidadeGeografica')->widget(\app\widgets\Select2Active\Select2Active::classname(), [
-                'options' => ['placeholder' => 'Nome da unidade geográfica'],
-                'pluginOptions' => [
-                    'allowClear' => true,
-                    'ajax' => [
-                        'url' => yii\helpers\Url::to(["unidade-geografica/findug"]),
-                        'dataType' => 'json',
-                        'data' => new JsExpression('function(term,page) { return {nomeUnidadeGeografica:term.term}; }'),
-                        'results' => new JsExpression('function(data,page) { return {results:data.results}; }'),
-                    ],
-                    'initSelection' => true
-                ],
-            ]);
-            ?>
-            <?=
-            $form->field($model, 'idMetodo')->widget(\app\widgets\Select2Active\Select2Active::classname(), [
-                'options' => ['placeholder' => 'Método de coleta'],
-                'pluginOptions' => [
-                    'allowClear' => true,
-                    'ajax' => [
-                        'url' => yii\helpers\Url::to(["metodo/findmetodo"]),
-                        'dataType' => 'json',
-                        'data' => new JsExpression('function(term,page) { return {nomeMetodo:term.term}; }'),
-                        'results' => new JsExpression('function(data,page) { return {results:data.results}; }'),
-                    ],
-                    'initSelection' => true
-                ],
-            ]);
-            ?>
-            <?=
-            $form->field($model, 'idPesquisadores')->widget(\app\widgets\Select2Active\Select2Active::classname(), [
-                'options' => [
-                    "multiple" => true
-                ],
-                'pluginOptions' => [
-                    'allowClear' => true,
-                    'ajax' => [
-                        'url' => yii\helpers\Url::to(["pesquisador/findpesquisador"]),
-                        'dataType' => 'json',
-                        'data' => new JsExpression('function(term,page) { return {pesquisador:term.term}; }'),
-                        'results' => new JsExpression('function(data,page) { return {results:data.results}; }'),
-                    ],
-                    'initSelection' => true
-                ],
-            ]);
-            ?>
-            <?=
-            $form->field($model, 'Data_Coleta')->widget(\app\widgets\DateTime\DateTimePicker::classname(), [ 
-                'options' => ['class' => 'form-control'],
-                'pluginOptions' => [
-                    'autoclose'=>true,
-                    'todayHighlight' => true,
                 ]
-            ]);?>
-            <?= $form->field($model, 'Observacao')->textarea(['rows' => 6]) ?>
-            <?= $form->field($model, 'coordenadaGeografica')->textInput() ?>
-            
+            ]);
+            ?>
+        </div>
+        <?=
+        $form->field($model, 'idUnidadeGeografica')->widget(\app\widgets\Select2Active\Select2Active::classname(), [
+            'options' => ['placeholder' => 'Nome da unidade geográfica'],
+            'pluginOptions' => [
+                'allowClear' => true,
+                'ajax' => [
+                    'url' => yii\helpers\Url::to(["unidade-geografica/findug"]),
+                    'dataType' => 'json',
+                    'data' => new JsExpression('function(term,page) { return {nomeUnidadeGeografica:term.term}; }'),
+                    'results' => new JsExpression('function(data,page) { return {results:data.results}; }'),
+                ],
+                'initSelection' => true
+            ],
+        ]);
+        ?>
+        <?=
+        $form->field($model, 'idMetodo')->widget(\app\widgets\Select2Active\Select2Active::classname(), [
+            'options' => ['placeholder' => 'Método de coleta'],
+            'pluginOptions' => [
+                'allowClear' => true,
+                'ajax' => [
+                    'url' => yii\helpers\Url::to(["metodo/findmetodo"]),
+                    'dataType' => 'json',
+                    'data' => new JsExpression('function(term,page) { return {nomeMetodo:term.term}; }'),
+                    'results' => new JsExpression('function(data,page) { return {results:data.results}; }'),
+                ],
+                'initSelection' => true
+            ],
+        ]);
+        ?>
+        <?=
+        $form->field($model, 'idPesquisadores')->widget(\app\widgets\Select2Active\Select2Active::classname(), [
+            'options' => [
+                "multiple" => true
+            ],
+            'pluginOptions' => [
+                'allowClear' => true,
+                'ajax' => [
+                    'url' => yii\helpers\Url::to(["pesquisador/findpesquisador"]),
+                    'dataType' => 'json',
+                    'data' => new JsExpression('function(term,page) { return {pesquisador:term.term}; }'),
+                    'results' => new JsExpression('function(data,page) { return {results:data.results}; }'),
+                ],
+                'initSelection' => true
+            ],
+        ]);
+        ?>
+        <?=
+        $form->field($model, 'Data_Coleta')->widget(\app\widgets\DateTime\DateTimePicker::classname(), [
+            'options' => ['class' => 'form-control'],
+            'pluginOptions' => [
+                'autoclose' => true,
+                'todayHighlight' => true,
+            ]
+        ]);
+        ?>
+        <?= $form->field($model, 'Observacao')->textarea(['rows' => 6]) ?>
+        <?= $form->field($model, 'coordenadaGeografica')->textInput() ?>
+
         </p>
-        
+
         <?php $this->beginBlock('individuo'); ?>
         <br/>
         <div class="form-group">
@@ -171,14 +175,48 @@ $this->registerJs($script);
         </div>
 
         <div class="form-group">
+
+            <label class="control-label col-sm-3"></label>
+            <?php
+            Modal::begin([
+                'header' => '<h2>Atributos funcionais</h2>',
+                'toggleButton' => ['label' => '<div class = "col-sm-6">Atributos funcionais que serão informados.</div>', 'tag' => 'a'],
+                'footer' => Button::widget([
+                    'label' => 'Atualizar',
+                    'clientEvents' => [
+                        'click' => "function(e) { }"
+                    ],
+                    'options' => [
+                        'class' => 'btn-primary',
+                        'data-dismiss' => 'modal'
+            ]]),
+            ]);
+            echo Html::tag("h5", "Selecionar todos os atributos que irá informar. ");
+
+            $organismos = \app\models\TipoOrganismo::find()->all();
+            $items= [];
+            foreach ($organismos as $organismo) {
+                $items[] =[
+                    "label" =>  $organismo->label,
+                    "content"=> Html::checkboxList("Atributos", null, \yii\helpers\ArrayHelper::map($organismo->getIdDescritores()->andWhere(["idTipoDescritor" => 1,])->all(), 'idDescritor', 'label'))
+                ];
+            }
+
+            echo Collapse::widget([
+                'items' => $items   
+            ]);
+            Modal::end();
+            ?>
+        </div>
+        <div class="form-group">
             <div class = "col-sm-12 coletaIndividuosContainer">
-                <?= 
-                    \app\widgets\DescritoresEspecie\DescritoresEspecie::widget(["name" => "especie", "model" => $model,"tipoDescritor"=>1]);
+                <?=
+                \app\widgets\DescritoresEspecie\DescritoresEspecie::widget(["name" => "especie", "model" => $model, "tipoDescritor" => 1]);
                 ?>
             </div>
         </div>
         <?php $this->endBlock(); ?>
-        
+
         <?php $this->beginBlock('comunidade'); ?>
         <br/>
         <div class="form-group">
@@ -216,15 +254,50 @@ $this->registerJs($script);
             </div>
         </div>
 
+
+        <div class="form-group">
+
+            <label class="control-label col-sm-3"></label>
+            <?php
+            Modal::begin([
+                'header' => '<h2>Atributos de comunidade</h2>',
+                'toggleButton' => ['label' => '<div class = "col-sm-6">Atributos de comunidade que serão informados.</div>', 'tag' => 'a'],
+                'footer' => Button::widget([
+                    'label' => 'Atualizar',
+                    'clientEvents' => [
+                        'click' => "function(e) {}"
+                    ],
+                    'options' => [
+                        'class' => 'btn-primary',
+                        'data-dismiss' => 'modal'
+            ]]),
+            ]);
+            echo Html::tag("h5", "Selecionar todos os atributos que irá informar. ");
+
+            $items= [];
+            foreach ($organismos as $organismo) {
+                $items[] =[
+                    "label" =>  $organismo->label,
+                    "content"=> Html::checkboxList("Atributos", null, \yii\helpers\ArrayHelper::map($organismo->getIdDescritores()->andWhere(["idTipoDescritor" => 2,])->all(), 'idDescritor', 'label'))
+                    ];
+            }
+            
+            echo Collapse::widget([
+                'items' => $items   
+            ]);
+            Modal::end();
+            ?>
+        </div>
+
         <div class="form-group">
             <div class = "col-sm-12 coletaComunidadeContainer">
-                <?= 
-                    \app\widgets\DescritoresEspecie\DescritoresEspecie::widget(["name" => "especie", "model" => $model,"tipoDescritor"=>2]);
+                <?=
+                \app\widgets\DescritoresEspecie\DescritoresEspecie::widget(["name" => "especie", "model" => $model, "tipoDescritor" => 2]);
                 ?>
             </div>
         </div>
         <?php $this->endBlock(); ?>
-        
+
         <?php $this->beginBlock('variaveisambientais'); ?>
         <br/>
         <div class="form-group">
@@ -263,8 +336,8 @@ $this->registerJs($script);
         </div>
         <div class="form-group">
             <div class = "col-sm-12 coletaAmbientalContainer">
-                <?= 
-                    \app\widgets\DescritoresEspecie\DescritoresEspecie::widget(["name" => "variavel-ambiental", "model" => $model,"tipoDescritor"=>3]);
+                <?=
+                \app\widgets\DescritoresEspecie\DescritoresEspecie::widget(["name" => "variavel-ambiental", "model" => $model, "tipoDescritor" => 3]);
                 ?>
             </div>
         </div>
@@ -278,11 +351,11 @@ $this->registerJs($script);
                             'label' => 'Individuo',
                             'content' => $this->blocks['individuo'],
                             'active' => true,
-                        ],[
+                        ], [
                             'label' => 'Comunidade',
                             'content' => $this->blocks['comunidade'],
                             'active' => false,
-                        ],[
+                        ], [
                             'label' => 'Variáveis Ambientais',
                             'content' => $this->blocks['variaveisambientais'],
                             'active' => false,
