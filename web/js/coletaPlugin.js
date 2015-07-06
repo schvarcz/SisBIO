@@ -59,12 +59,12 @@
             var height = $data.height();
             $data.css({
                 opacity:0,
-                height: 0
+//                height: 0
             });
             $data.find(".close-btn").click(methods.remove);
             $data.animate({
                 opacity:1,
-                height: height
+//                height: height
             });
             $data.find('[data-toggle="popover"]').popover();
         }

@@ -17,3 +17,17 @@
         });
     });
 })(jQuery);
+
+
+function UpdateVisibleAttributes(e)
+{
+    $checkboxes = $(this).parents(".modal-content").find("input[type=checkbox]");
+    for(idx in $checkboxes)
+    {
+        val = $($checkboxes[idx]).val();
+        if ($checkboxes[idx].checked)
+            $(".idDescritor[value="+val+"]").parent().fadeIn();
+        else
+            $(".idDescritor[value="+val+"]").parent().fadeOut();
+    }
+}

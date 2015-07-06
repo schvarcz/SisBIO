@@ -211,7 +211,7 @@ class DescritoresEspecie extends InputWidget
     public function generateDescritorField($coleta,$coletaItemProp,$descritor){
         echo Html::beginTag("div",["class" => "form-group"]);
 
-        echo Html::activeHiddenInput($coletaItemProp, "idDescritor", ["name" => $this->getInputName($coleta, "coletaItems.coletaItemPropriedades.idDescritor")]);
+        echo Html::activeHiddenInput($coletaItemProp, "idDescritor", ["name" => $this->getInputName($coleta, "coletaItems.coletaItemPropriedades.idDescritor"), "class"=>"idDescritor"]);
 
         echo Html::label($descritor->Nome,null, ["class" => "control-label col-sm-2"]);
         $field = new ActiveField(["model" => $coletaItemProp, "attribute" => "value"]);

@@ -7,6 +7,7 @@ use kartik\select2\Select2;
 use yii\bootstrap\Modal;
 use yii\bootstrap\Button;
 use yii\bootstrap\Collapse;
+use yii\helpers\ArrayHelper;
 
 /**
  * @var yii\web\View $this
@@ -184,7 +185,7 @@ $this->registerJs($script);
                 'footer' => Button::widget([
                     'label' => 'Atualizar',
                     'clientEvents' => [
-                        'click' => "function(e) { }"
+                        'click' => "UpdateVisibleAttributes"
                     ],
                     'options' => [
                         'class' => 'btn-primary',
@@ -196,9 +197,10 @@ $this->registerJs($script);
             $organismos = \app\models\TipoOrganismo::find()->all();
             $items= [];
             foreach ($organismos as $organismo) {
+                $models = $organismo->getIdDescritores()->andWhere(["idTipoDescritor" => 1,])->all();
                 $items[] =[
                     "label" =>  $organismo->label,
-                    "content"=> Html::checkboxList("Atributos", null, \yii\helpers\ArrayHelper::map($organismo->getIdDescritores()->andWhere(["idTipoDescritor" => 1,])->all(), 'idDescritor', 'label'))
+                    "content"=> $this->render('_descritores', ['models' => $models, "organismo"=>$organismo])
                 ];
             }
 
@@ -265,7 +267,7 @@ $this->registerJs($script);
                 'footer' => Button::widget([
                     'label' => 'Atualizar',
                     'clientEvents' => [
-                        'click' => "function(e) {}"
+                        'click' => "UpdateVisibleAttributes"
                     ],
                     'options' => [
                         'class' => 'btn-primary',
@@ -276,10 +278,11 @@ $this->registerJs($script);
 
             $items= [];
             foreach ($organismos as $organismo) {
+                $models = $organismo->getIdDescritores()->andWhere(["idTipoDescritor" => 2,])->all();
                 $items[] =[
                     "label" =>  $organismo->label,
-                    "content"=> Html::checkboxList("Atributos", null, \yii\helpers\ArrayHelper::map($organismo->getIdDescritores()->andWhere(["idTipoDescritor" => 2,])->all(), 'idDescritor', 'label'))
-                    ];
+                    "content"=> Html::checkboxList("Atributos", ArrayHelper::getColumn($models,["idDescritor"]), ArrayHelper::map($models, 'idDescritor', 'label'))
+                ];
             }
             
             echo Collapse::widget([
