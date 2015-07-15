@@ -20,6 +20,7 @@ $this->registerCssFile(Yii::$app->homeUrl . "css/coleta.css");
 $script = <<<END
         jQuery(".plus-coleta-individuo").coletaPlus({
             container: ".coletaIndividuosContainer",
+            modalAtributos: ".modalColetaIndividuos",
             inputName: "especie_add",
             ajax: {
                 url: "http://localhost/sisbio/web/coleta/adddescritor?tipoDescritor=1"
@@ -31,6 +32,7 @@ $this->registerJs($script);
 $script = <<<END
         jQuery(".plus-coleta-comunidade").coletaPlus({
             container: ".coletaComunidadeContainer",
+            modalAtributos: ".modalColetaComunidade",
             inputName: "comunidade_add",
             uniqueWidget:true,
             ajax: {
@@ -184,28 +186,30 @@ $this->registerJs($script);
                 'toggleButton' => ['label' => '<div class = "col-sm-6">Atributos funcionais que serão informados.</div>', 'tag' => 'a'],
                 'footer' => Button::widget([
                     'label' => 'Atualizar',
-                    'clientEvents' => [
-                        'click' => "UpdateVisibleAttributes"
-                    ],
                     'options' => [
-                        'class' => 'btn-primary',
+                        'class' => 'btn-primary updateFields',
                         'data-dismiss' => 'modal'
-            ]]),
+                    ]
+                ]),
+                'options' => [
+                    "class" => "modalColetaIndividuos"
+                ],
             ]);
             echo Html::tag("h5", "Selecionar todos os atributos que irá informar. ");
 
             $organismos = \app\models\TipoOrganismo::find()->all();
-            $items= [];
-            foreach ($organismos as $organismo) {
-                $models = $organismo->getIdDescritores()->andWhere(["idTipoDescritor" => 1,])->all();
-                $items[] =[
-                    "label" =>  $organismo->label,
-                    "content"=> $this->render('_descritores', ['models' => $models, "organismo"=>$organismo])
+            $items = [];
+            foreach ($organismos as $organismo)
+            {
+                $models = $organismo->getIdDescritores()->andWhere(["idTipoDescritor" => 1])->all();
+                $items[] = [
+                    "label" => $organismo->label,
+                    "content" => $this->render('_descritores', ['models' => $models, "organismo" => $organismo])
                 ];
             }
 
             echo Collapse::widget([
-                'items' => $items   
+                'items' => $items
             ]);
             Modal::end();
             ?>
@@ -219,7 +223,7 @@ $this->registerJs($script);
         </div>
         <?php $this->endBlock(); ?>
 
-        <?php $this->beginBlock('comunidade'); ?>
+<?php $this->beginBlock('comunidade'); ?>
         <br/>
         <div class="form-group">
             <label class="control-label col-sm-3">Nova Comunidade</label>
@@ -266,27 +270,29 @@ $this->registerJs($script);
                 'toggleButton' => ['label' => '<div class = "col-sm-6">Atributos de comunidade que serão informados.</div>', 'tag' => 'a'],
                 'footer' => Button::widget([
                     'label' => 'Atualizar',
-                    'clientEvents' => [
-                        'click' => "UpdateVisibleAttributes"
-                    ],
                     'options' => [
-                        'class' => 'btn-primary',
+                        'class' => 'btn-primary updateFields',
                         'data-dismiss' => 'modal'
-            ]]),
+                    ]
+                ]),
+                'options' => [
+                    "class" => "modalColetaComunidade"
+                ],
             ]);
             echo Html::tag("h5", "Selecionar todos os atributos que irá informar. ");
 
-            $items= [];
-            foreach ($organismos as $organismo) {
+            $items = [];
+            foreach ($organismos as $organismo)
+            {
                 $models = $organismo->getIdDescritores()->andWhere(["idTipoDescritor" => 2,])->all();
-                $items[] =[
-                    "label" =>  $organismo->label,
-                    "content"=> Html::checkboxList("Atributos", ArrayHelper::getColumn($models,["idDescritor"]), ArrayHelper::map($models, 'idDescritor', 'label'))
+                $items[] = [
+                    "label" => $organismo->label,
+                    "content" => $this->render('_descritores', ['models' => $models, "organismo" => $organismo])
                 ];
             }
-            
+
             echo Collapse::widget([
-                'items' => $items   
+                'items' => $items
             ]);
             Modal::end();
             ?>
@@ -301,7 +307,7 @@ $this->registerJs($script);
         </div>
         <?php $this->endBlock(); ?>
 
-        <?php $this->beginBlock('variaveisambientais'); ?>
+<?php $this->beginBlock('variaveisambientais'); ?>
         <br/>
         <div class="form-group">
             <label class="control-label col-sm-3">Variáveis</label>
@@ -373,8 +379,8 @@ $this->registerJs($script);
                     'btn btn-primary' : 'btn btn-primary'])
         ?>
 
-        <?= Html::a('Cancelar', \yii\helpers\Url::previous(), ['class' => 'btn btn-default']) ?>
-        <?php ActiveForm::end(); ?>
+<?= Html::a('Cancelar', \yii\helpers\Url::previous(), ['class' => 'btn btn-default']) ?>
+<?php ActiveForm::end(); ?>
 
     </div>
 

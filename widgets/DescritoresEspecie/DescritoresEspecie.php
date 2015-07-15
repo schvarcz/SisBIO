@@ -89,6 +89,7 @@ class DescritoresEspecie extends InputWidget
 
             echo Html::activeHiddenInput($coletaItem, "idEspecie", ["name" => $this->getInputName($model, "coletaItems.idEspecie")]);
             echo Html::activeHiddenInput($coletaItem, "idNaoIdentificado", ["name" => $this->getInputName($model, "coletaItems.idNaoIdentificado")]);
+            echo Html::hiddenInput("idTipoOrganismo",$coletaItem->idEspecie?$coletaItem->idEspecie0->idTipo_Organismo:$coletaItem->idNaoIdentificado0->idTipoOrganismo,["class" => "idTipoOrganismo"]);
             foreach($coletaItem->coletaItemPropriedades as $coletaItemProp)
             {
                 $descritor = $coletaItemProp->idDescritor0;
@@ -119,6 +120,7 @@ class DescritoresEspecie extends InputWidget
         $this->hash = md5(time());
 
         echo Html::activeHiddenInput($coletaItem, "idEspecie", ["name" => $this->getInputName($coleta, "coletaItems.idEspecie")]);
+        echo Html::hiddenInput("idTipoOrganismo",$coletaItem->idEspecie->idTipo_Organismo,["class" => "idTipoOrganismo"]);
 
         $descritores = $model->idTipoOrganismo->getIdDescritores()->where([
             "idTipoDescritor" => $this->tipoDescritor
@@ -163,7 +165,7 @@ class DescritoresEspecie extends InputWidget
         $naoIdentificado->idTipoOrganismo = $model;
         $this->hash = md5(time());
 
-        echo Html::activeHiddenInput($naoIdentificado, "idTipoOrganismo", ["name" => $this->getInputName($coleta, "coletaItems.idNaoIdentificado0.idTipoOrganismo")]);
+        echo Html::activeHiddenInput($naoIdentificado, "idTipoOrganismo", ["name" => $this->getInputName($coleta, "coletaItems.idNaoIdentificado0.idTipoOrganismo"), "class" => "idTipoOrganismo"]);
 
         $descritores = $model->getIdDescritores()->where([
             "idTipoDescritor" => $this->tipoDescritor
