@@ -54,22 +54,33 @@
                 $fieldset.remove();
             });
         },
-        successAjax: function (data, status, jqXHR, set) {
+        successAjax: function (data, status, jqXHR, settings) {
             var $data = $(data);
-            $(set.container).append($data);
-            var height = $data.height();
+            $(settings.container).append($data);
             $data.css({
                 opacity: 0
             });
             $data.find(".close-btn").click(methods.remove);
+            
+            var idTipoOrganismo = $data.find(".idTipoOrganismo").val();
+            var $inputOrganismo = $(settings.modalAtributos).find(".idTipoOrganismo[value=" +idTipoOrganismo + "]");
+            
+            var $checkboxes = $inputOrganismo.parent().find("input[type=checkbox]");
+
+            $checkboxes.each(function (j, $checkbox) {
+
+                var val = $($checkbox).val();
+                if (!$checkbox.checked)
+                    $data.find(".idDescritor[value=" + val + "]").parent().hide().find("input[type=text]").val("");
+            });
+            
             $data.animate({
                 opacity: 1
             });
             $data.find('[data-toggle="popover"]').popover();
         },
-        UpdateVisibleAttributes: function (){
+        UpdateVisibleAttributes: function (e){
             var settings = $(this).data("coleta").data("settings");
-            console.log(settings);
 
             var $inputsOrganismos = $(settings.modalAtributos).find("input[name=idTipoOrganismo]");
             
@@ -87,7 +98,7 @@
                     if ($checkbox.checked)
                         $fields.find(".idDescritor[value=" + val + "]").parent().fadeIn();
                     else
-                        $fields.find(".idDescritor[value=" + val + "]").parent().fadeOut();
+                        $fields.find(".idDescritor[value=" + val + "]").parent().fadeOut().find("input[type=text]").val("");
                 });
 
             });
