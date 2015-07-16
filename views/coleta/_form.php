@@ -34,7 +34,6 @@ $script = <<<END
             container: ".coletaPopulacaoContainer",
             modalAtributos: ".modalColetaPopulacao",
             inputName: "populacao_add",
-            uniqueWidget:true,
             ajax: {
                 url: "http://localhost/sisbio/web/coleta/adddescritor?tipoDescritor=2"
             }
