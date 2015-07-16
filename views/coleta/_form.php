@@ -30,10 +30,10 @@ END;
 $this->registerJs($script);
 
 $script = <<<END
-        jQuery(".plus-coleta-comunidade").coletaPlus({
-            container: ".coletaComunidadeContainer",
-            modalAtributos: ".modalColetaComunidade",
-            inputName: "comunidade_add",
+        jQuery(".plus-coleta-populacao").coletaPlus({
+            container: ".coletaPopulacaoContainer",
+            modalAtributos: ".modalColetaPopulacao",
+            inputName: "populacao_add",
             uniqueWidget:true,
             ajax: {
                 url: "http://localhost/sisbio/web/coleta/adddescritor?tipoDescritor=2"
@@ -43,9 +43,9 @@ END;
 $this->registerJs($script);
 
 $script = <<<END
-        jQuery(".plus-coleta-ambiental").coletaPlus({
-            container: ".coletaAmbientalContainer",
-            inputName: "ambiental_add",
+        jQuery(".plus-coleta-ecossistema").coletaPlus({
+            container: ".coletaEcossistemaContainer",
+            inputName: "ecossistemas_add",
             uniqueWidget:true,
             uniqueId: "#coletaitempropriedade-iddescritor",
             ajax: {
@@ -223,14 +223,14 @@ $this->registerJs($script);
         </div>
         <?php $this->endBlock(); ?>
 
-<?php $this->beginBlock('comunidade'); ?>
+<?php $this->beginBlock('populacao'); ?>
         <br/>
         <div class="form-group">
-            <label class="control-label col-sm-3">Nova Comunidade</label>
+            <label class="control-label col-sm-3">Nova População</label>
             <div class = "col-sm-6">
                 <?=
                 Select2::widget([
-                    'name' => 'comunidade_add',
+                    'name' => 'populacao_add',
                     'data' => $data,
                     'options' => [
                         'placeholder' => 'Selecione a espécie a ser adicionada',
@@ -248,7 +248,7 @@ $this->registerJs($script);
                     'addon' => [
                         'append' => [
                             'content' => Html::button('<span class="glyphicon glyphicon-plus"></span>', [
-                                'class' => 'btn btn-primary plus-coleta-comunidade',
+                                'class' => 'btn btn-primary plus-coleta-populacao',
                                 'title' => 'Adiciona espécie a sua coleta',
                                 'data-toggle' => 'tooltip'
                             ]),
@@ -266,8 +266,8 @@ $this->registerJs($script);
             <label class="control-label col-sm-3"></label>
             <?php
             Modal::begin([
-                'header' => '<h2>Atributos de comunidade</h2>',
-                'toggleButton' => ['label' => '<div class = "col-sm-6">Atributos de comunidade que serão informados.</div>', 'tag' => 'a'],
+                'header' => '<h2>Atributos da população</h2>',
+                'toggleButton' => ['label' => '<div class = "col-sm-6">Atributos da população que serão informados.</div>', 'tag' => 'a'],
                 'footer' => Button::widget([
                     'label' => 'Atualizar',
                     'options' => [
@@ -276,7 +276,7 @@ $this->registerJs($script);
                     ]
                 ]),
                 'options' => [
-                    "class" => "modalColetaComunidade"
+                    "class" => "modalColetaPopulacao"
                 ],
             ]);
             echo Html::tag("h5", "Selecionar todos os atributos que irá informar. ");
@@ -299,7 +299,7 @@ $this->registerJs($script);
         </div>
 
         <div class="form-group">
-            <div class = "col-sm-12 coletaComunidadeContainer">
+            <div class = "col-sm-12 coletaPopulacaoContainer">
                 <?=
                 \app\widgets\DescritoresEspecie\DescritoresEspecie::widget(["name" => "especie", "model" => $model, "tipoDescritor" => 2]);
                 ?>
@@ -307,23 +307,23 @@ $this->registerJs($script);
         </div>
         <?php $this->endBlock(); ?>
 
-<?php $this->beginBlock('variaveisambientais'); ?>
+<?php $this->beginBlock('ecossistemas'); ?>
         <br/>
         <div class="form-group">
-            <label class="control-label col-sm-3">Variáveis</label>
+            <label class="control-label col-sm-3">Variáveis Ecossitêmicas</label>
             <div class = "col-sm-6">
                 <?=
                 Select2::widget([
-                    'name' => 'ambiental_add',
+                    'name' => 'ecossistemas_add',
                     'data' => $data,
                     'options' => [
-                        'placeholder' => 'Selecione a variável ambiental a ser adicionada',
+                        'placeholder' => 'Selecione a variável ecossistêmica a ser adicionada',
                     ],
                     'pluginOptions' => [
                         'allowClear' => true,
                         'minimumInputLength' => 0,
                         'ajax' => [
-                            'url' => yii\helpers\Url::to(["coleta/findvariavelambiental"]),
+                            'url' => yii\helpers\Url::to(["coleta/findvariavelecossistemica"]),
                             'dataType' => 'json',
                             'data' => new JsExpression('function(term,page) { return {nomeDescritor:term.term}; }'),
                             'results' => new JsExpression('function(data,page) { return {results:data.results}; }'),
@@ -332,8 +332,8 @@ $this->registerJs($script);
                     'addon' => [
                         'append' => [
                             'content' => Html::button('<span class="glyphicon glyphicon-plus"></span>', [
-                                'class' => 'btn btn-primary plus-coleta-ambiental',
-                                'title' => 'Adiciona espécie a sua coleta',
+                                'class' => 'btn btn-primary plus-coleta-ecossistema',
+                                'title' => 'Adiciona a variável ecossistêmica a sua coleta',
                                 'data-toggle' => 'tooltip'
                             ]),
                             'asButton' => true
@@ -344,7 +344,7 @@ $this->registerJs($script);
             </div>
         </div>
         <div class="form-group">
-            <div class = "col-sm-12 coletaAmbientalContainer">
+            <div class = "col-sm-12 coletaEcossistemaContainer">
                 <?=
                 \app\widgets\DescritoresEspecie\DescritoresEspecie::widget(["name" => "variavel-ambiental", "model" => $model, "tipoDescritor" => 3]);
                 ?>
@@ -361,12 +361,12 @@ $this->registerJs($script);
                             'content' => $this->blocks['individuo'],
                             'active' => true,
                         ], [
-                            'label' => 'Comunidade',
-                            'content' => $this->blocks['comunidade'],
+                            'label' => 'População',
+                            'content' => $this->blocks['populacao'],
                             'active' => false,
                         ], [
-                            'label' => 'Variáveis Ambientais',
-                            'content' => $this->blocks['variaveisambientais'],
+                            'label' => 'Ecossistemas',
+                            'content' => $this->blocks['ecossistemas'],
                             'active' => false,
                         ],]
                 ]

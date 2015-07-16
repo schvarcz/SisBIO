@@ -173,7 +173,7 @@ class ColetaController extends Controller
      * @param String $name
      * @return Json the list of models
      */
-    public function actionFindvariavelambiental($nomeDescritor = null)
+    public function actionFindvariavelecossistemica($nomeDescritor = null)
     {
 
         if (!is_null($nomeDescritor))
