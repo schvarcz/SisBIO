@@ -13,7 +13,6 @@ class GeneroSearch extends Model
 {
 	public $idGenero;
 	public $NomeCientifico;
-	public $NomeComum;
 	public $Descricao;
 	public $idFamilia;
 
@@ -21,7 +20,7 @@ class GeneroSearch extends Model
 	{
 		return [
 			[['idGenero', 'idFamilia'], 'integer'],
-			[['NomeCientifico', 'NomeComum', 'Descricao'], 'safe'],
+			[['NomeCientifico', 'Descricao'], 'safe'],
 		];
 	}
 
@@ -33,7 +32,6 @@ class GeneroSearch extends Model
 		return [
 			'idGenero' => 'Id Genero',
 			'NomeCientifico' => 'Nome Cientifico',
-			'NomeComum' => 'Nome Comum',
 			'Descricao' => 'Descricao',
 			'idFamilia' => 'Id Familia',
 		];
@@ -56,7 +54,6 @@ class GeneroSearch extends Model
         ]);
 
 		$query->andFilterWhere(['like', 'NomeCientifico', $this->NomeCientifico])
-            ->andFilterWhere(['like', 'NomeComum', $this->NomeComum])
             ->andFilterWhere(['like', 'Descricao', $this->Descricao]);
 
 		return $dataProvider;

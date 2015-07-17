@@ -18,7 +18,6 @@ class Ordem extends \app\models\base\Ordem
         return [
             'idOrdem' => Yii::t('app', 'Identificador da Ordem'),
             'NomeCientifico' => Yii::t('app', 'Nome Científico'),
-            'NomeComum' => Yii::t('app', 'Nome Comum'),
             'Descricao' => Yii::t('app', 'Descrição'),
             'idFilo' => Yii::t('app', 'Filo'),
         ];

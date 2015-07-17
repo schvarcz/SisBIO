@@ -9,7 +9,6 @@ use Yii;
  *
  * @property integer $idOrdem
  * @property string $NomeCientifico
- * @property string $NomeComum
  * @property string $Descricao
  * @property integer $idFilo
  *
@@ -43,7 +42,7 @@ class Ordem extends \app\models\MActiveRecord
             [['NomeCientifico', 'idFilo'], 'required'],
             [['Descricao'], 'string'],
             [['idFilo'], 'integer'],
-            [['NomeCientifico', 'NomeComum'], 'string', 'max' => 255]
+            [['NomeCientifico'], 'string', 'max' => 255]
         ];
     }
 
@@ -55,7 +54,6 @@ class Ordem extends \app\models\MActiveRecord
         return [
             'idOrdem' => Yii::t('app', 'Id Ordem'),
             'NomeCientifico' => Yii::t('app', 'Nome Cientifico'),
-            'NomeComum' => Yii::t('app', 'Nome Comum'),
             'Descricao' => Yii::t('app', 'Descricao'),
             'idFilo' => Yii::t('app', 'Id Filo'),
         ];

@@ -13,7 +13,6 @@ class FamiliaSearch extends Model
 {
 	public $idFamilia;
 	public $NomeCientifico;
-	public $NomeComum;
 	public $Descricao;
 	public $idOrdem;
 
@@ -21,7 +20,7 @@ class FamiliaSearch extends Model
 	{
 		return [
 			[['idFamilia', 'idOrdem'], 'integer'],
-			[['NomeCientifico', 'NomeComum', 'Descricao'], 'safe'],
+			[['NomeCientifico', 'Descricao'], 'safe'],
 		];
 	}
 
@@ -33,7 +32,6 @@ class FamiliaSearch extends Model
 		return [
 			'idFamilia' => 'Id Familia',
 			'NomeCientifico' => 'Nome Cientifico',
-			'NomeComum' => 'Nome Comum',
 			'Descricao' => 'Descricao',
 			'idOrdem' => 'Id Ordem',
 		];
@@ -56,7 +54,6 @@ class FamiliaSearch extends Model
         ]);
 
 		$query->andFilterWhere(['like', 'NomeCientifico', $this->NomeCientifico])
-            ->andFilterWhere(['like', 'NomeComum', $this->NomeComum])
             ->andFilterWhere(['like', 'Descricao', $this->Descricao]);
 
 		return $dataProvider;

@@ -13,7 +13,6 @@ class OrdemSearch extends Model
 {
 	public $idOrdem;
 	public $NomeCientifico;
-	public $NomeComum;
 	public $Descricao;
 	public $idFilo;
 
@@ -21,7 +20,7 @@ class OrdemSearch extends Model
 	{
 		return [
 			[['idOrdem', 'idFilo'], 'integer'],
-			[['NomeCientifico', 'NomeComum', 'Descricao'], 'safe'],
+			[['NomeCientifico', 'Descricao'], 'safe'],
 		];
 	}
 
@@ -33,7 +32,6 @@ class OrdemSearch extends Model
 		return [
 			'idOrdem' => 'Id Ordem',
 			'NomeCientifico' => 'Nome Cientifico',
-			'NomeComum' => 'Nome Comum',
 			'Descricao' => 'Descricao',
 			'idFilo' => 'Id Filo',
 		];
@@ -56,7 +54,6 @@ class OrdemSearch extends Model
         ]);
 
 		$query->andFilterWhere(['like', 'NomeCientifico', $this->NomeCientifico])
-            ->andFilterWhere(['like', 'NomeComum', $this->NomeComum])
             ->andFilterWhere(['like', 'Descricao', $this->Descricao]);
 
 		return $dataProvider;

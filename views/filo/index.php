@@ -58,7 +58,6 @@ $this->params['breadcrumbs'][] = $this->title;
         
 			'idFilo',
 			'NomeCientifico',
-			'NomeComum',
 			'Descricao:ntext',
             [
                 'class' => 'yii\grid\ActionColumn',

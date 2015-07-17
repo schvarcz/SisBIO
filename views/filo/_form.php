@@ -20,7 +20,6 @@ use yii\bootstrap\ActiveForm;
 
         <p>
 
-            <?= $form->field($model, 'NomeComum')->textInput(['maxlength' => 255]) ?>
             <?= $form->field($model, 'NomeCientifico')->textInput(['maxlength' => 255]) ?>
             <?= $form->field($model, 'Descricao')->textarea(['rows' => 6]) ?>
         </p>

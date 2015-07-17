@@ -13,14 +13,13 @@ class FiloSearch extends Model
 {
 	public $idFilo;
 	public $NomeCientifico;
-	public $NomeComum;
 	public $Descricao;
 
 	public function rules()
 	{
 		return [
 			[['idFilo'], 'integer'],
-			[['NomeCientifico', 'NomeComum', 'Descricao'], 'safe'],
+			[['NomeCientifico', 'Descricao'], 'safe'],
 		];
 	}
 
@@ -32,7 +31,6 @@ class FiloSearch extends Model
 		return [
 			'idFilo' => 'Id Filo',
 			'NomeCientifico' => 'Nome Cientifico',
-			'NomeComum' => 'Nome Comum',
 			'Descricao' => 'Descricao',
 		];
 	}
@@ -53,7 +51,6 @@ class FiloSearch extends Model
         ]);
 
 		$query->andFilterWhere(['like', 'NomeCientifico', $this->NomeCientifico])
-            ->andFilterWhere(['like', 'NomeComum', $this->NomeComum])
             ->andFilterWhere(['like', 'Descricao', $this->Descricao]);
 
 		return $dataProvider;

@@ -9,7 +9,6 @@ use Yii;
  *
  * @property integer $idGenero
  * @property string $NomeCientifico
- * @property string $NomeComum
  * @property string $Descricao
  * @property integer $idFamilia
  *
@@ -43,7 +42,7 @@ class Genero extends \app\models\MActiveRecord
             [['NomeCientifico', 'idFamilia'], 'required'],
             [['Descricao'], 'string'],
             [['idFamilia'], 'integer'],
-            [['NomeCientifico', 'NomeComum'], 'string', 'max' => 255]
+            [['NomeCientifico'], 'string', 'max' => 255]
         ];
     }
 
@@ -55,7 +54,6 @@ class Genero extends \app\models\MActiveRecord
         return [
             'idGenero' => Yii::t('app', 'Id Genero'),
             'NomeCientifico' => Yii::t('app', 'Nome Cientifico'),
-            'NomeComum' => Yii::t('app', 'Nome Comum'),
             'Descricao' => Yii::t('app', 'Descricao'),
             'idFamilia' => Yii::t('app', 'Id Familia'),
         ];
