@@ -13,8 +13,10 @@ use Yii;
  * @property integer $idUnidadeGeografica
  * @property integer $idMetodo
  * @property string $coordenadaGeografica
+ * @property integer $idPesquisadorRegistro
  *
  * @property Metodo $idMetodo0
+ * @property Pesquisador $idPesquisadorRegistro0
  * @property UnidadeGeografica $idUnidadeGeografica0
  * @property ColetaItem[] $coletaItems
  * @property ColetaHasPesquisador[] $coletaHasPesquisadors
@@ -45,10 +47,10 @@ class Coleta extends \app\models\MActiveRecord
     public function rules()
     {
         return [
-            [['Data_Coleta', 'idUnidadeGeografica'], 'required'],
+            [['Data_Coleta', 'idUnidadeGeografica', 'idPesquisadorRegistro'], 'required'],
             [['Data_Coleta'], 'safe'],
             [['Observacao', 'coordenadaGeografica'], 'string'],
-            [['idUnidadeGeografica', 'idMetodo'], 'integer']
+            [['idUnidadeGeografica', 'idMetodo', 'idPesquisadorRegistro'], 'integer']
         ];
     }
 
@@ -64,6 +66,7 @@ class Coleta extends \app\models\MActiveRecord
             'idUnidadeGeografica' => Yii::t('app', 'Id Unidade Geografica'),
             'idMetodo' => Yii::t('app', 'Id Metodo'),
             'coordenadaGeografica' => Yii::t('app', 'Coordenada Geografica'),
+            'idPesquisadorRegistro' => Yii::t('app', 'Id Pesquisador Registro'),
         ];
     }
 
@@ -73,6 +76,14 @@ class Coleta extends \app\models\MActiveRecord
     public function getIdMetodo0()
     {
         return $this->hasOne(\app\models\Metodo::className(), ['idMetodo' => 'idMetodo']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getIdPesquisadorRegistro0()
+    {
+        return $this->hasOne(\app\models\Pesquisador::className(), ['idPesquisador' => 'idPesquisadorRegistro']);
     }
 
     /**

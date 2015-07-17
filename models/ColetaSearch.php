@@ -18,12 +18,13 @@ class ColetaSearch extends Model
     public $idUnidadeGeografica;
     public $idMetodo;
     public $coordenadaGeografica;
+    public $idPesquisadorRegistro;
 
     public function rules()
     {
         return [
-            [['idColeta', 'idUnidadeGeografica', 'idMetodo'], 'integer'],
-            [['Data_Coleta', 'Observacao', 'coordenadaGeografica'], 'safe'],
+            [['idColeta'], 'integer'],
+            [['idUnidadeGeografica', 'idMetodo', 'idPesquisadorRegistro', 'Data_Coleta', 'Observacao', 'coordenadaGeografica'], 'safe'],
         ];
     }
 
@@ -39,6 +40,7 @@ class ColetaSearch extends Model
             'idUnidadeGeografica' => 'Unidade Geográfica',
             'idMetodo' => 'Método de Coleta',
             'coordenadaGeografica' => 'Coordenada Geográfica',
+            'idPesquisadorRegistro' => 'Pesquisador responsável pelo registro',
         ];
     }
 
@@ -57,12 +59,13 @@ class ColetaSearch extends Model
         $query->andFilterWhere([
             'idColeta' => $this->idColeta,
             'Data_Coleta' => $this->Data_Coleta,
-            'idUnidadeGeografica' => $this->idUnidadeGeografica,
-            'idMetodo' => $this->idMetodo,
         ]);
 
         $query->andFilterWhere(['like', 'Observacao', $this->Observacao])
-                ->andFilterWhere(['like', 'coordenadaGeografica', $this->coordenadaGeografica]);
+                ->andFilterWhere(['like', 'coordenadaGeografica', $this->coordenadaGeografica])
+                ->joinWith("idUnidadeGeografica0", true, "INNER JOIN")->andFilterWhere(['like', 'UnidadeGeografica.Nome', $this->idUnidadeGeografica])
+                ->joinWith("idMetodo0", true, "INNER JOIN")->andFilterWhere(['like', 'Metodo.Nome', $this->idMetodo])
+                ->joinWith("idPesquisadorRegistro0", true, "INNER JOIN")->andFilterWhere(['like', 'Pesquisador.Nome', $this->idPesquisadorRegistro]);
 
         return $dataProvider;
     }

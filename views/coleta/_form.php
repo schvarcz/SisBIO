@@ -79,6 +79,9 @@ $this->registerJs($script);
             ]);
             ?>
         </div>
+        <?= 
+            Html::activeHiddenInput($model,'idPesquisadorRegistro',['value'=> Yii::$app->user->id]);
+        ?>
         <?=
         $form->field($model, 'idUnidadeGeografica')->widget(\app\widgets\Select2Active\Select2Active::classname(), [
             'options' => ['placeholder' => 'Nome da unidade geográfica'],
