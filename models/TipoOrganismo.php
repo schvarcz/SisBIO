@@ -20,6 +20,7 @@ class TipoOrganismo extends \app\models\base\TipoOrganismo
             'Nome' => Yii::t('app', 'Nome'),
             'Descricao' => Yii::t('app', 'Descrição'),
             'idDescritores' => Yii::t('app', 'Descritores'),
+            'idMetodos' => Yii::t('app', 'Métodos de Coleta'),
         ];
     }
 

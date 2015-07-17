@@ -23,6 +23,10 @@ use yii\bootstrap\ActiveForm;
             <?= $form->field($model, 'Nome')->textInput(['maxlength' => 255]) ?>
             <?= $form->field($model, 'Descricao')->textarea(['rows' => 6]) ?>
             <?=
+            $form->field($model, 'idMetodos')->checkboxList(
+                    \yii\helpers\ArrayHelper::map(app\models\Metodo::find()->all(), 'idMetodo', 'label'))
+            ?>
+            <?=
             $form->field($model, 'idDescritores')->checkboxList(
                     \yii\helpers\ArrayHelper::map(app\models\Descritor::find()->all(), 'idDescritor', 'label'))
             ?>

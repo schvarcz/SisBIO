@@ -15,10 +15,11 @@ use Yii;
  * @property NaoIdentificado[] $naoIdentificados
  * @property TipoOrganismoHasDescritor[] $tipoOrganismoHasDescritores
  * @property Descritor[] $idDescritores
+ * @property TipoOrganismoHasMetodo[] $tipoOrganismoHasMetodos
+ * @property Metodo[] $idMetodos
  */
 class TipoOrganismo extends \app\models\MActiveRecord
 {
-
     /**
      * @inheritdoc
      */
@@ -26,7 +27,7 @@ class TipoOrganismo extends \app\models\MActiveRecord
     {
         return 'TipoOrganismo';
     }
-
+    
     /**
      * @inheritdoc
      */
@@ -91,4 +92,19 @@ class TipoOrganismo extends \app\models\MActiveRecord
         return $this->hasMany(\app\models\Descritor::className(), ['idDescritor' => 'idDescritor'])->viaTable('TipoOrganismo_has_Descritor', ['idTipoOrganismo' => 'idTipoOrganismo']);
     }
 
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getTipoOrganismoHasMetodos()
+    {
+        return $this->hasMany(\app\models\TipoOrganismoHasMetodo::className(), ['idTipoOrganismo' => 'idTipoOrganismo']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getIdMetodos()
+    {
+        return $this->hasMany(\app\models\Metodo::className(), ['idMetodo' => 'idMetodo'])->viaTable('TipoOrganismo_has_Metodo', ['idTipoOrganismo' => 'idTipoOrganismo']);
+    }
 }

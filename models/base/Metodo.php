@@ -12,10 +12,11 @@ use Yii;
  * @property string $Descricao
  *
  * @property Coleta[] $coletas
+ * @property TipoOrganismoHasMetodo[] $tipoOrganismoHasMetodos
+ * @property TipoOrganismo[] $idTipoOrganismos
  */
 class Metodo extends \app\models\MActiveRecord
 {
-
     /**
      * @inheritdoc
      */
@@ -23,7 +24,7 @@ class Metodo extends \app\models\MActiveRecord
     {
         return 'Metodo';
     }
-
+    
     /**
      * @inheritdoc
      */
@@ -64,4 +65,19 @@ class Metodo extends \app\models\MActiveRecord
         return $this->hasMany(\app\models\Coleta::className(), ['idMetodo' => 'idMetodo']);
     }
 
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getTipoOrganismoHasMetodos()
+    {
+        return $this->hasMany(\app\models\TipoOrganismoHasMetodo::className(), ['idMetodo' => 'idMetodo']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getIdTipoOrganismos()
+    {
+        return $this->hasMany(\app\models\TipoOrganismo::className(), ['idTipoOrganismo' => 'idTipoOrganismo'])->viaTable('TipoOrganismo_has_Metodo', ['idMetodo' => 'idMetodo']);
+    }
 }
