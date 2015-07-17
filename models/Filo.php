@@ -21,4 +21,5 @@ class Filo extends \app\models\base\Filo
             'Descricao' => Yii::t('app', 'Descrição'),
         ];
     }
+
 }

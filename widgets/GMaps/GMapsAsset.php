@@ -12,6 +12,7 @@ use yii\web\AssetBundle;
  */
 class GMapsAsset extends AssetBundle
 {
+
     public $sourcePath = '@app/widgets/GMaps/assets';
     public $js = [
         'https://maps.googleapis.com/maps/api/js?v=3.exp',
@@ -23,4 +24,5 @@ class GMapsAsset extends AssetBundle
     public $depends = [
         'yii\web\JqueryAsset'
     ];
+
 }

@@ -23,4 +23,5 @@ class Descritor extends \app\models\base\Descritor
             'Descricao' => Yii::t('app', 'Descrição'),
         ];
     }
+
 }

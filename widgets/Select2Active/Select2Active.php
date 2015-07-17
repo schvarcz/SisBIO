@@ -22,18 +22,18 @@ class Select2Active extends Select2
                 "dataName" => "id",
                 "returnData" => "data.results"
             ];
-            
-            if(is_string($this->pluginOptions['initSelection']))
+
+            if (is_string($this->pluginOptions['initSelection']))
                 $initConfigs["url"] = $this->pluginOptions['initSelection'];
-            elseif(is_array($this->pluginOptions['initSelection']))
+            elseif (is_array($this->pluginOptions['initSelection']))
             {
-                foreach($this->pluginOptions['initSelection'] as $key => $value)
+                foreach ($this->pluginOptions['initSelection'] as $key => $value)
                     $initConfigs[$key] = $value;
             }
-            
-            if( $initConfigs["url"] == "")
+
+            if ($initConfigs["url"] == "")
             {
-                if(!empty($this->pluginOptions['ajax']) && !empty($this->pluginOptions['ajax']['url']))
+                if (!empty($this->pluginOptions['ajax']) && !empty($this->pluginOptions['ajax']['url']))
                     $initConfigs["url"] = $this->pluginOptions['ajax']["url"];
                 else
                 {
@@ -41,17 +41,17 @@ class Select2Active extends Select2
                     return;
                 }
             }
-            if($this->hasModel())
+            if ($this->hasModel())
             {
                 $model = $this->model;
-                $relation = $model->getRelation($this->attribute,false);
-                if($relation->multiple)
+                $relation = $model->getRelation($this->attribute, false);
+                if ($relation->multiple)
                 {
                     $attr = $this->attribute;
                     $data = $model->$attr;
                     $dataR = [];
-                    
-                    foreach($data as $modelRelation)
+
+                    foreach ($data as $modelRelation)
                     {
                         $dataR[$modelRelation->primaryKey] = $modelRelation->label;
                     }
@@ -77,9 +77,8 @@ SCRIPT;
 
             $this->pluginOptions['initSelection'] = new \yii\web\JsExpression($initScript);
         }
-        
+
         parent::init();
-        
     }
 
 }

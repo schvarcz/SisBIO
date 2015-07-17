@@ -222,7 +222,7 @@ $this->registerJs($script);
         </div>
         <?php $this->endBlock(); ?>
 
-<?php $this->beginBlock('populacao'); ?>
+        <?php $this->beginBlock('populacao'); ?>
         <br/>
         <div class="form-group">
             <label class="control-label col-sm-3">Nova População</label>
@@ -306,7 +306,7 @@ $this->registerJs($script);
         </div>
         <?php $this->endBlock(); ?>
 
-<?php $this->beginBlock('ecossistemas'); ?>
+        <?php $this->beginBlock('ecossistemas'); ?>
         <br/>
         <div class="form-group">
             <label class="control-label col-sm-3">Variáveis Ecossitêmicas</label>
@@ -378,8 +378,8 @@ $this->registerJs($script);
                     'btn btn-primary' : 'btn btn-primary'])
         ?>
 
-<?= Html::a('Cancelar', \yii\helpers\Url::previous(), ['class' => 'btn btn-default']) ?>
-<?php ActiveForm::end(); ?>
+        <?= Html::a('Cancelar', \yii\helpers\Url::previous(), ['class' => 'btn btn-default']) ?>
+        <?php ActiveForm::end(); ?>
 
     </div>
 

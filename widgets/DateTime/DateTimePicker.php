@@ -9,13 +9,15 @@ namespace app\widgets\DateTime;
  */
 class DateTimePicker extends \kartik\widgets\DateTimePicker
 {
+
     public $type = \kartik\widgets\DateTimePicker::TYPE_COMPONENT_APPEND;
+
     public function init()
     {
         if (!isset($this->language))
             $this->language = \Yii::$app->formatter->locale;
-        
+
         parent::init();
     }
-}
 
+}

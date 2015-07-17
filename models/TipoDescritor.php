@@ -21,4 +21,5 @@ class TipoDescritor extends \app\models\base\TipoDescritor
             'Descricao' => Yii::t('app', 'Descrição'),
         ];
     }
+
 }

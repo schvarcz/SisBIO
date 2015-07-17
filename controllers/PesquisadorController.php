@@ -80,7 +80,7 @@ class PesquisadorController extends Controller
     public function actionUpdate($idPesquisador)
     {
         $model = $this->findModel($idPesquisador);
-        
+
         if (isset($_REQUEST["invite"]))
             $model->generateAuthKey();
         if ($model->load($_POST) && $model->save())
@@ -103,12 +103,12 @@ class PesquisadorController extends Controller
     public function actionInviteReset($idPesquisador)
     {
         $model = $this->findModel($idPesquisador);
-        
-        if($model->senha != null)
+
+        if ($model->senha != null)
             $model->idCronTask = 2; //Resetar senha
         else
             $model->idCronTask = 1; //Enviar convite
-        
+
         if ($model->generateAuthKey())
         {
             //return $this->redirect(Url::previous());
@@ -168,12 +168,12 @@ class PesquisadorController extends Controller
         {
             $out['results'] = [];
             $ids = explode(",", $id);
-            foreach($ids as $id)
+            foreach ($ids as $id)
                 $out['results'][] = ['id' => $id, 'text' => Pesquisador::findOne($id)->getLabel()];
         } elseif ($id > 0)
         {
             $out['results'] = ['id' => $id, 'text' => Pesquisador::findOne($id)->getLabel()];
-        } elseif($id != "null")
+        } elseif ($id != "null")
         {
             $pesquisadores = Pesquisador::find()->all();
             $json = [];

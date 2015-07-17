@@ -28,6 +28,7 @@ use Yii;
  */
 class Pesquisador extends \app\models\MActiveRecord
 {
+
     /**
      * @inheritdoc
      */
@@ -35,7 +36,7 @@ class Pesquisador extends \app\models\MActiveRecord
     {
         return 'Pesquisador';
     }
-    
+
     /**
      * @inheritdoc
      */
@@ -139,4 +140,5 @@ class Pesquisador extends \app\models\MActiveRecord
     {
         return $this->hasMany(\app\models\UnidadeGeografica::className(), ['idPesquisador' => 'idPesquisador']);
     }
+
 }

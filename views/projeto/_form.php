@@ -54,23 +54,25 @@ use yii\web\JsExpression;
             ]);
             ?>
             <?=
-            $form->field($model, 'Data_Inicio')->widget(\app\widgets\DateTime\DateTimePicker::classname(), [ 
+            $form->field($model, 'Data_Inicio')->widget(\app\widgets\DateTime\DateTimePicker::classname(), [
                 'options' => ['class' => 'form-control'],
                 'pluginOptions' => [
-                    'autoclose'=>true,
+                    'autoclose' => true,
                     'todayHighlight' => true,
                 ]
-            ]);?>
+            ]);
+            ?>
             <?=
             $form->field($model, 'Data_Fim')->widget(\app\widgets\DateTime\DateTimePicker::classname(), [
                 'options' => ['class' => 'form-control'],
                 'pluginOptions' => [
-                    'autoclose'=>true,
+                    'autoclose' => true,
                     'todayHighlight' => true,
                 ]
-            ]);?>
-        <?= $form->field($model, 'Descricao')->textarea(['rows' => 6]) ?>
-        <?= $form->field($model, 'ativo')->checkbox() ?>
+            ]);
+            ?>
+            <?= $form->field($model, 'Descricao')->textarea(['rows' => 6]) ?>
+            <?= $form->field($model, 'ativo')->checkbox() ?>
         </p>
         <?php $this->endBlock(); ?>
 
@@ -88,12 +90,13 @@ use yii\web\JsExpression;
         ?>
         <hr/>
 
-<?= Html::submitButton('<span class="glyphicon glyphicon-check"></span> ' . ($model->isNewRecord ? 'Criar' : 'Salvar'), ['class' => $model->isNewRecord ?
-            'btn btn-primary' : 'btn btn-primary'])
-?>
+        <?=
+        Html::submitButton('<span class="glyphicon glyphicon-check"></span> ' . ($model->isNewRecord ? 'Criar' : 'Salvar'), ['class' => $model->isNewRecord ?
+                    'btn btn-primary' : 'btn btn-primary'])
+        ?>
 
-<?= Html::a('Cancelar', \yii\helpers\Url::previous(), ['class' => 'btn btn-default']) ?>
-<?php ActiveForm::end(); ?>
+        <?= Html::a('Cancelar', \yii\helpers\Url::previous(), ['class' => 'btn btn-default']) ?>
+        <?php ActiveForm::end(); ?>
 
     </div>
 

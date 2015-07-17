@@ -11,68 +11,74 @@ use app\models\Descritor;
  */
 class DescritorSearch extends Model
 {
-	public $idDescritor;
-	public $Nome;
-	public $idTipoDado;
-	public $idTipoDescritor;
-	public $Descricao;
 
-	public function rules()
-	{
-		return [
-			[['idDescritor', 'idTipoDado', 'idTipoDescritor'], 'integer'],
-			[['Nome', 'Descricao'], 'safe'],
-		];
-	}
+    public $idDescritor;
+    public $Nome;
+    public $idTipoDado;
+    public $idTipoDescritor;
+    public $Descricao;
 
-	/**
-	 * @inheritdoc
-	 */
-	public function attributeLabels()
-	{
-		return [
-			'idDescritor' => 'Id Descritor',
-			'Nome' => 'Nome',
-			'idTipoDado' => 'Id Tipo Dado',
-			'idTipoDescritor' => 'Id Tipo de Descritor',
-			'Descricao' => 'Descricao',
-		];
-	}
+    public function rules()
+    {
+        return [
+            [['idDescritor', 'idTipoDado', 'idTipoDescritor'], 'integer'],
+            [['Nome', 'Descricao'], 'safe'],
+        ];
+    }
 
-	public function search($params)
-	{
-		$query = Descritor::find();
-		$dataProvider = new ActiveDataProvider([
-			'query' => $query,
-		]);
+    /**
+     * @inheritdoc
+     */
+    public function attributeLabels()
+    {
+        return [
+            'idDescritor' => 'Id Descritor',
+            'Nome' => 'Nome',
+            'idTipoDado' => 'Id Tipo Dado',
+            'idTipoDescritor' => 'Id Tipo de Descritor',
+            'Descricao' => 'Descricao',
+        ];
+    }
 
-		if (!($this->load($params) && $this->validate())) {
-			return $dataProvider;
-		}
+    public function search($params)
+    {
+        $query = Descritor::find();
+        $dataProvider = new ActiveDataProvider([
+            'query' => $query,
+        ]);
 
-		$query->andFilterWhere([
+        if (!($this->load($params) && $this->validate()))
+        {
+            return $dataProvider;
+        }
+
+        $query->andFilterWhere([
             'idDescritor' => $this->idDescritor,
             'idTipoDado' => $this->idTipoDado,
             'idTipoDescritor' => $this->idTipoDescritor,
         ]);
 
-		$query->andFilterWhere(['like', 'Nome', $this->Nome])
-            ->andFilterWhere(['like', 'Descricao', $this->Descricao]);
+        $query->andFilterWhere(['like', 'Nome', $this->Nome])
+                ->andFilterWhere(['like', 'Descricao', $this->Descricao]);
 
-		return $dataProvider;
-	}
+        return $dataProvider;
+    }
 
-	protected function addCondition($query, $attribute, $partialMatch = false)
-	{
-		$value = $this->$attribute;
-		if (trim($value) === '') {
-			return;
-		}
-		if ($partialMatch) {
-			$value = '%' . strtr($value, ['%'=>'\%', '_'=>'\_', '\\'=>'\\\\']) . '%';
-			$query->andWhere(['like', $attribute, $value]);
-		} else {
-			$query->andWhere([$attribute => $value]);
-		}
-	}
+    protected function addCondition($query, $attribute, $partialMatch = false)
+    {
+        $value = $this->$attribute;
+        if (trim($value) === '')
+        {
+            return;
+        }
+        if ($partialMatch)
+        {
+            $value = '%' . strtr($value, ['%' => '\%', '_' => '\_', '\\' => '\\\\']) . '%';
+            $query->andWhere(['like', $attribute, $value]);
+        } else
+        {
+            $query->andWhere([$attribute => $value]);
+        }
+    }
+
 }

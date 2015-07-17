@@ -11,62 +11,68 @@ use app\models\TipoDado;
  */
 class TipoDadoSearch extends Model
 {
-	public $idTipoDado;
-	public $Tipo;
-	public $Descricao;
 
-	public function rules()
-	{
-		return [
-			[['idTipoDado'], 'integer'],
-			[['Tipo', 'Descricao'], 'safe'],
-		];
-	}
+    public $idTipoDado;
+    public $Tipo;
+    public $Descricao;
 
-	/**
-	 * @inheritdoc
-	 */
-	public function attributeLabels()
-	{
-		return [
-			'idTipoDado' => 'Id Tipo Dado',
-			'Tipo' => 'Tipo',
-			'Descricao' => 'Descricao',
-		];
-	}
+    public function rules()
+    {
+        return [
+            [['idTipoDado'], 'integer'],
+            [['Tipo', 'Descricao'], 'safe'],
+        ];
+    }
 
-	public function search($params)
-	{
-		$query = TipoDado::find();
-		$dataProvider = new ActiveDataProvider([
-			'query' => $query,
-		]);
+    /**
+     * @inheritdoc
+     */
+    public function attributeLabels()
+    {
+        return [
+            'idTipoDado' => 'Id Tipo Dado',
+            'Tipo' => 'Tipo',
+            'Descricao' => 'Descricao',
+        ];
+    }
 
-		if (!($this->load($params) && $this->validate())) {
-			return $dataProvider;
-		}
+    public function search($params)
+    {
+        $query = TipoDado::find();
+        $dataProvider = new ActiveDataProvider([
+            'query' => $query,
+        ]);
 
-		$query->andFilterWhere([
+        if (!($this->load($params) && $this->validate()))
+        {
+            return $dataProvider;
+        }
+
+        $query->andFilterWhere([
             'idTipoDado' => $this->idTipoDado,
         ]);
 
-		$query->andFilterWhere(['like', 'Tipo', $this->Tipo])
-            ->andFilterWhere(['like', 'Descricao', $this->Descricao]);
+        $query->andFilterWhere(['like', 'Tipo', $this->Tipo])
+                ->andFilterWhere(['like', 'Descricao', $this->Descricao]);
 
-		return $dataProvider;
-	}
+        return $dataProvider;
+    }
 
-	protected function addCondition($query, $attribute, $partialMatch = false)
-	{
-		$value = $this->$attribute;
-		if (trim($value) === '') {
-			return;
-		}
-		if ($partialMatch) {
-			$value = '%' . strtr($value, ['%'=>'\%', '_'=>'\_', '\\'=>'\\\\']) . '%';
-			$query->andWhere(['like', $attribute, $value]);
-		} else {
-			$query->andWhere([$attribute => $value]);
-		}
-	}
+    protected function addCondition($query, $attribute, $partialMatch = false)
+    {
+        $value = $this->$attribute;
+        if (trim($value) === '')
+        {
+            return;
+        }
+        if ($partialMatch)
+        {
+            $value = '%' . strtr($value, ['%' => '\%', '_' => '\_', '\\' => '\\\\']) . '%';
+            $query->andWhere(['like', $attribute, $value]);
+        } else
+        {
+            $query->andWhere([$attribute => $value]);
+        }
+    }
+
 }

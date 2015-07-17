@@ -25,7 +25,7 @@ class MActiveRecord extends \yii\db\ActiveRecord
                 $relation = $this->getRelation($dataName, false);
                 if ($relation)
                 {
-                    if($relation->multiple)
+                    if ($relation->multiple)
                     {
                         foreach ($relation->all() as $modelRelation)
                         {
@@ -39,16 +39,15 @@ class MActiveRecord extends \yii\db\ActiveRecord
                                 foreach ($dataValue as $value)
                                 {
                                     $modelRelation = new $relation->modelClass;
-                                    
+
                                     //We dont use $this->link here, because that method save the model in the database and we are not ready to that yet.
-                                    foreach($relation->link as $keyModel => $keyRelation)
+                                    foreach ($relation->link as $keyModel => $keyRelation)
                                     {
                                         $modelRelation->$keyRelation = $this->$keyModel;
                                     }
-                                    $modelRelation->saveWithRelated([$modelRelation->formName()=>$value]);
+                                    $modelRelation->saveWithRelated([$modelRelation->formName() => $value]);
                                 }
-                            }
-                            else
+                            } else
                             {
                                 foreach ($dataValue as $value)
                                 {
@@ -58,14 +57,13 @@ class MActiveRecord extends \yii\db\ActiveRecord
                                 }
                             }
                         }
-                    }
-                    elseif (is_array($dataValue))
+                    } elseif (is_array($dataValue))
                     {
-                        if($this->$dataName != null)
+                        if ($this->$dataName != null)
                             $modelRelation = $this->$dataName;
                         else
                             $modelRelation = new $relation->modelClass;
-                        $modelRelation->saveWithRelated([$modelRelation->formName()=>$dataValue]);
+                        $modelRelation->saveWithRelated([$modelRelation->formName() => $dataValue]);
                         $this->link("$dataName", $modelRelation);
                     }
                 }
@@ -79,28 +77,28 @@ class MActiveRecord extends \yii\db\ActiveRecord
 
     public function beforeSave($event)
     {
-        $dateFormats = ["date"=>"d/m/Y", "datetime" =>"d/m/Y H:i", "timestamp"=>"d/m/Y H:i"];
+        $dateFormats = ["date" => "d/m/Y", "datetime" => "d/m/Y H:i", "timestamp" => "d/m/Y H:i"];
         foreach ($this->attributes as $name => $value)
         {
-            if($value)
+            if ($value)
             {
                 $type = $this->getTableSchema()->getColumn($name)->dbType;
                 if (isset($dateFormats[$type]))
                 {
                     $date = \DateTime::createFromFormat($dateFormats[$type], $value);
-                        $this->$name = $date->format("Y-m-d H:i");
+                    $this->$name = $date->format("Y-m-d H:i");
                 }
             }
         }
         return parent::beforeSave($event);
     }
-  
+
     public function afterFind()
     {
-        $dateFormats = ["date"=>"d/m/Y", "datetime" =>"d/m/Y H:i", "timestamp"=>"d/m/Y H:i"];
+        $dateFormats = ["date" => "d/m/Y", "datetime" => "d/m/Y H:i", "timestamp" => "d/m/Y H:i"];
         foreach ($this->attributes as $name => $value)
         {
-            if($value)
+            if ($value)
             {
                 $type = $this->getTableSchema()->getColumn($name)->dbType;
                 if (isset($dateFormats[$type]))

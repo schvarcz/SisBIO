@@ -22,7 +22,8 @@ use yii\bootstrap\ActiveForm;
 
             <?= $form->field($model, 'Nome')->textInput(['maxlength' => 255]) ?>
             <?= $form->field($model, 'Descricao')->textarea(['rows' => 6]) ?>
-            <?= $form->field($model, 'idDescritores')->checkboxList(
+            <?=
+            $form->field($model, 'idDescritores')->checkboxList(
                     \yii\helpers\ArrayHelper::map(app\models\Descritor::find()->all(), 'idDescritor', 'label'))
             ?>
         </p>
@@ -42,12 +43,13 @@ use yii\bootstrap\ActiveForm;
         ?>
         <hr/>
 
-        <?= Html::submitButton('<span class="glyphicon glyphicon-check"></span> ' . ($model->isNewRecord ? 'Criar' : 'Salvar'), ['class' => $model->isNewRecord ?
+        <?=
+        Html::submitButton('<span class="glyphicon glyphicon-check"></span> ' . ($model->isNewRecord ? 'Criar' : 'Salvar'), ['class' => $model->isNewRecord ?
                     'btn btn-primary' : 'btn btn-primary'])
         ?>
 
-<?= Html::a('Cancelar', \yii\helpers\Url::previous(), ['class' => 'btn btn-default']) ?>
-<?php ActiveForm::end(); ?>
+        <?= Html::a('Cancelar', \yii\helpers\Url::previous(), ['class' => 'btn btn-default']) ?>
+        <?php ActiveForm::end(); ?>
 
     </div>
 

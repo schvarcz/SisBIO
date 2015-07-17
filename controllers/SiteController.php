@@ -80,21 +80,20 @@ class SiteController extends Controller
         {
             return $this->goHome();
         }
-        $model = Pesquisador::findOne(["authKey"=>$authKey]);
+        $model = Pesquisador::findOne(["authKey" => $authKey]);
         if ($model->load(Yii::$app->request->post()) && $model->save())
         {
             return $this->redirect("login");
         }
-        
-        if($model)
+
+        if ($model)
         {
             return $this->render('active', [
                         'model' => $model,
             ]);
-        }
-        else
+        } else
         {
-            throw new HttpException(404,"Chame de autenticação de conta não encontrada.");
+            throw new HttpException(404, "Chame de autenticação de conta não encontrada.");
         }
     }
 

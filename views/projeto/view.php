@@ -124,10 +124,13 @@ $this->params['breadcrumbs'][] = 'Detalhes';
             [
                 "class" => yii\grid\DataColumn::className(),
                 "attribute" => "idPesquisador",
-                "value" => function($model) {
-                    if ($rel = $model->getIdPesquisador0()->one()) {
+                "value" => function($model)
+                {
+                    if ($rel = $model->getIdPesquisador0()->one())
+                    {
                         return yii\helpers\Html::a($rel->label, ["pesquisador/view", 'idPesquisador' => $rel->idPesquisador,], ["data-pjax" => 0]);
-                    } else {
+                    } else
+                    {
                         return '';
                     }
                 },
@@ -137,10 +140,13 @@ $this->params['breadcrumbs'][] = 'Detalhes';
                     [
                         "class" => yii\grid\DataColumn::className(),
                         "attribute" => "idUnidadeGeograficaPai",
-                        "value" => function($model) {
-                            if ($rel = $model->getIdUnidadeGeograficaPai0()->one()) {
+                        "value" => function($model)
+                        {
+                            if ($rel = $model->getIdUnidadeGeograficaPai0()->one())
+                            {
                                 return yii\helpers\Html::a($rel->label, ["unidade-geografica/view", 'idUnidadeGeografica' => $rel->idUnidadeGeografica,], ["data-pjax" => 0]);
-                            } else {
+                            } else
+                            {
                                 return '';
                             }
                         },
@@ -150,7 +156,8 @@ $this->params['breadcrumbs'][] = 'Detalhes';
                                 'class' => 'yii\grid\ActionColumn',
                                 'template' => '{view} {update}',
                                 'contentOptions' => ['nowrap' => 'nowrap'],
-                                'urlCreator' => function($action, $model, $key, $index) {
+                                'urlCreator' => function($action, $model, $key, $index)
+                        {
                             // using the column name as key, not mapping to 'id' like the standard generator
                             $params = is_array($key) ? $key : [$model->primaryKey()[0] => (string) $key];
                             $params[0] = 'unidade-geografica' . '/' . $action;

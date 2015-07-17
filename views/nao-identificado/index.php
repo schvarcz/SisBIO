@@ -79,10 +79,13 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 "class" => yii\grid\DataColumn::className(),
                 "attribute" => "idTipoOrganismo",
-                "value" => function($model) {
-                    if ($rel = $model->getIdTipoOrganismo0()->one()) {
+                "value" => function($model)
+                {
+                    if ($rel = $model->getIdTipoOrganismo0()->one())
+                    {
                         return yii\helpers\Html::a($rel->label, ["tipo-organismo/view", 'idTipoOrganismo' => $rel->idTipoOrganismo,], ["data-pjax" => 0]);
-                    } else {
+                    } else
+                    {
                         return '';
                     }
                 },
@@ -92,10 +95,13 @@ $this->params['breadcrumbs'][] = $this->title;
                     [
                         "class" => yii\grid\DataColumn::className(),
                         "attribute" => "idEspecie",
-                        "value" => function($model) {
-                            if ($rel = $model->getIdEspecie0()->one()) {
+                        "value" => function($model)
+                        {
+                            if ($rel = $model->getIdEspecie0()->one())
+                            {
                                 return yii\helpers\Html::a($rel->label, ["especie/view", 'idEspecie' => $rel->idEspecie,], ["data-pjax" => 0]);
-                            } else {
+                            } else
+                            {
                                 return '';
                             }
                         },
@@ -105,10 +111,13 @@ $this->params['breadcrumbs'][] = $this->title;
                             [
                                 "class" => yii\grid\DataColumn::className(),
                                 "attribute" => "idPesquisadorIdentificacao",
-                                "value" => function($model) {
-                                    if ($rel = $model->getIdPesquisadorIdentificacao0()->one()) {
+                                "value" => function($model)
+                                {
+                                    if ($rel = $model->getIdPesquisadorIdentificacao0()->one())
+                                    {
                                         return yii\helpers\Html::a($rel->label, ["pesquisador/view", 'idPesquisador' => $rel->idPesquisador,], ["data-pjax" => 0]);
-                                    } else {
+                                    } else
+                                    {
                                         return '';
                                     }
                                 },
@@ -118,7 +127,8 @@ $this->params['breadcrumbs'][] = $this->title;
                                     'Data_Identificacao',
                                     [
                                         'class' => 'yii\grid\ActionColumn',
-                                        'urlCreator' => function($action, $model, $key, $index) {
+                                        'urlCreator' => function($action, $model, $key, $index)
+                                        {
                                             // using the column name as key, not mapping to 'id' like the standard generator
                                             $params = is_array($key) ? $key : [$model->primaryKey()[0] => (string) $key];
                                             $params[0] = \Yii::$app->controller->id ? \Yii::$app->controller->id . '/' . $action : $action;

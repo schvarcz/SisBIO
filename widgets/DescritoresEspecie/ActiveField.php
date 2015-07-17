@@ -12,6 +12,7 @@ use yii\helpers\Html;
 
 class ActiveField extends \yii\bootstrap\ActiveField
 {
+
     public function textInput($options = array())
     {
         $options = array_merge($this->inputOptions, $options);
@@ -20,4 +21,5 @@ class ActiveField extends \yii\bootstrap\ActiveField
 
         return $this;
     }
+
 }

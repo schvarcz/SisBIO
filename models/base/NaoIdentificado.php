@@ -21,6 +21,7 @@ use Yii;
  */
 class NaoIdentificado extends \app\models\MActiveRecord
 {
+
     /**
      * @inheritdoc
      */
@@ -28,7 +29,7 @@ class NaoIdentificado extends \app\models\MActiveRecord
     {
         return 'NaoIdentificado';
     }
-    
+
     /**
      * @inheritdoc
      */
@@ -103,4 +104,5 @@ class NaoIdentificado extends \app\models\MActiveRecord
     {
         return $this->hasOne(\app\models\TipoOrganismo::className(), ['idTipoOrganismo' => 'idTipoOrganismo']);
     }
+
 }

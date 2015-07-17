@@ -11,74 +11,80 @@ use app\models\Especie;
  */
 class EspecieSearch extends Model
 {
-	public $idEspecie;
-	public $NomeCientifico;
-	public $NomeComum;
-	public $Autor;
-	public $Descricao;
-	public $idGenero;
-	public $idTipo_Organismo;
 
-	public function rules()
-	{
-		return [
-			[['idEspecie', 'idGenero', 'idTipo_Organismo'], 'integer'],
-			[['NomeCientifico', 'NomeComum', 'Autor', 'Descricao'], 'safe'],
-		];
-	}
+    public $idEspecie;
+    public $NomeCientifico;
+    public $NomeComum;
+    public $Autor;
+    public $Descricao;
+    public $idGenero;
+    public $idTipo_Organismo;
 
-	/**
-	 * @inheritdoc
-	 */
-	public function attributeLabels()
-	{
-		return [
-			'idEspecie' => 'Identificador da Espécie',
-			'NomeCientifico' => 'Nome Científico',
-			'NomeComum' => 'Nome Comum',
-			'Autor' => 'Autor',
-			'Descricao' => 'Descrição',
-			'idGenero' => 'Gênero',
-			'idTipo_Organismo' => 'Tipo de Organismo',
-		];
-	}
+    public function rules()
+    {
+        return [
+            [['idEspecie', 'idGenero', 'idTipo_Organismo'], 'integer'],
+            [['NomeCientifico', 'NomeComum', 'Autor', 'Descricao'], 'safe'],
+        ];
+    }
 
-	public function search($params)
-	{
-		$query = Especie::find();
-		$dataProvider = new ActiveDataProvider([
-			'query' => $query,
-		]);
+    /**
+     * @inheritdoc
+     */
+    public function attributeLabels()
+    {
+        return [
+            'idEspecie' => 'Identificador da Espécie',
+            'NomeCientifico' => 'Nome Científico',
+            'NomeComum' => 'Nome Comum',
+            'Autor' => 'Autor',
+            'Descricao' => 'Descrição',
+            'idGenero' => 'Gênero',
+            'idTipo_Organismo' => 'Tipo de Organismo',
+        ];
+    }
 
-		if (!($this->load($params) && $this->validate())) {
-			return $dataProvider;
-		}
+    public function search($params)
+    {
+        $query = Especie::find();
+        $dataProvider = new ActiveDataProvider([
+            'query' => $query,
+        ]);
 
-		$query->andFilterWhere([
+        if (!($this->load($params) && $this->validate()))
+        {
+            return $dataProvider;
+        }
+
+        $query->andFilterWhere([
             'idEspecie' => $this->idEspecie,
             'idGenero' => $this->idGenero,
             'idTipo_Organismo' => $this->idTipo_Organismo,
         ]);
 
-		$query->andFilterWhere(['like', 'NomeCientifico', $this->NomeCientifico])
-            ->andFilterWhere(['like', 'NomeComum', $this->NomeComum])
-            ->andFilterWhere(['like', 'Autor', $this->Autor])
-            ->andFilterWhere(['like', 'Descricao', $this->Descricao]);
+        $query->andFilterWhere(['like', 'NomeCientifico', $this->NomeCientifico])
+                ->andFilterWhere(['like', 'NomeComum', $this->NomeComum])
+                ->andFilterWhere(['like', 'Autor', $this->Autor])
+                ->andFilterWhere(['like', 'Descricao', $this->Descricao]);
 
-		return $dataProvider;
-	}
+        return $dataProvider;
+    }
 
-	protected function addCondition($query, $attribute, $partialMatch = false)
-	{
-		$value = $this->$attribute;
-		if (trim($value) === '') {
-			return;
-		}
-		if ($partialMatch) {
-			$value = '%' . strtr($value, ['%'=>'\%', '_'=>'\_', '\\'=>'\\\\']) . '%';
-			$query->andWhere(['like', $attribute, $value]);
-		} else {
-			$query->andWhere([$attribute => $value]);
-		}
-	}
+    protected function addCondition($query, $attribute, $partialMatch = false)
+    {
+        $value = $this->$attribute;
+        if (trim($value) === '')
+        {
+            return;
+        }
+        if ($partialMatch)
+        {
+            $value = '%' . strtr($value, ['%' => '\%', '_' => '\_', '\\' => '\\\\']) . '%';
+            $query->andWhere(['like', $attribute, $value]);
+        } else
+        {
+            $query->andWhere([$attribute => $value]);
+        }
+    }
+
 }

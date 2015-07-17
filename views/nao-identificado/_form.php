@@ -57,21 +57,23 @@ use yii\web\JsExpression;
             ]);
             ?>
             <?=
-            $form->field($model, 'Data_Registro')->widget(\app\widgets\DateTime\DateTimePicker::classname(), [ 
+            $form->field($model, 'Data_Registro')->widget(\app\widgets\DateTime\DateTimePicker::classname(), [
                 'options' => ['class' => 'form-control'],
                 'pluginOptions' => [
-                    'autoclose'=>true,
+                    'autoclose' => true,
                     'todayHighlight' => true,
                 ]
-            ]);?>
+            ]);
+            ?>
             <?=
-            $form->field($model, 'Data_Identificacao')->widget(\app\widgets\DateTime\DateTimePicker::classname(), [ 
+            $form->field($model, 'Data_Identificacao')->widget(\app\widgets\DateTime\DateTimePicker::classname(), [
                 'options' => ['class' => 'form-control'],
                 'pluginOptions' => [
-                    'autoclose'=>true,
+                    'autoclose' => true,
                     'todayHighlight' => true,
                 ]
-            ]);?>
+            ]);
+            ?>
         </p>
         <?php $this->endBlock(); ?>
 
@@ -95,7 +97,7 @@ use yii\web\JsExpression;
         ?>
 
         <?= Html::a('Cancelar', \yii\helpers\Url::previous(), ['class' => 'btn btn-default']) ?>
-<?php ActiveForm::end(); ?>
+        <?php ActiveForm::end(); ?>
 
     </div>
 

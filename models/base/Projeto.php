@@ -22,6 +22,7 @@ use Yii;
  */
 class Projeto extends \app\models\MActiveRecord
 {
+
     /**
      * @inheritdoc
      */
@@ -29,7 +30,7 @@ class Projeto extends \app\models\MActiveRecord
     {
         return 'Projeto';
     }
-    
+
     /**
      * @inheritdoc
      */
@@ -99,4 +100,5 @@ class Projeto extends \app\models\MActiveRecord
     {
         return $this->hasMany(\app\models\UnidadeGeografica::className(), ['idProjeto' => 'idProjeto']);
     }
+
 }

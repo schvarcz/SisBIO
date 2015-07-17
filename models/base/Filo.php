@@ -15,6 +15,7 @@ use Yii;
  */
 class Filo extends \app\models\MActiveRecord
 {
+
     /**
      * @inheritdoc
      */
@@ -22,7 +23,7 @@ class Filo extends \app\models\MActiveRecord
     {
         return 'Filo';
     }
-    
+
     /**
      * @inheritdoc
      */
@@ -62,4 +63,5 @@ class Filo extends \app\models\MActiveRecord
     {
         return $this->hasMany(\app\models\Ordem::className(), ['idFilo' => 'idFilo']);
     }
+
 }

@@ -13,13 +13,15 @@ use yii\helpers\Url;
 /**
  * ProjetoController implements the CRUD actions for Projeto model.
  */
-class ProjetoController extends Controller {
+class ProjetoController extends Controller
+{
 
     /**
      * Lists all Projeto models.
      * @return mixed
      */
-    public function actionIndex() {
+    public function actionIndex()
+    {
         $searchModel = new ProjetoSearch;
         $dataProvider = $searchModel->search($_GET);
 
@@ -35,7 +37,8 @@ class ProjetoController extends Controller {
      * @param integer $id
      * @return mixed
      */
-    public function actionView($idProjeto) {
+    public function actionView($idProjeto)
+    {
         Url::remember();
         return $this->render('view', [
                     'model' => $this->findModel($idProjeto),
@@ -47,16 +50,21 @@ class ProjetoController extends Controller {
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate() {
+    public function actionCreate()
+    {
         $model = new Projeto;
 
-        try {
-            if ($model->saveWithRelated($_POST)) {
+        try
+        {
+            if ($model->saveWithRelated($_POST))
+            {
                 return $this->redirect(Url::previous());
-            } elseif (!\Yii::$app->request->isPost) {
+            } elseif (!\Yii::$app->request->isPost)
+            {
                 $model->load($_GET);
             }
-        } catch (\Exception $e) {
+        } catch (\Exception $e)
+        {
             $msg = (isset($e->errorInfo[2])) ? $e->errorInfo[2] : $e->getMessage();
             $model->addError('_exception', $msg);
         }
@@ -69,12 +77,15 @@ class ProjetoController extends Controller {
      * @param integer $id
      * @return mixed
      */
-    public function actionUpdate($idProjeto) {
+    public function actionUpdate($idProjeto)
+    {
         $model = $this->findModel($idProjeto);
 
-        if ($model->saveWithRelated($_POST)) {
+        if ($model->saveWithRelated($_POST))
+        {
             return $this->redirect(Url::previous());
-        } else {
+        } else
+        {
             return $this->render('update', [
                         'model' => $model,
             ]);
@@ -87,7 +98,8 @@ class ProjetoController extends Controller {
      * @param integer $id
      * @return mixed
      */
-    public function actionDelete($idProjeto) {
+    public function actionDelete($idProjeto)
+    {
         $this->findModel($idProjeto)->delete();
         return $this->redirect(Url::previous());
     }
@@ -99,10 +111,13 @@ class ProjetoController extends Controller {
      * @return Projeto the loaded model
      * @throws HttpException if the model cannot be found
      */
-    protected function findModel($idProjeto) {
-        if (($model = Projeto::findOne($idProjeto)) !== null) {
+    protected function findModel($idProjeto)
+    {
+        if (($model = Projeto::findOne($idProjeto)) !== null)
+        {
             return $model;
-        } else {
+        } else
+        {
             throw new HttpException(404, 'The requested page does not exist.');
         }
     }

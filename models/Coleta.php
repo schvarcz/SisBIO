@@ -9,6 +9,7 @@ use Yii;
  */
 class Coleta extends \app\models\base\Coleta
 {
+
     /**
      * @inheritdoc
      */
@@ -24,4 +25,5 @@ class Coleta extends \app\models\base\Coleta
             'idPesquisadores' => Yii::t('app', 'Pesquisadores'),
         ];
     }
+
 }

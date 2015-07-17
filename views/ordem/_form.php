@@ -51,7 +51,7 @@ use yii\bootstrap\ActiveForm;
         ?>
 
         <?= Html::a('Cancelar', \yii\helpers\Url::previous(), ['class' => 'btn btn-default']) ?>
-<?php ActiveForm::end(); ?>
+        <?php ActiveForm::end(); ?>
 
     </div>
 

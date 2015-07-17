@@ -21,4 +21,5 @@ class Metodo extends \app\models\base\Metodo
             'Descricao' => Yii::t('app', 'Descrição'),
         ];
     }
+
 }

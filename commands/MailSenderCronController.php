@@ -12,14 +12,17 @@ use Yii;
 use yii\console\Controller;
 use app\models\Pesquisador;
 
-class MailSenderCronController extends Controller {
+class MailSenderCronController extends Controller
+{
 
-    public function actionIndex() {
+    public function actionIndex()
+    {
         echo "Running cron\n";
 
         echo "Inviting\n";
-        $pesquisadores = Pesquisador::findAll(["idCronTask" =>1]);
-        foreach ($pesquisadores as $pesquisador) {
+        $pesquisadores = Pesquisador::findAll(["idCronTask" => 1]);
+        foreach ($pesquisadores as $pesquisador)
+        {
             Yii::$app->mailer->compose("invite", ["model" => $pesquisador])
                     ->setFrom('guilhermefrancosi@gmail.com')
                     ->setTo('guilhermefrancosi@gmail.com')
@@ -29,11 +32,12 @@ class MailSenderCronController extends Controller {
             $pesquisador->idCronTask = NULL;
             $pesquisador->save();
         }
-        
-        
+
+
         echo "\n\nReseting password\n";
-        $pesquisadores = Pesquisador::findAll(["idCronTask" =>2]);
-        foreach ($pesquisadores as $pesquisador) {
+        $pesquisadores = Pesquisador::findAll(["idCronTask" => 2]);
+        foreach ($pesquisadores as $pesquisador)
+        {
             Yii::$app->mailer->compose("reset", ["model" => $pesquisador])
                     ->setFrom('guilhermefrancosi@gmail.com')
                     ->setTo('guilhermefrancosi@gmail.com')

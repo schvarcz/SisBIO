@@ -142,9 +142,9 @@ class ColetaController extends Controller
         $jsonEspecie = [];
         foreach ($especies as $especie)
         {
-            $jsonEspecie[] = ["id" => "E".$especie->primaryKey, "text" => $especie->getLabel()];
+            $jsonEspecie[] = ["id" => "E" . $especie->primaryKey, "text" => $especie->getLabel()];
         }
-        
+
         if (!is_null($nomeEspecie))
         {
             $tipoOrganismo = TipoOrganismo::find()->where(["like", "Nome", $nomeEspecie])->all();
@@ -155,16 +155,16 @@ class ColetaController extends Controller
         $jsonOrganismos = [];
         foreach ($tipoOrganismo as $organismo)
         {
-            $jsonOrganismos[] = ["id" => "O".$organismo->primaryKey, "text" => $organismo->getLabel()];
+            $jsonOrganismos[] = ["id" => "O" . $organismo->primaryKey, "text" => $organismo->getLabel()];
         }
         $out = [];
-        
+
         if ($jsonEspecie != [])
-            $out[] = ["text"=> "Espécies", "children" => $jsonEspecie];
-            
+            $out[] = ["text" => "Espécies", "children" => $jsonEspecie];
+
         if ($jsonOrganismos != [])
-            $out[] = ["text"=> "Grupo Biológico", "children" => $jsonOrganismos];
-        
+            $out[] = ["text" => "Grupo Biológico", "children" => $jsonOrganismos];
+
         return \yii\helpers\Json::encode(["results" => $out]);
     }
 
@@ -196,11 +196,11 @@ class ColetaController extends Controller
      * @param String $name
      * @return Json the list of models
      */
-    public function actionAdddescritor($tipoDescritor,$primaryKey)
+    public function actionAdddescritor($tipoDescritor, $primaryKey)
     {
         $entidade = $primaryKey[0];
         $primaryKey[0] = 0;
-        $primaryKey = (int)$primaryKey;
+        $primaryKey = (int) $primaryKey;
         if ($entidade == "O")
             $model = TipoOrganismo::findOne($primaryKey);
         else
@@ -208,7 +208,7 @@ class ColetaController extends Controller
         $out = [];
         if ($model !== null)
         {
-            return DescritoresEspecie::widget(["name" => "especie", "model" => $model,"tipoDescritor"=>$tipoDescritor]);
+            return DescritoresEspecie::widget(["name" => "especie", "model" => $model, "tipoDescritor" => $tipoDescritor]);
         }
     }
 
@@ -217,13 +217,13 @@ class ColetaController extends Controller
      * @param String $name
      * @return Json Lista de models
      */
-    public function actionAdddescritoresambiental($tipoDescritor,$primaryKey)
+    public function actionAdddescritoresambiental($tipoDescritor, $primaryKey)
     {
         $model = Descritor::findOne($primaryKey);
-        
+
         if ($model !== null)
         {
-            return DescritoresEspecie::widget(["name" => "variavel-ambiental", "model" => $model,"tipoDescritor"=>$tipoDescritor]);
+            return DescritoresEspecie::widget(["name" => "variavel-ambiental", "model" => $model, "tipoDescritor" => $tipoDescritor]);
         }
     }
 

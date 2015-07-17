@@ -23,6 +23,7 @@ use Yii;
  */
 class UnidadeGeografica extends \app\models\MActiveRecord
 {
+
     /**
      * @inheritdoc
      */
@@ -30,7 +31,7 @@ class UnidadeGeografica extends \app\models\MActiveRecord
     {
         return 'UnidadeGeografica';
     }
-    
+
     /**
      * @inheritdoc
      */
@@ -108,4 +109,5 @@ class UnidadeGeografica extends \app\models\MActiveRecord
     {
         return $this->hasMany(\app\models\UnidadeGeografica::className(), ['idUnidadeGeograficaPai' => 'idUnidadeGeografica']);
     }
+
 }

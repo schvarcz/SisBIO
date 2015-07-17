@@ -12,28 +12,30 @@ use yii\widgets\ActiveForm;
 
 <div class="nao-identificado-search">
 
-	<?php $form = ActiveForm::begin([
-		'action' => ['index'],
-		'method' => 'get',
-	]); ?>
+    <?php
+    $form = ActiveForm::begin([
+                'action' => ['index'],
+                'method' => 'get',
+    ]);
+    ?>
 
-		<?= $form->field($model, 'idNaoIdentificado') ?>
+    <?= $form->field($model, 'idNaoIdentificado') ?>
 
-		<?= $form->field($model, 'idTipoOrganismo') ?>
+    <?= $form->field($model, 'idTipoOrganismo') ?>
 
-		<?= $form->field($model, 'idEspecie') ?>
+    <?= $form->field($model, 'idEspecie') ?>
 
-		<?= $form->field($model, 'idPesquisadorIdentificacao') ?>
+    <?= $form->field($model, 'idPesquisadorIdentificacao') ?>
 
-		<?= $form->field($model, 'Data_Registro') ?>
+    <?= $form->field($model, 'Data_Registro') ?>
 
-		<?php // echo $form->field($model, 'Data_Identificacao') ?>
+    <?php // echo $form->field($model, 'Data_Identificacao')  ?>
 
-		<div class="form-group">
-			<?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
-			<?= Html::resetButton('Reset', ['class' => 'btn btn-default']) ?>
-		</div>
+    <div class="form-group">
+        <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
+        <?= Html::resetButton('Reset', ['class' => 'btn btn-default']) ?>
+    </div>
 
-	<?php ActiveForm::end(); ?>
+    <?php ActiveForm::end(); ?>
 
 </div>

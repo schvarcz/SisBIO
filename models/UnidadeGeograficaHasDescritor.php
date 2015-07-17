@@ -9,4 +9,5 @@ use Yii;
  */
 class UnidadeGeograficaHasDescritor extends \app\models\base\UnidadeGeograficaHasDescritor
 {
+    
 }

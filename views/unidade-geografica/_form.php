@@ -43,13 +43,14 @@ use yii\web\JsExpression;
             ]);
             ?>
             <?=
-            $form->field($model, 'Data_Criacao')->widget(\app\widgets\DateTime\DateTimePicker::classname(), [ 
+            $form->field($model, 'Data_Criacao')->widget(\app\widgets\DateTime\DateTimePicker::classname(), [
                 'options' => ['class' => 'form-control'],
                 'pluginOptions' => [
-                    'autoclose'=>true,
+                    'autoclose' => true,
                     'todayHighlight' => true,
                 ]
-            ]);?>
+            ]);
+            ?>
             <?=
             $form->field($model, 'idUnidadeGeograficaPai')->widget(\app\widgets\Select2Active\Select2Active::classname(), [
                 'options' => ['placeholder' => 'Nome da unidade geográfica ao qual está contida...'],

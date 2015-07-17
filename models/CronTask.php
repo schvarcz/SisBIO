@@ -9,4 +9,5 @@ use Yii;
  */
 class CronTask extends \app\models\base\CronTask
 {
+    
 }

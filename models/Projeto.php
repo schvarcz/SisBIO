@@ -26,4 +26,5 @@ class Projeto extends \app\models\base\Projeto
             'Descricao' => Yii::t('app', 'Descrição'),
         ];
     }
+
 }

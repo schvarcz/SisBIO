@@ -22,4 +22,5 @@ class TipoOrganismo extends \app\models\base\TipoOrganismo
             'idDescritores' => Yii::t('app', 'Descritores'),
         ];
     }
+
 }

@@ -42,7 +42,7 @@ eof;
         if ($model->senha == null)
             echo Html::a('<span class="glyphicon glyphicon-certificate"></span> Enviar convite ao sistema', ['invite-reset', 'idPesquisador' => $model->idPesquisador], ['class' => 'btn btn-info', 'onclick' => $js]);
         else
-            echo Html::a('<span class="glyphicon glyphicon-certificate"></span> Resetar senha', null, ['onclick'=>$js, 'class' => 'btn btn-info']);
+            echo Html::a('<span class="glyphicon glyphicon-certificate"></span> Resetar senha', null, ['onclick' => $js, 'class' => 'btn btn-info']);
         ?>
         <?= Html::a('<span class="glyphicon glyphicon-plus"></span> Novo Pesquisador', ['create'], ['class' => 'btn
         btn-success']) ?>

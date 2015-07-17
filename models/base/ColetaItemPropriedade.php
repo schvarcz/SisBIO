@@ -18,6 +18,7 @@ use Yii;
  */
 class ColetaItemPropriedade extends \app\models\MActiveRecord
 {
+
     /**
      * @inheritdoc
      */
@@ -25,7 +26,7 @@ class ColetaItemPropriedade extends \app\models\MActiveRecord
     {
         return 'ColetaItemPropriedade';
     }
-    
+
     /**
      * @inheritdoc
      */
@@ -75,4 +76,5 @@ class ColetaItemPropriedade extends \app\models\MActiveRecord
     {
         return $this->hasOne(\app\models\Descritor::className(), ['idDescritor' => 'idDescritor']);
     }
+
 }

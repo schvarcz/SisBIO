@@ -23,6 +23,7 @@ use Yii;
  */
 class Descritor extends \app\models\MActiveRecord
 {
+
     /**
      * @inheritdoc
      */
@@ -30,7 +31,7 @@ class Descritor extends \app\models\MActiveRecord
     {
         return 'Descritor';
     }
-    
+
     /**
      * @inheritdoc
      */
@@ -121,4 +122,5 @@ class Descritor extends \app\models\MActiveRecord
     {
         return $this->hasMany(\app\models\UnidadeGeografica::className(), ['idUnidadeGeografica' => 'idUnidadeGeografica'])->viaTable('UnidadeGeografica_has_Descritor', ['idDescritor' => 'idDescritor']);
     }
+
 }

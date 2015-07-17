@@ -18,7 +18,7 @@
             var settings = $this.data("settings");
             $this.click(methods.add);
             $this.parents("form").find(".close-btn").click(methods.remove);
-            $(settings.modalAtributos).find(".btn-primary").data("coleta",$this).click(methods.UpdateVisibleAttributes);
+            $(settings.modalAtributos).find(".btn-primary").data("coleta", $this).click(methods.UpdateVisibleAttributes);
         },
         add: function () {
             var settings = $(this).data("settings");
@@ -61,10 +61,10 @@
                 opacity: 0
             });
             $data.find(".close-btn").click(methods.remove);
-            
+
             var idTipoOrganismo = $data.find(".idTipoOrganismo").val();
-            var $inputOrganismo = $(settings.modalAtributos).find(".idTipoOrganismo[value=" +idTipoOrganismo + "]");
-            
+            var $inputOrganismo = $(settings.modalAtributos).find(".idTipoOrganismo[value=" + idTipoOrganismo + "]");
+
             var $checkboxes = $inputOrganismo.parent().find("input[type=checkbox]");
 
             $checkboxes.each(function (j, $checkbox) {
@@ -73,25 +73,25 @@
                 if (!$checkbox.checked)
                     $data.find(".idDescritor[value=" + val + "]").parent().hide().find("input[type=text]").val("");
             });
-            
+
             $data.animate({
                 opacity: 1
             });
             $data.find('[data-toggle="popover"]').popover();
         },
-        UpdateVisibleAttributes: function (e){
+        UpdateVisibleAttributes: function (e) {
             var settings = $(this).data("coleta").data("settings");
 
             var $inputsOrganismos = $(settings.modalAtributos).find("input[name=idTipoOrganismo]");
-            
+
             $inputsOrganismos.each(function (i, $inputOrganismo) {
                 $inputOrganismo = $($inputOrganismo);
-                
+
                 var idTipoOrganismo = $inputOrganismo.val();
                 var $checkboxes = $inputOrganismo.parent().find("input[type=checkbox]");
 
                 var $fields = $(settings.container).find(".idTipoOrganismo[value=" + idTipoOrganismo + "]").parents("fieldset");
-                
+
                 $checkboxes.each(function (j, $checkbox) {
 
                     var val = $($checkbox).val();
@@ -115,10 +115,10 @@
         } else if (typeof options === 'object' || !options)
         {
             var settings = $.extend({}, defaults, options);
-            $(this).data("settings",settings);
+            $(this).data("settings", settings);
             methods.init(this);
             return this;
         }
-    }
+    };
 
 })(jQuery);

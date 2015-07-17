@@ -25,9 +25,10 @@ class Pesquisador extends \app\models\base\Pesquisador implements \yii\web\Ident
             'Resumo' => Yii::t('app', 'Resumo'),
         ];
     }
-    
-    public function beforeSave($event) {
-        if($this->senha != $this->oldAttributes["senha"])
+
+    public function beforeSave($event)
+    {
+        if ($this->senha != $this->oldAttributes["senha"])
         {
             $this->senha = md5($this->senha);
             $this->authKey = Null;
@@ -35,7 +36,7 @@ class Pesquisador extends \app\models\base\Pesquisador implements \yii\web\Ident
         return parent::beforeSave($event);
     }
 
-        /**
+    /**
      * @inheritdoc
      */
     public static function findIdentity($id)
@@ -48,8 +49,10 @@ class Pesquisador extends \app\models\base\Pesquisador implements \yii\web\Ident
      */
     public static function findIdentityByAccessToken($token, $type = null)
     {
-        foreach (self::$users as $user) {
-            if ($user['accessToken'] === $token) {
+        foreach (self::$users as $user)
+        {
+            if ($user['accessToken'] === $token)
+            {
                 return new static($user);
             }
         }
@@ -78,7 +81,7 @@ class Pesquisador extends \app\models\base\Pesquisador implements \yii\web\Ident
      */
     public function getAuthKey()
     {
-        return md5($this->primaryKey.time()); //$this->authKey;
+        return md5($this->primaryKey . time()); //$this->authKey;
     }
 
     /**
@@ -89,7 +92,6 @@ class Pesquisador extends \app\models\base\Pesquisador implements \yii\web\Ident
         return $this->authKey === $authKey;
     }
 
-    
     /**
      * Finds user by email
      *

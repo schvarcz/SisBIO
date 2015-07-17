@@ -13,13 +13,15 @@ use yii\helpers\Url;
 /**
  * NaoIdentificadoController implements the CRUD actions for NaoIdentificado model.
  */
-class NaoIdentificadoController extends Controller {
+class NaoIdentificadoController extends Controller
+{
 
     /**
      * Lists all NaoIdentificado models.
      * @return mixed
      */
-    public function actionIndex() {
+    public function actionIndex()
+    {
         $searchModel = new NaoIdentificadoSearch;
         $dataProvider = $searchModel->search($_GET);
 
@@ -35,7 +37,8 @@ class NaoIdentificadoController extends Controller {
      * @param integer $id
      * @return mixed
      */
-    public function actionView($idNaoIdentificado) {
+    public function actionView($idNaoIdentificado)
+    {
         Url::remember();
         return $this->render('view', [
                     'model' => $this->findModel($idNaoIdentificado),
@@ -47,16 +50,21 @@ class NaoIdentificadoController extends Controller {
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate() {
+    public function actionCreate()
+    {
         $model = new NaoIdentificado;
 
-        try {
-            if ($model->load($_POST) && $model->save()) {
+        try
+        {
+            if ($model->load($_POST) && $model->save())
+            {
                 return $this->redirect(Url::previous());
-            } elseif (!\Yii::$app->request->isPost) {
+            } elseif (!\Yii::$app->request->isPost)
+            {
                 $model->load($_GET);
             }
-        } catch (\Exception $e) {
+        } catch (\Exception $e)
+        {
             $msg = (isset($e->errorInfo[2])) ? $e->errorInfo[2] : $e->getMessage();
             $model->addError('_exception', $msg);
         }
@@ -69,12 +77,15 @@ class NaoIdentificadoController extends Controller {
      * @param integer $id
      * @return mixed
      */
-    public function actionUpdate($idNaoIdentificado) {
+    public function actionUpdate($idNaoIdentificado)
+    {
         $model = $this->findModel($idNaoIdentificado);
 
-        if ($model->load($_POST) && $model->save()) {
+        if ($model->load($_POST) && $model->save())
+        {
             return $this->redirect(Url::previous());
-        } else {
+        } else
+        {
             return $this->render('update', [
                         'model' => $model,
             ]);
@@ -87,7 +98,8 @@ class NaoIdentificadoController extends Controller {
      * @param integer $id
      * @return mixed
      */
-    public function actionDelete($idNaoIdentificado) {
+    public function actionDelete($idNaoIdentificado)
+    {
         $this->findModel($idNaoIdentificado)->delete();
         return $this->redirect(Url::previous());
     }
@@ -99,10 +111,13 @@ class NaoIdentificadoController extends Controller {
      * @return NaoIdentificado the loaded model
      * @throws HttpException if the model cannot be found
      */
-    protected function findModel($idNaoIdentificado) {
-        if (($model = NaoIdentificado::findOne($idNaoIdentificado)) !== null) {
+    protected function findModel($idNaoIdentificado)
+    {
+        if (($model = NaoIdentificado::findOne($idNaoIdentificado)) !== null)
+        {
             return $model;
-        } else {
+        } else
+        {
             throw new HttpException(404, 'The requested page does not exist.');
         }
     }

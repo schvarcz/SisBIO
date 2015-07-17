@@ -15,6 +15,7 @@ use Yii;
  */
 class TipoDescritor extends \app\models\MActiveRecord
 {
+
     /**
      * @inheritdoc
      */
@@ -22,7 +23,7 @@ class TipoDescritor extends \app\models\MActiveRecord
     {
         return 'TipoDescritor';
     }
-    
+
     /**
      * @inheritdoc
      */
@@ -62,4 +63,5 @@ class TipoDescritor extends \app\models\MActiveRecord
     {
         return $this->hasMany(\app\models\Descritor::className(), ['idTipoDescritor' => 'idTipoDescritor']);
     }
+
 }

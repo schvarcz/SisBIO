@@ -55,11 +55,11 @@ $this->params['breadcrumbs'][] = 'Detalhes';
     ]);
     ?>
 
-<?php $this->endBlock(); ?>
+    <?php $this->endBlock(); ?>
 
 
 
-        <?php $this->beginBlock('Atributos'); ?>
+    <?php $this->beginBlock('Atributos'); ?>
     <p class='pull-right'>
         <?=
         \yii\helpers\Html::a(

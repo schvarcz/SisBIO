@@ -15,6 +15,7 @@ use Yii;
  */
 class ColetaHasPesquisador extends \app\models\MActiveRecord
 {
+
     /**
      * @inheritdoc
      */
@@ -22,7 +23,7 @@ class ColetaHasPesquisador extends \app\models\MActiveRecord
     {
         return 'Coleta_has_Pesquisador';
     }
-    
+
     /**
      * @inheritdoc
      */
@@ -68,4 +69,5 @@ class ColetaHasPesquisador extends \app\models\MActiveRecord
     {
         return $this->hasOne(\app\models\Pesquisador::className(), ['idPesquisador' => 'idPesquisador']);
     }
+
 }

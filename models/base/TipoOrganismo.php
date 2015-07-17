@@ -18,6 +18,7 @@ use Yii;
  */
 class TipoOrganismo extends \app\models\MActiveRecord
 {
+
     /**
      * @inheritdoc
      */
@@ -25,7 +26,7 @@ class TipoOrganismo extends \app\models\MActiveRecord
     {
         return 'TipoOrganismo';
     }
-    
+
     /**
      * @inheritdoc
      */
@@ -89,4 +90,5 @@ class TipoOrganismo extends \app\models\MActiveRecord
     {
         return $this->hasMany(\app\models\Descritor::className(), ['idDescritor' => 'idDescritor'])->viaTable('TipoOrganismo_has_Descritor', ['idTipoOrganismo' => 'idTipoOrganismo']);
     }
+
 }

@@ -27,7 +27,7 @@ use yii\bootstrap\ActiveForm;
                     \yii\helpers\ArrayHelper::map(app\models\Ordem::find()->all(), 'idOrdem', 'label'), ['prompt' => 'Choose...']
             );
             ?>
-        <?= $form->field($model, 'Descricao')->textarea(['rows' => 6]) ?>
+            <?= $form->field($model, 'Descricao')->textarea(['rows' => 6]) ?>
         </p>
         <?php $this->endBlock(); ?>
 
@@ -45,12 +45,13 @@ use yii\bootstrap\ActiveForm;
         ?>
         <hr/>
 
-        <?= Html::submitButton('<span class="glyphicon glyphicon-check"></span> ' . ($model->isNewRecord ? 'Criar' : 'Salvar'), ['class' => $model->isNewRecord ?
+        <?=
+        Html::submitButton('<span class="glyphicon glyphicon-check"></span> ' . ($model->isNewRecord ? 'Criar' : 'Salvar'), ['class' => $model->isNewRecord ?
                     'btn btn-primary' : 'btn btn-primary'])
         ?>
 
-<?= Html::a('Cancelar', \yii\helpers\Url::previous(), ['class' => 'btn btn-default']) ?>
-<?php ActiveForm::end(); ?>
+        <?= Html::a('Cancelar', \yii\helpers\Url::previous(), ['class' => 'btn btn-default']) ?>
+        <?php ActiveForm::end(); ?>
 
     </div>
 

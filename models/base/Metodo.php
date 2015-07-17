@@ -15,6 +15,7 @@ use Yii;
  */
 class Metodo extends \app\models\MActiveRecord
 {
+
     /**
      * @inheritdoc
      */
@@ -22,7 +23,7 @@ class Metodo extends \app\models\MActiveRecord
     {
         return 'Metodo';
     }
-    
+
     /**
      * @inheritdoc
      */
@@ -62,4 +63,5 @@ class Metodo extends \app\models\MActiveRecord
     {
         return $this->hasMany(\app\models\Coleta::className(), ['idMetodo' => 'idMetodo']);
     }
+
 }

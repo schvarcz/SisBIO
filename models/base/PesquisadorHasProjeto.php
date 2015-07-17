@@ -15,6 +15,7 @@ use Yii;
  */
 class PesquisadorHasProjeto extends \app\models\MActiveRecord
 {
+
     /**
      * @inheritdoc
      */
@@ -22,7 +23,7 @@ class PesquisadorHasProjeto extends \app\models\MActiveRecord
     {
         return 'Pesquisador_has_Projeto';
     }
-    
+
     /**
      * @inheritdoc
      */
@@ -68,4 +69,5 @@ class PesquisadorHasProjeto extends \app\models\MActiveRecord
     {
         return $this->hasOne(\app\models\Projeto::className(), ['idProjeto' => 'idProjeto']);
     }
+
 }

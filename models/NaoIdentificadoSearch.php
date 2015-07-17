@@ -9,7 +9,8 @@ use app\models\NaoIdentificado;
 /**
  * NaoIdentificadoSearch represents the model behind the search form about NaoIdentificado.
  */
-class NaoIdentificadoSearch extends Model {
+class NaoIdentificadoSearch extends Model
+{
 
     public $idNaoIdentificado;
     public $idTipoOrganismo;
@@ -18,7 +19,8 @@ class NaoIdentificadoSearch extends Model {
     public $Data_Registro;
     public $Data_Identificacao;
 
-    public function rules() {
+    public function rules()
+    {
         return [
             [['idNaoIdentificado', 'idTipoOrganismo', 'idEspecie', 'idPesquisadorIdentificacao'], 'integer'],
             [['Data_Registro', 'Data_Identificacao'], 'safe'],
@@ -28,7 +30,8 @@ class NaoIdentificadoSearch extends Model {
     /**
      * @inheritdoc
      */
-    public function attributeLabels() {
+    public function attributeLabels()
+    {
         return [
             'idNaoIdentificado' => 'Id Nao Identificado',
             'idTipoOrganismo' => 'Id Tipo Organismo',
@@ -39,13 +42,15 @@ class NaoIdentificadoSearch extends Model {
         ];
     }
 
-    public function search($params) {
+    public function search($params)
+    {
         $query = NaoIdentificado::find();
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
         ]);
 
-        if (!($this->load($params) && $this->validate())) {
+        if (!($this->load($params) && $this->validate()))
+        {
             return $dataProvider;
         }
 
@@ -61,15 +66,19 @@ class NaoIdentificadoSearch extends Model {
         return $dataProvider;
     }
 
-    protected function addCondition($query, $attribute, $partialMatch = false) {
+    protected function addCondition($query, $attribute, $partialMatch = false)
+    {
         $value = $this->$attribute;
-        if (trim($value) === '') {
+        if (trim($value) === '')
+        {
             return;
         }
-        if ($partialMatch) {
+        if ($partialMatch)
+        {
             $value = '%' . strtr($value, ['%' => '\%', '_' => '\_', '\\' => '\\\\']) . '%';
             $query->andWhere(['like', $attribute, $value]);
-        } else {
+        } else
+        {
             $query->andWhere([$attribute => $value]);
         }
     }

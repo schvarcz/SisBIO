@@ -20,4 +20,5 @@ class TipoOrganismoHasDescritor extends \app\models\base\TipoOrganismoHasDescrit
             'idDescritor' => Yii::t('app', 'Descritor'),
         ];
     }
+
 }

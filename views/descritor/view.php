@@ -67,11 +67,11 @@ $this->params['breadcrumbs'][] = 'Detalhes';
     ]);
     ?>
 
-<?php $this->endBlock(); ?>
+    <?php $this->endBlock(); ?>
 
 
 
-        <?php $this->beginBlock('IdTipoOrganismos'); ?>
+    <?php $this->beginBlock('IdTipoOrganismos'); ?>
     <p class='pull-right'>
         <?=
         \yii\helpers\Html::a(
@@ -88,7 +88,7 @@ $this->params['breadcrumbs'][] = 'Detalhes';
     <?=
     \yii\grid\GridView::widget([
         'dataProvider' => new \yii\data\ActiveDataProvider(['query' => $model->getTipoOrganismoHasDescritores(), 'pagination' => ['pageSize' => 10]]),
-        'columns' => [ 
+        'columns' => [
             'idTipoOrganismo0.Nome',
             'idTipoOrganismo0.Descricao',
             [

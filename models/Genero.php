@@ -22,4 +22,5 @@ class Genero extends \app\models\base\Genero
             'idFamilia' => Yii::t('app', 'Família'),
         ];
     }
+
 }

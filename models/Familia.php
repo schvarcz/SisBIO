@@ -22,4 +22,5 @@ class Familia extends \app\models\base\Familia
             'idOrdem' => Yii::t('app', 'Ordem'),
         ];
     }
+
 }

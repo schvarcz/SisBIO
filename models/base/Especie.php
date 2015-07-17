@@ -22,6 +22,7 @@ use Yii;
  */
 class Especie extends \app\models\MActiveRecord
 {
+
     /**
      * @inheritdoc
      */
@@ -29,7 +30,7 @@ class Especie extends \app\models\MActiveRecord
     {
         return 'Especie';
     }
-    
+
     /**
      * @inheritdoc
      */
@@ -98,4 +99,5 @@ class Especie extends \app\models\MActiveRecord
     {
         return $this->hasMany(\app\models\NaoIdentificado::className(), ['idEspecie' => 'idEspecie']);
     }
+
 }

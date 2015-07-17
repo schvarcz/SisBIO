@@ -17,6 +17,7 @@ use Yii;
  */
 class Genero extends \app\models\MActiveRecord
 {
+
     /**
      * @inheritdoc
      */
@@ -24,7 +25,7 @@ class Genero extends \app\models\MActiveRecord
     {
         return 'Genero';
     }
-    
+
     /**
      * @inheritdoc
      */
@@ -74,4 +75,5 @@ class Genero extends \app\models\MActiveRecord
     {
         return $this->hasOne(\app\models\Familia::className(), ['idFamilia' => 'idFamilia']);
     }
+
 }

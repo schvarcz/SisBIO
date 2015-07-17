@@ -9,9 +9,10 @@ use Yii;
  */
 class NaoIdentificado extends \app\models\base\NaoIdentificado
 {
+
     function getLabel()
     {
-        return "NI".$this->primaryKey." - ".$this->idTipoOrganismo0->Nome;
+        return "NI" . $this->primaryKey . " - " . $this->idTipoOrganismo0->Nome;
     }
 
     /**
@@ -28,12 +29,12 @@ class NaoIdentificado extends \app\models\base\NaoIdentificado
             'Data_Identificacao' => Yii::t('app', 'Data de Identificação'),
         ];
     }
-    
+
     public function afterSave($insert, $changedAttributes)
     {
-        if($this->idEspecie != $changedAttributes["idEspecie"])
+        if ($this->idEspecie != $changedAttributes["idEspecie"])
         {
-            ColetaItem::updateAll(["idEspecie" =>$this->idEspecie],["idNaoIdentificado" => $this->primaryKey]);
+            ColetaItem::updateAll(["idEspecie" => $this->idEspecie], ["idNaoIdentificado" => $this->primaryKey]);
         }
         return parent::afterSave($insert, $changedAttributes);
     }

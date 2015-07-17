@@ -12,6 +12,7 @@ use Yii;
  */
 class TipoOrganismoHasDescritor extends \app\models\MActiveRecord
 {
+
     /**
      * @inheritdoc
      */
@@ -19,7 +20,7 @@ class TipoOrganismoHasDescritor extends \app\models\MActiveRecord
     {
         return 'TipoOrganismo_has_Descritor';
     }
-    
+
     /**
      * @inheritdoc
      */
@@ -49,4 +50,5 @@ class TipoOrganismoHasDescritor extends \app\models\MActiveRecord
             'idDescritor' => Yii::t('app', 'Id Descritor'),
         ];
     }
+
 }

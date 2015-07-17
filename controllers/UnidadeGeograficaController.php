@@ -132,7 +132,7 @@ class UnidadeGeograficaController extends Controller
     {
         $out = [];
 
-        if (!is_null( $nomeUnidadeGeografica ))
+        if (!is_null($nomeUnidadeGeografica))
         {
             $unidades = UnidadeGeografica::find()->where(["like", "Nome", $nomeUnidadeGeografica])->all();
             $json = [];
@@ -176,4 +176,5 @@ class UnidadeGeograficaController extends Controller
         }
         return \yii\helpers\Json::encode($out);
     }
+
 }

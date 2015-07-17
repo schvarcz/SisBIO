@@ -19,6 +19,7 @@ use Yii;
  */
 class ColetaItem extends \app\models\MActiveRecord
 {
+
     /**
      * @inheritdoc
      */
@@ -26,7 +27,7 @@ class ColetaItem extends \app\models\MActiveRecord
     {
         return 'ColetaItem';
     }
-    
+
     /**
      * @inheritdoc
      */
@@ -90,4 +91,5 @@ class ColetaItem extends \app\models\MActiveRecord
     {
         return $this->hasMany(\app\models\ColetaItemPropriedade::className(), ['idColetaItem' => 'idColetaItem']);
     }
+
 }

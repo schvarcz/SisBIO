@@ -14,6 +14,7 @@ use Yii;
  */
 class CronTask extends \app\models\MActiveRecord
 {
+
     /**
      * @inheritdoc
      */
@@ -21,7 +22,7 @@ class CronTask extends \app\models\MActiveRecord
     {
         return 'CronTask';
     }
-    
+
     /**
      * @inheritdoc
      */
@@ -59,4 +60,5 @@ class CronTask extends \app\models\MActiveRecord
     {
         return $this->hasMany(\app\models\Pesquisador::className(), ['idCronTask' => 'idCronTask']);
     }
+
 }

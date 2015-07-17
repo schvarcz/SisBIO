@@ -57,17 +57,18 @@ use kartik\widgets\FileInput;
         ?>
         <hr/>
 
-        <?= Html::submitButton('<span class="glyphicon glyphicon-check"></span> Salvar', ['class' => $model->isNewRecord ?
+        <?=
+        Html::submitButton('<span class="glyphicon glyphicon-check"></span> Salvar', ['class' => $model->isNewRecord ?
                     'btn btn-primary' : 'btn btn-primary'])
         ?>
         <?php
-            if ($model->senha == null)
-                echo Html::submitButton('<span class="glyphicon glyphicon-check"></span> Salvar e enviar convite ao sistema', ['class' => $model->isNewRecord ?
-                    'btn btn-primary' : 'btn btn-primary', "name"=>"invite"])
-        ?>
+        if ($model->senha == null)
+            echo Html::submitButton('<span class="glyphicon glyphicon-check"></span> Salvar e enviar convite ao sistema', ['class' => $model->isNewRecord ?
+                        'btn btn-primary' : 'btn btn-primary', "name" => "invite"])
+            ?>
 
         <?= Html::a('Cancelar', \yii\helpers\Url::previous(), ['class' => 'btn btn-default']) ?>
-<?php ActiveForm::end(); ?>
+        <?php ActiveForm::end(); ?>
 
     </div>
 

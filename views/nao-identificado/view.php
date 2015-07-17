@@ -95,50 +95,54 @@ $this->params['breadcrumbs'][] = 'Detalhes';
             [
                 "class" => yii\grid\DataColumn::className(),
                 "attribute" => "idUnidadeGeografica",
-                "value" => function($model) {
-                    if ($rel = $model->getIdUnidadeGeografica0()->one()) {
+                "value" => function($model)
+                {
+                    if ($rel = $model->getIdUnidadeGeografica0()->one())
+                    {
                         return yii\helpers\Html::a($rel->label, ["unidade-geografica/view", 'idUnidadeGeografica' => $rel->idUnidadeGeografica,], ["data-pjax" => 0]);
-                    } else {
+                    } else
+                    {
                         return '';
                     }
                 },
-                "format" => "raw",
-            ],
-            [
-                'class' => 'yii\grid\ActionColumn',
-                'template' => '{view} {update}',
-                'contentOptions' => ['nowrap' => 'nowrap'],
-                'urlCreator' => function($action, $model, $key, $index) {
+                        "format" => "raw",
+                    ],
+                    [
+                        'class' => 'yii\grid\ActionColumn',
+                        'template' => '{view} {update}',
+                        'contentOptions' => ['nowrap' => 'nowrap'],
+                        'urlCreator' => function($action, $model, $key, $index)
+                {
                     // using the column name as key, not mapping to 'id' like the standard generator
                     $params = is_array($key) ? $key : [$model->primaryKey()[0] => (string) $key];
                     $params[0] = 'coleta' . '/' . $action;
                     return \yii\helpers\Url::toRoute($params);
                 },
-                'buttons' => [
-                ],
-                'controller' => 'coleta'
-            ],
-                                ]
-                    ]);
-                    ?>
-                    <?php Pjax::end() ?>
-                    <?php $this->endBlock() ?>
+                        'buttons' => [
+                        ],
+                        'controller' => 'coleta'
+                    ],
+                ]
+            ]);
+            ?>
+            <?php Pjax::end() ?>
+            <?php $this->endBlock() ?>
 
 
-                    <?=
-                    \yii\bootstrap\Tabs::widget(
-                            [
-                                'id' => 'relation-tabs',
-                                'encodeLabels' => false,
-                                'items' => [ [
-                                        'label' => '<span class="glyphicon glyphicon-asterisk"></span> Espécime',
-                                        'content' => $this->blocks['app\models\NaoIdentificado'],
-                                        'active' => true,
-                                    ], [
-                                        'label' => '<small><span class="glyphicon glyphicon-paperclip"></span> Coletas</small>',
-                                        'content' => $this->blocks['Coletas'],
-                                        'active' => false,
-                                    ],]
-                            ]
-                    );
-                    ?></div>
+            <?=
+            \yii\bootstrap\Tabs::widget(
+                    [
+                        'id' => 'relation-tabs',
+                        'encodeLabels' => false,
+                        'items' => [ [
+                                'label' => '<span class="glyphicon glyphicon-asterisk"></span> Espécime',
+                                'content' => $this->blocks['app\models\NaoIdentificado'],
+                                'active' => true,
+                            ], [
+                                'label' => '<small><span class="glyphicon glyphicon-paperclip"></span> Coletas</small>',
+                                'content' => $this->blocks['Coletas'],
+                                'active' => false,
+                            ],]
+                    ]
+            );
+            ?></div>

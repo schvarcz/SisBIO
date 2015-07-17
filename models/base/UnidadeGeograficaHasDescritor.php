@@ -12,6 +12,7 @@ use Yii;
  */
 class UnidadeGeograficaHasDescritor extends \app\models\MActiveRecord
 {
+
     /**
      * @inheritdoc
      */
@@ -19,7 +20,7 @@ class UnidadeGeograficaHasDescritor extends \app\models\MActiveRecord
     {
         return 'UnidadeGeografica_has_Descritor';
     }
-    
+
     /**
      * @inheritdoc
      */
@@ -49,4 +50,5 @@ class UnidadeGeograficaHasDescritor extends \app\models\MActiveRecord
             'idDescritor' => Yii::t('app', 'Id Descritor'),
         ];
     }
+
 }
