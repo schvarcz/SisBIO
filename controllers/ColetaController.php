@@ -130,14 +130,16 @@ class ColetaController extends Controller
      * @param String $name
      * @return Json the list of models
      */
-    public function actionFindesp($nomeEspecie = null)
+    public function actionFindesp($idTipoOrganismo,$nomeEspecie = null)
     {
         if (!is_null($nomeEspecie))
         {
-            $especies = Especie::find()->where(["like", "NomeComum", $nomeEspecie])->where(["like", "NomeCientifico", $nomeEspecie])->all();
+            $especies = Especie::find()->andWhere(["like", "NomeComum", $nomeEspecie])
+                    ->andWhere(["like", "NomeCientifico", $nomeEspecie])
+                    ->andWhere( ["idTipo_Organismo" => (int)$idTipoOrganismo])->limit(10)->all();
         } else
         {
-            $especies = Especie::find()->limit(10)->all();
+            $especies = Especie::find()->andWhere( ["idTipo_Organismo" => (int)$idTipoOrganismo])->limit(10)->all();
         }
         $jsonEspecie = [];
         foreach ($especies as $especie)
@@ -147,10 +149,10 @@ class ColetaController extends Controller
 
         if (!is_null($nomeEspecie))
         {
-            $tipoOrganismo = TipoOrganismo::find()->where(["like", "Nome", $nomeEspecie])->all();
+            $tipoOrganismo = TipoOrganismo::find()->andWhere(["like", "Nome", $nomeEspecie])->andWhere( ["idTipoOrganismo" => (int)$idTipoOrganismo])->limit(10)->all();
         } else
         {
-            $tipoOrganismo = TipoOrganismo::find()->limit(10)->all();
+            $tipoOrganismo = TipoOrganismo::find()->andWhere( ["idTipoOrganismo" => (int)$idTipoOrganismo])->limit(10)->all();
         }
         $jsonOrganismos = [];
         foreach ($tipoOrganismo as $organismo)

@@ -53,6 +53,7 @@ $script = <<<END
         });
 END;
 $this->registerJs($script);
+
 ?>
 
 <div class="coleta-form">
@@ -110,6 +111,10 @@ $this->registerJs($script);
                 ],
                 'initSelection' => true
             ],
+            'pluginEvents' => [
+                'select2:select' => 'function(e) { $(".plus-coleta").coletaPlus("updateTipoOrganismo",e.params.data.idTipoOrganismo); idTipoOrganismo = e.params.data.idTipoOrganismo; }',
+                "select2:unselect" => "function(e) { idTipoOrganismo=null; }"
+            ],
         ]);
         ?>
         <?=
@@ -160,14 +165,14 @@ $this->registerJs($script);
                         'ajax' => [
                             'url' => yii\helpers\Url::to(["coleta/findesp"]),
                             'dataType' => 'json',
-                            'data' => new JsExpression('function(term,page) { return {nomeEspecie:term.term}; }'),
+                            'data' => new JsExpression('function(term,page) { return {nomeEspecie:term.term, idTipoOrganismo:idTipoOrganismo}; }'), //idTipoOrganismo é uma variável global definida no arquivo web/js/coleta.js
                             'results' => new JsExpression('function(data,page) { return {results:data.results}; }'),
                         ]
                     ],
                     'addon' => [
                         'append' => [
                             'content' => Html::button('<span class="glyphicon glyphicon-plus"></span>', [
-                                'class' => 'btn btn-primary plus-coleta-individuo',
+                                'class' => 'btn btn-primary plus-coleta plus-coleta-individuo',
                                 'title' => 'Adiciona espécie a sua coleta',
                                 'data-toggle' => 'tooltip'
                             ]),
@@ -243,14 +248,14 @@ $this->registerJs($script);
                         'ajax' => [
                             'url' => yii\helpers\Url::to(["coleta/findesp"]),
                             'dataType' => 'json',
-                            'data' => new JsExpression('function(term,page) { return {nomeEspecie:term.term}; }'),
+                            'data' => new JsExpression('function(term,page) { return {nomeEspecie:term.term, idTipoOrganismo:idTipoOrganismo}; }'), //idTipoOrganismo é uma variável global definida no arquivo web/js/coleta.js
                             'results' => new JsExpression('function(data,page) { return {results:data.results}; }'),
                         ]
                     ],
                     'addon' => [
                         'append' => [
                             'content' => Html::button('<span class="glyphicon glyphicon-plus"></span>', [
-                                'class' => 'btn btn-primary plus-coleta-populacao',
+                                'class' => 'btn btn-primary plus-coleta plus-coleta-populacao',
                                 'title' => 'Adiciona espécie a sua coleta',
                                 'data-toggle' => 'tooltip'
                             ]),
@@ -334,7 +339,7 @@ $this->registerJs($script);
                     'addon' => [
                         'append' => [
                             'content' => Html::button('<span class="glyphicon glyphicon-plus"></span>', [
-                                'class' => 'btn btn-primary plus-coleta-ecossistema',
+                                'class' => 'btn btn-primary plus-coleta plus-coleta-ecossistema',
                                 'title' => 'Adiciona a variável ecossistêmica a sua coleta',
                                 'data-toggle' => 'tooltip'
                             ]),

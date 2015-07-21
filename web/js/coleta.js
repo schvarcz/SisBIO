@@ -17,3 +17,5 @@
         });
     });
 })(jQuery);
+
+var idTipoOrganismo = null;

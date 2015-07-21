@@ -146,7 +146,7 @@ class TipoOrganismoController extends Controller
             $jsonMetodos = [];
             
             foreach($metodos as $metodo)
-                $jsonMetodos[] = ["id" => $metodo->primaryKey, "text" => $metodo->getLabel()];
+                $jsonMetodos[] = ["id" => $metodo->primaryKey."O".$organismo->primaryKey, "text" => $metodo->getLabel(), "idTipoOrganismo" => $organismo->primaryKey];
             
             if ($jsonMetodos != [])
                 $out[] = ["text" => $organismo->label, "children" => $jsonMetodos];

@@ -106,12 +106,21 @@
     };
 
     var publicMethods = {
+        updateTipoOrganismo: function(idTipoOrganismo){
+            var settings = $(this).data("settings");
+            var container = $(settings.modalAtributos);
+            container.find(".idTipoOrganismo[value!="+idTipoOrganismo+"]").parents(".panel").hide();
+            container.find(".idTipoOrganismo[value="+idTipoOrganismo+"]").parents(".panel").show().find(".panel-collapse").collapse("show");
+        }
     };
 
     $.fn.coletaPlus = function (options) {
         if (publicMethods[options])
         {
-            return publicMethods[options].apply(this, Array.prototype.slice.call(arguments, 1));
+            var args = Array.prototype.slice.call(arguments, 1);
+            return this.each(function(){
+                return publicMethods[options].apply(this, args);
+            });
         } else if (typeof options === 'object' || !options)
         {
             var settings = $.extend({}, defaults, options);
