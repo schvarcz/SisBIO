@@ -103,7 +103,7 @@ $this->registerJs($script);
             'pluginOptions' => [
                 'allowClear' => true,
                 'ajax' => [
-                    'url' => yii\helpers\Url::to(["metodo/findmetodo"]),
+                    'url' => yii\helpers\Url::to(["tipo-organismo/findmetodos"]),
                     'dataType' => 'json',
                     'data' => new JsExpression('function(term,page) { return {nomeMetodo:term.term}; }'),
                     'results' => new JsExpression('function(data,page) { return {results:data.results}; }'),

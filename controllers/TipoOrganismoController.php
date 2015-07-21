@@ -9,6 +9,7 @@ use yii\web\HttpException;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use yii\helpers\Url;
+use app\models\Metodo;
 
 /**
  * TipoOrganismoController implements the CRUD actions for TipoOrganismo model.
@@ -121,4 +122,36 @@ class TipoOrganismoController extends Controller
         }
     }
 
+    /**
+     * Finds the Éspecie model based on its name.
+     * @param String $name
+     * @return Json the list of models
+     */
+    public function actionFindmetodos($nomeMetodo = null)
+    {
+        $out = [];
+        $tipoOrganismos = TipoOrganismo::find()->all();
+        foreach ($tipoOrganismos as $organismo)
+        {
+            
+            
+            if (!is_null($nomeMetodo))
+            {
+                $metodos = $organismo->getIdMetodos()->where(["like", "Nome", $nomeMetodo])->all();
+            } else
+            {
+                $metodos = $organismo->getIdMetodos()->limit(10)->all();
+            }
+            
+            $jsonMetodos = [];
+            
+            foreach($metodos as $metodo)
+                $jsonMetodos[] = ["id" => $metodo->primaryKey, "text" => $metodo->getLabel()];
+            
+            if ($jsonMetodos != [])
+                $out[] = ["text" => $organismo->label, "children" => $jsonMetodos];
+        }
+       
+        return \yii\helpers\Json::encode(["results" => $out]);
+    }
 }

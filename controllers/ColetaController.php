@@ -126,7 +126,7 @@ class ColetaController extends Controller
     }
 
     /**
-     * Finds the Éspecie model based on its name.
+     * Finds the Espécie model based on its name.
      * @param String $name
      * @return Json the list of models
      */
