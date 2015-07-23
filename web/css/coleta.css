@@ -25,3 +25,7 @@ fieldset.coleta legend .close-btn{
 fieldset.coleta legend:hover .close-btn{
     top:0px;
 }
+
+.modal-body .bg-danger{
+    padding: 20px;
+}

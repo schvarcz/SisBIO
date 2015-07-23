@@ -84,6 +84,15 @@ $this->registerJs($script);
             Html::activeHiddenInput($model,'idPesquisadorRegistro',['value'=> Yii::$app->user->id]);
         ?>
         <?=
+        $form->field($model, 'Data_Coleta')->widget(\app\widgets\DateTime\DateTimePicker::classname(), [
+            'options' => ['class' => 'form-control'],
+            'pluginOptions' => [
+                'autoclose' => true,
+                'todayHighlight' => true,
+            ]
+        ]);
+        ?>
+        <?=
         $form->field($model, 'idUnidadeGeografica')->widget(\app\widgets\Select2Active\Select2Active::classname(), [
             'options' => ['placeholder' => 'Nome da unidade geográfica'],
             'pluginOptions' => [
@@ -112,15 +121,16 @@ $this->registerJs($script);
                 'initSelection' => true
             ],
             'pluginEvents' => [
-                'select2:select' => 'function(e) { $(".plus-coleta").coletaPlus("updateTipoOrganismo",e.params.data.idTipoOrganismo); idTipoOrganismo = e.params.data.idTipoOrganismo; }',
-                "select2:unselect" => "function(e) { idTipoOrganismo=null; }"
+                'select2:select' => 'function(e) { idTipoOrganismo = e.params.data.idTipoOrganismo; $(".plus-coleta").coletaPlus("updateTipoOrganismo", idTipoOrganismo); $("#coleta-idpesquisadores, .plus-coleta-input").prop("disabled", false); }',
+                "select2:unselect" => "function(e) { idTipoOrganismo=null; $('.plus-coleta').coletaPlus('updateTipoOrganismo', idTipoOrganismo);  $('#coleta-idpesquisadores, .plus-coleta-input').prop('disabled', true); }"
             ],
         ]);
         ?>
         <?=
         $form->field($model, 'idPesquisadores')->widget(\app\widgets\Select2Active\Select2Active::classname(), [
             'options' => [
-                "multiple" => true
+                "multiple" => true,
+                'disabled' => true
             ],
             'pluginOptions' => [
                 'allowClear' => true,
@@ -132,15 +142,6 @@ $this->registerJs($script);
                 ],
                 'initSelection' => true
             ],
-        ]);
-        ?>
-        <?=
-        $form->field($model, 'Data_Coleta')->widget(\app\widgets\DateTime\DateTimePicker::classname(), [
-            'options' => ['class' => 'form-control'],
-            'pluginOptions' => [
-                'autoclose' => true,
-                'todayHighlight' => true,
-            ]
         ]);
         ?>
         <?= $form->field($model, 'Observacao')->textarea(['rows' => 6]) ?>
@@ -158,6 +159,8 @@ $this->registerJs($script);
                     'name' => 'especie_add',
                     'options' => [
                         'placeholder' => 'Selecione a espécie a ser adicionada',
+                        'class' => 'plus-coleta-input',
+                        'disabled' => true
                     ],
                     'pluginOptions' => [
                         'allowClear' => true,
@@ -203,6 +206,7 @@ $this->registerJs($script);
                 ],
             ]);
             echo Html::tag("h5", "Selecionar todos os atributos que irá informar. ");
+            echo Html::tag("div", "Para poder selecionar os atributos que foram coletados, por favor, primeiro selecione um método de coleta para especificar a espécie.",["class"=>"bg-danger"]);
 
             $organismos = \app\models\TipoOrganismo::find()->all();
             $items = [];
@@ -211,7 +215,8 @@ $this->registerJs($script);
                 $models = $organismo->getIdDescritores()->andWhere(["idTipoDescritor" => 1])->all();
                 $items[] = [
                     "label" => $organismo->label,
-                    "content" => $this->render('_descritores', ['models' => $models, "organismo" => $organismo])
+                    "content" => $this->render('_descritores', ['models' => $models, "organismo" => $organismo]),
+                    "options" => ["style" => "display:none"]
                 ];
             }
 
@@ -241,6 +246,8 @@ $this->registerJs($script);
                     'data' => $data,
                     'options' => [
                         'placeholder' => 'Selecione a espécie a ser adicionada',
+                        'class' => 'plus-coleta-input',
+                        'disabled' => true
                     ],
                     'pluginOptions' => [
                         'allowClear' => true,
@@ -287,14 +294,16 @@ $this->registerJs($script);
                 ],
             ]);
             echo Html::tag("h5", "Selecionar todos os atributos que irá informar. ");
-
+            echo Html::tag("div", "Para poder selecionar os atributos que foram coletados, por favor, primeiro selecione um método de coleta para especificar a espécie.",["class"=>"bg-danger"]);
+            
             $items = [];
             foreach ($organismos as $organismo)
             {
                 $models = $organismo->getIdDescritores()->andWhere(["idTipoDescritor" => 2,])->all();
                 $items[] = [
                     "label" => $organismo->label,
-                    "content" => $this->render('_descritores', ['models' => $models, "organismo" => $organismo])
+                    "content" => $this->render('_descritores', ['models' => $models, "organismo" => $organismo]),
+                    "options" => ["style" => "display:none"]
                 ];
             }
 

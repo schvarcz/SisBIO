@@ -109,8 +109,16 @@
         updateTipoOrganismo: function(idTipoOrganismo){
             var settings = $(this).data("settings");
             var container = $(settings.modalAtributos);
+            
+            if (idTipoOrganismo == null)
+            {
+                container.find(".bg-danger").show();
+                container.find(".idTipoOrganismo").parents(".panel").hide();
+                return;
+            }
             container.find(".idTipoOrganismo[value!="+idTipoOrganismo+"]").parents(".panel").hide();
             container.find(".idTipoOrganismo[value="+idTipoOrganismo+"]").parents(".panel").show().find(".panel-collapse").collapse("show");
+            container.find(".bg-danger").hide();
         }
     };
 

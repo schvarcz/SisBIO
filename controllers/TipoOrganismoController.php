@@ -127,14 +127,39 @@ class TipoOrganismoController extends Controller
      * @param String $name
      * @return Json the list of models
      */
+//    public function actionFindmetodos($nomeMetodo = null)
+//    {
+//        $out = [];
+//        $tipoOrganismos = TipoOrganismo::find()->all();
+//        foreach ($tipoOrganismos as $organismo)
+//        {
+//            
+//            
+//            if (!is_null($nomeMetodo))
+//            {
+//                $metodos = $organismo->getIdMetodos()->where(["like", "Nome", $nomeMetodo])->all();
+//            } else
+//            {
+//                $metodos = $organismo->getIdMetodos()->limit(10)->all();
+//            }
+//            
+//            $jsonMetodos = [];
+//            
+//            foreach($metodos as $metodo)
+//                $out[] = ["id" => $metodo->primaryKey, "text" => $metodo->getLabel(), "idTipoOrganismo" => $organismo->primaryKey];
+//            
+////            if ($jsonMetodos != [])
+////                $out[] = ["text" => $organismo->label, "children" => $jsonMetodos];
+//        }
+//       
+//        return \yii\helpers\Json::encode(["results" => $out]);
+//    }
     public function actionFindmetodos($nomeMetodo = null)
     {
         $out = [];
         $tipoOrganismos = TipoOrganismo::find()->all();
         foreach ($tipoOrganismos as $organismo)
         {
-            
-            
             if (!is_null($nomeMetodo))
             {
                 $metodos = $organismo->getIdMetodos()->where(["like", "Nome", $nomeMetodo])->all();
@@ -146,7 +171,7 @@ class TipoOrganismoController extends Controller
             $jsonMetodos = [];
             
             foreach($metodos as $metodo)
-                $jsonMetodos[] = ["id" => $metodo->primaryKey."O".$organismo->primaryKey, "text" => $metodo->getLabel(), "idTipoOrganismo" => $organismo->primaryKey];
+                $jsonMetodos[] = ["id" => $metodo->primaryKey, "text" => $metodo->getLabel(), "idTipoOrganismo" => $organismo->primaryKey];
             
             if ($jsonMetodos != [])
                 $out[] = ["text" => $organismo->label, "children" => $jsonMetodos];
