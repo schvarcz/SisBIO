@@ -108,17 +108,25 @@
     var publicMethods = {
         updateTipoOrganismo: function(idTipoOrganismo){
             var settings = $(this).data("settings");
-            var container = $(settings.modalAtributos);
+            var modalContainer = $(settings.modalAtributos);
+            var container = $(settings.container);
+            container.find(".idTipoOrganismo[value!="+idTipoOrganismo+"]").parents("fieldset").find(".close-btn").click();
             
             if (idTipoOrganismo == null)
             {
-                container.find(".bg-danger").show();
-                container.find(".idTipoOrganismo").parents(".panel").hide();
+                modalContainer.find(".bg-danger").show();
+                modalContainer.find(".idTipoOrganismo").parents(".panel").hide();
                 return;
             }
-            container.find(".idTipoOrganismo[value!="+idTipoOrganismo+"]").parents(".panel").hide();
-            container.find(".idTipoOrganismo[value="+idTipoOrganismo+"]").parents(".panel").show().find(".panel-collapse").collapse("show");
-            container.find(".bg-danger").hide();
+            modalContainer.find(".idTipoOrganismo[value!="+idTipoOrganismo+"]").parents(".panel").hide();
+            modalContainer.find(".idTipoOrganismo[value="+idTipoOrganismo+"]").parents(".panel").show().find(".panel-collapse").collapse("show");
+            modalContainer.find(".bg-danger").hide();
+        },
+        countTipoOrganismo: function(){
+            var settings = $(this).data("settings");
+            var container = $(settings.container);
+            
+            return container.find(".idTipoOrganismo").length;
         }
     };
 
@@ -126,16 +134,25 @@
         if (publicMethods[options])
         {
             var args = Array.prototype.slice.call(arguments, 1);
-            return this.each(function(){
-                return publicMethods[options].apply(this, args);
+            var returns = [];
+            this.each(function(){
+                returns.push(publicMethods[options].apply(this, args));
+                return returns[returns.length-1];
             });
+            return returns;
         } else if (typeof options === 'object' || !options)
         {
             var settings = $.extend({}, defaults, options);
             $(this).data("settings", settings);
             methods.init(this);
             return this;
+        } else if (typeof options === 'string' || !options)
+        {
+            var settings = $(this).data("settings");
+            if (settings[options])
+                return settings[options];
+            return this;
         }
-    };
+    }; 
 
 })(jQuery);

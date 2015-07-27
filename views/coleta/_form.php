@@ -121,8 +121,10 @@ $this->registerJs($script);
                 'initSelection' => true
             ],
             'pluginEvents' => [
-                'select2:select' => 'function(e) { idTipoOrganismo = e.params.data.idTipoOrganismo; $(".plus-coleta").coletaPlus("updateTipoOrganismo", idTipoOrganismo); $("#coleta-idpesquisadores, .plus-coleta-input").prop("disabled", false); }',
-                "select2:unselect" => "function(e) { idTipoOrganismo=null; $('.plus-coleta').coletaPlus('updateTipoOrganismo', idTipoOrganismo);  $('#coleta-idpesquisadores, .plus-coleta-input').prop('disabled', true); }"
+                'select2:open' => 'function(e) { methodsMetodo.open(); }',
+                'select2:close' => 'function(e) { methodsMetodo.close(); }',
+                'select2:select' => 'function(e) { methodsMetodo.select(e); }',
+                "select2:unselect" => "function(e) { methodsMetodo.unselect(); }"
             ],
         ]);
         ?>
