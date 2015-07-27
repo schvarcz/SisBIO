@@ -45,6 +45,8 @@ class NaoIdentificadoSearch extends Model
     public function search($params)
     {
         $query = NaoIdentificado::find();
+        $query->where(["idEspecie" => NULL]);
+        
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
         ]);
@@ -57,7 +59,6 @@ class NaoIdentificadoSearch extends Model
         $query->andFilterWhere([
             'idNaoIdentificado' => $this->idNaoIdentificado,
             'idTipoOrganismo' => $this->idTipoOrganismo,
-            'idEspecie' => $this->idEspecie,
             'idPesquisadorIdentificacao' => $this->idPesquisadorIdentificacao,
             'Data_Registro' => $this->Data_Registro,
             'Data_Identificacao' => $this->Data_Identificacao,
