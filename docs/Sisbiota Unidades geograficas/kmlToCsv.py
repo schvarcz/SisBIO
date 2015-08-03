@@ -22,6 +22,8 @@ def showPolygon(poly):
 			newPts.append(" ".join(pt[0:2]))
 
 	coords = ",".join(newPts)
+	if coords == None:
+		return None
 	return "POLYGON(("+coords+"))"
 
 
@@ -44,8 +46,8 @@ def showPlaceMark(place):
 		elif f.tag.endswith("Polygon"):
 			polygon = showPolygon(f)
 
-
-	print "INSERT INTO UnidadeGeografica (Nome,shape,Data_Criacao, idProjeto,idPesquisador) VALUES (\""+ name+ "\",", "PolygonFromText(\"",polygon,"\")", ",","NOW()",",1,1);"
+	if polygon != None:
+		print "INSERT INTO UnidadeGeografica (Nome,shape,Data_Criacao, idProjeto,idPesquisador) VALUES (\""+ name+ "\",", "PolygonFromText(\"",polygon,"\")", ",","NOW()",",1,1);"
 
 
 def expand(folder):
