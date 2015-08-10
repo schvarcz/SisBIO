@@ -60,7 +60,7 @@ class UnidadeGeografica extends \app\models\base\UnidadeGeografica
 
     function getShapeAsArray()
     {
-        $pts = explode(",", substr($this->shape, strpos($this->shape, "((") + 2, -2));
+        $pts = explode(",", substr($this->shape, strripos($this->shape, "(") + 1, -2));
         $ret = [];
         foreach ($pts as $pt)
         {
@@ -91,7 +91,7 @@ class UnidadeGeografica extends \app\models\base\UnidadeGeografica
 
     function getShapeGeometry()
     {
-        return substr($this->shape, 0, strpos($this->shape, "(("));
+        return substr($this->shape, 0, strpos($this->shape, "("));
     }
 
 }
