@@ -1,0 +1,2973 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document>
+	<name>Grades_Parcelas_PPBIO.kml</name>
+	<Style id="sn_ylw-pushpin10000">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>ff41ffcc</color>
+			<width>5</width>
+		</LineStyle>
+	</Style>
+	<Style id="PolyStyle00105">
+		<LabelStyle>
+			<color>00000000</color>
+			<scale>0</scale>
+		</LabelStyle>
+		<LineStyle>
+			<color>ff00ffff</color>
+			<width>3.5</width>
+		</LineStyle>
+		<PolyStyle>
+			<fill>0</fill>
+		</PolyStyle>
+	</Style>
+	<Style id="s_ylw-pushpin02">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>ff00ff55</color>
+			<width>4</width>
+		</LineStyle>
+	</Style>
+	<Style id="PolyStyle00004">
+		<LabelStyle>
+			<color>00000000</color>
+			<scale>0</scale>
+		</LabelStyle>
+		<LineStyle>
+			<color>ff00ffff</color>
+			<width>3.5</width>
+		</LineStyle>
+		<PolyStyle>
+			<fill>0</fill>
+		</PolyStyle>
+	</Style>
+	<Style id="sn_ylw-pushpin300">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>ff32ffc4</color>
+			<width>4</width>
+		</LineStyle>
+	</Style>
+	<StyleMap id="PolyStyle0050">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#PolyStyle001053</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#PolyStyle000040</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="sn_ylw-pushpin1100">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>ff00ff55</color>
+			<width>5</width>
+		</LineStyle>
+	</Style>
+	<Style id="sh_ylw-pushpin1000">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>ff41ffcc</color>
+			<width>5</width>
+		</LineStyle>
+	</Style>
+	<StyleMap id="PolyStyle00500">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#PolyStyle001051</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#PolyStyle000042</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="PolyStyle00">
+		<LabelStyle>
+			<color>00000000</color>
+			<scale>0</scale>
+		</LabelStyle>
+		<LineStyle>
+			<color>ff0000ff</color>
+			<width>2</width>
+		</LineStyle>
+		<PolyStyle>
+			<color>00ffffff</color>
+		</PolyStyle>
+	</Style>
+	<StyleMap id="msn_ylw-pushpin112">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_ylw-pushpin010</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_ylw-pushpin000000</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="sn_ylw-pushpin010">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>ff32ffc4</color>
+			<width>4</width>
+		</LineStyle>
+	</Style>
+	<Style id="sn_ylw-pushpin210">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>ff32ffc4</color>
+			<width>4</width>
+		</LineStyle>
+	</Style>
+	<Style id="s_ylw-pushpin_hl120">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>ff00ffaa</color>
+			<width>5</width>
+		</LineStyle>
+	</Style>
+	<StyleMap id="m_ylw-pushpin0100">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#s_ylw-pushpin0000</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#s_ylw-pushpin_hl002</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="PolyStyle00501">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#PolyStyle001050</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#PolyStyle000041</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="sn_ylw-pushpin">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>ff00ffaa</color>
+			<width>4</width>
+		</LineStyle>
+	</Style>
+	<Style id="sn_ylw-pushpin120">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>ff32ffc4</color>
+			<width>4</width>
+		</LineStyle>
+	</Style>
+	<Style id="sh_ylw-pushpin500">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>ff00ff55</color>
+			<width>1.8</width>
+		</LineStyle>
+	</Style>
+	<Style id="sh_ylw-pushpin2000">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>ff32ffc4</color>
+			<width>4</width>
+		</LineStyle>
+	</Style>
+	<Style id="s_ylw-pushpin_hl61">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>ff00ff55</color>
+			<width>4</width>
+		</LineStyle>
+	</Style>
+	<Style id="s_ylw-pushpin40">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>ff00ffaa</color>
+			<width>5</width>
+		</LineStyle>
+	</Style>
+	<Style id="sn_ylw-pushpin19">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>ff00ff55</color>
+			<width>3</width>
+		</LineStyle>
+	</Style>
+	<Style id="sh_ylw-pushpin111">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>ff00ff55</color>
+			<width>5</width>
+		</LineStyle>
+	</Style>
+	<Style id="s_ylw-pushpin0000">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>ff00ff55</color>
+			<width>1.8</width>
+		</LineStyle>
+	</Style>
+	<StyleMap id="msn_ylw-pushpin200">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_ylw-pushpin10000</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_ylw-pushpin70</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="PolyStyle000040">
+		<LabelStyle>
+			<color>00000000</color>
+			<scale>0</scale>
+		</LabelStyle>
+		<LineStyle>
+			<color>ff00ffff</color>
+			<width>3.5</width>
+		</LineStyle>
+		<PolyStyle>
+			<fill>0</fill>
+		</PolyStyle>
+	</Style>
+	<Style id="sh_ylw-pushpin06">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>ff00ff55</color>
+			<width>3</width>
+		</LineStyle>
+	</Style>
+	<Style id="s_ylw-pushpin35">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>ff00ff55</color>
+			<width>3</width>
+		</LineStyle>
+	</Style>
+	<Style id="sh_ylw-pushpin300">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>ff32ffc4</color>
+			<width>4</width>
+		</LineStyle>
+	</Style>
+	<StyleMap id="msn_ylw-pushpin0000">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_ylw-pushpin1100</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_ylw-pushpin111</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="s_ylw-pushpin_hl002">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>ff00ff55</color>
+			<width>1.8</width>
+		</LineStyle>
+	</Style>
+	<StyleMap id="msn_ylw-pushpin501">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_ylw-pushpin210</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_ylw-pushpin300</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="s_ylw-pushpin_hl011">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>ff00ffaa</color>
+			<width>4</width>
+		</LineStyle>
+	</Style>
+	<Style id="sn_ylw-pushpin02">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>ff00ff55</color>
+			<width>5</width>
+		</LineStyle>
+	</Style>
+	<Style id="sn_ylw-pushpin001">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>ff41ffcc</color>
+			<width>5</width>
+		</LineStyle>
+	</Style>
+	<StyleMap id="m_ylw-pushpin110">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#s_ylw-pushpin020</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#s_ylw-pushpin_hl011</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="PolyStyle00502">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#PolyStyle00105</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#PolyStyle00004</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="msn_ylw-pushpin0400">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_ylw-pushpin1010</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_ylw-pushpin021</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="sh_ylw-pushpin21">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>ff32ffc4</color>
+			<width>4</width>
+		</LineStyle>
+	</Style>
+	<StyleMap id="msn_ylw-pushpin03">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_ylw-pushpin500</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_ylw-pushpin1000</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="s_ylw-pushpin_hl31">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>ff00ff55</color>
+			<width>3</width>
+		</LineStyle>
+	</Style>
+	<Style id="PolyStyle000041">
+		<LabelStyle>
+			<color>00000000</color>
+			<scale>0</scale>
+		</LabelStyle>
+		<LineStyle>
+			<color>ff00ffff</color>
+			<width>3.5</width>
+		</LineStyle>
+		<PolyStyle>
+			<fill>0</fill>
+		</PolyStyle>
+	</Style>
+	<StyleMap id="msn_ylw-pushpin02">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_ylw-pushpin400</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_ylw-pushpin500</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="s_ylw-pushpin_hl21">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>ff7fffaa</color>
+			<width>3</width>
+		</LineStyle>
+	</Style>
+	<StyleMap id="msn_ylw-pushpin010">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_ylw-pushpin300</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_ylw-pushpin21</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="PolyStyle001050">
+		<LabelStyle>
+			<color>00000000</color>
+			<scale>0</scale>
+		</LabelStyle>
+		<LineStyle>
+			<color>ff00ffff</color>
+			<width>3.5</width>
+		</LineStyle>
+		<PolyStyle>
+			<fill>0</fill>
+		</PolyStyle>
+	</Style>
+	<Style id="sh_ylw-pushpin400">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>ff41ffcc</color>
+			<width>5</width>
+		</LineStyle>
+	</Style>
+	<Style id="s_ylw-pushpin610">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>ff7fffaa</color>
+			<width>3</width>
+		</LineStyle>
+	</Style>
+	<StyleMap id="PolyStyle00503">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#PolyStyle001052</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#PolyStyle000043</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="m_ylw-pushpin03">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#s_ylw-pushpin02</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#s_ylw-pushpin_hl61</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="s_ylw-pushpin020">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>ff00ffaa</color>
+			<width>4</width>
+		</LineStyle>
+	</Style>
+	<Style id="PolyStyle001051">
+		<LabelStyle>
+			<color>00000000</color>
+			<scale>0</scale>
+		</LabelStyle>
+		<LineStyle>
+			<color>ff00ffff</color>
+			<width>3.5</width>
+		</LineStyle>
+		<PolyStyle>
+			<fill>0</fill>
+		</PolyStyle>
+	</Style>
+	<StyleMap id="msn_ylw-pushpin300">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_ylw-pushpin02</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_ylw-pushpin310</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="sh_ylw-pushpin021">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>ff00ffaa</color>
+			<width>4</width>
+		</LineStyle>
+	</Style>
+	<StyleMap id="m_ylw-pushpin80">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#s_ylw-pushpin610</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#s_ylw-pushpin_hl21</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="msn_ylw-pushpin">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_ylw-pushpin</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_ylw-pushpin</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="msn_ylw-pushpin00000">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_ylw-pushpin001</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_ylw-pushpin400</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="PolyStyle001052">
+		<LabelStyle>
+			<color>00000000</color>
+			<scale>0</scale>
+		</LabelStyle>
+		<LineStyle>
+			<color>ff00ffff</color>
+			<width>3.5</width>
+		</LineStyle>
+		<PolyStyle>
+			<fill>0</fill>
+		</PolyStyle>
+	</Style>
+	<StyleMap id="PolyStyle000">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#PolyStyle00</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#PolyStyle001</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="sh_ylw-pushpin70">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>ff41ffcc</color>
+			<width>5</width>
+		</LineStyle>
+	</Style>
+	<Style id="PolyStyle000042">
+		<LabelStyle>
+			<color>00000000</color>
+			<scale>0</scale>
+		</LabelStyle>
+		<LineStyle>
+			<color>ff00ffff</color>
+			<width>3.5</width>
+		</LineStyle>
+		<PolyStyle>
+			<fill>0</fill>
+		</PolyStyle>
+	</Style>
+	<StyleMap id="m_ylw-pushpin22">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#s_ylw-pushpin35</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#s_ylw-pushpin_hl31</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="sh_ylw-pushpin000000">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>ff32ffc4</color>
+			<width>4</width>
+		</LineStyle>
+	</Style>
+	<Style id="sn_ylw-pushpin400">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>ff00ff55</color>
+			<width>1.8</width>
+		</LineStyle>
+	</Style>
+	<Style id="sh_ylw-pushpin310">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>ff00ff55</color>
+			<width>5</width>
+		</LineStyle>
+	</Style>
+	<Style id="PolyStyle000043">
+		<LabelStyle>
+			<color>00000000</color>
+			<scale>0</scale>
+		</LabelStyle>
+		<LineStyle>
+			<color>ff00ffff</color>
+			<width>3.5</width>
+		</LineStyle>
+		<PolyStyle>
+			<fill>0</fill>
+		</PolyStyle>
+	</Style>
+	<Style id="sn_ylw-pushpin1010">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>ff00ffaa</color>
+			<width>4</width>
+		</LineStyle>
+	</Style>
+	<StyleMap id="msn_ylw-pushpin15">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_ylw-pushpin120</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_ylw-pushpin2000</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="sn_ylw-pushpin500">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>ff41ffcc</color>
+			<width>5</width>
+		</LineStyle>
+	</Style>
+	<Style id="PolyStyle001053">
+		<LabelStyle>
+			<color>00000000</color>
+			<scale>0</scale>
+		</LabelStyle>
+		<LineStyle>
+			<color>ff00ffff</color>
+			<width>3.5</width>
+		</LineStyle>
+		<PolyStyle>
+			<fill>0</fill>
+		</PolyStyle>
+	</Style>
+	<StyleMap id="msn_ylw-pushpin220">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_ylw-pushpin19</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_ylw-pushpin06</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="sh_ylw-pushpin">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>ff00ffaa</color>
+			<width>4</width>
+		</LineStyle>
+	</Style>
+	<StyleMap id="m_ylw-pushpin020">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#s_ylw-pushpin40</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#s_ylw-pushpin_hl120</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="PolyStyle001">
+		<LabelStyle>
+			<color>00000000</color>
+			<scale>0</scale>
+		</LabelStyle>
+		<LineStyle>
+			<color>ff0000ff</color>
+			<width>2</width>
+		</LineStyle>
+		<PolyStyle>
+			<color>00ffffff</color>
+		</PolyStyle>
+	</Style>
+	<Folder>
+		<name>Grades_Parcelas_PPBIO</name>
+		<open>1</open>
+		<Folder id="FeatureLayer0">
+			<name>Grade 1_SaoGabriel</name>
+			<Snippet maxLines="0"></Snippet>
+			<Placemark id="ID_00000">
+				<name>1_SGA_CMM</name>
+				<Snippet maxLines="0"></Snippet>
+				<description><![CDATA[<html xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
+
+<head>
+
+<META http-equiv="Content-Type" content="text/html">
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+</head>
+
+<body style="margin:0px 0px 0px 0px;overflow:auto;background:#FFFFFF;">
+
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-collapse:collapse;padding:3px 3px 3px 3px">
+
+<tr style="text-align:center;font-weight:bold;background:#9CBCE2">
+
+<td>0</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-spacing:0px; padding:3px 3px 3px 3px">
+
+<tr>
+
+<td>FID</td>
+
+<td>0</td>
+
+</tr>
+
+<tr bgcolor="#D4E4F3">
+
+<td>Id</td>
+
+<td>0</td>
+
+</tr>
+
+</table>
+
+</td>
+
+</tr>
+
+</table>
+
+</body>
+
+</html>]]></description>
+				<styleUrl>#PolyStyle00500</styleUrl>
+				<MultiGeometry>
+					<Polygon>
+						<outerBoundaryIs>
+							<LinearRing>
+								<coordinates>
+									-54.31721577429009,-30.13488823425986,0 -54.31350704856165,-30.13173636565289,0 -54.30979855924061,-30.12858440516488,0 -54.30609030628941,-30.125432352836,0 -54.30238228967053,-30.12228020870648,0 -54.29867450934646,-30.11912797281653,0 -54.29496696527962,-30.11597564520625,0 -54.29125965743257,-30.11282322591591,0 -54.28755258576774,-30.1096707149857,0 -54.2838457502476,-30.10651811245577,0 -54.28747162614032,-30.1032952203592,0 -54.29109726596375,-30.10007221209889,0 -54.29472266975575,-30.09684908771311,0 -54.29834783755425,-30.09362584724031,0 -54.30197276939708,-30.09040249071872,0 -54.30559746532214,-30.08717901818664,0 -54.30922192536735,-30.0839554296824,0 -54.31284614957056,-30.08073172524435,0 -54.31647013796965,-30.07750790491081,0 -54.32009389060253,-30.07428396872006,0 -54.32380083946828,-30.07743555755056,0 -54.32750802409981,-30.08058705465502,0 -54.33121544453451,-30.08373845999326,0 -54.33492310080985,-30.08688977352512,0 -54.33863099296321,-30.09004099521041,0 -54.342339121032,-30.09319212500898,0 -54.34604748505367,-30.09634316288061,0 -54.34975608506567,-30.09949410878515,0 -54.35346492110536,-30.10264496268244,0 -54.35717399321021,-30.10579572453223,0 -54.35355013062386,-30.10902067439614,0 -54.34992603189695,-30.11224550853506,0 -54.3463016969915,-30.11547022691065,0 -54.34267712586954,-30.11869482948449,0 -54.33905231849306,-30.12191931621838,0 -54.33542727482406,-30.12514368707384,0 -54.3318019948246,-30.12836794201272,0 -54.32817647845665,-30.13159208099649,0 -54.32455072568224,-30.13481610398689,0 -54.32092473646341,-30.13804001094556,0 -54.31721577429009,-30.13488823425986,0 
+								</coordinates>
+							</LinearRing>
+						</outerBoundaryIs>
+					</Polygon>
+				</MultiGeometry>
+			</Placemark>
+			<Folder>
+				<name>ParecelasCampestres</name>
+				<visibility>0</visibility>
+				<Placemark>
+					<name>SGA_CMM_PC01</name>
+					<visibility>0</visibility>
+					<styleUrl>#msn_ylw-pushpin0400</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-54.34975186777946,-30.1067630893093,0 -54.34970077404327,-30.10725059352546,0 -54.34994520750726,-30.10764939891703,0 -54.34999262801291,-30.10811983473573,0 -54.35017402504332,-30.10855615251861,0 -54.35023326127665,-30.10899249747436,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>SGA_CMM_PC02</name>
+					<visibility>0</visibility>
+					<styleUrl>#msn_ylw-pushpin0400</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-54.34371640891667,-30.10173235084967,0 -54.34323996835698,-30.10194002295763,0 -54.34276352900415,-30.10214769181129,0 -54.34235565892902,-30.10240872854891,0 -54.34197521837152,-30.10270831258183,0 -54.34176619854645,-30.10313835767333,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>SGA_CMM_PC03</name>
+					<visibility>0</visibility>
+					<styleUrl>#msn_ylw-pushpin0400</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-54.31684006290838,-30.08540477664023,0 -54.31740341009567,-30.085381966787,0 -54.31755255330412,-30.08494095790364,0 -54.31805125832776,-30.08476174740584,0 -54.31851161008327,-30.0849763767744,0 -54.31901822379678,-30.08496611572415,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>SGA_CMM_PC04</name>
+					<visibility>0</visibility>
+					<styleUrl>#msn_ylw-pushpin0400</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-54.31601136371537,-30.09226019163713,0 -54.31595109262753,-30.09271776958194,0 -54.31600797496755,-30.0931492852773,0 -54.31644310035951,-30.09347076290059,0 -54.31697530843861,-30.09353738876161,0 -54.31746066347053,-30.09341287142028,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>SGA_CMM_PC05</name>
+					<visibility>0</visibility>
+					<styleUrl>#msn_ylw-pushpin0400</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-54.30824330196111,-30.08996925733186,0 -54.30834500268622,-30.08953671219063,0 -54.30816709150436,-30.08910049143563,0 -54.30846367061088,-30.08869361703417,0 -54.30877719153494,-30.08833806145228,0 -54.30876027026407,-30.08786519156091,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>SGA_CMM_PC06</name>
+					<visibility>0</visibility>
+					<styleUrl>#msn_ylw-pushpin0400</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-54.33579724015782,-30.1190460173708,0 -54.33575623489641,-30.11918800769996,0 -54.33549320950819,-30.11960147273406,0 -54.33499839496672,-30.11977485575986,0 -54.33469190863814,-30.12015909419306,0 -54.3338253244516,-30.12025945418551,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>SGA_CMM_PC07</name>
+					<visibility>0</visibility>
+					<styleUrl>#msn_ylw-pushpin0400</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-54.31310395407128,-30.10336710432561,0 -54.31345046471571,-30.10372524440279,0 -54.31367125131863,-30.10414439919833,0 -54.3138797744349,-30.10454233132265,0 -54.31418315525297,-30.10460599955098,0 -54.31460326551435,-30.10431152802751,0 -54.31476578866394,-30.10414174285215,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>SGA_CMM_PC08</name>
+					<visibility>0</visibility>
+					<styleUrl>#msn_ylw-pushpin0400</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-54.30794978819188,-30.11475212689372,0 -54.30807939522151,-30.11492732131795,0 -54.30809557304832,-30.11538982086091,0 -54.30819006230622,-30.11585465826514,0 -54.30832532525734,-30.11631458373937,0 -54.30854768080663,-30.11642723511418,0 -54.30880321621896,-30.11633479140258,0 -54.30903343016345,-30.1162396869331,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>SGA_CMM_PC09</name>
+					<visibility>0</visibility>
+					<styleUrl>#msn_ylw-pushpin0400</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-54.30184321975276,-30.10838571518951,0 -54.30189025220692,-30.10790967920163,0 -54.30160805937238,-30.10752111961504,0 -54.30136114119993,-30.10740922999043,0 -54.30109540924888,-30.10748449951701,0 -54.30072385175491,-30.10781406012946,0 -54.30029585216136,-30.10811717246832,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+			</Folder>
+		</Folder>
+		<Folder id="FeatureLayer0">
+			<name>Grade 2_Quarai</name>
+			<Snippet maxLines="0"></Snippet>
+			<Placemark id="ID_00000">
+				<name>2_QUA_CSR</name>
+				<Snippet maxLines="0"></Snippet>
+				<description><![CDATA[<html xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
+
+<head>
+
+<META http-equiv="Content-Type" content="text/html">
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+</head>
+
+<body style="margin:0px 0px 0px 0px;overflow:auto;background:#FFFFFF;">
+
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-collapse:collapse;padding:3px 3px 3px 3px">
+
+<tr style="text-align:center;font-weight:bold;background:#9CBCE2">
+
+<td>0</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-spacing:0px; padding:3px 3px 3px 3px">
+
+<tr>
+
+<td>FID</td>
+
+<td>0</td>
+
+</tr>
+
+<tr bgcolor="#D4E4F3">
+
+<td>Id</td>
+
+<td>0</td>
+
+</tr>
+
+</table>
+
+</td>
+
+</tr>
+
+</table>
+
+</body>
+
+</html>]]></description>
+				<styleUrl>#PolyStyle00500</styleUrl>
+				<MultiGeometry>
+					<Polygon>
+						<outerBoundaryIs>
+							<LinearRing>
+								<coordinates>
+									-55.96695045454015,-30.31582534505288,0 -55.96175060406024,-30.31578417947274,0 -55.9565507643437,-30.31574280727934,0 -55.95135093544443,-30.31570122847423,0 -55.94615111741628,-30.31565944305891,0 -55.94095131031314,-30.31561745103496,0 -55.93575151418884,-30.3155752524039,0 -55.93055172909729,-30.3155328471673,0 -55.9253519550923,-30.31549023532672,0 -55.92015219222779,-30.31544741688375,0 -55.92020165872087,-30.31093613126329,0 -55.92025111402176,-30.30642484245632,0 -55.92030055813265,-30.30191355046305,0 -55.92034999105563,-30.29740225528383,0 -55.92039941279285,-30.29289095691893,0 -55.92044882334648,-30.28837965536865,0 -55.92049822271862,-30.28386835063326,0 -55.92054761091142,-30.2793570427131,0 -55.92059698792703,-30.27484573160842,0 -55.92064635376759,-30.27033441731955,0 -55.92584373822712,-30.27037715881933,0 -55.93104113380586,-30.2704196940879,0 -55.93623854044998,-30.2704620231237,0 -55.94143595810576,-30.27050414592516,0 -55.9466333867194,-30.27054606249071,0 -55.95183082623719,-30.27058777281883,0 -55.95702827660531,-30.27062927690797,0 -55.96222573777003,-30.27067057475659,0 -55.96742320967758,-30.27071166636317,0 -55.9726206922742,-30.2707525517262,0 -55.97257370251214,-30.27526394125757,0 -55.97252670211275,-30.27977532761148,0 -55.97247969107399,-30.28428671078757,0 -55.97243266939383,-30.28879809078564,0 -55.97238563707025,-30.29330946760533,0 -55.9723385941012,-30.29782084124639,0 -55.97229154048466,-30.30233221170848,0 -55.97224447621856,-30.30684357899136,0 -55.9721974013009,-30.3113549430947,0 -55.97215031572961,-30.31586630401824,0 -55.96695045454015,-30.31582534505288,0 
+								</coordinates>
+							</LinearRing>
+						</outerBoundaryIs>
+					</Polygon>
+				</MultiGeometry>
+			</Placemark>
+			<Folder>
+				<name>ParcelasCampestres</name>
+				<Placemark>
+					<name>QUA_CSR_PC01</name>
+					<styleUrl>#msn_ylw-pushpin02</styleUrl>
+					<LineString>
+						<coordinates>
+							-55.95887672133307,-30.27547919965932,0 -55.95937522386026,-30.27560741069645,0 -55.95985636281911,-30.27552481691735,0 -55.96038405557332,-30.27551124009514,0 -55.96090726939379,-30.27558169345586,0 -55.96142445128812,-30.27557154540634,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>QUA_CSR_PC02</name>
+					<styleUrl>#m_ylw-pushpin0100</styleUrl>
+					<LineString>
+						<coordinates>
+							-55.92678603061046,-30.27332344262453,0 -55.92632052320019,-30.27310734299036,0 -55.92595635350619,-30.272803943257,0 -55.92567345003944,-30.27244355467054,0 -55.92529566127694,-30.27209431383295,0 -55.92485484619751,-30.27189255465847,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>QUA_CSR_PC03</name>
+					<styleUrl>#msn_ylw-pushpin02</styleUrl>
+					<LineString>
+						<coordinates>
+							-55.95864545631791,-30.28327752930212,0 -55.95912799813678,-30.28331726705276,0 -55.95965096731067,-30.28334689945914,0 -55.96016187412742,-30.2832478277601,0 -55.96058815518251,-30.28300173186142,0 -55.96108753506074,-30.28284532423631,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>QUA_CSR_PC04</name>
+					<styleUrl>#msn_ylw-pushpin02</styleUrl>
+					<LineString>
+						<coordinates>
+							-55.96719168450496,-30.29175823877338,0 -55.9668726425428,-30.29143885567092,0 -55.96637918035711,-30.29126882571986,0 -55.96608113609294,-30.29087715229235,0 -55.96596813791854,-30.29045375846211,0 -55.966153997442,-30.29002406887003,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>QUA_CSR_PC05</name>
+					<styleUrl>#msn_ylw-pushpin02</styleUrl>
+					<LineString>
+						<coordinates>
+							-55.94495348471895,-30.2930717776144,0 -55.94529756243047,-30.29344071458174,0 -55.9457283287594,-30.2936894313406,0 -55.94615537080193,-30.29393236864905,0 -55.94659060193802,-30.29418659865006,0 -55.94706431763819,-30.294383179439,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>QUA_CSR_PC06</name>
+					<styleUrl>#msn_ylw-pushpin02</styleUrl>
+					<LineString>
+						<coordinates>
+							-55.93496262153716,-30.28799343859092,0 -55.93549463977529,-30.28797579457223,0 -55.93579832334714,-30.288341319116,0 -55.9357956409801,-30.28880295116371,0 -55.93612249223582,-30.2891418012593,0 -55.93659551433918,-30.28929350114409,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>QUA_CSR_PC07</name>
+					<styleUrl>#msn_ylw-pushpin02</styleUrl>
+					<LineString>
+						<coordinates>
+							-55.96641109502221,-30.31219807371272,0 -55.96672728365634,-30.31184150044656,0 -55.96679930322549,-30.31138838142195,0 -55.96678730689664,-30.31094067888382,0 -55.96690117686641,-30.31051728962136,0 -55.96666326762183,-30.31010841222738,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>QUA_CSR_PC08</name>
+					<styleUrl>#msn_ylw-pushpin02</styleUrl>
+					<LineString>
+						<coordinates>
+							-55.94483307105953,-30.30717537781032,0 -55.94535534121778,-30.30711022110111,0 -55.94587832799116,-30.30712226448167,0 -55.94638069339829,-30.30719186221771,0 -55.94670741828816,-30.30679775512552,0 -55.9471579088322,-30.30656513506375,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>QUA_CSR_PC09</name>
+					<styleUrl>#msn_ylw-pushpin02</styleUrl>
+					<LineString>
+						<coordinates>
+							-55.93748136473712,-30.3111184927058,0 -55.93757538238459,-30.31155141760982,0 -55.93758861032273,-30.31202937077827,0 -55.93778154386083,-30.31243457652633,0 -55.93804973931898,-30.31283773119404,0 -55.93810929198757,-30.31327974686543,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+			</Folder>
+		</Folder>
+		<Folder>
+			<name>Grade 3_Soledade</name>
+			<Placemark id="ID_00000">
+				<name>3_SLD_CCB</name>
+				<Snippet maxLines="0"></Snippet>
+				<description><![CDATA[<html xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
+
+<head>
+
+<META http-equiv="Content-Type" content="text/html">
+
+</head>
+
+<body style="margin:0px 0px 0px 0px;overflow:auto;background:#FFFFFF;">
+
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100;border-collapse:collapse;padding:3px 3px 3px 3px">
+
+<tr style="text-align:center;font-weight:bold;background:#9CBCE2">
+
+<td>250000</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100;border-spacing:0px; padding:3px 3px 3px 3px">
+
+<tr>
+
+<td>FID</td>
+
+<td>0</td>
+
+</tr>
+
+<tr bgcolor="#D4E4F3">
+
+<td>Id</td>
+
+<td>250000</td>
+
+</tr>
+
+</table>
+
+</td>
+
+</tr>
+
+</table>
+
+</body>
+
+</html>]]></description>
+				<styleUrl>#PolyStyle00500</styleUrl>
+				<gx:balloonVisibility>1</gx:balloonVisibility>
+				<MultiGeometry>
+					<Polygon>
+						<outerBoundaryIs>
+							<LinearRing>
+								<coordinates>
+									-52.469757,-28.91281,0 -52.46518199999999,-28.910774,0 -52.460606,-28.908737,0 -52.456031,-28.9067,0 -52.451455,-28.904663,0 -52.44688,-28.902626,0 -52.442305,-28.900589,0 -52.437731,-28.898551,0 -52.43315599999999,-28.896513,0 -52.42858199999999,-28.894476,0 -52.430897,-28.89045000000001,0 -52.433213,-28.886425,0 -52.435528,-28.882399,0 -52.43784299999999,-28.878373,0 -52.440158,-28.874348,0 -52.442473,-28.870322,0 -52.444787,-28.866296,0 -52.447102,-28.86227,0 -52.449416,-28.858244,0 -52.45173,-28.854219,0 -52.456303,-28.85625599999999,0 -52.460876,-28.858293,0 -52.46545,-28.860329,0 -52.470023,-28.862366,0 -52.474597,-28.864402,0 -52.47917100000001,-28.866439,0 -52.48374500000001,-28.868475,0 -52.488319,-28.870511,0 -52.49289300000001,-28.872547,0 -52.497468,-28.874582,0 -52.495155,-28.878609,0 -52.492842,-28.882635,0 -52.490529,-28.886662,0 -52.488216,-28.890688,0 -52.485903,-28.89471500000001,0 -52.483589,-28.898741,0 -52.481275,-28.902768,0 -52.478962,-28.906794,0 -52.476647,-28.91082000000001,0 -52.47433299999999,-28.914847,0 -52.469757,-28.91281,0 
+								</coordinates>
+							</LinearRing>
+						</outerBoundaryIs>
+					</Polygon>
+				</MultiGeometry>
+			</Placemark>
+			<Folder>
+				<name>ParcelasCampestres</name>
+				<visibility>0</visibility>
+				<open>1</open>
+				<Placemark>
+					<name>SLD_CCB_PC01</name>
+					<visibility>0</visibility>
+					<styleUrl>#msn_ylw-pushpin010</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-52.49033726733041,-28.87719432555555,0 -52.49071889910154,-28.87688688826866,0 -52.49084642797643,-28.87643420343339,0 -52.4904525595455,-28.87614191329796,0 -52.48993934358396,-28.87606062500056,0 -52.48941819971245,-28.87607875083624,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>SLD_CCB_PC02</name>
+					<visibility>0</visibility>
+					<styleUrl>#msn_ylw-pushpin010</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-52.48031919450585,-28.8726542463826,0 -52.48006504049155,-28.87302763137653,0 -52.47990507987765,-28.87345219567541,0 -52.47942356693442,-28.87356372297949,0 -52.47892501204176,-28.87350912963876,0 -52.4783798191183,-28.87354817112851,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>SLD_CCB_PC03</name>
+					<visibility>0</visibility>
+					<styleUrl>#msn_ylw-pushpin501</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-52.46354290175457,-28.8625913558402,0 -52.46365270606169,-28.86336841712857,0 -52.46335349006063,-28.86397615092239,0 -52.46295161943561,-28.86449530007332,0 -52.46273587462941,-28.86481258371726,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>SLD_CCB_PC04</name>
+					<visibility>0</visibility>
+					<styleUrl>#msn_ylw-pushpin010</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-52.47788540658009,-28.88015788543486,0 -52.47735154759985,-28.88005552195419,0 -52.4768586460253,-28.87993517337301,0 -52.47644169975623,-28.87968107430976,0 -52.47617479462048,-28.87928599229939,0 -52.47608502857087,-28.87909651755134,0 -52.47613867349898,-28.8788997585385,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>SLD_CCB_PC05</name>
+					<visibility>0</visibility>
+					<styleUrl>#msn_ylw-pushpin010</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-52.45926042767249,-28.87338238176588,0 -52.45933291936108,-28.87294719760732,0 -52.45933417736681,-28.87247076402038,0 -52.45907608833288,-28.87211610058053,0 -52.45876981133272,-28.87177617357001,0 -52.45834012766453,-28.87163990825118,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>SLD_CCB_PC06</name>
+					<visibility>0</visibility>
+					<styleUrl>#msn_ylw-pushpin010</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-52.47240264858257,-28.88770706176797,0 -52.47290909677072,-28.88784990880371,0 -52.47311666867521,-28.88773699273764,0 -52.47335369905682,-28.88736806756604,0 -52.473396603946,-28.88714744185584,0 -52.47310153144745,-28.88675790421905,0 -52.47264792623668,-28.88675193042784,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>SLD_CCB_PC07</name>
+					<visibility>0</visibility>
+					<styleUrl>#msn_ylw-pushpin010</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-52.46286967085477,-28.8847895358548,0 -52.46329312092102,-28.88455292107503,0 -52.46374459010152,-28.8843575213196,0 -52.46427233081434,-28.8843372377649,0 -52.46469294683977,-28.88460632723443,0 -52.46502158714827,-28.88495874986074,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>SLD_CCB_PC08</name>
+					<visibility>0</visibility>
+					<styleUrl>#msn_ylw-pushpin010</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-52.4758439115132,-28.89953787081732,0 -52.47587592825112,-28.90000409379299,0 -52.47589921273687,-28.90022456242289,0 -52.47598714445729,-28.90043544441124,0 -52.47635267408087,-28.90071084255274,0 -52.47681540634456,-28.90094177731668,0 -52.47726546779559,-28.90112724769558,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>SLD_CCB_PC09</name>
+					<visibility>0</visibility>
+					<styleUrl>#msn_ylw-pushpin010</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-52.46805079220644,-28.89580291895149,0 -52.4678512438035,-28.89596693119727,0 -52.46772828090574,-28.89617179781665,0 -52.46775672042582,-28.89661761276079,0 -52.467829332417,-28.89704458119536,0 -52.46798636159738,-28.89745668466733,0 -52.46825626767236,-28.89783757923528,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+			</Folder>
+		</Folder>
+		<Folder id="FeatureLayer0">
+			<name>Grade 4_LavrasSul</name>
+			<Snippet maxLines="0"></Snippet>
+			<Placemark id="ID_00000">
+				<name>4_LAV_CGR</name>
+				<Snippet maxLines="0"></Snippet>
+				<description><![CDATA[<html xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
+
+<head>
+
+<META http-equiv="Content-Type" content="text/html">
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+</head>
+
+<body style="margin:0px 0px 0px 0px;overflow:auto;background:#FFFFFF;">
+
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-collapse:collapse;padding:3px 3px 3px 3px">
+
+<tr style="text-align:center;font-weight:bold;background:#9CBCE2">
+
+<td>0</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-spacing:0px; padding:3px 3px 3px 3px">
+
+<tr>
+
+<td>FID</td>
+
+<td>0</td>
+
+</tr>
+
+<tr bgcolor="#D4E4F3">
+
+<td>Id</td>
+
+<td>0</td>
+
+</tr>
+
+</table>
+
+</td>
+
+</tr>
+
+</table>
+
+</body>
+
+</html>]]></description>
+				<styleUrl>#PolyStyle00500</styleUrl>
+				<MultiGeometry>
+					<Polygon>
+						<outerBoundaryIs>
+							<LinearRing>
+								<coordinates>
+									-54.4426323646187,-30.82473137678608,0 -54.43740866173084,-30.82471550301204,0 -54.4321849823055,-30.82469941859906,0 -54.42696132639735,-30.82468312354985,0 -54.42173769406128,-30.82466661786743,0 -54.41651408535187,-30.82464990155479,0 -54.41129050032424,-30.82463297461477,0 -54.40606693903317,-30.82461583705032,0 -54.40084340153323,-30.82459848886454,0 -54.39561988787921,-30.82458093006035,0 -54.39566618417672,-30.82007246570149,0 -54.39571245300192,-30.81556399822959,0 -54.39575869436021,-30.81105552764489,0 -54.39580490825682,-30.80654705394774,0 -54.39585109469721,-30.80203857713851,0 -54.3958972536866,-30.79753009721735,0 -54.39594338523034,-30.79302161418473,0 -54.39598948933383,-30.78851312804073,0 -54.39603556600224,-30.78400463878576,0 -54.39608161524109,-30.77949614642008,0 -54.40130269467222,-30.77951355935781,0 -54.40652379790267,-30.77953076205122,0 -54.4117449248775,-30.77954775449732,0 -54.41696607554228,-30.77956453669314,0 -54.42218724984226,-30.77958110863569,0 -54.42740844772266,-30.77959747032205,0 -54.43262966912886,-30.77961362174946,0 -54.43785091400611,-30.7796295629147,0 -54.44307218229972,-30.77964529381503,0 -54.44829347395501,-30.77966081444745,0 -54.4482498566871,-30.78416945096155,0 -54.44820621253615,-30.78867808437248,0 -54.44816254149692,-30.79318671468035,0 -54.44811884356425,-30.79769534188446,0 -54.44807511873296,-30.80220396598477,0 -54.44803136699783,-30.80671258698095,0 -54.44798758835356,-30.81122120487266,0 -54.44794378279499,-30.8157298196596,0 -54.44789995031692,-30.82023843134149,0 -54.44785609091412,-30.82474703991813,0 -54.4426323646187,-30.82473137678608,0 
+								</coordinates>
+							</LinearRing>
+						</outerBoundaryIs>
+					</Polygon>
+				</MultiGeometry>
+			</Placemark>
+			<Folder>
+				<name>ParcelasCampestres</name>
+				<Placemark>
+					<name>LAV_CGR_PC01</name>
+					<styleUrl>#m_ylw-pushpin80</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-54.43507732883489,-30.78344167103957,0 -54.43457328379639,-30.78357260168582,0 -54.43412211324591,-30.78381196281084,0 -54.43371093563533,-30.78408469237916,0 -54.4334491016262,-30.78446070652041,0 -54.43357701934775,-30.7849014921427,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>LAV_CGR_PC02</name>
+					<styleUrl>#m_ylw-pushpin80</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-54.41251758443938,-30.78443324089151,0 -54.41234409248733,-30.7848127110021,0 -54.41248736651214,-30.78523867377104,0 -54.41202904122697,-30.78546344210946,0 -54.41177184630318,-30.78551476317957,0 -54.41159281680888,-30.78531266372067,0 -54.411209433446,-30.7849890659344,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>LAV_CGR_PC03</name>
+					<styleUrl>#m_ylw-pushpin80</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-54.39913681143159,-30.78648484660509,0 -54.39965052807472,-30.78635821225148,0 -54.39985633496166,-30.78626239143661,0 -54.40014942913907,-30.78589952687067,0 -54.4005972072254,-30.78566438316939,0 -54.40110668242941,-30.78574395409034,0 -54.40119347268493,-30.78551506394964,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>LAV_CGR_PC04</name>
+					<styleUrl>#m_ylw-pushpin80</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-54.44116168688899,-30.7953532366547,0 -54.44113143463166,-30.79579063733327,0 -54.44077825630249,-30.79615288527235,0 -54.44033171694349,-30.79638785513691,0 -54.43993613973189,-30.79670013876346,0 -54.43959442941836,-30.79705603202894,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>LAV_CGR_PC05</name>
+					<styleUrl>#m_ylw-pushpin80</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-54.41506056429237,-30.79227149272555,0 -54.4154587413402,-30.79203739480114,0 -54.41551563960218,-30.79153228021437,0 -54.41569772501564,-30.79108178385646,0 -54.4155254521648,-30.79067704452775,0 -54.41539144232399,-30.79025062210217,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>LAV_CGR_PC06</name>
+					<styleUrl>#m_ylw-pushpin80</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-54.41387082472319,-30.80518488911092,0 -54.41333252401747,-30.80524863765398,0 -54.41283518926354,-30.80538882345306,0 -54.41260312085385,-30.80578620623752,0 -54.41267047775272,-30.80623219797053,0 -54.41238412107419,-30.80659945700044,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>LAV_CGR_PC07</name>
+					<styleUrl>#m_ylw-pushpin80</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-54.43353431233722,-30.80946830265394,0 -54.43299075317852,-30.80959510214174,0 -54.43291600755293,-30.81002551888242,0 -54.43284211591829,-30.81047517654941,0 -54.43243519748467,-30.81077902477323,0 -54.43202045453764,-30.81103930561581,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>LAV_CGR_PC08</name>
+					<styleUrl>#m_ylw-pushpin80</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-54.41684392155221,-30.81468076312551,0 -54.4173639183995,-30.81450324311425,0 -54.41751802254048,-30.81406993137167,0 -54.41759735303901,-30.81363525849107,0 -54.41808527789141,-30.81345267738592,0 -54.41861323455239,-30.8134217905795,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>LAV_CGR_PC09</name>
+					<styleUrl>#m_ylw-pushpin80</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-54.4226640324769,-30.82251362300923,0 -54.42244487708587,-30.8229192762735,0 -54.42196862118811,-30.82313695464903,0 -54.42154228273776,-30.82339680820198,0 -54.42102971532463,-30.82353945496709,0 -54.42069962275918,-30.82387723314811,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+			</Folder>
+		</Folder>
+		<Folder id="FeatureLayer0">
+			<name>Grade 5_SantoAntoniodasMissoes</name>
+			<Snippet maxLines="0"></Snippet>
+			<Placemark id="ID_00000">
+				<name>5_SAM_CCE</name>
+				<Snippet maxLines="0"></Snippet>
+				<description><![CDATA[<html xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
+
+<head>
+
+<META http-equiv="Content-Type" content="text/html">
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+</head>
+
+<body style="margin:0px 0px 0px 0px;overflow:auto;background:#FFFFFF;">
+
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-collapse:collapse;padding:3px 3px 3px 3px">
+
+<tr style="text-align:center;font-weight:bold;background:#9CBCE2">
+
+<td>0</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-spacing:0px; padding:3px 3px 3px 3px">
+
+<tr>
+
+<td>FID</td>
+
+<td>0</td>
+
+</tr>
+
+<tr bgcolor="#D4E4F3">
+
+<td>Id</td>
+
+<td>0</td>
+
+</tr>
+
+</table>
+
+</td>
+
+</tr>
+
+</table>
+
+</body>
+
+</html>]]></description>
+				<styleUrl>#PolyStyle00503</styleUrl>
+				<MultiGeometry>
+					<Polygon>
+						<outerBoundaryIs>
+							<LinearRing>
+								<coordinates>
+									-55.43917122160389,-28.56107958231439,0 -55.43704451181989,-28.55697685536652,0 -55.43491796072669,-28.55287409913963,0 -55.43279156827639,-28.54877131365099,0 -55.43066533442113,-28.54466849891784,0 -55.42853925911307,-28.5405656549575,0 -55.42641334230433,-28.53646278178722,0 -55.42428758394711,-28.5323598794242,0 -55.42216198399356,-28.52825694788579,0 -55.42003654239588,-28.52415398718922,0 -55.4246821103909,-28.52227681169106,0 -55.4293275200631,-28.52039947025862,0 -55.43397277139767,-28.51852196292837,0 -55.43861786437986,-28.51664428973681,0 -55.44326279899492,-28.51476645072051,0 -55.44790757522813,-28.51288844591587,0 -55.45255219306467,-28.51101027535949,0 -55.45719665248989,-28.50913193908781,0 -55.46184095348902,-28.50725343713739,0 -55.4664850960474,-28.50537476954472,0 -55.46861203219731,-28.50947706931079,0 -55.47073912685051,-28.51357933969753,0 -55.47286638005481,-28.51768158068773,0 -55.47499379185803,-28.5217837922641,0 -55.47712136230796,-28.52588597440933,0 -55.47924909145248,-28.52998812710617,0 -55.48137697933945,-28.5340902503373,0 -55.48350502601668,-28.53819234408545,0 -55.48563323153204,-28.54229440833334,0 -55.48776159593343,-28.54639644306364,0 -55.48311596031253,-28.5482757732996,0 -55.4784701657724,-28.55015493773397,0 -55.47382421232781,-28.55203393633024,0 -55.4691780999934,-28.55391276905181,0 -55.46453182878395,-28.55579143586216,0 -55.45988539871414,-28.55766993672468,0 -55.45523880979877,-28.55954827160288,0 -55.45059206205252,-28.5614264404602,0 -55.44594515549019,-28.56330444326006,0 -55.44129809012653,-28.56518227996596,0 -55.43917122160389,-28.56107958231439,0 
+								</coordinates>
+							</LinearRing>
+						</outerBoundaryIs>
+					</Polygon>
+				</MultiGeometry>
+			</Placemark>
+			<Folder>
+				<name>ParcelasCampestres</name>
+				<open>1</open>
+				<Placemark>
+					<name>SAM_CCE_PC01</name>
+					<styleUrl>#m_ylw-pushpin110</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-55.45822870668395,-28.51622565520921,0 -55.45777022033996,-28.51602296687439,0 -55.45731021904112,-28.51576857186232,0 -55.45687393489866,-28.51555654985231,0 -55.45639966553262,-28.51535284181079,0 -55.45593601779287,-28.51516373769282,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>SAM_CCE_PC02</name>
+					<visibility>0</visibility>
+					<styleUrl>#m_ylw-pushpin110</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-55.46930802749729,-28.51943761791834,0 -55.46894154556509,-28.51912574681746,0 -55.46888586301009,-28.51868160178668,0 -55.4688956171701,-28.51823854459814,0 -55.46885956211453,-28.51776428425704,0 -55.46877770391911,-28.51729461017519,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>SAM_CCE_PC03</name>
+					<visibility>0</visibility>
+					<styleUrl>#m_ylw-pushpin110</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-55.46241762539913,-28.52483889899803,0 -55.46196840889752,-28.52502234451853,0 -55.46147955213851,-28.52515935457006,0 -55.46094840842097,-28.52520349472388,0 -55.46049126347935,-28.52540782926455,0 -55.46003147140223,-28.52560751939493,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>SAM_CCE_PC04</name>
+					<visibility>0</visibility>
+					<styleUrl>#m_ylw-pushpin110</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-55.46558763314746,-28.53154593696761,0 -55.46507898392417,-28.53144371085662,0 -55.46459818956939,-28.53151933764607,0 -55.46437048375505,-28.53195732826264,0 -55.46444897386565,-28.5324019651406,0 -55.46394286849672,-28.53248648494512,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>SAM_CCE_PC05</name>
+					<visibility>0</visibility>
+					<styleUrl>#m_ylw-pushpin110</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-55.44138196807685,-28.53584024346277,0 -55.4418723196169,-28.53563138054957,0 -55.44241467524962,-28.5355987446623,0 -55.44287530444809,-28.53545188467803,0 -55.44328020990523,-28.53512879402195,0 -55.44382628026552,-28.53507983332879,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>SAM_CCE_PC06</name>
+					<visibility>0</visibility>
+					<styleUrl>#m_ylw-pushpin110</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-55.46800860306835,-28.54041685292037,0 -55.46800427025557,-28.53996278088813,0 -55.46781625583501,-28.53953499475431,0 -55.46817076216817,-28.5391822053168,0 -55.46865345419316,-28.5390845835838,0 -55.46911483830237,-28.53934722118363,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>SAM_CCE_PC07</name>
+					<visibility>0</visibility>
+					<styleUrl>#m_ylw-pushpin110</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-55.47267035098388,-28.54785951168265,0 -55.47307223666958,-28.54759045313095,0 -55.47316785280549,-28.5471308927783,0 -55.47291896750217,-28.546733027226,0 -55.4724850943801,-28.54648089688001,0 -55.47208949285402,-28.54617271591066,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>SAM_CCE_PC08</name>
+					<visibility>0</visibility>
+					<styleUrl>#m_ylw-pushpin110</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-55.46118127943981,-28.55008617147739,0 -55.46170717486723,-28.55009966376586,0 -55.46214329943675,-28.55034525662795,0 -55.46265637226123,-28.55043986647367,0 -55.4631283800476,-28.5502911124568,0 -55.46356959894227,-28.55007701014824,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>SAM_CCE_PC09</name>
+					<visibility>0</visibility>
+					<styleUrl>#m_ylw-pushpin110</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-55.45459266567782,-28.5565997660781,0 -55.45448720853902,-28.5570783554655,0 -55.45462489462276,-28.55749776120631,0 -55.45481824170499,-28.55792231196503,0 -55.45470985538351,-28.55835715722914,0 -55.45487098134893,-28.55878428381203,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+			</Folder>
+		</Folder>
+		<Folder id="FeatureLayer0">
+			<name>Grade6_SantanadaBoaVista</name>
+			<Snippet maxLines="0"></Snippet>
+			<Placemark id="ID_00000">
+				<name>6_SVB_CAR</name>
+				<Snippet maxLines="0"></Snippet>
+				<description><![CDATA[<html xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
+
+<head>
+
+<META http-equiv="Content-Type" content="text/html">
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+</head>
+
+<body style="margin:0px 0px 0px 0px;overflow:auto;background:#FFFFFF;">
+
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-collapse:collapse;padding:3px 3px 3px 3px">
+
+<tr style="text-align:center;font-weight:bold;background:#9CBCE2">
+
+<td>0</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-spacing:0px; padding:3px 3px 3px 3px">
+
+<tr>
+
+<td>FID</td>
+
+<td>0</td>
+
+</tr>
+
+<tr bgcolor="#D4E4F3">
+
+<td>Id</td>
+
+<td>0</td>
+
+</tr>
+
+</table>
+
+</td>
+
+</tr>
+
+</table>
+
+</body>
+
+</html>]]></description>
+				<styleUrl>#PolyStyle00501</styleUrl>
+				<MultiGeometry>
+					<Polygon>
+						<outerBoundaryIs>
+							<LinearRing>
+								<coordinates>
+									-53.20372709720943,-30.8637296731714,0 -53.20207834541356,-30.8595323280981,0 -53.20042961421274,-30.85533497179665,0 -53.19878090360311,-30.85113760426862,0 -53.19713221358041,-30.84694022551621,0 -53.19548354414049,-30.84274283554116,0 -53.19383489527942,-30.8385454343454,0 -53.19218626699292,-30.83434802193069,0 -53.19053765927704,-30.83015059829899,0 -53.18888907212762,-30.82595316345227,0 -53.19376219204118,-30.8240717028056,0 -53.19863521777787,-30.82219005276682,0 -53.20350814928725,-30.8203082133578,0 -53.20838098651928,-30.81842618460068,0 -53.21325372942339,-30.81654396651726,0 -53.21812637794939,-30.8146615591296,0 -53.22299893204693,-30.81277896245967,0 -53.2278713916658,-30.81089617652946,0 -53.23274375675577,-30.80901320136109,0 -53.23761602726653,-30.80713003697639,0 -53.239266845293,-30.81132648362513,0 -53.24091768439543,-30.81552291885652,0 -53.24256854457793,-30.81971934266853,0 -53.24421942584473,-30.82391575505926,0 -53.24587032820018,-30.82811215602668,0 -53.24752125164827,-30.8323085455691,0 -53.24917219619324,-30.8365049236844,0 -53.25082316183939,-30.84070129037081,0 -53.25247414859086,-30.8448976456263,0 -53.25412515645195,-30.84909398944892,0 -53.24925065354291,-30.85097814445179,0 -53.24437605588275,-30.85286210990317,0 -53.23950136352175,-30.85474588578096,0 -53.23462657651037,-30.85662947206309,0 -53.22975169489895,-30.8585128687277,0 -53.22487671873786,-30.86039607575259,0 -53.22000164807749,-30.86227909311567,0 -53.21512648296824,-30.86416192079514,0 -53.2102512234605,-30.86604455876876,0 -53.20537586960478,-30.86792700701465,0 -53.20372709720943,-30.8637296731714,0 
+								</coordinates>
+							</LinearRing>
+						</outerBoundaryIs>
+					</Polygon>
+				</MultiGeometry>
+			</Placemark>
+			<Folder>
+				<name>ParcelasCampestres</name>
+				<Placemark>
+					<name>SVB_CAR_PC01</name>
+					<styleUrl>#msn_ylw-pushpin300</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-53.23492786921161,-30.81285900572721,0 -53.23476482931085,-30.81242231854118,0 -53.23470478119261,-30.81199207040954,0 -53.23479388188904,-30.81154214221811,0 -53.23509801634787,-30.81115626021657,0 -53.23547049129413,-30.81089258109175,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>SVB_CAR_PC02</name>
+					<visibility>0</visibility>
+					<styleUrl>#msn_ylw-pushpin0000</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-53.22479780419724,-30.82314342314904,0 -53.22488447021343,-30.82266650484111,0 -53.22491559747052,-30.82219911148768,0 -53.22480216954551,-30.82172672764001,0 -53.22479447904859,-30.82127176824953,0 -53.22475205494161,-30.82083516082372,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>SVB_CAR_PC03</name>
+					<visibility>0</visibility>
+					<styleUrl>#msn_ylw-pushpin0000</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-53.20162640520623,-30.82639094579297,0 -53.20206818877669,-30.82662276228066,0 -53.20247212710299,-30.82687638637323,0 -53.20300337474421,-30.82695573784965,0 -53.20349009023961,-30.82697009445179,0 -53.20401052337399,-30.82690383425852,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>SVB_CAR_PC04</name>
+					<visibility>0</visibility>
+					<styleUrl>#msn_ylw-pushpin0000</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-53.20296774359022,-30.83873474146067,0 -53.20278033504076,-30.83832103454988,0 -53.20253421626779,-30.83791279611909,0 -53.20238752081571,-30.83746649796091,0 -53.20219023449716,-30.83706315119071,0 -53.20191878508886,-30.83673329062026,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>SVB_CAR_PC05</name>
+					<visibility>0</visibility>
+					<styleUrl>#msn_ylw-pushpin0000</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-53.22170515247176,-30.83586657964686,0 -53.22208625190197,-30.83613662315987,0 -53.22222274307623,-30.83657149492787,0 -53.2221998268133,-30.83699440942575,0 -53.22209494893598,-30.83711817219364,0 -53.22182262391141,-30.83711607742505,0 -53.22157239558562,-30.83712136711361,0 -53.22132843916787,-30.83704640161021,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>SVB_CAR_PC06</name>
+					<visibility>0</visibility>
+					<styleUrl>#msn_ylw-pushpin0000</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-53.24127361019803,-30.84255492650824,0 -53.2407640863984,-30.84264546470666,0 -53.24050824760317,-30.84300490311231,0 -53.24028065134646,-30.84340575199858,0 -53.23976745913904,-30.84436397229855,0 -53.23953982425401,-30.8447845567403,0 -53.23947435131255,-30.84521421231861,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>SVB_CAR_PC07</name>
+					<visibility>0</visibility>
+					<styleUrl>#msn_ylw-pushpin0000</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-53.20963357104299,-30.85180098046844,0 -53.20947324617783,-30.85221786156981,0 -53.20924299874564,-30.85264423746209,0 -53.20901782536171,-30.85303269561197,0 -53.20884798680872,-30.85346116921192,0 -53.20861340109411,-30.85381793115861,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>SVB_CAR_PC08</name>
+					<visibility>0</visibility>
+					<styleUrl>#msn_ylw-pushpin0000</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-53.23707193753049,-30.85352231965928,0 -53.23706437133344,-30.8533020220082,0 -53.23719751310523,-30.85307341497264,0 -53.2374955330565,-30.85263882303739,0 -53.237401930237,-30.85219583821771,0 -53.23758061769696,-30.85177247253037,0 -53.23793574387423,-30.85145213569729,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>SVB_CAR_PC09</name>
+					<visibility>0</visibility>
+					<styleUrl>#msn_ylw-pushpin0000</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-53.22782291898702,-30.85850856187333,0 -53.22755826019826,-30.85814330642486,0 -53.22745243223471,-30.85771267379781,0 -53.22771687131749,-30.85726381742882,0 -53.22799813534979,-30.8568794304314,0 -53.22826609972159,-30.85646890149936,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+			</Folder>
+		</Folder>
+		<Folder id="FeatureLayer0">
+			<name>Grade8_Jaguarao</name>
+			<Snippet maxLines="0"></Snippet>
+			<Placemark id="ID_00000">
+				<name>8_JAG_CMC</name>
+				<open>1</open>
+				<Snippet maxLines="0"></Snippet>
+				<description><![CDATA[<html xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
+
+<head>
+
+<META http-equiv="Content-Type" content="text/html">
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+</head>
+
+<body style="margin:0px 0px 0px 0px;overflow:auto;background:#FFFFFF;">
+
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-collapse:collapse;padding:3px 3px 3px 3px">
+
+<tr style="text-align:center;font-weight:bold;background:#9CBCE2">
+
+<td>0</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-spacing:0px; padding:3px 3px 3px 3px">
+
+<tr>
+
+<td>FID</td>
+
+<td>0</td>
+
+</tr>
+
+<tr bgcolor="#D4E4F3">
+
+<td>Id</td>
+
+<td>0</td>
+
+</tr>
+
+</table>
+
+</td>
+
+</tr>
+
+</table>
+
+</body>
+
+</html>]]></description>
+				<styleUrl>#PolyStyle0050</styleUrl>
+				<MultiGeometry>
+					<Polygon>
+						<outerBoundaryIs>
+							<LinearRing>
+								<coordinates>
+									-53.43390191438921,-32.27726557836777,0 -53.42902301889263,-32.27549372715725,0 -53.4241442943485,-32.27372168868146,0 -53.41926574077851,-32.27194946297795,0 -53.41438735820438,-32.27017705008435,0 -53.40950914664779,-32.26840445003823,0 -53.4046311061304,-32.2666316628771,0 -53.39975323667389,-32.26485868863867,0 -53.39487553829991,-32.26308552736041,0 -53.38999801103009,-32.26131217908002,0 -53.39208506977771,-32.25716780842024,0 -53.39417195745322,-32.2530233987189,0 -53.39625867411024,-32.24887894999147,0 -53.39834521980237,-32.24473446225345,0 -53.40043159458324,-32.24058993552033,0 -53.40251779850642,-32.23644536980755,0 -53.40460383162554,-32.23230076513053,0 -53.40668969399419,-32.22815612150486,0 -53.40877538566589,-32.22401143894595,0 -53.41086090669425,-32.21986671746922,0 -53.41573664611048,-32.22163943047188,0 -53.42061255609492,-32.22341195666699,0 -53.42548863662592,-32.22518429601696,0 -53.43036488768183,-32.22695644848422,0 -53.43524130924097,-32.22872841403128,0 -53.44011790128172,-32.23050019262058,0 -53.44499466378233,-32.23227178421458,0 -53.44987159672116,-32.23404318877581,0 -53.45474870007649,-32.23581440626669,0 -53.4596259738266,-32.23758543664969,0 -53.45754224208817,-32.24173079146241,0 -53.45545833992313,-32.24587610759399,0 -53.45337426727798,-32.25002138502912,0 -53.45129002409909,-32.25416662375229,0 -53.4492056103329,-32.25831182374808,0 -53.44712102592581,-32.26245698500106,0 -53.44503627082428,-32.26660210749571,0 -53.44295134497465,-32.27074719121662,0 -53.44086624832325,-32.27489223614838,0 -53.43878098081652,-32.27903724227548,0 -53.43390191438921,-32.27726557836777,0 
+								</coordinates>
+							</LinearRing>
+						</outerBoundaryIs>
+					</Polygon>
+				</MultiGeometry>
+			</Placemark>
+			<Folder>
+				<name>ParcelasCampestres</name>
+				<open>1</open>
+				<Placemark>
+					<name>JAG_CMC_PC01</name>
+					<styleUrl>#msn_ylw-pushpin</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-53.43098833973542,-32.23589135584319,0 -53.43124201201309,-32.23548119509833,0 -53.43168814891625,-32.23524015949625,0 -53.43218730406046,-32.23511103842921,0 -53.43268594958687,-32.23525055081171,0 -53.43308713218204,-32.23556025859884,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>JAG_CMC_PC02</name>
+					<visibility>0</visibility>
+					<styleUrl>#msn_ylw-pushpin0400</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-53.44221846610719,-32.24619161924891,0 -53.44211024499451,-32.24664662219534,0 -53.44183622799525,-32.24705012790088,0 -53.44149791884095,-32.24741357521721,0 -53.44099040740625,-32.24752807573088,0 -53.44069946374546,-32.2479229967942,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>JAG_CMC_PC03</name>
+					<visibility>0</visibility>
+					<styleUrl>#msn_ylw-pushpin0400</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-53.44995322312716,-32.25725824726165,0 -53.44949542868685,-32.25701793239525,0 -53.44955220668869,-32.25654479542065,0 -53.44972567054805,-32.2560944166871,0 -53.44951917541291,-32.25568202782037,0 -53.44897764871821,-32.25564919109364,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>JAG_CMC_PC04</name>
+					<visibility>0</visibility>
+					<styleUrl>#msn_ylw-pushpin0400</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-53.43812481424769,-32.25523547898866,0 -53.43775259145023,-32.25487385484563,0 -53.43734055400735,-32.25458836183861,0 -53.43714492227836,-32.25417252254698,0 -53.43702719587848,-32.2537128006473,0 -53.43677270591142,-32.25330533592947,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>JAG_CMC_PC05</name>
+					<visibility>0</visibility>
+					<styleUrl>#msn_ylw-pushpin0400</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-53.42881385979386,-32.2478308513959,0 -53.42823693927794,-32.24775627422776,0 -53.42785844625844,-32.24743928256743,0 -53.42748363035605,-32.24713472063257,0 -53.42698388034568,-32.24696068590198,0 -53.42652087489969,-32.24671516750432,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>JAG_CMC_PC06</name>
+					<visibility>0</visibility>
+					<styleUrl>#msn_ylw-pushpin0400</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-53.40560472668854,-32.24182060424931,0 -53.40605622127332,-32.24202990018175,0 -53.40657428414284,-32.24217549956982,0 -53.40660824354802,-32.24260004503031,0 -53.40709809981693,-32.24281640573445,0 -53.40747198635724,-32.24312751697907,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>JAG_CMC_PC07</name>
+					<visibility>0</visibility>
+					<styleUrl>#msn_ylw-pushpin0400</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-53.43300806513663,-32.26606527608287,0 -53.43336322147314,-32.2664026129482,0 -53.43391055046177,-32.26638615651381,0 -53.43444328349544,-32.26636764071904,0 -53.43489088238814,-32.26663092236952,0 -53.43539760478838,-32.26650338593521,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>JAG_CMC_PC08</name>
+					<visibility>0</visibility>
+					<styleUrl>#msn_ylw-pushpin0400</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-53.42646131340528,-32.26107639060306,0 -53.42616250454574,-32.26069182163513,0 -53.42603260893807,-32.26027429960314,0 -53.4262491963786,-32.25979087159478,0 -53.42638348975775,-32.25937335962554,0 -53.42699849355437,-32.25927816504672,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>JAG_CMC_PC09</name>
+					<visibility>0</visibility>
+					<styleUrl>#msn_ylw-pushpin0400</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-53.41498420973116,-32.25793584451897,0 -53.4150755758779,-32.25750833488785,0 -53.41502300685643,-32.25705111561705,0 -53.41465445788927,-32.25666510382205,0 -53.41489678105189,-32.25626730330472,0 -53.41513207525946,-32.25588322980983,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+			</Folder>
+		</Folder>
+		<Folder id="FeatureLayer0">
+			<name>Grade9_Vacaria</name>
+			<Snippet maxLines="0"></Snippet>
+			<Placemark id="ID_00000">
+				<name>9_VAC_CCS</name>
+				<open>1</open>
+				<Snippet maxLines="0"></Snippet>
+				<description><![CDATA[<html xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
+
+<head>
+
+<META http-equiv="Content-Type" content="text/html">
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+</head>
+
+<body style="margin:0px 0px 0px 0px;overflow:auto;background:#FFFFFF;">
+
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-collapse:collapse;padding:3px 3px 3px 3px">
+
+<tr style="text-align:center;font-weight:bold;background:#9CBCE2">
+
+<td>0</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-spacing:0px; padding:3px 3px 3px 3px">
+
+<tr>
+
+<td>FID</td>
+
+<td>0</td>
+
+</tr>
+
+<tr bgcolor="#D4E4F3">
+
+<td>Id</td>
+
+<td>0</td>
+
+</tr>
+
+</table>
+
+</td>
+
+</tr>
+
+</table>
+
+</body>
+
+</html>]]></description>
+				<styleUrl>#PolyStyle00500</styleUrl>
+				<MultiGeometry>
+					<Polygon>
+						<outerBoundaryIs>
+							<LinearRing>
+								<coordinates>
+									-50.96970263985773,-28.20337047237154,0 -50.96842244267725,-28.19900173599723,0 -50.96714235326159,-28.19463299233235,0 -50.96586237157614,-28.19026424138436,0 -50.96458249758654,-28.18589548316093,0 -50.96330273125822,-28.18152671766949,0 -50.9620230725568,-28.17715794491772,0 -50.96074352144765,-28.17278916491305,0 -50.95946407789641,-28.1684203776631,0 -50.95818474186856,-28.16405158317534,0 -50.9631144005505,-28.16291776810007,0 -50.9680439517075,-28.16178376793737,0 -50.97297339530363,-28.16064958271264,0 -50.97790273130294,-28.15951521245109,0 -50.98283195966954,-28.15838065717804,0 -50.98776108036742,-28.15724591691881,0 -50.99269009336078,-28.1561109916988,0 -50.99761899861367,-28.15497588154317,0 -51.00254779609011,-28.15384058647732,0 -51.00747648575431,-28.15270510652663,0 -51.00875777209647,-28.15707341459476,0 -51.01003916632125,-28.16144171526362,0 -51.01132066846321,-28.16581000852558,0 -51.01260227855683,-28.1701782943731,0 -51.01388399663662,-28.17454657279866,0 -51.01516582273719,-28.17891484379457,0 -51.01644775689299,-28.18328310735344,0 -51.01772979913859,-28.18765136346752,0 -51.01901194950859,-28.19201961212941,0 -51.02029420803747,-28.19638785333141,0 -51.01536356799506,-28.19752382168744,0 -51.01043281979508,-28.19865960487899,0 -51.00550196347349,-28.19979520288067,0 -51.00057099906621,-28.20093061566719,0 -50.99563992660924,-28.20206584321318,0 -50.99070874613847,-28.20320088549326,0 -50.98577745768993,-28.20433574248208,0 -50.98084606129968,-28.20547041415432,0 -50.97591455700351,-28.20660490048466,0 -50.97098294483756,-28.20773920144776,0 -50.96970263985773,-28.20337047237154,0 
+								</coordinates>
+							</LinearRing>
+						</outerBoundaryIs>
+					</Polygon>
+				</MultiGeometry>
+			</Placemark>
+			<Folder>
+				<name>ParcelasCampestres</name>
+				<open>1</open>
+				<Style>
+					<ListStyle>
+						<listItemType>check</listItemType>
+						<bgColor>00ffffff</bgColor>
+						<maxSnippetLines>2</maxSnippetLines>
+					</ListStyle>
+				</Style>
+				<Placemark>
+					<name>VAC_CCS_PC01</name>
+					<styleUrl>#m_ylw-pushpin020</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-50.98050630892551,-28.16314804823837,0 -50.98002301351073,-28.16305948484081,0 -50.97949257087123,-28.16310138992536,0 -50.97900088797783,-28.16319000563652,0 -50.97857555809781,-28.16343950035216,0 -50.97810646059843,-28.16361175026773,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>VAC_CCS_PC02</name>
+					<styleUrl>#m_ylw-pushpin020</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-50.97217986391304,-28.16749677708056,0 -50.97186527631393,-28.16714824087871,0 -50.97157288015926,-28.16678370468032,0 -50.97164555621668,-28.16634275363124,0 -50.97168999349107,-28.16591075328726,0 -50.97214875732952,-28.16568206391382,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>VAC_CCS_PC03</name>
+					<styleUrl>#m_ylw-pushpin020</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-50.99114167605177,-28.16708958388378,0 -50.99121378871696,-28.16752855373225,0 -50.99143461074048,-28.16797943737674,0 -50.99149996546868,-28.16839560558025,0 -50.99118228268772,-28.16878691331618,0 -50.99113498049668,-28.16923780464385,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>VAC_CCS_PC04</name>
+					<styleUrl>#m_ylw-pushpin020</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-50.98019285625416,-28.17470215493809,0 -50.97975462911899,-28.17455856797542,0 -50.97921276664734,-28.17445412666258,0 -50.97869754882994,-28.17443843173308,0 -50.9783837125153,-28.17407298374041,0 -50.97804589979356,-28.17376191502774,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>VAC_CCS_PC05</name>
+					<styleUrl>#m_ylw-pushpin020</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-50.99821242398449,-28.17793352089344,0 -50.99863946350165,-28.17818525774361,0 -50.99912870777109,-28.17832481342053,0 -50.99951616666608,-28.17862391303028,0 -50.99981597159365,-28.17899531064708,0 -51.00013348878347,-28.17931695739501,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>VAC_CCS_PC06</name>
+					<styleUrl>#m_ylw-pushpin020</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-50.99993144403408,-28.1856749356574,0 -50.99969489205061,-28.18566930351092,0 -50.9991642497063,-28.18564113285849,0 -50.99863786984237,-28.18569936593742,0 -50.99815297893249,-28.18560662673809,0 -50.99767838006358,-28.18569179342762,0 -50.9974027147821,-28.18572185131952,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>VAC_CCS_PC07</name>
+					<styleUrl>#m_ylw-pushpin020</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-50.99130929496836,-28.19076696573151,0 -50.9910160104827,-28.19042504562049,0 -50.9909561194543,-28.18995805063759,0 -50.99065022585593,-28.18960501053338,0 -50.99019293648632,-28.18947155866879,0 -50.98975457086632,-28.18933254589398,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>VAC_CCS_PC08</name>
+					<styleUrl>#m_ylw-pushpin020</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-50.97387486376883,-28.19491320660895,0 -50.9735174630907,-28.19460806738734,0 -50.97300472895668,-28.19454382351582,0 -50.97267969517942,-28.194183090084,0 -50.9726509685232,-28.19373230547054,0 -50.97276543467753,-28.19328797810707,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>VAC_CCS_PC09</name>
+					<styleUrl>#m_ylw-pushpin020</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-51.00201513862217,-28.19606572408027,0 -51.00250782997382,-28.19597045914888,0 -51.003016414454,-28.19590600781546,0 -51.00349958153698,-28.19608248276775,0 -51.00396367875676,-28.19623934650239,0 -51.00441188851972,-28.19642422485606,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+			</Folder>
+		</Folder>
+		<Folder id="FeatureLayer0">
+			<name>Grade10_Alegrete</name>
+			<Snippet maxLines="0"></Snippet>
+			<Placemark id="ID_00000">
+				<name>10_ALE_CCA</name>
+				<Snippet maxLines="0"></Snippet>
+				<description><![CDATA[<html xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
+
+<head>
+
+<META http-equiv="Content-Type" content="text/html">
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+</head>
+
+<body style="margin:0px 0px 0px 0px;overflow:auto;background:#FFFFFF;">
+
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-collapse:collapse;padding:3px 3px 3px 3px">
+
+<tr style="text-align:center;font-weight:bold;background:#9CBCE2">
+
+<td>0</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-spacing:0px; padding:3px 3px 3px 3px">
+
+<tr>
+
+<td>FID</td>
+
+<td>0</td>
+
+</tr>
+
+<tr bgcolor="#D4E4F3">
+
+<td>Id</td>
+
+<td>0</td>
+
+</tr>
+
+</table>
+
+</td>
+
+</tr>
+
+</table>
+
+</body>
+
+</html>]]></description>
+				<styleUrl>#PolyStyle00500</styleUrl>
+				<MultiGeometry>
+					<Polygon>
+						<outerBoundaryIs>
+							<LinearRing>
+								<coordinates>
+									-55.41793771586416,-29.79548703399715,0 -55.3662225035233,-29.79485786520959,0 -55.36695460793191,-29.74975165826901,0 -55.41864667034229,-29.75037968462492,0 -55.41793771586416,-29.79548703399715,0 
+								</coordinates>
+							</LinearRing>
+						</outerBoundaryIs>
+					</Polygon>
+				</MultiGeometry>
+			</Placemark>
+			<Folder>
+				<name>ParcelasCampestres</name>
+				<open>1</open>
+				<Placemark>
+					<name>ALE_CCA_PC01</name>
+					<styleUrl>#msn_ylw-pushpin00000</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-55.39396460138476,-29.75588144664175,0 -55.3942412554086,-29.75550499688422,0 -55.39462019903856,-29.75517279617676,0 -55.39507378426326,-29.75496327602422,0 -55.3955678493771,-29.75491403004289,0 -55.39590720396993,-29.75455592225729,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>ALE_CCA_PC02</name>
+					<styleUrl>#msn_ylw-pushpin00000</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-55.37331232837979,-29.75294486734284,0 -55.37323890318806,-29.75316337500097,0 -55.37339739529052,-29.75330514061949,0 -55.37391886693948,-29.75341953985382,0 -55.37444664643725,-29.75336704891317,0 -55.37497814784459,-29.75329716798934,0 -55.37542710475177,-29.75307904511109,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>ALE_CCA_PC03</name>
+					<styleUrl>#msn_ylw-pushpin00000</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-55.38408246781576,-29.76121346519263,0 -55.38365234206595,-29.76146584546522,0 -55.38332103029832,-29.76177635366319,0 -55.38311744423765,-29.76219536310652,0 -55.38306405121413,-29.76263512137368,0 -55.38290171336431,-29.76307779160621,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>ALE_CCA_PC04</name>
+					<styleUrl>#msn_ylw-pushpin15</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-55.37245905259893,-29.76316908409334,0 -55.37211171966681,-29.76354993149003,0 -55.37169336212254,-29.76384907249863,0 -55.37124378266847,-29.76365082766052,0 -55.3708324987349,-29.76333399157731,0 -55.37034669932292,-29.76327140174806,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>ALE_CCA_PC05</name>
+					<styleUrl>#msn_ylw-pushpin03</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-55.41283833776069,-29.77156342540435,0 -55.41297463484536,-29.77197727278415,0 -55.41329532390176,-29.7723227649047,0 -55.41337152051189,-29.77276626812703,0 -55.41339250013504,-29.77322029855592,0 -55.41340315083515,-29.77366483575361,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>ALE_CCA_PC06</name>
+					<styleUrl>#msn_ylw-pushpin112</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-55.40064342496036,-29.77247475247851,0 -55.40078696199731,-29.77204004435691,0 -55.40119961028587,-29.77176995880712,0 -55.40163167192806,-29.77150571400318,0 -55.40202828128366,-29.77122265981384,0 -55.40252536642355,-29.7711086835653,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>ALE_CCA_PC07</name>
+					<styleUrl>#msn_ylw-pushpin200</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-55.38459407266662,-29.77094480161609,0 -55.38449709549309,-29.77133010277366,0 -55.38416211598899,-29.77170187554176,0 -55.38383285523725,-29.77133972406745,0 -55.38343503337648,-29.77105340127552,0 -55.38292833335136,-29.77096748698024,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>ALE_CCA_PC08</name>
+					<styleUrl>#msn_ylw-pushpin200</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-55.38344488339338,-29.78202873974338,0 -55.38361861235354,-29.78158728481009,0 -55.38363197741823,-29.78113801861047,0 -55.38370370894013,-29.78071498900922,0 -55.38378505176585,-29.78027108466398,0 -55.3837995600082,-29.7798103252396,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>ALE_CCA_PC09</name>
+					<styleUrl>#msn_ylw-pushpin200</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-55.39243086431554,-29.79148429011472,0 -55.39276545882552,-29.79114022602811,0 -55.39295475767595,-29.79069105239585,0 -55.3928400278129,-29.79023555028646,0 -55.39275843652488,-29.78978425513223,0 -55.39270016174761,-29.78932023338,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+			</Folder>
+		</Folder>
+		<Folder id="FeatureLayer0">
+			<name>Grade11_Painel</name>
+			<Snippet maxLines="0"></Snippet>
+			<Placemark id="ID_00000">
+				<name>11_PAI_SC</name>
+				<Snippet maxLines="0"></Snippet>
+				<description><![CDATA[<html xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
+
+<head>
+
+<META http-equiv="Content-Type" content="text/html">
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+</head>
+
+<body style="margin:0px 0px 0px 0px;overflow:auto;background:#FFFFFF;">
+
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-collapse:collapse;padding:3px 3px 3px 3px">
+
+<tr style="text-align:center;font-weight:bold;background:#9CBCE2">
+
+<td>0</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-spacing:0px; padding:3px 3px 3px 3px">
+
+<tr>
+
+<td>FID</td>
+
+<td>0</td>
+
+</tr>
+
+<tr bgcolor="#D4E4F3">
+
+<td>Id</td>
+
+<td>0</td>
+
+</tr>
+
+</table>
+
+</td>
+
+</tr>
+
+</table>
+
+</body>
+
+</html>]]></description>
+				<styleUrl>#PolyStyle00500</styleUrl>
+				<MultiGeometry>
+					<Polygon>
+						<outerBoundaryIs>
+							<LinearRing>
+								<coordinates>
+									-50.15645814378441,-28.02579731619752,0 -50.1559575683327,-28.02130597944174,0 -50.15545702932477,-28.01681463886347,0 -50.15495652674674,-28.012323294464,0 -50.15445606058474,-28.00783194624472,0 -50.15395563082486,-28.00334059420696,0 -50.15345523745324,-27.99884923835205,0 -50.15295488045597,-27.99435787868136,0 -50.15245455981923,-27.98986651519622,0 -50.15195427552907,-27.98537514789798,0 -50.15701376716057,-27.98493096393683,0 -50.16207322241227,-27.98448659290689,0 -50.16713264123719,-27.98404203481817,0 -50.17219202358838,-27.98359728968067,0 -50.17725136941879,-27.98315235750451,0 -50.1823106786814,-27.98270723829972,0 -50.18736995132934,-27.98226193207631,0 -50.1924291873155,-27.98181643884434,0 -50.19748838659291,-27.9813707586139,0 -50.20254754911466,-27.98092489139505,0 -50.20304991956093,-27.98541612132875,0 -50.20355232682385,-27.98990734738039,0 -50.20405477091734,-27.99439856954868,0 -50.20455725185538,-27.99888978783225,0 -50.20505976965193,-28.00338100222973,0 -50.20556232432095,-28.00787221273978,0 -50.20606491587639,-28.01236341936103,0 -50.2065675443323,-28.01685462209213,0 -50.20707020970253,-28.02134582093174,0 -50.20757291200113,-28.0258370158785,0 -50.2025116618343,-28.02628302232013,0 -50.19745037477219,-28.02672884142939,0 -50.19238905086188,-28.0271744731962,0 -50.18732769015041,-28.02761991761048,0 -50.18226629268487,-28.02806517466216,0 -50.17720485851235,-28.02851024434117,0 -50.17214338767991,-28.02895512663746,0 -50.1670818802346,-28.02939982154094,0 -50.16202033622357,-28.02984432904162,0 -50.15695875569384,-28.03028864912939,0 -50.15645814378441,-28.02579731619752,0 
+								</coordinates>
+							</LinearRing>
+						</outerBoundaryIs>
+					</Polygon>
+				</MultiGeometry>
+			</Placemark>
+			<Folder>
+				<name>ParcelasCampestres</name>
+				<open>1</open>
+				<Placemark>
+					<name>PAI_SC_PC01</name>
+					<styleUrl>#msn_ylw-pushpin220</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-50.16555709517104,-27.98817650471278,0 -50.16601976189505,-27.98793854366764,0 -50.16652461396721,-27.98785769151402,0 -50.16681008060925,-27.98747518193379,0 -50.16726256658626,-27.98723958424597,0 -50.16756588102488,-27.98686091454093,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>PAI_SC_PC02</name>
+					<styleUrl>#msn_ylw-pushpin220</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-50.15733403168175,-27.98664574257418,0 -50.15743348803936,-27.98686219915527,0 -50.15763929882255,-27.98729345496792,0 -50.15788058893227,-27.98767999332969,0 -50.15811808637374,-27.98834598104061,0 -50.15827344120532,-27.98852480010516,0 -50.15841436496251,-27.98871426028542,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>PAI_SC_PC03</name>
+					<styleUrl>#msn_ylw-pushpin220</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-50.18156710900863,-27.99392685436386,0 -50.18206653555696,-27.99375123880968,0 -50.18253508160248,-27.99356915918779,0 -50.1830586855246,-27.99362759592933,0 -50.18348705172964,-27.99335880575947,0 -50.18383075695467,-27.9930695566408,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>PAI_SC_PC04</name>
+					<styleUrl>#msn_ylw-pushpin220</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-50.15484260777075,-27.99791774316008,0 -50.15503773401863,-27.99809361279831,0 -50.1549816701832,-27.99852422694659,0 -50.15515471582279,-27.99895999850877,0 -50.15566441159236,-27.99912068176395,0 -50.15566752292583,-27.99958126829759,0 -50.15556246601162,-27.99979505302438,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>PAI_SC_PC05</name>
+					<styleUrl>#msn_ylw-pushpin220</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-50.18753203587974,-28.0065275551986,0 -50.18765565922979,-28.00608470988268,0 -50.18794912281886,-28.00571532465446,0 -50.18815417078778,-28.0053237492543,0 -50.18792946409869,-28.00490035986852,0 -50.18764182105655,-28.00453205043033,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>PAI_SC_PC06</name>
+					<styleUrl>#msn_ylw-pushpin220</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-50.15512664032297,-28.00730866765914,0 -50.15513540018286,-28.0073019406533,0 -50.1556120005308,-28.00725791812036,0 -50.15614103781994,-28.00711913746139,0 -50.15665797040085,-28.00708847446292,0 -50.15717670833767,-28.00715693406294,0 -50.15766532234191,-28.00710247740538,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>PAI_SC_PC07</name>
+					<styleUrl>#msn_ylw-pushpin220</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-50.19377160758432,-28.01235213699059,0 -50.19420166747149,-28.01250892382291,0 -50.19470834423794,-28.01247941568577,0 -50.19524896993002,-28.01245375046308,0 -50.19577812126003,-28.01234549595901,0 -50.19564318127808,-28.0118934636428,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>PAI_SC_PC08</name>
+					<styleUrl>#msn_ylw-pushpin220</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-50.1934827793053,-28.02180903516479,0 -50.19334126759482,-28.02135021862963,0 -50.1931311893652,-28.02092852331273,0 -50.19299543780772,-28.02050897032902,0 -50.19296972144056,-28.0200581443239,0 -50.19317467606193,-28.01963257194621,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>PAI_SC_PC09</name>
+					<styleUrl>#msn_ylw-pushpin220</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-50.18492344526324,-28.02610846652557,0 -50.18439245690156,-28.02599358086127,0 -50.18388352773513,-28.02591730306304,0 -50.18334079533759,-28.02599679689128,0 -50.18295541923637,-28.02568040692497,0 -50.18249405931601,-28.02556436978968,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+			</Folder>
+		</Folder>
+		<Folder id="FeatureLayer0">
+			<name>Grade12_Palmas</name>
+			<Snippet maxLines="0"></Snippet>
+			<Placemark id="ID_00000">
+				<name>12_PAL_PR</name>
+				<Snippet maxLines="0"></Snippet>
+				<description><![CDATA[<html xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
+
+<head>
+
+<META http-equiv="Content-Type" content="text/html">
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+</head>
+
+<body style="margin:0px 0px 0px 0px;overflow:auto;background:#FFFFFF;">
+
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-collapse:collapse;padding:3px 3px 3px 3px">
+
+<tr style="text-align:center;font-weight:bold;background:#9CBCE2">
+
+<td>0</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-spacing:0px; padding:3px 3px 3px 3px">
+
+<tr>
+
+<td>FID</td>
+
+<td>0</td>
+
+</tr>
+
+<tr bgcolor="#D4E4F3">
+
+<td>Id</td>
+
+<td>0</td>
+
+</tr>
+
+</table>
+
+</td>
+
+</tr>
+
+</table>
+
+</body>
+
+</html>]]></description>
+				<styleUrl>#PolyStyle00502</styleUrl>
+				<MultiGeometry>
+					<Polygon>
+						<outerBoundaryIs>
+							<LinearRing>
+								<coordinates>
+									-51.61322810832303,-26.54507340817139,0 -51.6119759088411,-26.54071852154835,0 -51.61072374211761,-26.53636362956888,0 -51.6094716081426,-26.53200873223529,0 -51.60821950690621,-26.52765382954954,0 -51.60696743839851,-26.52329892151392,0 -51.60571540260959,-26.51894400813035,0 -51.60446339952961,-26.514589089401,0 -51.60321142914847,-26.51023416532797,0 -51.60195949145657,-26.50587923591348,0 -51.60678505363893,-26.50457298049406,0 -51.61161055017925,-26.50326655669472,0 -51.61643598103848,-26.50195996453181,0 -51.62126134617733,-26.50065320402189,0 -51.62608664555671,-26.49934627518132,0 -51.63091187913727,-26.49803917802666,0 -51.63573704687997,-26.49673191257431,0 -51.64056214874553,-26.49542447884084,0 -51.64538718469488,-26.49411687684261,0 -51.65021215468862,-26.49280910659621,0 -51.65146585966579,-26.49716349836445,0 -51.65271959772024,-26.5015178846561,0 -51.65397336886207,-26.5058722654689,0 -51.65522717310137,-26.51022664080074,0 -51.65648101044792,-26.51458101064969,0 -51.65773488091173,-26.51893537501342,0 -51.65898878450287,-26.52328973388996,0 -51.66024272123116,-26.52764408727694,0 -51.66149669110655,-26.53199843517246,0 -51.66275069413916,-26.53635277757428,0 -51.6579239558327,-26.53766108747391,0 -51.65309715141051,-26.53896922881443,0 -51.64827028091173,-26.54027720157956,0 -51.64344334437567,-26.54158500575267,0 -51.63861634184157,-26.54289264131739,0 -51.63378927334856,-26.54420010825709,0 -51.62896213893583,-26.54550740655521,0 -51.62413493864301,-26.54681453619548,0 -51.61930767250908,-26.54812149716116,0 -51.61448034057327,-26.54942828943615,0 -51.61322810832303,-26.54507340817139,0 
+								</coordinates>
+							</LinearRing>
+						</outerBoundaryIs>
+					</Polygon>
+				</MultiGeometry>
+			</Placemark>
+			<Folder>
+				<name>ParcelasCampestres</name>
+				<visibility>0</visibility>
+				<open>1</open>
+				<Placemark>
+					<name>PAL_PR_PC01</name>
+					<visibility>0</visibility>
+					<styleUrl>#m_ylw-pushpin03</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-51.64041931903201,-26.50050556826622,0 -51.64041443318654,-26.5005064496761,0 -51.6399118176906,-26.50062753424945,0 -51.63977206640957,-26.5010581311596,0 -51.63990393999637,-26.50150582322004,0 -51.63965908055876,-26.50189001944986,0 -51.63929127345418,-26.50222319120833,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>PAL_PR_PC02</name>
+					<visibility>0</visibility>
+					<styleUrl>#m_ylw-pushpin03</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-51.62859246252749,-26.50603650420818,0 -51.62885187468187,-26.50643900229399,0 -51.62935063809432,-26.5064659885437,0 -51.62987102187491,-26.50657578486551,0 -51.63040061136869,-26.50652455292063,0 -51.63086021274897,-26.50640502804922,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>PAL_PR_PC03</name>
+					<visibility>0</visibility>
+					<styleUrl>#m_ylw-pushpin03</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-51.61933569303374,-26.50605895550565,0 -51.61931320779415,-26.50650827815962,0 -51.6191847776267,-26.50694404295797,0 -51.61888681133645,-26.50732517963252,0 -51.61835412519238,-26.50736050267349,0 -51.61787286327582,-26.5071904262925,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>PAL_PR_PC04</name>
+					<visibility>0</visibility>
+					<styleUrl>#m_ylw-pushpin03</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-51.61828633697886,-26.5167055604975,0 -51.61779621137876,-26.51675711071997,0 -51.61728302198995,-26.51688803552065,0 -51.61687271418213,-26.51713531936398,0 -51.6167129288356,-26.51758423529332,0 -51.61653464044921,-26.51802237773195,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>PAL_PR_PC05</name>
+					<visibility>0</visibility>
+					<styleUrl>#m_ylw-pushpin03</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-51.63516883484815,-26.52220219480226,0 -51.63515630774591,-26.52266216540701,0 -51.63502487037236,-26.52309736426809,0 -51.63487177872926,-26.52354585158151,0 -51.63438675162018,-26.52364989148382,0 -51.63413986696126,-26.52404252712541,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>PAL_PR_PC06</name>
+					<visibility>0</visibility>
+					<styleUrl>#m_ylw-pushpin03</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-51.64633954155755,-26.52520152642179,0 -51.64656382909029,-26.52522690701275,0 -51.646694194353,-26.52533379154357,0 -51.64709330350608,-26.52560300659273,0 -51.64727303318977,-26.52605446354789,0 -51.64704170423423,-26.52647663400112,0 -51.64670837633027,-26.52679298275351,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>PAL_PR_PC07</name>
+					<visibility>0</visibility>
+					<styleUrl>#m_ylw-pushpin03</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-51.64736473933369,-26.53680234879183,0 -51.64709089994894,-26.53635972971727,0 -51.64679109739313,-26.53595611768871,0 -51.6464929366553,-26.53556472663476,0 -51.64625764869391,-26.53517149831458,0 -51.64610875589602,-26.53475300732866,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>PAL_PR_PC08</name>
+					<visibility>0</visibility>
+					<styleUrl>#m_ylw-pushpin03</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-51.63895028732756,-26.54246765877678,0 -51.63911798025096,-26.54200853064191,0 -51.63926196566879,-26.54161317406823,0 -51.63941835915642,-26.54111401519145,0 -51.63950717028313,-26.54066729737853,0 -51.64002097445699,-26.54073251713952,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>PAL_PR_PC09</name>
+					<visibility>0</visibility>
+					<styleUrl>#m_ylw-pushpin03</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-51.63046422078753,-26.5415758785509,0 -51.63028781450096,-26.54140638743708,0 -51.63002605907447,-26.54139300075931,0 -51.62958970777352,-26.5416120269097,0 -51.62949301084896,-26.54205176299042,0 -51.62941981778328,-26.54250695333533,0 -51.62954019462494,-26.54295587594616,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+			</Folder>
+		</Folder>
+		<Folder>
+			<name>Grade13_Tibagi</name>
+			<open>1</open>
+			<Placemark id="ID_00000">
+				<name>13_TIB_PR</name>
+				<open>1</open>
+				<Snippet maxLines="0"></Snippet>
+				<description><![CDATA[<html xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
+
+<head>
+
+<META http-equiv="Content-Type" content="text/html">
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+</head>
+
+<body style="margin:0px 0px 0px 0px;overflow:auto;background:#FFFFFF;">
+
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-collapse:collapse;padding:3px 3px 3px 3px">
+
+<tr style="text-align:center;font-weight:bold;background:#9CBCE2">
+
+<td>0</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-spacing:0px; padding:3px 3px 3px 3px">
+
+<tr>
+
+<td>FID</td>
+
+<td>0</td>
+
+</tr>
+
+<tr bgcolor="#D4E4F3">
+
+<td>Id</td>
+
+<td>0</td>
+
+</tr>
+
+</table>
+
+</td>
+
+</tr>
+
+</table>
+
+</body>
+
+</html>]]></description>
+				<styleUrl>#PolyStyle000</styleUrl>
+				<MultiGeometry>
+					<Polygon>
+						<outerBoundaryIs>
+							<LinearRing>
+								<coordinates>
+									-50.23453101705557,-24.57867536706343,0 -50.23178722204197,-24.5749212087425,0 -50.22904358875227,-24.57116700260028,0 -50.22630011714401,-24.56741274866306,0 -50.22355680717478,-24.56365844695688,0 -50.2208136588022,-24.55990409750789,0 -50.21807067198386,-24.55614970034227,0 -50.21532784667741,-24.55239525548612,0 -50.2125851828404,-24.54864076296556,0 -50.20984268043048,-24.54488622280675,0 -50.21394725503274,-24.54237764742263,0 -50.21805166825834,-24.53986895537415,0 -50.22215592011542,-24.53736014669988,0 -50.22626001061199,-24.53485122143837,0 -50.2303639397562,-24.53234217962818,0 -50.2344677075561,-24.52983302130783,0 -50.23857131401982,-24.52732374651594,0 -50.24267475915544,-24.52481435529108,0 -50.24677804297107,-24.52230484767174,0 -50.25088116547485,-24.51979522369653,0 -50.25362438717325,-24.52354904645513,0 -50.25636777021775,-24.52730282137584,0 -50.25911131465066,-24.5310565484325,0 -50.2618550205143,-24.53481022759896,0 -50.26459888785105,-24.5385638588491,0 -50.26734291670324,-24.54231744215682,0 -50.27008710711326,-24.54607097749594,0 -50.27283145912342,-24.54982446484026,0 -50.27557597277611,-24.5535779041637,0 -50.27832064811371,-24.5573312954401,0 -50.27421680859318,-24.55984163781534,0 -50.27011280733717,-24.56235186381225,0 -50.2660086443376,-24.56486197339228,0 -50.26190431958626,-24.56737196651677,0 -50.25779983307504,-24.56988184314717,0 -50.25369518479576,-24.57239160324489,0 -50.24959037474029,-24.57490124677132,0 -50.2454854029005,-24.57741077368789,0 -50.24138026926823,-24.57992018395598,0 -50.23727497383544,-24.58242947753705,0 -50.23453101705557,-24.57867536706343,0 
+								</coordinates>
+							</LinearRing>
+						</outerBoundaryIs>
+					</Polygon>
+				</MultiGeometry>
+			</Placemark>
+			<Folder>
+				<name>ParcelasCampestres</name>
+				<visibility>0</visibility>
+				<open>1</open>
+				<Placemark>
+					<name>TIB_PR_PC01</name>
+					<visibility>0</visibility>
+					<styleUrl>#m_ylw-pushpin22</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-50.27550617409565,-24.56111245639855,0 -50.27585618968386,-24.56078454029258,0 -50.27626402259474,-24.5605226673739,0 -50.27668710490207,-24.56029203695107,0 -50.27705635403763,-24.56001345962767,0 -50.27749294790246,-24.55977268852617,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>TIB_PR_PC02</name>
+					<visibility>0</visibility>
+					<styleUrl>#m_ylw-pushpin22</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-50.24857591958313,-24.54420072996203,0 -50.24908768991189,-24.54427509254934,0 -50.24956634406566,-24.54423533232587,0 -50.24998528743286,-24.5440973792319,0 -50.25048265438176,-24.54399911806426,0 -50.25097045307888,-24.54390966087906,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>TIB_PR_PC03</name>
+					<visibility>0</visibility>
+					<styleUrl>#m_ylw-pushpin22</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-50.26468495744638,-24.57022071096378,0 -50.26450564811939,-24.57065868227454,0 -50.26430409658572,-24.57105403010016,0 -50.26417731371165,-24.57148844500511,0 -50.2641005185432,-24.5719381199122,0 -50.26395989161031,-24.57237149508692,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>TIB_PR_PC04</name>
+					<visibility>0</visibility>
+					<styleUrl>#m_ylw-pushpin22</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-50.25412331064538,-24.56029700995885,0 -50.25448535191223,-24.56059711305318,0 -50.25469898647098,-24.56097461820563,0 -50.25459603735254,-24.56141430350469,0 -50.25447601265614,-24.56186662561033,0 -50.25428349055824,-24.56225225325784,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>TIB_PR_PC05</name>
+					<visibility>0</visibility>
+					<styleUrl>#m_ylw-pushpin22</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-50.24295556844546,-24.55038242219364,0 -50.24326995046221,-24.55074227729355,0 -50.24349663042893,-24.55113907753876,0 -50.24381588924687,-24.55145524230741,0 -50.24408359979359,-24.55148622655025,0 -50.24429711498294,-24.55151001622603,0 -50.24474705524803,-24.55122251271106,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>TIB_PR_PC06</name>
+					<visibility>0</visibility>
+					<styleUrl>#m_ylw-pushpin22</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-50.25446054432024,-24.57996444915969,0 -50.25486735627557,-24.57965546311493,0 -50.25529302831009,-24.57940942784537,0 -50.25577590372852,-24.57936819810064,0 -50.25617794191235,-24.57964485192423,0 -50.25646028089502,-24.58001302270839,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>TIB_PR_PC07</name>
+					<visibility>0</visibility>
+					<styleUrl>#m_ylw-pushpin22</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-50.25150908445852,-24.57077498870665,0 -50.25109547290001,-24.57110993085433,0 -50.25070272443034,-24.57138846091057,0 -50.25042315872879,-24.57177218715496,0 -50.25022041411692,-24.57215920229046,0 -50.24978887823623,-24.57254925446438,0 -50.24950575507319,-24.57292838269392,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>TIB_PR_PC08</name>
+					<visibility>0</visibility>
+					<styleUrl>#m_ylw-pushpin22</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-50.24936264482077,-24.58621456347589,0 -50.24911320209685,-24.58659153644096,0 -50.24886132989172,-24.58696318202402,0 -50.24864908006639,-24.58735769161753,0 -50.24833227343289,-24.58773179768608,0 -50.24806868224312,-24.58808603184862,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+				<Placemark>
+					<name>TIB_PR_PC09</name>
+					<visibility>0</visibility>
+					<styleUrl>#m_ylw-pushpin22</styleUrl>
+					<LineString>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-50.24006094517437,-24.58063847174423,0 -50.24037475849433,-24.58026167407379,0 -50.24075303887143,-24.57997730967538,0 -50.24115933164662,-24.5797389425822,0 -50.24162785884444,-24.57958453660568,0 -50.24213090448436,-24.57943302015379,0 
+						</coordinates>
+					</LineString>
+				</Placemark>
+			</Folder>
+		</Folder>
+	</Folder>
+</Document>
+</kml>

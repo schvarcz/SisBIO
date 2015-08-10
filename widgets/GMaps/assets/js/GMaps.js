@@ -15,7 +15,8 @@
         points: [],
         mapsOptions: {
             zoom: 8,
-            center: [-30.0393227,-51.2325482]
+            center: [-30.0393227,-51.2325482],
+            mapTypeId: google.maps.MapTypeId.SATELLITE
         },
         polygonOptions: {
             strokeColor: '#FF0000',
@@ -88,7 +89,7 @@
             for(var idx in points)
             {
                 var pt = points[idx].split(" ");
-                var point = new google.maps.LatLng(pt[0],pt[1]);
+                var point = new google.maps.LatLng(pt[1],pt[0]);
                 path.push(point);
                 bounds.extend(point);
             }
