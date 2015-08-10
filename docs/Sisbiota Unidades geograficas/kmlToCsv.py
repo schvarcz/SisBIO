@@ -72,7 +72,7 @@ def showPlaceMark(place):
 			polygon = showLineString(f)
 
 	if polygon != None:
-		print "INSERT INTO UnidadeGeografica (Nome,shape,Data_Criacao, idProjeto,idPesquisador) VALUES (\""+ name+ "\",", "GeomFromText(\"",polygon,"\")", ",","NOW()",",2,1);"
+		print "INSERT INTO UnidadeGeografica (Nome,shape,Data_Criacao, idProjeto,idPesquisador) VALUES (\""+ name+ "\",", "GeomFromText(\"",polygon,"\")", ",","NOW()",",1,1);"
 
 
 def expand(folder):
@@ -85,8 +85,8 @@ def expand(folder):
 		# else:
 		# 	print f.tag
 
-kml = parser.parse("Grades_Parcelas_PPBIO.kml")
-# kml = parser.parse("SISBIOTA_UAR_UAP_UAL_16122014.kml")
+# kml = parser.parse("Grades_Parcelas_PPBIO.kml")
+kml = parser.parse("SISBIOTA_UAR_UAP_UAL_16122014.kml")
 
 root = kml.getroot()[0].getchildren()[-1].getchildren()[-1]
 expand(root)
