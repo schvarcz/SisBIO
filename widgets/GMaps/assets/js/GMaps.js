@@ -110,6 +110,7 @@
                     google.maps.event.addListener(map, "click", methods.addPoint2Polygon);
                     google.maps.event.addListener(geometry, "mouseup", methods.updateBox);
                 }
+                geometry.setPath(path);
             }
             if (settings.showType == "LINESTRING")
             {
@@ -122,8 +123,21 @@
                     google.maps.event.addListener(map, "click", methods.addPoint2Polygon);
                     google.maps.event.addListener(geometry, "mouseup", methods.updateBox);
                 }
+                geometry.setPath(path);
             }
-            geometry.setPath(path);
+            if (settings.showType == "POINT")
+            {
+                geometry = new google.maps.Marker($.extend(settings.polygonOptions,{
+                    editable: settings.editable
+                }));
+                geometry.setMap(map);
+//                if (settings.editable)
+//                {
+//                    google.maps.event.addListener(map, "click", methods.addPoint2Polygon);
+//                    google.maps.event.addListener(geometry, "mouseup", methods.updateBox);
+//                }
+                geometry.setPosition(path.getAt(0));
+            }
             if (!bounds.isEmpty())
                 map.fitBounds(bounds);
             

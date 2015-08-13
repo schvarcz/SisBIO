@@ -93,3 +93,12 @@ a.desc:after {
 .presentation-1{
     min-height: 400px;
 }
+
+.checkboxFieldset
+{
+    height: 300px;
+    overflow-y:scroll;
+    border:1px solid#ccc;
+    border-radius: 4px;
+    padding:0px 5px;
+}
