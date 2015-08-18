@@ -23,7 +23,7 @@ $script = <<<END
             modalAtributos: ".modalColetaIndividuos",
             inputName: "especie_add",
             ajax: {
-                url: "http://localhost/sisbio/web/coleta/adddescritor?tipoDescritor=1"
+                url: "/sisbio/web/coleta/adddescritor?tipoDescritor=1"
             }
         });
 END;
@@ -35,7 +35,7 @@ $script = <<<END
             modalAtributos: ".modalColetaPopulacao",
             inputName: "populacao_add",
             ajax: {
-                url: "http://localhost/sisbio/web/coleta/adddescritor?tipoDescritor=2"
+                url: "/sisbio/web/coleta/adddescritor?tipoDescritor=2"
             }
         });
 END;
@@ -48,7 +48,7 @@ $script = <<<END
             uniqueWidget:true,
             uniqueId: "#coletaitempropriedade-iddescritor",
             ajax: {
-                url: "http://localhost/sisbio/web/coleta/adddescritoresambiental?tipoDescritor=3"
+                url: "/sisbio/web/coleta/adddescritoresambiental?tipoDescritor=3"
             }
         });
 END;

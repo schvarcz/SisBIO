@@ -9,7 +9,7 @@
         uniqueWidget: false,
         uniqueId: "#coletaitem-idespecie",
         ajax: {
-            url: "http://localhost/SisBIO/web/coleta/adddescritoresespecie"
+            url: "/SisBIO/web/coleta/adddescritoresespecie"
         }
     };
 
