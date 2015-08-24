@@ -8,169 +8,181 @@
 (function ($) {
     
     var map;
+    var input;
     var geometry = null;
     var settings = {
         editable: false,
-        showType: "POLYGON",
         points: [],
         mapsOptions: {
             zoom: 8,
-            center: [-30.0393227,-51.2325482],
-            mapTypeId: google.maps.MapTypeId.SATELLITE
+            center: [-30.0393227,-51.2325482]
+        },
+        markerOptions: {
+        },
+        circleOptions: {
+          fillColor: '#337AB7',
+          strokeColor: "#337AB7"
         },
         polygonOptions: {
-            strokeColor: '#FF0000',
-            strokeOpacity: 0.8,
-            strokeWeight: 2,
-            fillColor: '#FF0000',
-            fillOpacity: 0.35
+          fillColor: '#337AB7',
+          strokeColor: "#337AB7"
+        },
+        rectangleOptions: {
+          fillColor: '#337AB7',
+          strokeColor: "#337AB7"
+        },
+        polylineOptions: {
+          strokeColor: "#337AB7"
         }
     };
     
     var methods = {
-        /** 
-         * Editar polygon
-         * Mostrar polygons
-         * Add ponto
-         * Mostrar nuvem de pontos
-         */
         init: function ($this) {
             mapDOM = $("<div>").addClass("maps");
-            $this.after(mapDOM);
-            map = new google.maps.Map(mapDOM[0], settings.mapsOptions);
-            if (settings.showType == "POLYGON")
+            input = $this;
+            input.after(mapDOM);
+            map = new google.maps.Map(mapDOM[0], $.extend({mapTypeId: google.maps.MapTypeId.SATELLITE},settings.mapsOptions));
+            
+            if (settings.editable)
             {
-                geometry = new google.maps.Polygon($.extend(settings.polygonOptions,{
-                    editable: settings.editable
-                }));
-                geometry.setMap(map);
-                if (settings.editable)
-                {
-                    google.maps.event.addListener(map, "click", methods.addPoint2Polygon);
-                    google.maps.event.addListener(geometry, "mouseup", methods.updateBox);
-                }
+                var drawingManager = new google.maps.drawing.DrawingManager({
+                  drawingControl: true,
+                  drawingControlOptions: {
+                    position: google.maps.ControlPosition.TOP_CENTER,
+                    drawingModes: [
+                      google.maps.drawing.OverlayType.MARKER,
+                      //google.maps.drawing.OverlayType.CIRCLE,
+                      google.maps.drawing.OverlayType.POLYGON,
+                      google.maps.drawing.OverlayType.POLYLINE,
+                      //google.maps.drawing.OverlayType.RECTANGLE
+                    ]
+                  },
+                  markerOptions:    $.extend({draggable: true},settings.markerOptions),
+                  circleOptions:    $.extend({editable: true},settings.circleOptions),
+                  polygonOptions:   $.extend({editable: true},settings.polygonOptions),
+                  rectangleOptions: $.extend({editable: true},settings.rectangleOptions),
+                  polylineOptions:  $.extend({editable: true},settings.polylineOptions)
+                });
+                google.maps.event.addListener(drawingManager, "circlecomplete", methods.drawCompleted);
+                google.maps.event.addListener(drawingManager, "markercomplete", methods.drawCompleted);
+                google.maps.event.addListener(drawingManager, "polygoncomplete", methods.drawCompleted);
+                google.maps.event.addListener(drawingManager, "polylinecomplete", methods.drawCompleted);
+                drawingManager.setMap(map);
             }
-            $this.change(methods.updateMap);
-            $this.change();
+            input.change(methods.updateMap);
+            input.change();
         },
-        showPolygon: function () {
-
-        },
-        addPoint: function () { 
-
-        },
-        addPoint2Polygon: function (e) {
-            var path = geometry.getPath();
-            path.push(e.latLng);
-            geometry.setPath(path);
-            methods.updateBox();
-        },
+        //Se mudar o mapa gráfico, atualiza o input escondido
         updateBox: function(){
-            var path = geometry.getPath().getArray();
+            
             var value = "";
-            for(var idx in path)
-                value += path[idx].lat()+" "+path[idx].lng()+",";
-            value += path[0].lat()+" "+path[0].lng()+",";
-            if (settings.showType == "POLYGON")
-                value = settings.showType+"(("+value.substr(0,value.length-1)+"))";
-            if (settings.showType == "LINESTRING")
-                value = settings.showType+"("+value.substr(0,value.length-1)+")";
-            $(geometry.getMap().getDiv()).prev().val(value);
+            if (geometry instanceof google.maps.Polygon || geometry instanceof google.maps.Polyline)
+            {
+                var path = geometry.getPath().getArray();
+                for(var idx in path)
+                    value += path[idx].lat()+" "+path[idx].lng()+",";
+                if (geometry instanceof google.maps.Polygon)
+                {
+                    value += path[0].lat()+" "+path[0].lng();
+                    value = "POLYGON(("+value+"))";
+                }
+                if (geometry instanceof google.maps.Polyline)
+                    value = "LINESTRING("+value+")";
+            }
+            if (geometry instanceof google.maps.Marker)
+            {
+                var position = geometry.getPosition();
+                value = "POINT("+position.lat()+ " " +position.lng()+")";
+            }
+            
+            input.val(value);
             
         },
+        // Se mudar o input escondido, atualiza o mapa gráfico
         updateMap: function(){
-            var value = $(geometry.getMap().getDiv()).prev().val();
+            var value = input.val();
+            value = value.replace("\n","");
+            while(value.indexOf("  ") != -1)
+                value = value.replace("  "," ");
             if(value.trim() === "")
             {
-                geometry.setPath(new google.maps.MVCArray());
+                if (geometry != null)
+                    geometry.setPath(new google.maps.MVCArray());
                 return;
             }
-            settings.showType = value.substring(0,value.indexOf("("));
+            var showType = value.substring(0,value.indexOf("("));
             value = value.substring(value.lastIndexOf("(")+1,value.indexOf(")"));
             var points = value.split(",");
             var path = new google.maps.MVCArray();
             var bounds = new google.maps.LatLngBounds();
             for(var idx in points)
             {
-                var pt = points[idx].split(" ");
-                var point = new google.maps.LatLng(pt[1],pt[0]);
+                var pt = points[idx].trim().split(" ");
+                var point = new google.maps.LatLng(pt[0],pt[1]);
                 path.push(point);
                 bounds.extend(point);
             }
             if (geometry != null)
                 geometry.setMap(null);
-            if (settings.showType == "POLYGON")
+            if (showType == "POLYGON" || showType == "LINESTRING")
             {
-                geometry = new google.maps.Polygon($.extend(settings.polygonOptions,{
-                    editable: settings.editable
-                }));
-                geometry.setMap(map);
-                if (settings.editable)
+                if (showType == "POLYGON")
                 {
-                    google.maps.event.addListener(map, "click", methods.addPoint2Polygon);
-                    google.maps.event.addListener(geometry, "mouseup", methods.updateBox);
+                    geometry = new google.maps.Polygon($.extend(settings.polygonOptions,{
+                        editable: settings.editable
+                    }));
                 }
-                geometry.setPath(path);
-            }
-            if (settings.showType == "LINESTRING")
-            {
-                geometry = new google.maps.Polyline($.extend(settings.polygonOptions,{
-                    editable: settings.editable
-                }));
-                geometry.setMap(map);
-                if (settings.editable)
+                if (showType == "LINESTRING")
                 {
-                    google.maps.event.addListener(map, "click", methods.addPoint2Polygon);
-                    google.maps.event.addListener(geometry, "mouseup", methods.updateBox);
+                    geometry = new google.maps.Polyline($.extend(settings.polygonOptions,{
+                        editable: settings.editable
+                    }));
                 }
+                geometry.setMap(map);
                 geometry.setPath(path);
+                google.maps.event.addListener(path, "set_at", methods.updateBox);
+                google.maps.event.addListener(path, "insert_at", methods.updateBox);
+                google.maps.event.addListener(path, "remove_at", methods.updateBox);
             }
-            if (settings.showType == "POINT")
+            if (showType == "POINT")
             {
                 geometry = new google.maps.Marker($.extend(settings.polygonOptions,{
-                    editable: settings.editable
+                    draggable: settings.editable
                 }));
                 geometry.setMap(map);
-//                if (settings.editable)
-//                {
-//                    google.maps.event.addListener(map, "click", methods.addPoint2Polygon);
-//                    google.maps.event.addListener(geometry, "mouseup", methods.updateBox);
-//                }
                 geometry.setPosition(path.getAt(0));
+                google.maps.event.addListener(geometry, "position_changed", methods.updateBox);
             }
             if (!bounds.isEmpty())
                 map.fitBounds(bounds);
             
+            
+        }, 
+        
+        drawCompleted: function (newGeometry){
+            if (geometry != null)
+                geometry.setMap(null);
+            geometry = newGeometry;
+            if (geometry instanceof google.maps.Marker)
+            {
+                google.maps.event.addListener(geometry, "position_changed", methods.updateBox);
+            }
+            else
+            {
+                var path = geometry.getPath();
+                google.maps.event.addListener(path, "set_at", methods.updateBox);
+                google.maps.event.addListener(path, "insert_at", methods.updateBox);
+                google.maps.event.addListener(path, "remove_at", methods.updateBox);
+                
+            }
+            methods.updateBox();
         }
     };
     
     var publicMethods = {
         updateMap: function(coords){
-            var value = "";
-            coords = coords.split("\n");
-            var firstCoord = "NaN";
-            for(var idx in coords)
-            {
-                var coord = coords[idx].split(",");
-                coord[0] = parseFloat(coord[0]);
-                coord[1] = parseFloat(coord[1]);
-                if(isNaN(coord[0]) || isNaN(coord[1]))
-                    continue;
-                
-                value += coord[0]+" "+coord[1]+",";
-                
-                if (isNaN(firstCoord))
-                    firstCoord = value;
-                
-            }
-            if (!isNaN(firstCoord))
-            {
-                value += firstCoord;
-                value = value.substr(0,value.length-1);
-                value = settings.showType+"(("+value+"))";
-            }
-            $(geometry.getMap().getDiv()).prev().val(value);
-            $(geometry.getMap().getDiv()).prev().change();
+            input.val(coords.toUpperCase());
+            input.change();
             
             return true;
         },
@@ -183,15 +195,14 @@
             }
             value = value.substr(0,value.length-1);
             value = type+"(("+value+"))";
-            console.log(value);
-            $(geometry.getMap().getDiv()).prev().val(value);
-            $(geometry.getMap().getDiv()).prev().change();
+            input.val(value);
+            input.change();
             
             return true;
         },
         clear: function(){
-            $(geometry.getMap().getDiv()).prev().val("");
-            $(geometry.getMap().getDiv()).prev().change();
+            input.val("");
+            input.change();
         }
     };
     
@@ -201,7 +212,7 @@
             return publicMethods[options].apply(this,Array.prototype.slice.call( arguments, 1 ));
         } else if ( typeof options === 'object' || ! options ) 
         {
-            settings = $.extend(options,settings);
+            $.extend(settings,options);
             var center = settings.mapsOptions.center;
             settings.mapsOptions.center = new google.maps.LatLng(center[0], center[1]);
             methods.init(this);

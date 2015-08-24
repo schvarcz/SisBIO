@@ -15,7 +15,7 @@ class GMapsAsset extends AssetBundle
 
     public $sourcePath = '@app/widgets/GMaps/assets';
     public $js = [
-        'https://maps.googleapis.com/maps/api/js?v=3.exp',
+        'https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=drawing',
         'js/GMaps.js'
     ];
     public $css = [
