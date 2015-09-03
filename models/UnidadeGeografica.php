@@ -33,13 +33,31 @@ class UnidadeGeografica extends \app\models\base\UnidadeGeografica
             $this->shape = new \yii\db\Expression("geomFromText('" . $this->shape . "')");
             return true;
         } else
+        {
             return false;
+        }
     }
 
-    public function afterSave()
+    public function beforeUpdate($insert)
     {
-        
+        if (parent::beforeUpdate($insert))
+        {
+            $this->shape = new \yii\db\Expression("geomFromText('" . $this->shape . "')");
+            return true;
+        } else
+        {
+            return false;
+        }
     }
+
+//    public function save($runValidation = true, $attributeNames = null)
+//    {
+//        if(parent::save($runValidation, $attributeNames))
+//            return true;
+//        
+//        $this->shape = substr($this->shape, 14);
+//        return false;
+//    }
 
     public static function find()
     {
