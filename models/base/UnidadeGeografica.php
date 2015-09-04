@@ -16,13 +16,14 @@ use Yii;
  * @property integer $idUnidadeGeograficaPai
  *
  * @property Coleta[] $coletas
- * @property Projeto $idProjeto0
  * @property Pesquisador $idPesquisador0
+ * @property Projeto $idProjeto0
  * @property UnidadeGeografica $idUnidadeGeograficaPai0
  * @property UnidadeGeografica[] $unidadeGeograficas
  */
 class UnidadeGeografica extends \app\models\MActiveRecord
 {
+
     /**
      * @inheritdoc
      */
@@ -30,7 +31,7 @@ class UnidadeGeografica extends \app\models\MActiveRecord
     {
         return 'UnidadeGeografica';
     }
-    
+
     /**
      * @inheritdoc
      */
@@ -46,6 +47,7 @@ class UnidadeGeografica extends \app\models\MActiveRecord
     {
         return [
             [['Nome', 'shape', 'idProjeto', 'idPesquisador'], 'required'],
+            [['shape'], 'string'],
             [['Data_Criacao'], 'safe'],
             [['idProjeto', 'idPesquisador', 'idUnidadeGeograficaPai'], 'integer'],
             [['Nome'], 'string', 'max' => 255]
@@ -79,17 +81,17 @@ class UnidadeGeografica extends \app\models\MActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getIdProjeto0()
+    public function getIdPesquisador0()
     {
-        return $this->hasOne(\app\models\Projeto::className(), ['idProjeto' => 'idProjeto']);
+        return $this->hasOne(\app\models\Pesquisador::className(), ['idPesquisador' => 'idPesquisador']);
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getIdPesquisador0()
+    public function getIdProjeto0()
     {
-        return $this->hasOne(\app\models\Pesquisador::className(), ['idPesquisador' => 'idPesquisador']);
+        return $this->hasOne(\app\models\Projeto::className(), ['idProjeto' => 'idProjeto']);
     }
 
     /**
@@ -107,4 +109,5 @@ class UnidadeGeografica extends \app\models\MActiveRecord
     {
         return $this->hasMany(\app\models\UnidadeGeografica::className(), ['idUnidadeGeograficaPai' => 'idUnidadeGeografica']);
     }
+
 }

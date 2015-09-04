@@ -21,10 +21,15 @@ use yii\bootstrap\ActiveForm;
         <p>
 
             <?= $form->field($model, 'Nome')->textInput(['maxlength' => 255]) ?>
-            <?= $form->field($model, 'idAtributos')->checkboxList(
-                    \yii\helpers\ArrayHelper::map(app\models\Atributo::find()->all(), 'idAtributo', 'label'))
+            <?= $form->field($model, 'Descricao')->textarea(['rows' => 6]) ?>
+            <?=
+            $form->field($model, 'idMetodos')->checkboxList(
+                    \yii\helpers\ArrayHelper::map(app\models\Metodo::find()->all(), 'idMetodo', 'label'),["class"=>"checkboxFieldset"])
             ?>
-        <?= $form->field($model, 'Descricao')->textarea(['rows' => 6]) ?>
+            <?=
+            $form->field($model, 'idDescritores')->checkboxList(
+                    \yii\helpers\ArrayHelper::map(app\models\Descritor::find()->all(), 'idDescritor', 'label'),["class"=>"checkboxFieldset"])
+            ?>
         </p>
         <?php $this->endBlock(); ?>
 
@@ -42,12 +47,13 @@ use yii\bootstrap\ActiveForm;
         ?>
         <hr/>
 
-        <?= Html::submitButton('<span class="glyphicon glyphicon-check"></span> ' . ($model->isNewRecord ? 'Criar' : 'Salvar'), ['class' => $model->isNewRecord ?
+        <?=
+        Html::submitButton('<span class="glyphicon glyphicon-check"></span> ' . ($model->isNewRecord ? 'Criar' : 'Salvar'), ['class' => $model->isNewRecord ?
                     'btn btn-primary' : 'btn btn-primary'])
         ?>
 
-<?= Html::a('Cancelar', \yii\helpers\Url::previous(), ['class' => 'btn btn-default']) ?>
-<?php ActiveForm::end(); ?>
+        <?= Html::a('Cancelar', \yii\helpers\Url::previous(), ['class' => 'btn btn-default']) ?>
+        <?php ActiveForm::end(); ?>
 
     </div>
 

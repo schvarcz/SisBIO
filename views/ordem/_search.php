@@ -23,8 +23,6 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'NomeCientifico') ?>
 
-    <?= $form->field($model, 'NomeComum') ?>
-
     <?= $form->field($model, 'Descricao') ?>
 
     <?= $form->field($model, 'idFilo') ?>

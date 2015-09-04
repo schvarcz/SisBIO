@@ -18,9 +18,9 @@ class Genero extends \app\models\base\Genero
         return [
             'idGenero' => Yii::t('app', 'Identificador do Gênero'),
             'NomeCientifico' => Yii::t('app', 'Nome Científico'),
-            'NomeComum' => Yii::t('app', 'Nome Comum'),
             'Descricao' => Yii::t('app', 'Descrição'),
             'idFamilia' => Yii::t('app', 'Família'),
         ];
     }
+
 }

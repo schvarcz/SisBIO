@@ -15,14 +15,17 @@ use yii\bootstrap\Button;
  */
 class GMaps extends InputWidget
 {
+
     /**
      * @var array the HTML attributes for the input tag.
      */
     public $options = [];
+
     /**
      * @var array options for GMaps
      */
     public $clientOptions = [];
+
     /**
      * @var array events for GMaps
      */
@@ -31,7 +34,8 @@ class GMaps extends InputWidget
     public function init()
     {
         parent::init();
-        if (!isset($this->options['id'])) {
+        if (!isset($this->options['id']))
+        {
             $this->options['id'] = $this->hasModel() ? Html::getInputId($this->model, $this->attribute) : $this->getId();
         }
     }
@@ -41,48 +45,50 @@ class GMaps extends InputWidget
         $id = $this->options['id'];
         $view = $this->getView();
         GMapsAsset::register($view);
-        
+
         $this->renderWidgets();
-        
+
         $options = empty($this->clientOptions) ? '' : Json::encode($this->clientOptions);
         $js = "jQuery('#$id').gmaps($options)";
-        foreach ($this->clientEvents as $event => $handler) {
+        foreach ($this->clientEvents as $event => $handler)
+        {
             $js .= ".on('$event', $handler)";
         }
         $view->registerJs($js . ';');
-        
-
     }
-    
+
     public function renderWidgets()
     {
-        
+
         $id = $this->options['id'];
-        if ($this->hasModel()) {
+        if ($this->hasModel())
+        {
             echo Html::activeHiddenInput($this->model, $this->attribute, $this->options);
-        } else {
+        } else
+        {
             echo Html::hiddenInput($this->name, $this->value, $this->options);
         }
-        
+
         if ($this->clientOptions["editable"])
         {
             Modal::begin([
                 'header' => '<h2>Informar coordenadas geográficas</h2>',
                 'toggleButton' => ['label' => 'Informar coordenadas por texto.', 'tag' => 'a'],
                 'footer' => Button::widget([
-                                'label'=>'Atualizar',
-                                'clientEvents' => [
-                                    'click' => "function(e) { return jQuery('#$id').gmaps('updateMap',$('.coordsInfo').val());}"
-                                ],
-                                'options' => [
-                                    'class' => 'btn-primary',
-                                    'data-dismiss' => 'modal'
-                                ]]),
+                    'label' => 'Atualizar',
+                    'clientEvents' => [
+                        'click' => "function(e) { return jQuery('#$id').gmaps('updateMap',$('.coordsInfo').val());}"
+                    ],
+                    'options' => [
+                        'class' => 'btn-primary',
+                        'data-dismiss' => 'modal'
+            ]]),
             ]);
-            echo Html::tag("h5","Informe as coordenadas geográficas separadas por virgula. Um coordenada por linha. ". Html::tag("br") . Html::tag("em",Html::tag("small","Ex: 57.08, 56.98 ")));
+            echo Html::tag("h5", "Informe as coordenadas geográficas separadas por virgula. Um coordenada por linha. " . Html::tag("br") . Html::tag("em", Html::tag("small", "Ex: Point(-50.21 -29.49) <br/>ou Linestring(-50.21 -29.49,-50.19 -29.47) <br/>ou Polygon((-50.21 -29.49,-50.19 -29.47,-50.19 -29.49)) ")));
 
-            echo Html::textarea("Coords","",["style"=>"width:100%;height:200px;", "class" => "coordsInfo"]);
+            echo Html::textarea("Coords", "", ["style" => "width:100%;height:400px;", "class" => "coordsInfo"]);
             Modal::end();
         }
-    }           
+    }
+
 }

@@ -11,50 +11,52 @@ use app\models\UnidadeGeografica;
  */
 class UnidadeGeograficaSearch extends Model
 {
-	public $idUnidadeGeografica;
-	public $Nome;
-	public $shape;
-	public $Data_Criacao;
-	public $idProjeto;
-	public $idPesquisador;
-	public $idUnidadeGeograficaPai;
 
-	public function rules()
-	{
-		return [
-			[['idUnidadeGeografica', 'idProjeto', 'idPesquisador', 'idUnidadeGeograficaPai'], 'integer'],
-			[['Nome', 'shape', 'Data_Criacao'], 'safe'],
-		];
-	}
+    public $idUnidadeGeografica;
+    public $Nome;
+    public $shape;
+    public $Data_Criacao;
+    public $idProjeto;
+    public $idPesquisador;
+    public $idUnidadeGeograficaPai;
 
-	/**
-	 * @inheritdoc
-	 */
-	public function attributeLabels()
-	{
-		return [
-			'idUnidadeGeografica' => 'Id Unidade Geografica',
-			'Nome' => 'Nome',
-			'shape' => 'Shape',
-			'Data_Criacao' => 'Data  Criacao',
-			'idProjeto' => 'Id Projeto',
-			'idPesquisador' => 'Id Pesquisador',
-			'idUnidadeGeograficaPai' => 'Id Unidade Geografica Pai',
-		];
-	}
+    public function rules()
+    {
+        return [
+            [['idUnidadeGeografica', 'idProjeto', 'idPesquisador', 'idUnidadeGeograficaPai'], 'integer'],
+            [['Nome', 'shape', 'Data_Criacao'], 'safe'],
+        ];
+    }
 
-	public function search($params)
-	{
-		$query = UnidadeGeografica::find();
-		$dataProvider = new ActiveDataProvider([
-			'query' => $query,
-		]);
+    /**
+     * @inheritdoc
+     */
+    public function attributeLabels()
+    {
+        return [
+            'idUnidadeGeografica' => 'Id Unidade Geografica',
+            'Nome' => 'Nome',
+            'shape' => 'Shape',
+            'Data_Criacao' => 'Data  Criacao',
+            'idProjeto' => 'Id Projeto',
+            'idPesquisador' => 'Id Pesquisador',
+            'idUnidadeGeograficaPai' => 'Id Unidade Geografica Pai',
+        ];
+    }
 
-		if (!($this->load($params) && $this->validate())) {
-			return $dataProvider;
-		}
+    public function search($params)
+    {
+        $query = UnidadeGeografica::find();
+        $dataProvider = new ActiveDataProvider([
+            'query' => $query,
+        ]);
 
-		$query->andFilterWhere([
+        if (!($this->load($params) && $this->validate()))
+        {
+            return $dataProvider;
+        }
+
+        $query->andFilterWhere([
             'idUnidadeGeografica' => $this->idUnidadeGeografica,
             'Data_Criacao' => $this->Data_Criacao,
             'idProjeto' => $this->idProjeto,
@@ -62,23 +64,27 @@ class UnidadeGeograficaSearch extends Model
             'idUnidadeGeograficaPai' => $this->idUnidadeGeograficaPai,
         ]);
 
-		$query->andFilterWhere(['like', 'Nome', $this->Nome])
-            ->andFilterWhere(['like', 'shape', $this->shape]);
+        $query->andFilterWhere(['like', 'Nome', $this->Nome])
+                ->andFilterWhere(['like', 'shape', $this->shape]);
 
-		return $dataProvider;
-	}
+        return $dataProvider;
+    }
 
-	protected function addCondition($query, $attribute, $partialMatch = false)
-	{
-		$value = $this->$attribute;
-		if (trim($value) === '') {
-			return;
-		}
-		if ($partialMatch) {
-			$value = '%' . strtr($value, ['%'=>'\%', '_'=>'\_', '\\'=>'\\\\']) . '%';
-			$query->andWhere(['like', $attribute, $value]);
-		} else {
-			$query->andWhere([$attribute => $value]);
-		}
-	}
+    protected function addCondition($query, $attribute, $partialMatch = false)
+    {
+        $value = $this->$attribute;
+        if (trim($value) === '')
+        {
+            return;
+        }
+        if ($partialMatch)
+        {
+            $value = '%' . strtr($value, ['%' => '\%', '_' => '\_', '\\' => '\\\\']) . '%';
+            $query->andWhere(['like', $attribute, $value]);
+        } else
+        {
+            $query->andWhere([$attribute => $value]);
+        }
+    }
+
 }

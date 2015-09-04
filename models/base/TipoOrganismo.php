@@ -12,8 +12,11 @@ use Yii;
  * @property string $Descricao
  *
  * @property Especie[] $especies
- * @property TipoOrganismoHasAtributo[] $tipoOrganismoHasAtributos
- * @property Atributo[] $idAtributos
+ * @property NaoIdentificado[] $naoIdentificados
+ * @property TipoOrganismoHasDescritor[] $tipoOrganismoHasDescritores
+ * @property Descritor[] $idDescritores
+ * @property TipoOrganismoHasMetodo[] $tipoOrganismoHasMetodos
+ * @property Metodo[] $idMetodos
  */
 class TipoOrganismo extends \app\models\MActiveRecord
 {
@@ -68,16 +71,40 @@ class TipoOrganismo extends \app\models\MActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getTipoOrganismoHasAtributos()
+    public function getNaoIdentificados()
     {
-        return $this->hasMany(\app\models\TipoOrganismoHasAtributo::className(), ['idTipoOrganismo' => 'idTipoOrganismo']);
+        return $this->hasMany(\app\models\NaoIdentificado::className(), ['idTipoOrganismo' => 'idTipoOrganismo']);
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getIdAtributos()
+    public function getTipoOrganismoHasDescritores()
     {
-        return $this->hasMany(\app\models\Atributo::className(), ['idAtributo' => 'idAtributo'])->viaTable('TipoOrganismo_has_Atributo', ['idTipoOrganismo' => 'idTipoOrganismo']);
+        return $this->hasMany(\app\models\TipoOrganismoHasDescritor::className(), ['idTipoOrganismo' => 'idTipoOrganismo']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getIdDescritores()
+    {
+        return $this->hasMany(\app\models\Descritor::className(), ['idDescritor' => 'idDescritor'])->viaTable('TipoOrganismo_has_Descritor', ['idTipoOrganismo' => 'idTipoOrganismo']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getTipoOrganismoHasMetodos()
+    {
+        return $this->hasMany(\app\models\TipoOrganismoHasMetodo::className(), ['idTipoOrganismo' => 'idTipoOrganismo']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getIdMetodos()
+    {
+        return $this->hasMany(\app\models\Metodo::className(), ['idMetodo' => 'idMetodo'])->viaTable('TipoOrganismo_has_Metodo', ['idTipoOrganismo' => 'idTipoOrganismo']);
     }
 }

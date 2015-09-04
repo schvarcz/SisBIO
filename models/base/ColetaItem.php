@@ -10,13 +10,16 @@ use Yii;
  * @property integer $idColetaItem
  * @property integer $idColeta
  * @property integer $idEspecie
+ * @property integer $idNaoIdentificado
  *
  * @property Coleta $idColeta0
  * @property Especie $idEspecie0
+ * @property NaoIdentificado $idNaoIdentificado0
  * @property ColetaItemPropriedade[] $coletaItemPropriedades
  */
 class ColetaItem extends \app\models\MActiveRecord
 {
+
     /**
      * @inheritdoc
      */
@@ -24,7 +27,7 @@ class ColetaItem extends \app\models\MActiveRecord
     {
         return 'ColetaItem';
     }
-    
+
     /**
      * @inheritdoc
      */
@@ -39,8 +42,8 @@ class ColetaItem extends \app\models\MActiveRecord
     public function rules()
     {
         return [
-            [['idColeta', 'idEspecie'], 'required'],
-            [['idColeta', 'idEspecie'], 'integer']
+            [['idColeta'], 'required'],
+            [['idColeta', 'idEspecie', 'idNaoIdentificado'], 'integer']
         ];
     }
 
@@ -53,6 +56,7 @@ class ColetaItem extends \app\models\MActiveRecord
             'idColetaItem' => Yii::t('app', 'Id Coleta Item'),
             'idColeta' => Yii::t('app', 'Id Coleta'),
             'idEspecie' => Yii::t('app', 'Id Especie'),
+            'idNaoIdentificado' => Yii::t('app', 'Id Nao Identificado'),
         ];
     }
 
@@ -75,8 +79,17 @@ class ColetaItem extends \app\models\MActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
+    public function getIdNaoIdentificado0()
+    {
+        return $this->hasOne(\app\models\NaoIdentificado::className(), ['idNaoIdentificado' => 'idNaoIdentificado']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
     public function getColetaItemPropriedades()
     {
         return $this->hasMany(\app\models\ColetaItemPropriedade::className(), ['idColetaItem' => 'idColetaItem']);
     }
+
 }

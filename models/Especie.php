@@ -24,4 +24,5 @@ class Especie extends \app\models\base\Especie
             'idTipo_Organismo' => Yii::t('app', 'Tipo de Organismo'),
         ];
     }
+
 }

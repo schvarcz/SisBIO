@@ -83,7 +83,7 @@ $this->params['breadcrumbs'][] = 'Detalhes';
                         'label' => '<span class="glyphicon glyphicon-asterisk"></span> Espécie',
                         'content' => $this->blocks['app\models\Especie'],
                         'active' => true,
-                    ], ]
+                    ],]
             ]
     );
     ?></div>

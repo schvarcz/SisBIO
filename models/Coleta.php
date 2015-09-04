@@ -9,6 +9,7 @@ use Yii;
  */
 class Coleta extends \app\models\base\Coleta
 {
+
     /**
      * @inheritdoc
      */
@@ -19,7 +20,11 @@ class Coleta extends \app\models\base\Coleta
             'Data_Coleta' => Yii::t('app', 'Data da Coleta'),
             'Observacao' => Yii::t('app', 'Observação'),
             'idUnidadeGeografica' => Yii::t('app', 'Unidade Geográfica'),
+            'idMetodo' => Yii::t('app', 'Método de Coleta'),
             'coordenadaGeografica' => Yii::t('app', 'Coordenada Geográfica'),
+            'idPesquisadores' => Yii::t('app', 'Pesquisadores'),
+            'idPesquisadorRegistro' => Yii::t('app', 'Pesquisador responsável pelo registro'),
         ];
     }
+
 }

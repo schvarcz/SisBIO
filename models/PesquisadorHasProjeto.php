@@ -20,4 +20,5 @@ class PesquisadorHasProjeto extends \app\models\base\PesquisadorHasProjeto
             'idProjeto' => Yii::t('app', 'Projeto'),
         ];
     }
+
 }

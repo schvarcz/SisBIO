@@ -11,15 +11,20 @@ use Yii;
  * @property string $Data_Coleta
  * @property string $Observacao
  * @property integer $idUnidadeGeografica
+ * @property integer $idMetodo
  * @property string $coordenadaGeografica
+ * @property integer $idPesquisadorRegistro
  *
+ * @property Metodo $idMetodo0
+ * @property Pesquisador $idPesquisadorRegistro0
  * @property UnidadeGeografica $idUnidadeGeografica0
  * @property ColetaItem[] $coletaItems
  * @property ColetaHasPesquisador[] $coletaHasPesquisadors
- * @property Pesquisador[] $idPesquisadors
+ * @property Pesquisador[] $idPesquisadores
  */
 class Coleta extends \app\models\MActiveRecord
 {
+
     /**
      * @inheritdoc
      */
@@ -27,7 +32,7 @@ class Coleta extends \app\models\MActiveRecord
     {
         return 'Coleta';
     }
-    
+
     /**
      * @inheritdoc
      */
@@ -42,10 +47,10 @@ class Coleta extends \app\models\MActiveRecord
     public function rules()
     {
         return [
-            [['Data_Coleta', 'idUnidadeGeografica'], 'required'],
+            [['Data_Coleta', 'idUnidadeGeografica', 'idPesquisadorRegistro'], 'required'],
             [['Data_Coleta'], 'safe'],
             [['Observacao', 'coordenadaGeografica'], 'string'],
-            [['idUnidadeGeografica'], 'integer']
+            [['idUnidadeGeografica', 'idMetodo', 'idPesquisadorRegistro'], 'integer']
         ];
     }
 
@@ -59,8 +64,26 @@ class Coleta extends \app\models\MActiveRecord
             'Data_Coleta' => Yii::t('app', 'Data  Coleta'),
             'Observacao' => Yii::t('app', 'Observacao'),
             'idUnidadeGeografica' => Yii::t('app', 'Id Unidade Geografica'),
+            'idMetodo' => Yii::t('app', 'Id Metodo'),
             'coordenadaGeografica' => Yii::t('app', 'Coordenada Geografica'),
+            'idPesquisadorRegistro' => Yii::t('app', 'Id Pesquisador Registro'),
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getIdMetodo0()
+    {
+        return $this->hasOne(\app\models\Metodo::className(), ['idMetodo' => 'idMetodo']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getIdPesquisadorRegistro0()
+    {
+        return $this->hasOne(\app\models\Pesquisador::className(), ['idPesquisador' => 'idPesquisadorRegistro']);
     }
 
     /**
@@ -90,8 +113,17 @@ class Coleta extends \app\models\MActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getIdPesquisadors()
+    public function getIdPesquisadores()
     {
         return $this->hasMany(\app\models\Pesquisador::className(), ['idPesquisador' => 'idPesquisador'])->viaTable('Coleta_has_Pesquisador', ['idColeta' => 'idColeta']);
     }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getColetaItemPropriedades()
+    {
+        return $this->hasMany(\app\models\ColetaItemPropriedade::className(), ['idColetaItem' => 'idColetaItem'])->viaTable('ColetaItem', ['idColeta' => 'idColeta']);
+    }
+
 }

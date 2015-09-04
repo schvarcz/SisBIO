@@ -1,13 +1,7 @@
-Yii 2 Basic Application Template
+SisBIO Webapp
 ================================
 
-Yii 2 Basic Application Template is a skeleton Yii 2 application best for
-rapidly creating small projects.
-
-The template contains the basic features including user login/logout and a contact page.
-It includes all commonly used configurations that would allow you to focus on adding new
-features to your application.
-
+SisBIO Webapp is a Yii 2 based application.
 
 DIRECTORY STRUCTURE
 -------------------
@@ -28,22 +22,23 @@ DIRECTORY STRUCTURE
 
 REQUIREMENTS
 ------------
-
-The minimum requirement by this application template that your Web server supports PHP 5.4.0.
-
+* PHP 5.4
+* composer
+* MySQL Server
+* mod_rewrite enabled and configured as told at [Yii 2 Guide](http://www.yiiframework.com/doc-2.0/guide-start-installation.html)
 
 INSTALLATION
 ------------
 
 ### Install from an Archive File
 
-Extract the archive file downloaded from [yiiframework.com](http://www.yiiframework.com/download/) to
-a directory named `basic` that is directly under the Web root.
+Extract the archive file downloaded from [github.com/schvarcz/SisBIO](https://github.com/schvarcz/SisBIO) to
+a directory named `SisBIO` that is directly under the Web root.
 
 You can then access the application through the following URL:
 
 ~~~
-http://localhost/basic/web/
+http://localhost/SisBIO/web/
 ~~~
 
 
@@ -56,14 +51,14 @@ You can then install this application template using the following command:
 
 ~~~
 php composer.phar global require "fxp/composer-asset-plugin:1.0.0"
-php composer.phar create-project --prefer-dist --stability=dev yiisoft/yii2-app-basic basic
+php composer.phar create-project --prefer-dist --stability=dev schvarcz/sisbio
 ~~~
 
-Now you should be able to access the application through the following URL, assuming `basic` is the directory
+Now you should be able to access the application through the following URL, assuming `SisBIO` is the directory
 directly under the Web root.
 
 ~~~
-http://localhost/basic/web/
+http://localhost/SisBIO/web/
 ~~~
 
 
@@ -77,11 +72,36 @@ Edit the file `config/db.php` with real data, for example:
 ```php
 return [
     'class' => 'yii\db\Connection',
-    'dsn' => 'mysql:host=localhost;dbname=yii2basic',
+    'dsn' => 'mysql:host=localhost;dbname=sisbio',
     'username' => 'root',
     'password' => '1234',
     'charset' => 'utf8',
 ];
+```
+
+Edit the file `config/console.php` with real data, for example:
+
+```php
+...
+
+    'mailer' => [
+        'class' => 'yii\swiftmailer\Mailer',
+        'useFileTransport' => false,
+        'transport' => [
+            'class' => 'Swift_SmtpTransport',
+            'host' => 'smtp.mandrillapp.com', // e.g. smtp.mandrillapp.com or smtp.gmail.com
+            'username' => 'your@mail.com',
+            'password' => 'password',
+            'port' => '587', // Port 25 is a very common port too
+            'encryption' => 'tls', // It is often used, check your provider or mail server specs
+        ],
+    ],
+...
+```
+
+And add a job to send the invitation mails at your crontab:
+```
+*	*	*	*	*	/usr/bin/php /path/to/webserver/SisBIO/yii mail-sender-cron
 ```
 
 **NOTE:** Yii won't create the database for you, this has to be done manually before you can access it.

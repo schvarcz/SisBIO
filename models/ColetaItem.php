@@ -21,4 +21,5 @@ class ColetaItem extends \app\models\base\ColetaItem
             'idEspecie' => Yii::t('app', 'Espécie'),
         ];
     }
+
 }

@@ -9,13 +9,13 @@ use Yii;
  *
  * @property integer $idFilo
  * @property string $NomeCientifico
- * @property string $NomeComum
  * @property string $Descricao
  *
  * @property Ordem[] $ordems
  */
 class Filo extends \app\models\MActiveRecord
 {
+
     /**
      * @inheritdoc
      */
@@ -23,7 +23,7 @@ class Filo extends \app\models\MActiveRecord
     {
         return 'Filo';
     }
-    
+
     /**
      * @inheritdoc
      */
@@ -40,7 +40,7 @@ class Filo extends \app\models\MActiveRecord
         return [
             [['NomeCientifico'], 'required'],
             [['Descricao'], 'string'],
-            [['NomeCientifico', 'NomeComum'], 'string', 'max' => 255]
+            [['NomeCientifico'], 'string', 'max' => 255]
         ];
     }
 
@@ -52,7 +52,6 @@ class Filo extends \app\models\MActiveRecord
         return [
             'idFilo' => Yii::t('app', 'Id Filo'),
             'NomeCientifico' => Yii::t('app', 'Nome Cientifico'),
-            'NomeComum' => Yii::t('app', 'Nome Comum'),
             'Descricao' => Yii::t('app', 'Descricao'),
         ];
     }
@@ -64,4 +63,5 @@ class Filo extends \app\models\MActiveRecord
     {
         return $this->hasMany(\app\models\Ordem::className(), ['idFilo' => 'idFilo']);
     }
+
 }

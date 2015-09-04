@@ -39,7 +39,6 @@ $this->params['breadcrumbs'][] = 'Detalhes';
         'model' => $model,
         'attributes' => [
             'idFilo',
-            'NomeComum',
             'NomeCientifico',
             'Descricao:ntext',
         ],
@@ -56,11 +55,11 @@ $this->params['breadcrumbs'][] = 'Detalhes';
     ]);
     ?>
 
-<?php $this->endBlock(); ?>
+    <?php $this->endBlock(); ?>
 
 
 
-        <?php $this->beginBlock('Ordems'); ?>
+    <?php $this->beginBlock('Ordems'); ?>
     <p class='pull-right'>
         <?=
         \yii\helpers\Html::a(
@@ -78,7 +77,6 @@ $this->params['breadcrumbs'][] = 'Detalhes';
     \yii\grid\GridView::widget([
         'dataProvider' => new \yii\data\ActiveDataProvider(['query' => $model->getOrdems(), 'pagination' => ['pageSize' => 10]]),
         'columns' => [ 'idOrdem',
-            'NomeComum',
             'NomeCientifico',
             [
                 'class' => 'yii\grid\ActionColumn',

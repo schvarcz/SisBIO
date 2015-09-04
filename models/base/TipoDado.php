@@ -11,10 +11,11 @@ use Yii;
  * @property string $Tipo
  * @property string $Descricao
  *
- * @property Atributo[] $atributos
+ * @property Descritor[] $Descritores
  */
 class TipoDado extends \app\models\MActiveRecord
 {
+
     /**
      * @inheritdoc
      */
@@ -22,7 +23,7 @@ class TipoDado extends \app\models\MActiveRecord
     {
         return 'TipoDado';
     }
-    
+
     /**
      * @inheritdoc
      */
@@ -58,8 +59,9 @@ class TipoDado extends \app\models\MActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getAtributos()
+    public function getDescritores()
     {
-        return $this->hasMany(\app\models\Atributo::className(), ['idTipoDado' => 'idTipoDado']);
+        return $this->hasMany(\app\models\Descritor::className(), ['idTipoDado' => 'idTipoDado']);
     }
+
 }

@@ -12,26 +12,30 @@ use yii\widgets\ActiveForm;
 
 <div class="coleta-search">
 
-	<?php $form = ActiveForm::begin([
-		'action' => ['index'],
-		'method' => 'get',
-	]); ?>
+    <?php
+    $form = ActiveForm::begin([
+                'action' => ['index'],
+                'method' => 'get',
+    ]);
+    ?>
 
-		<?= $form->field($model, 'idColeta') ?>
+    <?= $form->field($model, 'idColeta') ?>
 
-		<?= $form->field($model, 'Data_Coleta') ?>
+    <?= $form->field($model, 'Data_Coleta') ?>
 
-		<?= $form->field($model, 'Observacao') ?>
+    <?= $form->field($model, 'Observacao') ?>
 
-		<?= $form->field($model, 'idUnidadeGeografica') ?>
+    <?= $form->field($model, 'idUnidadeGeografica') ?>
 
-		<?= $form->field($model, 'coordenadaGeografica') ?>
+    <?= $form->field($model, 'idMetodo') ?>
 
-		<div class="form-group">
-			<?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
-			<?= Html::resetButton('Reset', ['class' => 'btn btn-default']) ?>
-		</div>
+    <?php // echo $form->field($model, 'coordenadaGeografica')  ?>
 
-	<?php ActiveForm::end(); ?>
+    <div class="form-group">
+        <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
+        <?= Html::resetButton('Reset', ['class' => 'btn btn-default']) ?>
+    </div>
+
+    <?php ActiveForm::end(); ?>
 
 </div>

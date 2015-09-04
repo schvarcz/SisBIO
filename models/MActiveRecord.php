@@ -13,7 +13,7 @@ class MActiveRecord extends \yii\db\ActiveRecord
 
     public function saveWithRelated($data, $formName = null)
     {
-        $saved = $this->load($_POST) && $this->save();
+        $saved = $this->load($data) && $this->save();
         if ($saved)
         {
             $scope = $formName === null ? $this->formName() : $formName;
@@ -23,58 +23,92 @@ class MActiveRecord extends \yii\db\ActiveRecord
             foreach ($data as $dataName => $dataValue)
             {
                 $relation = $this->getRelation($dataName, false);
-                if ($relation && $relation->multiple)
+                if ($relation)
                 {
-                    foreach ($relation->all() as $modelRelation)
+                    if ($relation->multiple)
                     {
-                        print_r($modelRelation);
-                        $this->unlink("$dataName", $modelRelation, true);
-                    }
-
-                    if (is_array($dataValue))
-                    {
-                        foreach ($dataValue as $value)
+                        foreach ($relation->all() as $modelRelation)
                         {
-                            $modelRelationClass = $relation->modelClass;
-                            $modelRelation = $modelRelationClass::findOne($value);
-                            $this->link("$dataName", $modelRelation);
+                            $this->unlink("$dataName", $modelRelation, true);
                         }
+
+                        if (is_array($dataValue))
+                        {
+                            if (is_array($dataValue[array_keys($dataValue)[0]]))
+                            {
+                                foreach ($dataValue as $value)
+                                {
+                                    $modelRelation = new $relation->modelClass;
+
+                                    //We dont use $this->link here, because that method save the model in the database and we are not ready to that yet.
+                                    foreach ($relation->link as $keyModel => $keyRelation)
+                                    {
+                                        $modelRelation->$keyRelation = $this->$keyModel;
+                                    }
+                                    $modelRelation->saveWithRelated([$modelRelation->formName() => $value]);
+                                }
+                            } else
+                            {
+                                foreach ($dataValue as $value)
+                                {
+                                    $modelRelationClass = $relation->modelClass;
+                                    $modelRelation = $modelRelationClass::findOne($value);
+                                    $this->link("$dataName", $modelRelation);
+                                }
+                            }
+                        }
+                    } elseif (is_array($dataValue))
+                    {
+                        if ($this->$dataName != null)
+                            $modelRelation = $this->$dataName;
+                        else
+                            $modelRelation = new $relation->modelClass;
+                        $modelRelation->saveWithRelated([$modelRelation->formName() => $dataValue]);
+                        $this->link("$dataName", $modelRelation);
                     }
                 }
             }
+//            if ($this->className() == "app\models\Coleta")
+//            exit();
             return true;
         }
         return $saved;
     }
 
-//    public function beforeSave($event)
-//    {
-//        $owner = $event->sender;
-//        foreach ($this->spatialFields as $field)
-//        {
-//            if (!is_array($owner->$field))
-//                continue;
-//            $type = $this->getTableSchema()->getColumn($field)->dbType;
-//            $lineString = $this->arrayToGeom($owner->$field);
-//            $this->_storedFields[$field] = $owner->$field;
-//            $owner->$field = new \yii\db\Expression("GeomFromText(:data" . $field . ")", array(":data" . $field => $type . '(' . $lineString . ')'));
-//        }
-//        $event->isValid = true;
-//    }
-//
-//    public function afterSave($event)
-//    {
-//        $owner = $event->sender;
-//        foreach ($owner->spatialFields as $field)
-//        {
-//            if (isset($owner->$field))
-//            {
-//                if (isset($this->_storedFields[$field]))
-//                {
-//                    $owner->$field = $this->_storedFields[$field];
-//                }
-//            }
-//        }
-//    }
+    public function beforeSave($event)
+    {
+        $dateFormats = ["date" => "d/m/Y", "datetime" => "d/m/Y H:i", "timestamp" => "d/m/Y H:i"];
+        foreach ($this->attributes as $name => $value)
+        {
+            if ($value)
+            {
+                $type = $this->getTableSchema()->getColumn($name)->dbType;
+                if (isset($dateFormats[$type]))
+                {
+                    $date = \DateTime::createFromFormat($dateFormats[$type], $value);
+                    $this->$name = $date->format("Y-m-d H:i");
+                }
+            }
+        }
+        return parent::beforeSave($event);
+    }
+
+    public function afterFind()
+    {
+        $dateFormats = ["date" => "d/m/Y", "datetime" => "d/m/Y H:i", "timestamp" => "d/m/Y H:i"];
+        foreach ($this->attributes as $name => $value)
+        {
+            if ($value)
+            {
+                $type = $this->getTableSchema()->getColumn($name)->dbType;
+                if (isset($dateFormats[$type]))
+                {
+                    $date = new \DateTime($value);
+                    $this->$name = $date->format($dateFormats[$type]);
+                }
+            }
+        }
+        parent::afterFind();
+    }
 
 }

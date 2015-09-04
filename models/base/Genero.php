@@ -9,7 +9,6 @@ use Yii;
  *
  * @property integer $idGenero
  * @property string $NomeCientifico
- * @property string $NomeComum
  * @property string $Descricao
  * @property integer $idFamilia
  *
@@ -18,6 +17,7 @@ use Yii;
  */
 class Genero extends \app\models\MActiveRecord
 {
+
     /**
      * @inheritdoc
      */
@@ -25,7 +25,7 @@ class Genero extends \app\models\MActiveRecord
     {
         return 'Genero';
     }
-    
+
     /**
      * @inheritdoc
      */
@@ -43,7 +43,7 @@ class Genero extends \app\models\MActiveRecord
             [['NomeCientifico', 'idFamilia'], 'required'],
             [['Descricao'], 'string'],
             [['idFamilia'], 'integer'],
-            [['NomeCientifico', 'NomeComum'], 'string', 'max' => 255]
+            [['NomeCientifico'], 'string', 'max' => 255]
         ];
     }
 
@@ -55,7 +55,6 @@ class Genero extends \app\models\MActiveRecord
         return [
             'idGenero' => Yii::t('app', 'Id Genero'),
             'NomeCientifico' => Yii::t('app', 'Nome Cientifico'),
-            'NomeComum' => Yii::t('app', 'Nome Comum'),
             'Descricao' => Yii::t('app', 'Descricao'),
             'idFamilia' => Yii::t('app', 'Id Familia'),
         ];
@@ -76,4 +75,5 @@ class Genero extends \app\models\MActiveRecord
     {
         return $this->hasOne(\app\models\Familia::className(), ['idFamilia' => 'idFamilia']);
     }
+
 }

@@ -55,11 +55,11 @@ $this->params['breadcrumbs'][] = 'Detalhes';
     ]);
     ?>
 
-<?php $this->endBlock(); ?>
+    <?php $this->endBlock(); ?>
 
 
 
-        <?php $this->beginBlock('Especies'); ?>
+    <?php $this->beginBlock('Especies'); ?>
     <p class='pull-right'>
         <?=
         \yii\helpers\Html::a(
@@ -113,31 +113,31 @@ $this->params['breadcrumbs'][] = 'Detalhes';
                     ],]
             ]);
             ?>
-                <?php Pjax::end() ?>
-                <?php $this->endBlock() ?>
+            <?php Pjax::end() ?>
+            <?php $this->endBlock() ?>
 
 
-                <?php $this->beginBlock('IdAtributos'); ?>
+            <?php $this->beginBlock('IdDescritores'); ?>
             <p class='pull-right'>
                 <?=
                 \yii\helpers\Html::a(
-                        '<span class="glyphicon glyphicon-list"></span> Listar todos atributos', ['atributo/index'], ['class' => 'btn text-muted btn-xs']
+                        '<span class="glyphicon glyphicon-list"></span> Listar todos descritores', ['descritor/index'], ['class' => 'btn text-muted btn-xs']
                 )
                 ?>
                 <?=
                 \yii\helpers\Html::a(
-                        '<span class="glyphicon glyphicon-plus"></span> Novo Atributo', ['atributo/create', 'IdAtributo' => ['idAtributo' => $model->idTipoOrganismo]], ['class' => 'btn btn-success btn-xs']
+                        '<span class="glyphicon glyphicon-plus"></span> Novo Descritor', ['descritor/create', 'IdDescritor' => ['idDescritor' => $model->idTipoOrganismo]], ['class' => 'btn btn-success btn-xs']
                 )
                 ?>
             </p><div class='clearfix'></div>
-            <?php Pjax::begin(['id' => 'pjax-IdAtributos', 'linkSelector' => '#pjax-IdAtributos ul.pagination a']) ?>
+            <?php Pjax::begin(['id' => 'pjax-IdDescritores', 'linkSelector' => '#pjax-IdDescritores ul.pagination a']) ?>
             <?=
             \yii\grid\GridView::widget([
-                'dataProvider' => new \yii\data\ActiveDataProvider(['query' => $model->getTipoOrganismoHasAtributos(), 'pagination' => ['pageSize' => 10]]),
-                'columns' => [ 
-                    'idAtributo0.Nome',
-                    'idAtributo0.idTipoDado0.Tipo',
-                    'idAtributo0.idTipoAtributo0.Tipo',
+                'dataProvider' => new \yii\data\ActiveDataProvider(['query' => $model->getTipoOrganismoHasDescritores(), 'pagination' => ['pageSize' => 10]]),
+                'columns' => [
+                    'idDescritor0.Nome',
+                    'idDescritor0.idTipoDado0.Tipo',
+                    'idDescritor0.idTipoDescritor0.Tipo',
                     [
                         'class' => 'yii\grid\ActionColumn',
                         'template' => '{view} {delete}',
@@ -146,7 +146,7 @@ $this->params['breadcrumbs'][] = 'Detalhes';
                 {
                     // using the column name as key, not mapping to 'id' like the standard generator
                     $params = is_array($key) ? $key : [$model->primaryKey()[0] => (string) $key];
-                    $params[0] = 'tipo-organismo-has-atributo' . '/' . $action;
+                    $params[0] = 'tipo-organismo-has-descritor' . '/' . $action;
                     return \yii\helpers\Url::toRoute($params);
                 },
                         'buttons' => [
@@ -172,7 +172,7 @@ $this->params['breadcrumbs'][] = 'Detalhes';
                                 );
                             },
                                 ],
-                                'controller' => 'tipo-organismo-has-atributo'
+                                'controller' => 'tipo-organismo-has-descritor'
                             ],]
                     ]);
                     ?>
@@ -194,8 +194,8 @@ $this->params['breadcrumbs'][] = 'Detalhes';
                                         'content' => $this->blocks['Especies'],
                                         'active' => false,
                                     ], [
-                                        'label' => '<small><span class="glyphicon glyphicon-paperclip"></span> Atributos</small>',
-                                        'content' => $this->blocks['IdAtributos'],
+                                        'label' => '<small><span class="glyphicon glyphicon-paperclip"></span> Descritores</small>',
+                                        'content' => $this->blocks['IdDescritores'],
                                         'active' => false,
                                     ],]
                             ]

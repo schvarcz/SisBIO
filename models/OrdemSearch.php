@@ -11,68 +11,71 @@ use app\models\Ordem;
  */
 class OrdemSearch extends Model
 {
-	public $idOrdem;
-	public $NomeCientifico;
-	public $NomeComum;
-	public $Descricao;
-	public $idFilo;
 
-	public function rules()
-	{
-		return [
-			[['idOrdem', 'idFilo'], 'integer'],
-			[['NomeCientifico', 'NomeComum', 'Descricao'], 'safe'],
-		];
-	}
+    public $idOrdem;
+    public $NomeCientifico;
+    public $Descricao;
+    public $idFilo;
 
-	/**
-	 * @inheritdoc
-	 */
-	public function attributeLabels()
-	{
-		return [
-			'idOrdem' => 'Id Ordem',
-			'NomeCientifico' => 'Nome Cientifico',
-			'NomeComum' => 'Nome Comum',
-			'Descricao' => 'Descricao',
-			'idFilo' => 'Id Filo',
-		];
-	}
+    public function rules()
+    {
+        return [
+            [['idOrdem', 'idFilo'], 'integer'],
+            [['NomeCientifico', 'Descricao'], 'safe'],
+        ];
+    }
 
-	public function search($params)
-	{
-		$query = Ordem::find();
-		$dataProvider = new ActiveDataProvider([
-			'query' => $query,
-		]);
+    /**
+     * @inheritdoc
+     */
+    public function attributeLabels()
+    {
+        return [
+            'idOrdem' => 'Id Ordem',
+            'NomeCientifico' => 'Nome Cientifico',
+            'Descricao' => 'Descricao',
+            'idFilo' => 'Id Filo',
+        ];
+    }
 
-		if (!($this->load($params) && $this->validate())) {
-			return $dataProvider;
-		}
+    public function search($params)
+    {
+        $query = Ordem::find();
+        $dataProvider = new ActiveDataProvider([
+            'query' => $query,
+        ]);
 
-		$query->andFilterWhere([
+        if (!($this->load($params) && $this->validate()))
+        {
+            return $dataProvider;
+        }
+
+        $query->andFilterWhere([
             'idOrdem' => $this->idOrdem,
             'idFilo' => $this->idFilo,
         ]);
 
-		$query->andFilterWhere(['like', 'NomeCientifico', $this->NomeCientifico])
-            ->andFilterWhere(['like', 'NomeComum', $this->NomeComum])
-            ->andFilterWhere(['like', 'Descricao', $this->Descricao]);
+        $query->andFilterWhere(['like', 'NomeCientifico', $this->NomeCientifico])
+                ->andFilterWhere(['like', 'Descricao', $this->Descricao]);
 
-		return $dataProvider;
-	}
+        return $dataProvider;
+    }
 
-	protected function addCondition($query, $attribute, $partialMatch = false)
-	{
-		$value = $this->$attribute;
-		if (trim($value) === '') {
-			return;
-		}
-		if ($partialMatch) {
-			$value = '%' . strtr($value, ['%'=>'\%', '_'=>'\_', '\\'=>'\\\\']) . '%';
-			$query->andWhere(['like', $attribute, $value]);
-		} else {
-			$query->andWhere([$attribute => $value]);
-		}
-	}
+    protected function addCondition($query, $attribute, $partialMatch = false)
+    {
+        $value = $this->$attribute;
+        if (trim($value) === '')
+        {
+            return;
+        }
+        if ($partialMatch)
+        {
+            $value = '%' . strtr($value, ['%' => '\%', '_' => '\_', '\\' => '\\\\']) . '%';
+            $query->andWhere(['like', $attribute, $value]);
+        } else
+        {
+            $query->andWhere([$attribute => $value]);
+        }
+    }
+
 }

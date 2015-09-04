@@ -11,68 +11,80 @@ use app\models\Coleta;
  */
 class ColetaSearch extends Model
 {
-	public $idColeta;
-	public $Data_Coleta;
-	public $Observacao;
-	public $idUnidadeGeografica;
-	public $coordenadaGeografica;
 
-	public function rules()
-	{
-		return [
-			[['idColeta', 'idUnidadeGeografica'], 'integer'],
-			[['Data_Coleta', 'Observacao', 'coordenadaGeografica'], 'safe'],
-		];
-	}
+    public $idColeta;
+    public $Data_Coleta;
+    public $Observacao;
+    public $idUnidadeGeografica;
+    public $idMetodo;
+    public $coordenadaGeografica;
+    public $idPesquisadorRegistro;
 
-	/**
-	 * @inheritdoc
-	 */
-	public function attributeLabels()
-	{
-		return [
-			'idColeta' => 'Id Coleta',
-			'Data_Coleta' => 'Data  Coleta',
-			'Observacao' => 'Observacao',
-			'idUnidadeGeografica' => 'Id Unidade Geografica',
-			'coordenadaGeografica' => 'Coordenada Geografica',
-		];
-	}
+    public function rules()
+    {
+        return [
+            [['idColeta'], 'integer'],
+            [['idUnidadeGeografica', 'idMetodo', 'idPesquisadorRegistro', 'Data_Coleta', 'Observacao', 'coordenadaGeografica'], 'safe'],
+        ];
+    }
 
-	public function search($params)
-	{
-		$query = Coleta::find();
-		$dataProvider = new ActiveDataProvider([
-			'query' => $query,
-		]);
+    /**
+     * @inheritdoc
+     */
+    public function attributeLabels()
+    {
+        return [
+            'idColeta' => 'Identificador da Coleta',
+            'Data_Coleta' => 'Data da Coleta',
+            'Observacao' => 'Observação',
+            'idUnidadeGeografica' => 'Unidade Geográfica',
+            'idMetodo' => 'Método de Coleta',
+            'coordenadaGeografica' => 'Coordenada Geográfica',
+            'idPesquisadorRegistro' => 'Pesquisador responsável pelo registro',
+        ];
+    }
 
-		if (!($this->load($params) && $this->validate())) {
-			return $dataProvider;
-		}
-
-		$query->andFilterWhere([
-            'idColeta' => $this->idColeta,
-            'Data_Coleta' => $this->Data_Coleta,
-            'idUnidadeGeografica' => $this->idUnidadeGeografica,
+    public function search($params)
+    {
+        $query = Coleta::find();
+        $dataProvider = new ActiveDataProvider([
+            'query' => $query,
         ]);
 
-		$query->andFilterWhere(['like', 'Observacao', $this->Observacao])
-            ->andFilterWhere(['like', 'coordenadaGeografica', $this->coordenadaGeografica]);
+        if (!($this->load($params) && $this->validate()))
+        {
+            return $dataProvider;
+        }
 
-		return $dataProvider;
-	}
+        $query->andFilterWhere([
+            'idColeta' => $this->idColeta,
+            'Data_Coleta' => $this->Data_Coleta,
+        ]);
 
-	protected function addCondition($query, $attribute, $partialMatch = false)
-	{
-		$value = $this->$attribute;
-		if (trim($value) === '') {
-			return;
-		}
-		if ($partialMatch) {
-			$value = '%' . strtr($value, ['%'=>'\%', '_'=>'\_', '\\'=>'\\\\']) . '%';
-			$query->andWhere(['like', $attribute, $value]);
-		} else {
-			$query->andWhere([$attribute => $value]);
-		}
-	}
+        $query->andFilterWhere(['like', 'Observacao', $this->Observacao])
+                ->andFilterWhere(['like', 'coordenadaGeografica', $this->coordenadaGeografica])
+                ->joinWith("idUnidadeGeografica0", true, "INNER JOIN")->andFilterWhere(['like', 'UnidadeGeografica.Nome', $this->idUnidadeGeografica])
+                ->joinWith("idMetodo0", true, "INNER JOIN")->andFilterWhere(['like', 'Metodo.Nome', $this->idMetodo])
+                ->joinWith("idPesquisadorRegistro0", true, "INNER JOIN")->andFilterWhere(['like', 'Pesquisador.Nome', $this->idPesquisadorRegistro]);
+
+        return $dataProvider;
+    }
+
+    protected function addCondition($query, $attribute, $partialMatch = false)
+    {
+        $value = $this->$attribute;
+        if (trim($value) === '')
+        {
+            return;
+        }
+        if ($partialMatch)
+        {
+            $value = '%' . strtr($value, ['%' => '\%', '_' => '\_', '\\' => '\\\\']) . '%';
+            $query->andWhere(['like', $attribute, $value]);
+        } else
+        {
+            $query->andWhere([$attribute => $value]);
+        }
+    }
+
 }

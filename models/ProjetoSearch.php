@@ -11,50 +11,52 @@ use app\models\Projeto;
  */
 class ProjetoSearch extends Model
 {
-	public $idProjeto;
-	public $Nome;
-	public $Data_Inicio;
-	public $Data_Fim;
-	public $ativo;
-	public $idPesquisadorResponsavel;
-	public $Descricao;
 
-	public function rules()
-	{
-		return [
-			[['idProjeto', 'ativo', 'idPesquisadorResponsavel'], 'integer'],
-			[['Nome', 'Data_Inicio', 'Data_Fim', 'Descricao'], 'safe'],
-		];
-	}
+    public $idProjeto;
+    public $Nome;
+    public $Data_Inicio;
+    public $Data_Fim;
+    public $ativo;
+    public $idPesquisadorResponsavel;
+    public $Descricao;
 
-	/**
-	 * @inheritdoc
-	 */
-	public function attributeLabels()
-	{
-		return [
-			'idProjeto' => 'Id Projeto',
-			'Nome' => 'Nome',
-			'Data_Inicio' => 'Data  Inicio',
-			'Data_Fim' => 'Data  Fim',
-			'ativo' => 'Ativo',
-			'idPesquisadorResponsavel' => 'Id Pesquisador Responsavel',
-			'Descricao' => 'Descricao',
-		];
-	}
+    public function rules()
+    {
+        return [
+            [['idProjeto', 'ativo', 'idPesquisadorResponsavel'], 'integer'],
+            [['Nome', 'Data_Inicio', 'Data_Fim', 'Descricao'], 'safe'],
+        ];
+    }
 
-	public function search($params)
-	{
-		$query = Projeto::find();
-		$dataProvider = new ActiveDataProvider([
-			'query' => $query,
-		]);
+    /**
+     * @inheritdoc
+     */
+    public function attributeLabels()
+    {
+        return [
+            'idProjeto' => 'Id Projeto',
+            'Nome' => 'Nome',
+            'Data_Inicio' => 'Data  Inicio',
+            'Data_Fim' => 'Data  Fim',
+            'ativo' => 'Ativo',
+            'idPesquisadorResponsavel' => 'Id Pesquisador Responsavel',
+            'Descricao' => 'Descricao',
+        ];
+    }
 
-		if (!($this->load($params) && $this->validate())) {
-			return $dataProvider;
-		}
+    public function search($params)
+    {
+        $query = Projeto::find();
+        $dataProvider = new ActiveDataProvider([
+            'query' => $query,
+        ]);
 
-		$query->andFilterWhere([
+        if (!($this->load($params) && $this->validate()))
+        {
+            return $dataProvider;
+        }
+
+        $query->andFilterWhere([
             'idProjeto' => $this->idProjeto,
             'Data_Inicio' => $this->Data_Inicio,
             'Data_Fim' => $this->Data_Fim,
@@ -62,23 +64,27 @@ class ProjetoSearch extends Model
             'idPesquisadorResponsavel' => $this->idPesquisadorResponsavel,
         ]);
 
-		$query->andFilterWhere(['like', 'Nome', $this->Nome])
-            ->andFilterWhere(['like', 'Descricao', $this->Descricao]);
+        $query->andFilterWhere(['like', 'Nome', $this->Nome])
+                ->andFilterWhere(['like', 'Descricao', $this->Descricao]);
 
-		return $dataProvider;
-	}
+        return $dataProvider;
+    }
 
-	protected function addCondition($query, $attribute, $partialMatch = false)
-	{
-		$value = $this->$attribute;
-		if (trim($value) === '') {
-			return;
-		}
-		if ($partialMatch) {
-			$value = '%' . strtr($value, ['%'=>'\%', '_'=>'\_', '\\'=>'\\\\']) . '%';
-			$query->andWhere(['like', $attribute, $value]);
-		} else {
-			$query->andWhere([$attribute => $value]);
-		}
-	}
+    protected function addCondition($query, $attribute, $partialMatch = false)
+    {
+        $value = $this->$attribute;
+        if (trim($value) === '')
+        {
+            return;
+        }
+        if ($partialMatch)
+        {
+            $value = '%' . strtr($value, ['%' => '\%', '_' => '\_', '\\' => '\\\\']) . '%';
+            $query->andWhere(['like', $attribute, $value]);
+        } else
+        {
+            $query->andWhere([$attribute => $value]);
+        }
+    }
+
 }

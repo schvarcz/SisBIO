@@ -19,11 +19,11 @@ AppAsset::register($this);
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <?= Html::csrfMetaTags() ?>
         <title><?= Html::encode($this->title) ?></title>
-<?php $this->head() ?>
+        <?php $this->head() ?>
     </head>
     <body>
 
-            <?php $this->beginBody() ?>
+        <?php $this->beginBody() ?>
         <div class="wrap">
             <?php
             NavBar::begin([
@@ -38,6 +38,7 @@ AppAsset::register($this);
                 'items' => [
                     ['label' => 'Home', 'url' => ['/site/index']],
                     ['label' => '+ Coleta', 'url' => ['/coleta'], 'visible' => !Yii::$app->user->isGuest],
+                    ['label' => 'Não Identificados', 'url' => ['/nao-identificado'], 'visible' => !Yii::$app->user->isGuest],
                     ['label' => 'Unidade Geográfica', 'url' => ['/unidade-geografica'], 'visible' => !Yii::$app->user->isGuest],
                     ['label' => 'Tipos de Organimo', 'url' => ['/tipo-organismo'], 'visible' => !Yii::$app->user->isGuest],
                     ['label' => 'Taxonomia', 'items' => [
@@ -50,10 +51,10 @@ AppAsset::register($this);
                     ['label' => 'Base', 'items' => [
                             ['label' => 'Pesquisadores', 'url' => ['/pesquisador']],
                             ['label' => 'Projetos', 'url' => ['/projeto']],
-                            ['label' => 'Atributos', 'url' => ['/atributo']],
-                            ['label' => 'Tipos de Atributo', 'url' => ['/tipo-atributo']],
+                            ['label' => 'Descritores', 'url' => ['/descritor']],
+                            ['label' => 'Métodos de Coleta', 'url' => ['/metodo']],
+                            ['label' => 'Tipos de Descritor', 'url' => ['/tipo-descritor']],
                             ['label' => 'Tipos de Dado', 'url' => ['/tipo-dado']],
-                        
                         ], 'visible' => !Yii::$app->user->isGuest],
                     ['label' => 'Contato', 'url' => ['/site/contato'], 'visible' => Yii::$app->user->isGuest],
                     Yii::$app->user->isGuest ?
@@ -72,7 +73,7 @@ AppAsset::register($this);
                     'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
                 ])
                 ?>
-<?= $content ?>
+                <?= $content ?>
             </div>
         </div>
 
@@ -83,7 +84,7 @@ AppAsset::register($this);
             </div>
         </footer>
 
-<?php $this->endBody() ?>
+        <?php $this->endBody() ?>
     </body>
 </html>
 <?php $this->endPage() ?>

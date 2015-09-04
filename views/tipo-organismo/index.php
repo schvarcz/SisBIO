@@ -39,9 +39,9 @@ $this->params['breadcrumbs'][] = $this->title;
                             'encodeLabels' => false,
                             'items' => [
                                 [
-                                    'label' => '<i class="glyphicon glyphicon-arrow-right"> Atributo</i>',
+                                    'label' => '<i class="glyphicon glyphicon-arrow-right"> Descritor</i>',
                                     'url' => [
-                                        'atributo/index',
+                                        'descritor/index',
                                     ],
                                 ],
                                 [

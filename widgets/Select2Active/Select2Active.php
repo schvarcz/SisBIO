@@ -19,21 +19,21 @@ class Select2Active extends Select2
         {
             $initConfigs = [
                 "url" => "",
-                "dataName" => "ïd",
+                "dataName" => "id",
                 "returnData" => "data.results"
             ];
-            
-            if(is_string($this->pluginOptions['initSelection']))
+
+            if (is_string($this->pluginOptions['initSelection']))
                 $initConfigs["url"] = $this->pluginOptions['initSelection'];
-            elseif(is_array($this->pluginOptions['initSelection']))
+            elseif (is_array($this->pluginOptions['initSelection']))
             {
-                foreach($this->pluginOptions['initSelection'] as $key => $value)
+                foreach ($this->pluginOptions['initSelection'] as $key => $value)
                     $initConfigs[$key] = $value;
             }
-            
-            if( $initConfigs["url"] == "")
+
+            if ($initConfigs["url"] == "")
             {
-                if(!empty($this->pluginOptions['ajax']) && !empty($this->pluginOptions['ajax']['url']))
+                if (!empty($this->pluginOptions['ajax']) && !empty($this->pluginOptions['ajax']['url']))
                     $initConfigs["url"] = $this->pluginOptions['ajax']["url"];
                 else
                 {
@@ -41,10 +41,33 @@ class Select2Active extends Select2
                     return;
                 }
             }
+            if ($this->hasModel())
+            {
+                $model = $this->model;
+                $relation = $model->getRelation($this->attribute, false);
+                if ($relation->multiple)
+                {
+                    $attr = $this->attribute;
+                    $data = $model->$attr;
+                    $dataR = [];
+
+                    foreach ($data as $modelRelation)
+                    {
+                        $dataR[$modelRelation->primaryKey] = $modelRelation->label;
+                    }
+                    if ($dataR == [])
+                    {
+                        unset($this->pluginOptions['initSelection']);
+                        parent::init();
+                        return;
+                    }
+                    $this->data = $dataR;
+                }
+            }
             $initScript = <<< SCRIPT
 function (element, callback) {
     var id=\$(element).val();
-    if (id !== "") {
+    if (id !== "" && id != null) {
         \$.ajax("{$initConfigs["url"]}?{$initConfigs["dataName"]}=" + id, {
             dataType: "json"
         }).done(function(data) { callback({$initConfigs["returnData"]});});
@@ -54,6 +77,7 @@ SCRIPT;
 
             $this->pluginOptions['initSelection'] = new \yii\web\JsExpression($initScript);
         }
+
         parent::init();
     }
 

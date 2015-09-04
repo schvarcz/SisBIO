@@ -12,26 +12,26 @@ use yii\widgets\ActiveForm;
 
 <div class="familia-search">
 
-	<?php $form = ActiveForm::begin([
-		'action' => ['index'],
-		'method' => 'get',
-	]); ?>
+    <?php
+    $form = ActiveForm::begin([
+                'action' => ['index'],
+                'method' => 'get',
+    ]);
+    ?>
 
-		<?= $form->field($model, 'idFamilia') ?>
+    <?= $form->field($model, 'idFamilia') ?>
 
-		<?= $form->field($model, 'NomeCientifico') ?>
+    <?= $form->field($model, 'NomeCientifico') ?>
 
-		<?= $form->field($model, 'NomeComum') ?>
+    <?= $form->field($model, 'Descricao') ?>
 
-		<?= $form->field($model, 'Descricao') ?>
+    <?= $form->field($model, 'idOrdem') ?>
 
-		<?= $form->field($model, 'idOrdem') ?>
+    <div class="form-group">
+        <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
+        <?= Html::resetButton('Reset', ['class' => 'btn btn-default']) ?>
+    </div>
 
-		<div class="form-group">
-			<?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
-			<?= Html::resetButton('Reset', ['class' => 'btn btn-default']) ?>
-		</div>
-
-	<?php ActiveForm::end(); ?>
+    <?php ActiveForm::end(); ?>
 
 </div>

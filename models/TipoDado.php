@@ -21,4 +21,5 @@ class TipoDado extends \app\models\base\TipoDado
             'Descricao' => Yii::t('app', 'Descrição'),
         ];
     }
+
 }

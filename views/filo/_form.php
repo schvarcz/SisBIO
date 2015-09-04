@@ -20,7 +20,6 @@ use yii\bootstrap\ActiveForm;
 
         <p>
 
-            <?= $form->field($model, 'NomeComum')->textInput(['maxlength' => 255]) ?>
             <?= $form->field($model, 'NomeCientifico')->textInput(['maxlength' => 255]) ?>
             <?= $form->field($model, 'Descricao')->textarea(['rows' => 6]) ?>
         </p>
@@ -40,12 +39,13 @@ use yii\bootstrap\ActiveForm;
         ?>
         <hr/>
 
-        <?= Html::submitButton('<span class="glyphicon glyphicon-check"></span> ' . ($model->isNewRecord ? 'Criar' : 'Salvar'), ['class' => $model->isNewRecord ?
+        <?=
+        Html::submitButton('<span class="glyphicon glyphicon-check"></span> ' . ($model->isNewRecord ? 'Criar' : 'Salvar'), ['class' => $model->isNewRecord ?
                     'btn btn-primary' : 'btn btn-primary'])
         ?>
 
         <?= Html::a('Cancelar', \yii\helpers\Url::previous(), ['class' => 'btn btn-default']) ?>
-<?php ActiveForm::end(); ?>
+        <?php ActiveForm::end(); ?>
 
     </div>
 

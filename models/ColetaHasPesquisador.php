@@ -20,4 +20,5 @@ class ColetaHasPesquisador extends \app\models\base\ColetaHasPesquisador
             'idPesquisador' => Yii::t('app', 'Pesquisador'),
         ];
     }
+
 }

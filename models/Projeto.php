@@ -22,7 +22,9 @@ class Projeto extends \app\models\base\Projeto
             'Data_Fim' => Yii::t('app', 'Data de Fim'),
             'ativo' => Yii::t('app', 'Ativo'),
             'idPesquisadorResponsavel' => Yii::t('app', 'Pesquisador Responsável'),
+            'idPesquisadores' => Yii::t('app', 'Pesquisadores Envolvidos'),
             'Descricao' => Yii::t('app', 'Descrição'),
         ];
     }
+
 }
