@@ -11,7 +11,6 @@
                     data: "idUnidadeGeografica=" + $(this).val(),
                     success: function (data) {
                         $(".maps").gmaps("updateMapByArray", data.results.type, data.results.coords);
-                        console.log(data);
                     }
                 });
         });
@@ -28,7 +27,6 @@ var methodsMetodo = {
             var hasWidget = false;
             var soma = 0;
             $($(".plus-coleta").coletaPlus("countTipoOrganismo")).each(function(idx,val){ soma += val; });
-            console.log(soma);
             hasWidget = (soma !== 0);
             if( hasWidget )
             {

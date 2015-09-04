@@ -79,10 +79,12 @@
         updateBox: function(){
             var value = methods.GoogleGeometryToWkt();
             input.val(value);
+            $(".coordsInfo").val(value);
         },
         // Se mudar o input escondido, atualiza o mapa gráfico
         updateMap: function(){
             var value = input.val();
+            $(".coordsInfo").val(value);
             value = value.replace("\n","");
             while(value.indexOf("  ") !== -1)
                 value = value.replace("  "," ");
