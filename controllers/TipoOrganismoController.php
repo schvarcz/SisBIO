@@ -127,36 +127,15 @@ class TipoOrganismoController extends Controller
      * @param String $name
      * @return Json the list of models
      */
-//    public function actionFindmetodos($nomeMetodo = null)
-//    {
-//        $out = [];
-//        $tipoOrganismos = TipoOrganismo::find()->all();
-//        foreach ($tipoOrganismos as $organismo)
-//        {
-//            
-//            
-//            if (!is_null($nomeMetodo))
-//            {
-//                $metodos = $organismo->getIdMetodos()->where(["like", "Nome", $nomeMetodo])->all();
-//            } else
-//            {
-//                $metodos = $organismo->getIdMetodos()->limit(10)->all();
-//            }
-//            
-//            $jsonMetodos = [];
-//            
-//            foreach($metodos as $metodo)
-//                $out[] = ["id" => $metodo->primaryKey, "text" => $metodo->getLabel(), "idTipoOrganismo" => $organismo->primaryKey];
-//            
-////            if ($jsonMetodos != [])
-////                $out[] = ["text" => $organismo->label, "children" => $jsonMetodos];
-//        }
-//       
-//        return \yii\helpers\Json::encode(["results" => $out]);
-//    }
-    public function actionFindmetodos($nomeMetodo = null)
+    public function actionFindmetodos($nomeMetodo = null, $id = null)
     {
         $out = [];
+        if(!is_null($id))
+        {
+            $out['results'] = ['id' => $id, 'text' => Metodo::findOne($id)->getLabel()];
+            return \yii\helpers\Json::encode($out);
+        }
+        
         $tipoOrganismos = TipoOrganismo::find()->all();
         foreach ($tipoOrganismos as $organismo)
         {

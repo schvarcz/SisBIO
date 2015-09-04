@@ -147,7 +147,7 @@ $this->registerJs($script);
         ]);
         ?>
         <?= $form->field($model, 'Observacao')->textarea(['rows' => 6]) ?>
-        <?= $form->field($model, 'coordenadaGeografica')->textInput() ?>
+        <?php //$form->field($model, 'coordenadaGeografica')->textInput() ?>
 
         </p>
 

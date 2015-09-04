@@ -14,8 +14,9 @@ fieldset.coleta legend{
 }
 fieldset.coleta legend .close-btn{
     position: absolute;
+    background-color: transparent;
+    color: #ddd;
     right: 0px;
-    top:50px;
     width:30px;
     height:30px;
     border-radius: 100%;
@@ -23,7 +24,8 @@ fieldset.coleta legend .close-btn{
     transition: all 0.5s;
 }
 fieldset.coleta legend:hover .close-btn{
-    top:0px;
+    background-color: #337ab7;
+    color: #fff;
 }
 
 .modal-body .bg-danger{
