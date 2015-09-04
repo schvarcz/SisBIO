@@ -77,38 +77,9 @@
         },
         //Se mudar o mapa gráfico, atualiza o input escondido
         updateBox: function(){
-            
             var value = methods.GoogleGeometryToWkt();
-            
             input.val(value);
-            
-        },      
-//        //Se mudar o mapa gráfico, atualiza o input escondido
-//        updateBox: function(){
-//            
-//            var value = "";
-//            if (geometry instanceof google.maps.Polygon || geometry instanceof google.maps.Polyline)
-//            {
-//                var path = geometry.getPath().getArray();
-//                for(var idx in path)
-//                    value += path[idx].lng()+" "+path[idx].lat()+",";
-//                if (geometry instanceof google.maps.Polygon)
-//                {
-//                    value += path[0].lat()+" "+path[0].lng();
-//                    value = "POLYGON(("+value+"))";
-//                }
-//                if (geometry instanceof google.maps.Polyline)
-//                    value = "LINESTRING("+value+")";
-//            }
-//            if (geometry instanceof google.maps.Marker)
-//            {
-//                var position = geometry.getPosition();
-//                value = "POINT("+position.lng()+ " " +position.lat()+")";
-//            }
-//            
-//            input.val(value);
-//            
-//        },      
+        },
         // Se mudar o input escondido, atualiza o mapa gráfico
         updateMap: function(){
             var value = input.val();
@@ -137,6 +108,7 @@
                     geometryMap.setMap(map);
                     geometryMap.setPosition(geometry.get());
                     google.maps.event.addListener(geometryMap, "position_changed", methods.updateBox);
+                    google.maps.event.addListener(geometryMap, "rightclick", methods.removeMarker);
                     geometries.push(geometryMap);
                     break;
                 case "LineString":
@@ -149,6 +121,7 @@
                     google.maps.event.addListener(path, "set_at", methods.updateBox);
                     google.maps.event.addListener(path, "insert_at", methods.updateBox);
                     google.maps.event.addListener(path, "remove_at", methods.updateBox);
+                    google.maps.event.addListener(geometryMap, "rightclick", methods.removeVertex);
                         geometries.push(geometryMap);
                     break;
                 case "Polygon":
@@ -161,6 +134,7 @@
                     google.maps.event.addListener(path, "set_at", methods.updateBox);
                     google.maps.event.addListener(path, "insert_at", methods.updateBox);
                     google.maps.event.addListener(path, "remove_at", methods.updateBox);
+                    google.maps.event.addListener(geometryMap, "rightclick", methods.removeVertex);
                     geometries.push(geometryMap);
                     break;
                 case "MultiPoint":
@@ -172,6 +146,7 @@
                         geometryMap.setMap(map);
                         geometryMap.setPosition(point);
                         google.maps.event.addListener(geometryMap, "position_changed", methods.updateBox);
+                        google.maps.event.addListener(geometryMap, "rightclick", methods.removeMarker);
                         geometries.push(geometryMap);
                     });
                     break;
@@ -187,13 +162,13 @@
                         google.maps.event.addListener(path, "set_at", methods.updateBox);
                         google.maps.event.addListener(path, "insert_at", methods.updateBox);
                         google.maps.event.addListener(path, "remove_at", methods.updateBox);
+                        google.maps.event.addListener(geometryMap, "rightclick", methods.removeVertex);
                         geometries.push(geometryMap);
                     });
                     break;
                 case "MultiPolygon":
                     
                     geometry.getArray().forEach(function(polygon){
-                            console.log(polygon);
                             geometryMap = new google.maps.Polygon($.extend(settings.polygonOptions,{
                                 editable: settings.editable
                             }));
@@ -203,6 +178,7 @@
                             google.maps.event.addListener(path, "set_at", methods.updateBox);
                             google.maps.event.addListener(path, "insert_at", methods.updateBox);
                             google.maps.event.addListener(path, "remove_at", methods.updateBox);
+                            google.maps.event.addListener(geometryMap, "rightclick", methods.removeVertex);
                             geometries.push(geometryMap);
                     });
                     break;
@@ -238,6 +214,7 @@
             if (newGeometry instanceof google.maps.Marker)
             {
                 google.maps.event.addListener(newGeometry, "position_changed", methods.updateBox);
+                google.maps.event.addListener(newGeometry, "rightclick", methods.removeMarker);
             }
             else
             {
@@ -246,12 +223,40 @@
                 google.maps.event.addListener(path, "set_at", methods.updateBox);
                 google.maps.event.addListener(path, "insert_at", methods.updateBox);
                 google.maps.event.addListener(path, "remove_at", methods.updateBox);
+                google.maps.event.addListener(newGeometry, "rightclick", methods.removeVertex);
                 
             }
             geometries.push(newGeometry);
             methods.updateBox();
         },
-        
+        removeMarker: function (mev){
+            this.setMap(null);
+            var index = 0;
+            var toErase = this;
+            geometries.forEach(function(el){
+                if(el === toErase)
+                    geometries.removeAt(index);
+                index++;
+            });
+            methods.updateBox();
+        },
+        removeVertex: function (mev){
+            if (mev.vertex !== null) {
+              this.getPath().removeAt(mev.vertex);
+              if(this.getPath().getLength() ===0)
+              {
+                  this.setMap(null);
+                  var index = 0;
+                  var toErase = this;
+                  geometries.forEach(function(el){
+                      if(el === toErase)
+                          geometries.removeAt(index);
+                      index++;
+                  });
+              }
+              methods.updateBox();
+            }
+        },
         linearRing2Array: function(geometry){
             var ar = geometry.getArray();
             var ret = new google.maps.MVCArray();
@@ -275,8 +280,6 @@
             var showType = value.substring(0,value.indexOf("("));
             var path = methods.wktPointsToMVCArray(showType,value);            
             var geometry = null;
-            console.log(showType);
-            console.log(path);
             if (showType === "POINT")
             {
                 geometry = new google.maps.Data.Point(path[0]);
@@ -307,11 +310,7 @@
             return geometry;
         },
         GoogleGeometryToWkt:function(){
-            
-            console.log("geometry");
             geometry = methods.geometryMap2GeometryData();
-            console.log(geometry);
-            console.log("geometry");
             var wkt = "";
             if(geometry instanceof google.maps.Data.Point)
             {
@@ -339,15 +338,14 @@
             {
                 wkt = "MultiPolygon";
             }
-            console.log(wkt);
-            wkt += methods.MVCArrayToWktPoints(geometry);
-            console.log(wkt);
+            if(wkt !== "")
+                wkt += methods.MVCArrayToWktPoints(geometry);
             return wkt;
         },
         geometryMap2GeometryData: function(){
             var ret = null;
             var ele = geometries.getAt(0);
-            console.log(geometries.getLength());
+            
             if (geometries.getLength() === 1)
             {
                 if (ele instanceof google.maps.Marker)
@@ -421,8 +419,6 @@
                     regex.lastIndex = 0;
                     while(regexPart = regex.exec(value))
                     {
-                        console.log("dois");
-                        console.log(regexPart[0]);
                         path.push(methods.wktPointsToMVCArray(geoType,regexPart[0]));
                         regex.lastIndex = regexPart.index+1;
                     }
@@ -433,31 +429,15 @@
                     var regex = new RegExp(/\((((\-?[0-9]+\.[0-9]+)\s(\-?[0-9]+\.[0-9]+)(\,\s*)?)+)\)/g); //É só eu, ou quando se vê uma expressão Regex da vontade de chorar?
                     while(regexPart = regex.exec(value))
                     {
-                        console.log("um");
-                        console.log(regexPart[0]);
                         path.push(methods.wktPointsToMVCArray(geoType,regexPart[0]));
                         regex.lastIndex = regexPart.index+1;
                     }
                 }
-                
-                
-//                var regex = new RegExp(/\(((\(((\-?[0-9]+\.[0-9]+)\s(\-?[0-9]+\.[0-9]+)(\,\s*)?)+\)(\,\s*)*)+|(((\-?[0-9]+\.[0-9]+)\s(\-?[0-9]+\.[0-9]+)(\,\s*)?)+)+)\)/g); //É só eu, ou quando se vê uma expressão Regex da vontade de chorar?
-//                var regexPart;
-//                
-//                    console.log(value);
-//                while(regexPart = regex.exec(value))
-//                {
-//                    console.log(regexPart[0]);
-//                    path.push(methods.wktPointsToMVCArray(geoType,regexPart[0]));
-//                    regex.lastIndex = regexPart.index+1;
-//                }
             }
             return path.getArray();
         },
         MVCArrayToWktPoints: function(geo){
             var ret = "";
-            console.log(geo);
-            console.log(geo instanceof Array);
             var array = new google.maps.MVCArray();
             
             if (geo instanceof google.maps.Data.Point)
@@ -484,7 +464,6 @@
             array.forEach(function(pt){
                 if (ret !== "")
                     ret += ", ";
-                console.log(pt);
 
                 if (pt instanceof google.maps.LatLng)
                 {
@@ -513,9 +492,6 @@
         },
         closePolygon: function(array){
             var arrayLength = array.getLength();
-            console.log("Close polygon");
-            console.log(array);
-            console.log(array.getAt(0));
             if (arrayLength > 0 && iterations < 10)
             {
                 iterations++;
@@ -540,7 +516,7 @@
             for(var idx in coords)
             {
                 var coord = coords[idx];
-                value += coord[1]+" "+coord[0]+",";
+                value += coord[0]+" "+coord[1]+",";
             }
             value = value.substr(0,value.length-1);
             value = type+"(("+value+"))";
