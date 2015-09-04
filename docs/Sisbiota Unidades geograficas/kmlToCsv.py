@@ -62,9 +62,32 @@ def showPlaceMark(place):
 			name = str(f.text.encode("utf-8")).strip("\n").strip()
 			# print name
 		if f.tag.endswith("MultiGeometry"):
+			children = []
 			for ff in f.getchildren():
 				if ff.tag.endswith("Polygon"):
-					polygon = showPolygon(ff)
+					children.append(showPolygon(ff))
+				if ff.tag.endswith("LineString"):
+					children.append(showLineString(ff))
+
+			if len(children) == 1:
+				polygon = children[0]
+			else:
+				typ = children[0][:children[0].find("(")].upper()
+				flag = True
+				for c in children:
+					if not c.upper().startswith(typ):
+						flag = False
+						break
+				if flag:
+					children = [c[c.find("("):] for c in children]
+					if typ == "POINT":
+						polygon = "MULTIPOINT("+",".join(children)+")"
+					if typ == "LINESTRING":
+						polygon = "MULTILINESTRING("+",".join(children)+")"
+					if typ == "POLYGON":
+						polygon = "MULTIPOLYGON("+",".join(children)+")"
+				else:
+					polygon = "GEOMETRYCOLLECTION("+",".join(children)+")"
 				
 		if f.tag.endswith("Polygon"):
 			polygon = showPolygon(f)
@@ -85,8 +108,8 @@ def expand(folder):
 		# else:
 		# 	print f.tag
 
-# kml = parser.parse("Grades_Parcelas_PPBIO.kml")
-kml = parser.parse("SISBIOTA_UAR_UAP_UAL_16122014.kml")
+kml = parser.parse("Grades_Parcelas_PPBIO26Ago2015.kml")
+#kml = parser.parse("SISBIOTA_UAR_UAP_UAL_16122014.kml")
 
 root = kml.getroot()[0].getchildren()[-1].getchildren()[-1]
 expand(root)
