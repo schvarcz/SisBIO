@@ -132,7 +132,7 @@ $this->registerJs($script);
         $form->field($model, 'idPesquisadores')->widget(\app\widgets\Select2Active\Select2Active::classname(), [
             'options' => [
                 "multiple" => true,
-                'disabled' => true
+                'disabled' => $model->idMetodo == null
             ],
             'pluginOptions' => [
                 'allowClear' => true,
@@ -162,7 +162,7 @@ $this->registerJs($script);
                     'options' => [
                         'placeholder' => 'Selecione a espécie a ser adicionada',
                         'class' => 'plus-coleta-input',
-                        'disabled' => true
+                        'disabled' => $model->idMetodo == null
                     ],
                     'pluginOptions' => [
                         'allowClear' => true,
@@ -249,7 +249,7 @@ $this->registerJs($script);
                     'options' => [
                         'placeholder' => 'Selecione a espécie a ser adicionada',
                         'class' => 'plus-coleta-input',
-                        'disabled' => true
+                        'disabled' => $model->idMetodo == null
                     ],
                     'pluginOptions' => [
                         'allowClear' => true,

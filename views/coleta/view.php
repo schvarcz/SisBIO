@@ -154,7 +154,7 @@ $this->params['breadcrumbs'][] = 'Detalhes';
                             'idPesquisador0.Nome',
                             [
                                 'class' => 'yii\grid\ActionColumn',
-                                'template' => '{view} {delete}',
+                                'template' => '{view}',
                                 'contentOptions' => ['nowrap' => 'nowrap'],
                                 'urlCreator' => function($action, $model, $key, $index)
                         {
@@ -167,16 +167,6 @@ $this->params['breadcrumbs'][] = 'Detalhes';
                             return \yii\helpers\Url::toRoute($params);
                         },
                                 'buttons' => [
-                                    'delete' => function ($url, $model)
-                                    {
-                                        return Html::a('<span class="glyphicon glyphicon-remove"></span>', $url, [
-                                                    'class' => 'text-danger',
-                                                    'title' => Yii::t('yii', 'Remove'),
-                                                    'data-confirm' => Yii::t('yii', 'Are you sure you want to delete the related item?'),
-                                                    'data-method' => 'post',
-                                                    'data-pjax' => '0',
-                                        ]);
-                                    },
                                             'view' => function ($url, $model)
                                     {
                                         return Html::a(
