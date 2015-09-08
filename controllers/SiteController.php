@@ -83,7 +83,7 @@ class SiteController extends Controller
     {
         if (!\Yii::$app->user->isGuest)
         {
-            return $this->goHome();
+            Yii::$app->user->logout();
         }
         $model = Pesquisador::findOne(["authKey" => $authKey]);
         if ($model->load(Yii::$app->request->post()) && $model->save())
@@ -98,7 +98,30 @@ class SiteController extends Controller
             ]);
         } else
         {
-            throw new HttpException(404, "Chame de autenticação de conta não encontrada.");
+            throw new HttpException(404, "Chamada de autenticação de conta não encontrada.");
+        }
+    }
+
+    public function actionReset($authKey)
+    {
+        if (!\Yii::$app->user->isGuest)
+        {
+            Yii::$app->user->logout();
+        }
+        $model = Pesquisador::findOne(["authKey" => $authKey]);
+        if ($model->load(Yii::$app->request->post()) && $model->save())
+        {
+            return $this->redirect("login");
+        }
+
+        if ($model)
+        {
+            return $this->render('reset', [
+                        'model' => $model,
+            ]);
+        } else
+        {
+            throw new HttpException(404, "Chamada de autenticação de conta não encontrada.");
         }
     }
 

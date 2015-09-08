@@ -57,7 +57,10 @@ class PesquisadorController extends Controller
             if ($model->load($_POST) && $model->save())
             {
                 if (isset($_REQUEST["invite"]))
+                {
+                    $model->idCronTask = 1; //Enviar convite
                     $model->generateAuthKey();
+                }
                 return $this->redirect(Url::previous());
             } elseif (!\Yii::$app->request->isPost)
             {
