@@ -79,19 +79,23 @@ return [
 ];
 ```
 
-Edit the file `config/console.php` with real data, for example:
+Edit the file `config/console.php` with your URL and mail server data, for example:
 
 ```php
 ...
 
+    'urlManager' => [
+        'baseURl' => 'http://MYSERVER.COM/sisbio/web',
+        // ...
+        ],
+    ],
     'mailer' => [
-        'class' => 'yii\swiftmailer\Mailer',
-        'useFileTransport' => false,
+        // ...
         'transport' => [
-            'class' => 'Swift_SmtpTransport',
+            // ...
             'host' => 'smtp.mandrillapp.com', // e.g. smtp.mandrillapp.com or smtp.gmail.com
-            'username' => 'your@mail.com',
-            'password' => 'password',
+            'username' => 'YOUR@MAIL.COM',
+            'password' => 'PASSWORD',
             'port' => '587', // Port 25 is a very common port too
             'encryption' => 'tls', // It is often used, check your provider or mail server specs
         ],
