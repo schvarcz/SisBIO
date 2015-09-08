@@ -40,8 +40,8 @@ return [
             'transport' => [
                 'class' => 'Swift_SmtpTransport',
                 'host' => 'smtp.mandrillapp.com', // e.g. smtp.mandrillapp.com or smtp.gmail.com
-                'username' => 'guilhermfrancosi@gmail.com',
-                'password' => 'rMJz8X3uZDMJYNaz82EjBQ',
+                'username' => 'your@mail.com',
+                'password' => 'password',
                 'port' => '587', // Port 25 is a very common port too
                 'encryption' => 'tls', // It is often used, check your provider or mail server specs
             ],
