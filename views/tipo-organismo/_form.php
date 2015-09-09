@@ -24,11 +24,11 @@ use yii\bootstrap\ActiveForm;
             <?= $form->field($model, 'Descricao')->textarea(['rows' => 6]) ?>
             <?=
             $form->field($model, 'idMetodos')->checkboxList(
-                    \yii\helpers\ArrayHelper::map(app\models\Metodo::find()->all(), 'idMetodo', 'label'),["class"=>"checkboxFieldset"])
+                    \yii\helpers\ArrayHelper::map(app\models\Metodo::find()->orderBy("Nome")->all(), 'idMetodo', 'label'),["class"=>"checkboxFieldset"])
             ?>
             <?=
             $form->field($model, 'idDescritores')->checkboxList(
-                    \yii\helpers\ArrayHelper::map(app\models\Descritor::find()->all(), 'idDescritor', 'label'),["class"=>"checkboxFieldset"])
+                    \yii\helpers\ArrayHelper::map(app\models\Descritor::find()->orderBy("Nome")->all(), 'idDescritor', 'label'),["class"=>"checkboxFieldset"])
             ?>
         </p>
         <?php $this->endBlock(); ?>
