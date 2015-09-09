@@ -17,7 +17,6 @@
     });
 })(jQuery);
 
-var idTipoOrganismo = null;
 var opened = false;
 
 var methodsMetodo = {
@@ -40,13 +39,16 @@ var methodsMetodo = {
         opened = false;
     }, 
     select: function (e) {
-        idTipoOrganismo = e.params.data.idTipoOrganismo;
+        var idTipoOrganismo = e.params.data.idTipoOrganismo;
+        $("#coleta-idtipoorganismo").val(idTipoOrganismo);
+
         $(".plus-coleta").coletaPlus("updateTipoOrganismo", idTipoOrganismo);
         $("#coleta-idpesquisadores, .plus-coleta-input").prop("disabled", false);
         $('.plus-coleta-input').val(null).trigger("change");
     }, 
     unselect: function () {
-        idTipoOrganismo=null;
+        var idTipoOrganismo=null;
+        $("#coleta-idtipoorganismo").val(idTipoOrganismo);
         $('.plus-coleta').coletaPlus('updateTipoOrganismo', idTipoOrganismo);
         $('#coleta-idpesquisadores, .plus-coleta-input').prop('disabled', true);
         $('.plus-coleta-input').val(null).trigger("change"); 

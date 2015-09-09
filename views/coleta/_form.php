@@ -83,6 +83,9 @@ $this->registerJs($script);
         <?= 
             Html::activeHiddenInput($model,'idPesquisadorRegistro',['value'=> Yii::$app->user->id]);
         ?>
+        <?= 
+            Html::activeHiddenInput($model,'idTipoOrganismo');
+        ?>
         <?=
         $form->field($model, 'Data_Coleta')->widget(\app\widgets\DateTime\DateTimePicker::classname(), [
             'options' => ['class' => 'form-control'],
@@ -170,7 +173,7 @@ $this->registerJs($script);
                         'ajax' => [
                             'url' => yii\helpers\Url::to(["coleta/findesp"]),
                             'dataType' => 'json',
-                            'data' => new JsExpression('function(term,page) { return {nomeEspecie:term.term, idTipoOrganismo:idTipoOrganismo}; }'), //idTipoOrganismo é uma variável global definida no arquivo web/js/coleta.js
+                            'data' => new JsExpression('function(term,page) { return {nomeEspecie:term.term, idTipoOrganismo:$("#coleta-idtipoorganismo").val()}; }'), //idTipoOrganismo é uma variável global definida no arquivo web/js/coleta.js
                             'results' => new JsExpression('function(data,page) { return {results:data.results}; }'),
                         ]
                     ],
@@ -257,7 +260,7 @@ $this->registerJs($script);
                         'ajax' => [
                             'url' => yii\helpers\Url::to(["coleta/findesp"]),
                             'dataType' => 'json',
-                            'data' => new JsExpression('function(term,page) { return {nomeEspecie:term.term, idTipoOrganismo:idTipoOrganismo}; }'), //idTipoOrganismo é uma variável global definida no arquivo web/js/coleta.js
+                            'data' => new JsExpression('function(term,page) { return {nomeEspecie:term.term, idTipoOrganismo:$("#coleta-idtipoorganismo").val()}; }'), //idTipoOrganismo é uma variável global definida no arquivo web/js/coleta.js
                             'results' => new JsExpression('function(data,page) { return {results:data.results}; }'),
                         ]
                     ],

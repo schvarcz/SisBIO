@@ -12,10 +12,12 @@ use Yii;
  * @property string $Observacao
  * @property integer $idUnidadeGeografica
  * @property integer $idMetodo
+ * @property integer $idTipoOrganismo
  * @property string $coordenadaGeografica
  * @property integer $idPesquisadorRegistro
  *
  * @property Metodo $idMetodo0
+ * @property TipoOrganismo $idTipoOrganismo0
  * @property Pesquisador $idPesquisadorRegistro0
  * @property UnidadeGeografica $idUnidadeGeografica0
  * @property ColetaItem[] $coletaItems
@@ -50,7 +52,7 @@ class Coleta extends \app\models\MActiveRecord
             [['Data_Coleta', 'idUnidadeGeografica', 'idPesquisadorRegistro'], 'required'],
             [['Data_Coleta'], 'safe'],
             [['Observacao', 'coordenadaGeografica'], 'string'],
-            [['idUnidadeGeografica', 'idMetodo', 'idPesquisadorRegistro'], 'integer']
+            [['idUnidadeGeografica', 'idMetodo', 'idTipoOrganismo', 'idPesquisadorRegistro'], 'integer']
         ];
     }
 
@@ -76,6 +78,14 @@ class Coleta extends \app\models\MActiveRecord
     public function getIdMetodo0()
     {
         return $this->hasOne(\app\models\Metodo::className(), ['idMetodo' => 'idMetodo']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getIdTipoOrganismo0()
+    {
+        return $this->hasOne(\app\models\TipoOrganismo::className(), ['idTipoOrganismo' => 'idTipoOrganismo']);
     }
 
     /**
