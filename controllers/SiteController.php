@@ -86,13 +86,13 @@ class SiteController extends Controller
             Yii::$app->user->logout();
         }
         $model = Pesquisador::findOne(["authKey" => $authKey]);
-        if ($model->load(Yii::$app->request->post()) && $model->save())
-        {
-            return $this->redirect("login");
-        }
 
         if ($model)
         {
+            if ($model->load(Yii::$app->request->post()) && $model->save())
+            {
+                return $this->redirect("login");
+            }
             return $this->render('active', [
                         'model' => $model,
             ]);
@@ -109,13 +109,13 @@ class SiteController extends Controller
             Yii::$app->user->logout();
         }
         $model = Pesquisador::findOne(["authKey" => $authKey]);
-        if ($model->load(Yii::$app->request->post()) && $model->save())
-        {
-            return $this->redirect("login");
-        }
 
         if ($model)
         {
+            if ($model->load(Yii::$app->request->post()) && $model->save())
+            {
+                return $this->redirect("login");
+            }
             return $this->render('reset', [
                         'model' => $model,
             ]);
