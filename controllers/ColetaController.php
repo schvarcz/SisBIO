@@ -134,9 +134,9 @@ class ColetaController extends Controller
     {
         if (!is_null($nomeEspecie))
         {
-            $especies = Especie::find()->andWhere(["like", "NomeComum", $nomeEspecie])
-                    ->andWhere(["like", "NomeCientifico", $nomeEspecie])
-                    ->andWhere( ["idTipo_Organismo" => (int)$idTipoOrganismo])->limit(10)->all();
+            $especies = Especie::find()
+                    ->where(["and",["idTipo_Organismo" => (int)$idTipoOrganismo],["or",["like", "NomeComum", $nomeEspecie],["like", "NomeCientifico", $nomeEspecie]]])
+                    ->limit(10)->all();
         } else
         {
             $especies = Especie::find()->andWhere( ["idTipo_Organismo" => (int)$idTipoOrganismo])->limit(10)->all();

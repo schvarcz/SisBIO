@@ -36,7 +36,7 @@ class Especie extends \app\models\MActiveRecord
      */
     public function getLabel()
     {
-        return $this->NomeCientifico;
+        return $this->NomeCientifico.($this->NomeComum?"(".$this->NomeComum.")":"");
     }
 
     /**
