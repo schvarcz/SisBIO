@@ -137,43 +137,7 @@ $this->params['breadcrumbs'][] = 'Detalhes';
                 'columns' => [
                     'idDescritor0.Nome',
                     'idDescritor0.idTipoDado0.Tipo',
-                    'idDescritor0.idTipoDescritor0.Tipo',
-                    [
-                        'class' => 'yii\grid\ActionColumn',
-                        'template' => '{view} {delete}',
-                        'contentOptions' => ['nowrap' => 'nowrap'],
-                        'urlCreator' => function($action, $model, $key, $index)
-                {
-                    // using the column name as key, not mapping to 'id' like the standard generator
-                    $params = is_array($key) ? $key : [$model->primaryKey()[0] => (string) $key];
-                    $params[0] = 'tipo-organismo-has-descritor' . '/' . $action;
-                    return \yii\helpers\Url::toRoute($params);
-                },
-                        'buttons' => [
-                            'delete' => function ($url, $model)
-                            {
-                                return Html::a('<span class="glyphicon glyphicon-remove"></span>', $url, [
-                                            'class' => 'text-danger',
-                                            'title' => Yii::t('yii', 'Remove'),
-                                            'data-confirm' => Yii::t('yii', 'Are you sure you want to delete the related item?'),
-                                            'data-method' => 'post',
-                                            'data-pjax' => '0',
-                                ]);
-                            },
-                                    'view' => function ($url, $model)
-                            {
-                                return Html::a(
-                                                '<span class="glyphicon glyphicon-cog"></span>', $url, [
-                                            'data-title' => Yii::t('yii', 'View Pivot Record'),
-                                            'data-toggle' => 'tooltip',
-                                            'data-pjax' => '0',
-                                            'class' => 'text-muted'
-                                                ]
-                                );
-                            },
-                                ],
-                                'controller' => 'tipo-organismo-has-descritor'
-                            ],]
+                    'idDescritor0.idTipoDescritor0.Tipo']
                     ]);
                     ?>
                     <?php Pjax::end() ?>
