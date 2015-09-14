@@ -36,7 +36,7 @@ AppAsset::register($this);
             echo Nav::widget([
                 'options' => ['class' => 'navbar-nav navbar-right'],
                 'items' => [
-                    ['label' => 'Home', 'url' => ['/site/index']],
+                    ['label' => 'Home', 'url' => ['/site/index'], 'visible' => Yii::$app->user->isGuest],
                     ['label' => '+ Coleta', 'url' => ['/coleta'], 'visible' => !Yii::$app->user->isGuest],
                     ['label' => 'Não Identificados', 'url' => ['/nao-identificado'], 'visible' => !Yii::$app->user->isGuest],
                     ['label' => 'Unidade Geográfica', 'url' => ['/unidade-geografica'], 'visible' => !Yii::$app->user->isGuest],

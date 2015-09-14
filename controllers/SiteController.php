@@ -54,7 +54,7 @@ class SiteController extends Controller
     {
         if (!\Yii::$app->user->isGuest)
         {
-            return Yii::$app->getResponse()->redirect(\yii\helpers\Url::to("coleta/index"));
+            return Yii::$app->getResponse()->redirect(\yii\helpers\Url::toRoute("/coleta/index"));
         }
         $this->layout = "welcome";
         return $this->render('index');
