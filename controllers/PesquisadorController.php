@@ -114,7 +114,7 @@ class PesquisadorController extends Controller
 
         if ($model->generateAuthKey())
         {
-            //return $this->redirect(Url::previous());
+            return $this->redirect(Url::previous());
         }
     }
 
