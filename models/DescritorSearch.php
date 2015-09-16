@@ -21,8 +21,8 @@ class DescritorSearch extends Model
     public function rules()
     {
         return [
-            [['idDescritor', 'idTipoDado', 'idTipoDescritor'], 'integer'],
-            [['Nome', 'Descricao'], 'safe'],
+            [['idDescritor'], 'integer'],
+            [['Nome', 'Descricao', 'idTipoDado', 'idTipoDescritor'], 'safe'],
         ];
     }
 
@@ -54,12 +54,15 @@ class DescritorSearch extends Model
 
         $query->andFilterWhere([
             'idDescritor' => $this->idDescritor,
-            'idTipoDado' => $this->idTipoDado,
-            'idTipoDescritor' => $this->idTipoDescritor,
         ]);
+        
+        if(trim($this->idTipoDado))
+            $query->joinWith("idTipoDado0", true, "INNER JOIN")->andFilterWhere(['like', 'TipoDado.Tipo', $this->idTipoDado]);
+        if(trim($this->idTipoDescritor))
+            $query->joinWith("idTipoDescritor0", true, "INNER JOIN")->andFilterWhere(['like', 'TipoDescritor.Tipo', $this->idTipoDescritor]);
 
         $query->andFilterWhere(['like', 'Nome', $this->Nome])
-                ->andFilterWhere(['like', 'Descricao', $this->Descricao]);
+                ->andFilterWhere(['like', 'Descritor.Descricao', $this->Descricao]);
 
         return $dataProvider;
     }

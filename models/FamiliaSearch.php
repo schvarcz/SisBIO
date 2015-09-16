@@ -20,8 +20,8 @@ class FamiliaSearch extends Model
     public function rules()
     {
         return [
-            [['idFamilia', 'idOrdem'], 'integer'],
-            [['NomeCientifico', 'Descricao'], 'safe'],
+            [['idFamilia'], 'integer'],
+            [['NomeCientifico', 'Descricao', 'idOrdem'], 'safe'],
         ];
     }
 
@@ -52,11 +52,13 @@ class FamiliaSearch extends Model
 
         $query->andFilterWhere([
             'idFamilia' => $this->idFamilia,
-            'idOrdem' => $this->idOrdem,
         ]);
+        
+        if(trim($this->idOrdem))
+            $query->joinWith("idOrdem0", true, "INNER JOIN")->andFilterWhere(['like', 'Ordem.NomeCientifico', $this->idOrdem]);
 
-        $query->andFilterWhere(['like', 'NomeCientifico', $this->NomeCientifico])
-                ->andFilterWhere(['like', 'Descricao', $this->Descricao]);
+        $query->andFilterWhere(['like', 'Familia.NomeCientifico', $this->NomeCientifico])
+                ->andFilterWhere(['like', 'Familia.Descricao', $this->Descricao]);
 
         return $dataProvider;
     }

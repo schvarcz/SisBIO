@@ -18,13 +18,12 @@ class UnidadeGeograficaSearch extends Model
     public $Data_Criacao;
     public $idProjeto;
     public $idPesquisador;
-    public $idUnidadeGeograficaPai;
 
     public function rules()
     {
         return [
-            [['idUnidadeGeografica', 'idProjeto', 'idPesquisador', 'idUnidadeGeograficaPai'], 'integer'],
-            [['Nome', 'shape', 'Data_Criacao'], 'safe'],
+            [['idUnidadeGeografica'], 'integer'],
+            [['Nome', 'shape', 'Data_Criacao', 'idProjeto', 'idPesquisador'], 'safe'],
         ];
     }
 
@@ -59,12 +58,14 @@ class UnidadeGeograficaSearch extends Model
         $query->andFilterWhere([
             'idUnidadeGeografica' => $this->idUnidadeGeografica,
             'Data_Criacao' => $this->Data_Criacao,
-            'idProjeto' => $this->idProjeto,
-            'idPesquisador' => $this->idPesquisador,
-            'idUnidadeGeograficaPai' => $this->idUnidadeGeograficaPai,
         ]);
+        
+        if(trim($this->idProjeto))
+            $query->joinWith("idProjeto0", true, "INNER JOIN")->andFilterWhere(['like', 'Projeto.Nome', $this->idProjeto]);
+        if(trim($this->idPesquisador))
+            $query->joinWith("idPesquisador0", true, "INNER JOIN")->andFilterWhere(['like', 'Pesquisador.Nome', $this->idPesquisador]);
 
-        $query->andFilterWhere(['like', 'Nome', $this->Nome])
+        $query->andFilterWhere(['like', 'UnidadeGeografica.Nome', $this->Nome])
                 ->andFilterWhere(['like', 'shape', $this->shape]);
 
         return $dataProvider;

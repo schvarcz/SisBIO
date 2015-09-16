@@ -68,9 +68,9 @@ class UnidadeGeografica extends \app\models\base\UnidadeGeografica
         foreach ($model->getAttributes() as $key => $value)
         {
             if (in_array($key, $change))
-                $toSelect[] = "AsText(" . $key . ") as " . $key;
+                $toSelect[] = "AsText(UnidadeGeografica." . $key . ") as " . $key;
             else
-                $toSelect[] = $key;
+                $toSelect[] = "UnidadeGeografica.".$key;
         }
         $query = parent::find()->select($toSelect);
         return $query;

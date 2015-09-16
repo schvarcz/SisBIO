@@ -23,8 +23,8 @@ class ProjetoSearch extends Model
     public function rules()
     {
         return [
-            [['idProjeto', 'ativo', 'idPesquisadorResponsavel'], 'integer'],
-            [['Nome', 'Data_Inicio', 'Data_Fim', 'Descricao'], 'safe'],
+            [['idProjeto'], 'integer'],
+            [['Nome', 'Data_Inicio', 'Data_Fim', 'Descricao', 'idPesquisadorResponsavel', 'ativo'], 'safe'],
         ];
     }
 
@@ -55,14 +55,15 @@ class ProjetoSearch extends Model
         {
             return $dataProvider;
         }
-
+        
         $query->andFilterWhere([
             'idProjeto' => $this->idProjeto,
-            'Data_Inicio' => $this->Data_Inicio,
+            'Data_Inicio' => $date,
             'Data_Fim' => $this->Data_Fim,
-            'ativo' => $this->ativo,
-            'idPesquisadorResponsavel' => $this->idPesquisadorResponsavel,
+            'ativo' => (strtolower($this->ativo)=="sim"||trim($this->ativo)=="")?1:0,
         ]);
+        if(trim($this->idPesquisadorResponsavel))
+            $query->joinWith("idPesquisadorResponsavel0", true, "INNER JOIN")->andFilterWhere(['like', 'Pesquisador.Nome', $this->idPesquisadorResponsavel]);
 
         $query->andFilterWhere(['like', 'Nome', $this->Nome])
                 ->andFilterWhere(['like', 'Descricao', $this->Descricao]);

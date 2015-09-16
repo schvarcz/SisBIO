@@ -20,8 +20,8 @@ class OrdemSearch extends Model
     public function rules()
     {
         return [
-            [['idOrdem', 'idFilo'], 'integer'],
-            [['NomeCientifico', 'Descricao'], 'safe'],
+            [['idOrdem'], 'integer'],
+            [['NomeCientifico', 'Descricao', 'idFilo'], 'safe'],
         ];
     }
 
@@ -52,11 +52,13 @@ class OrdemSearch extends Model
 
         $query->andFilterWhere([
             'idOrdem' => $this->idOrdem,
-            'idFilo' => $this->idFilo,
         ]);
+        
+        if(trim($this->idFilo))
+            $query->joinWith("idFilo0", true, "INNER JOIN")->andFilterWhere(['like', 'Filo.NomeCientifico', $this->idFilo]);
 
-        $query->andFilterWhere(['like', 'NomeCientifico', $this->NomeCientifico])
-                ->andFilterWhere(['like', 'Descricao', $this->Descricao]);
+        $query->andFilterWhere(['like', 'Ordem.NomeCientifico', $this->NomeCientifico])
+                ->andFilterWhere(['like', 'Ordem.Descricao', $this->Descricao]);
 
         return $dataProvider;
     }

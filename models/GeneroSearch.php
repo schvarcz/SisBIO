@@ -20,8 +20,8 @@ class GeneroSearch extends Model
     public function rules()
     {
         return [
-            [['idGenero', 'idFamilia'], 'integer'],
-            [['NomeCientifico', 'Descricao'], 'safe'],
+            [['idGenero'], 'integer'],
+            [['NomeCientifico', 'Descricao', 'idFamilia'], 'safe'],
         ];
     }
 
@@ -52,11 +52,12 @@ class GeneroSearch extends Model
 
         $query->andFilterWhere([
             'idGenero' => $this->idGenero,
-            'idFamilia' => $this->idFamilia,
         ]);
+        if(trim($this->idFamilia))
+            $query->joinWith("idFamilia0", true, "INNER JOIN")->andFilterWhere(['like', 'Familia.NomeCientifico', $this->idFamilia]);
 
-        $query->andFilterWhere(['like', 'NomeCientifico', $this->NomeCientifico])
-                ->andFilterWhere(['like', 'Descricao', $this->Descricao]);
+        $query->andFilterWhere(['like', 'Genero.NomeCientifico', $this->NomeCientifico])
+                ->andFilterWhere(['like', 'Genero.Descricao', $this->Descricao]);
 
         return $dataProvider;
     }
