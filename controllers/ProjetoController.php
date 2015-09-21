@@ -9,6 +9,8 @@ use yii\web\HttpException;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use yii\helpers\Url;
+use app\models\Pesquisador;
+use app\widgets\PermissaoProjeto\PermissaoProjeto;
 
 /**
  * ProjetoController implements the CRUD actions for Projeto model.
@@ -80,7 +82,7 @@ class ProjetoController extends Controller
     public function actionUpdate($idProjeto)
     {
         $model = $this->findModel($idProjeto);
-
+        
         if ($model->saveWithRelated($_POST))
         {
             return $this->redirect(Url::previous());
@@ -116,6 +118,17 @@ class ProjetoController extends Controller
         if (($model = Projeto::findOne($idProjeto)) !== null)
         {
             return $model;
+        } else
+        {
+            throw new HttpException(404, 'The requested page does not exist.');
+        }
+    }
+    
+    public function actionAddpermissao($idPesquisador)
+    {
+        if (($model = Pesquisador::findOne($idPesquisador)) !== null)
+        {
+            return PermissaoProjeto::widget(["name" => "projeto-permissao", "model" => $model]);
         } else
         {
             throw new HttpException(404, 'The requested page does not exist.');
