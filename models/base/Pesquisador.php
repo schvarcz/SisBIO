@@ -17,7 +17,7 @@ use Yii;
  * @property string $Resumo
  * @property integer $idCronTask
  *
- * @property ColetaHasPesquisador[] $coletaHasPesquisadors
+ * @property ColetaHasPesquisador[] $coletaHasPesquisadores
  * @property Coleta[] $idColetas
  * @property NaoIdentificado[] $naoIdentificados
  * @property CronTask $idCronTask0
@@ -80,7 +80,7 @@ class Pesquisador extends \app\models\MActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getColetaHasPesquisadors()
+    public function getColetaHasPesquisadores()
     {
         return $this->hasMany(\app\models\ColetaHasPesquisador::className(), ['idPesquisador' => 'idPesquisador']);
     }
