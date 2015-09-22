@@ -103,7 +103,7 @@ eof;
     <?php Pjax::begin(['id' => 'pjax-IdColetas', 'linkSelector' => '#pjax-IdColetas ul.pagination a']) ?>
     <?=
     \yii\grid\GridView::widget([
-        'dataProvider' => new \yii\data\ActiveDataProvider(['query' => $model->getColetaHasPesquisadors(), 'pagination' => ['pageSize' => 10]]),
+        'dataProvider' => new \yii\data\ActiveDataProvider(['query' => $model->getColetaHasPesquisadores(), 'pagination' => ['pageSize' => 10]]),
         'columns' => [ 'idColeta',
             [
                 'class' => 'yii\grid\ActionColumn',

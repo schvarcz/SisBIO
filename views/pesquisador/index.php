@@ -65,7 +65,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'foto',
             'Nome',
             'email:email',
-            'lattes',
+            'lattes:url',
             /* 'Resumo:ntext' */
             [
                 'class' => 'yii\grid\ActionColumn',

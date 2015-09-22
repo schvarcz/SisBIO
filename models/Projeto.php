@@ -22,9 +22,18 @@ class Projeto extends \app\models\base\Projeto
             'Data_Fim' => Yii::t('app', 'Data de Fim'),
             'ativo' => Yii::t('app', 'Ativo'),
             'idPesquisadorResponsavel' => Yii::t('app', 'Pesquisador Responsável'),
-            'idPesquisadores' => Yii::t('app', 'Pesquisadores Envolvidos'),
+            'idPesquisadores' => Yii::t('app', 'Pesquisadores Colaborador'),
             'Descricao' => Yii::t('app', 'Descrição'),
+            'idProjetoPai' => Yii::t('app', 'Projeto Pai'),
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getViewPesquisadorPermissoes()
+    {
+        return $this->hasMany(\app\models\Viewpesquisadorpermissoes::className(), ['idProjeto' => 'idProjeto']);
     }
 
 }

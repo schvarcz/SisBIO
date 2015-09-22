@@ -25,6 +25,7 @@ $this->registerJsFile(Yii::$app->homeUrl . "js/projeto.js", [ "depends" => ['yii
 
         <p>
 
+            <?= Html::activeHiddenInput($model, 'idProjetoPai') ?>
             <?= $form->field($model, 'Nome')->textInput(['maxlength' => 255]) ?>
             <?=
             $form->field($model, 'idPesquisadorResponsavel')->widget(\app\widgets\Select2Active\Select2Active::classname(), [
@@ -121,7 +122,7 @@ $this->registerJsFile(Yii::$app->homeUrl . "js/projeto.js", [ "depends" => ['yii
                 [
                     'encodeLabels' => false,
                     'items' => [ [
-                            'label' => 'Projeto',
+                            'label' => $model->idProjetoPai0?'Subprojeto de '.$model->idProjetoPai0->label:'Projeto',
                             'content' => $this->blocks['main'],
                             'active' => true,
                         ],]
