@@ -59,20 +59,22 @@ $this->registerJsFile(Yii::$app->homeUrl . "js/projeto.js", [ "depends" => ['yii
             ]);
             ?>
             <?=
-            $form->field($model, 'Data_Inicio')->widget(\app\widgets\DateTime\DateTimePicker::classname(), [
+            $form->field($model, 'Data_Inicio')->widget(\app\widgets\DateTime\DatePicker::classname(), [
                 'options' => ['class' => 'form-control'],
                 'pluginOptions' => [
                     'autoclose' => true,
                     'todayHighlight' => true,
+                    'format' => 'dd/mm/yyyy'
                 ]
             ]);
             ?>
             <?=
-            $form->field($model, 'Data_Fim')->widget(\app\widgets\DateTime\DateTimePicker::classname(), [
+            $form->field($model, 'Data_Fim')->widget(\app\widgets\DateTime\DatePicker::classname(), [
                 'options' => ['class' => 'form-control'],
                 'pluginOptions' => [
                     'autoclose' => true,
                     'todayHighlight' => true,
+                    'format' => 'dd/mm/yyyy'
                 ]
             ]);
             ?>
