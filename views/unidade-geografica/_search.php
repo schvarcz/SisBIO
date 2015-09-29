@@ -25,7 +25,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'shape') ?>
 
-    <?= $form->field($model, 'Data_Criacao') ?>
+    <?= $form->field($model, 'Data_Coordenadas') ?>
 
     <?= $form->field($model, 'idProjeto') ?>
 

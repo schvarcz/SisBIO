@@ -84,7 +84,7 @@ class GMaps extends InputWidget
                         'data-dismiss' => 'modal'
             ]]),
             ]);
-            echo Html::tag("h5", "Informe as coordenadas geográficas separadas por virgula. Um coordenada por linha. " . Html::tag("br") . Html::tag("em", Html::tag("small", "Ex: Point(-50.21 -29.49) <br/>ou Linestring(-50.21 -29.49,-50.19 -29.47) <br/>ou Polygon((-50.21 -29.49,-50.19 -29.47,-50.19 -29.49)) ")));
+            echo Html::tag("h5", "Informe as coordenadas geográficas conforme o padrão ".Html::a("WKT","https://en.wikipedia.org/wiki/Well-known_text",["target"=>"_new"])." da ".Html::a("OGC","http://www.opengeospatial.org",["target"=>"_new"]).". " . Html::tag("br") . Html::tag("em", Html::tag("small", "Ex: Point(-50.21 -29.49) <br/>ou Linestring(-50.21 -29.49,-50.19 -29.47) <br/>ou Polygon((-50.21 -29.49,-50.19 -29.47,-50.19 -29.49,-50.21 -29.49)) ")));
 
             echo Html::textarea("Coords", "", ["style" => "width:100%;height:400px;", "class" => "coordsInfo"]);
             Modal::end();

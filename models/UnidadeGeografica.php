@@ -19,7 +19,7 @@ class UnidadeGeografica extends \app\models\base\UnidadeGeografica
             'idUnidadeGeografica' => Yii::t('app', 'Identificador da Unidade Geográfica'),
             'Nome' => Yii::t('app', 'Nome'),
             'shape' => Yii::t('app', 'Mapa'),
-            'Data_Criacao' => Yii::t('app', 'Data de Criação'),
+            'Data_Coordenadas' => Yii::t('app', 'Data das Coordenadas'),
             'idProjeto' => Yii::t('app', 'Projeto'),
             'idPesquisador' => Yii::t('app', 'Pesquisador'),
             'idUnidadeGeograficaPai' => Yii::t('app', 'Unidade Geográfica Pai'),

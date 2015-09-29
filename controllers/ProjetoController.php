@@ -135,4 +135,39 @@ class ProjetoController extends Controller
         }
     }
 
+
+    /**
+     * Finds the Projeto model based on its name.
+     * @param String $nomeProjeto
+     * @param int $id PK of Projeto
+     * @return Json the list of models
+     */
+    public function actionFindprojeto($nomeProjeto = null, $id = null)
+    {
+        $out = [];
+
+        if (!is_null($nomeProjeto))
+        {
+            $projetos = Projeto::find()->where(["like", "Nome", $nomeProjeto])->all();
+            $json = [];
+            foreach ($projetos as $projeto)
+            {
+                $json[] = ["id" => $projeto->primaryKey, "text" => $projeto->getLabel()];
+            }
+            $out['results'] = $json;
+        } elseif ($id > 0)
+        {
+            $out['results'] = ['id' => $id, 'text' => Projeto::findOne($id)->getLabel()];
+        } else
+        {
+            $projetos = Projeto::find()->all();
+            $json = [];
+            foreach ($projetos as $projeto)
+            {
+                $json[] = ["id" => $projeto->primaryKey, "text" => $projeto->getLabel()];
+            }
+            $out['results'] = $json;
+        }
+        return \yii\helpers\Json::encode($out);
+    }
 }

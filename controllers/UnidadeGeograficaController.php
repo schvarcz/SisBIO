@@ -128,7 +128,7 @@ class UnidadeGeograficaController extends Controller
      * @param int $id PK of UnidadeGeografica
      * @return Json the list of models
      */
-    public function actionFindug($nomeUnidadeGeografica = null, $id = null)
+    public function actionFindug($nomeUnidadeGeografica = null, $id = null,$idProjeto = null)
     {
         $out = [];
 
@@ -147,6 +147,41 @@ class UnidadeGeograficaController extends Controller
         } else
         {
             $unidades = UnidadeGeografica::find()->all();
+            $json = [];
+            foreach ($unidades as $unidade)
+            {
+                $json[] = ["id" => $unidade->primaryKey, "text" => $unidade->getLabel()];
+            }
+            $out['results'] = $json;
+        }
+        return \yii\helpers\Json::encode($out);
+    }
+
+    /**
+     * Finds the UnidadeGeografica model based on its name.
+     * @param String $nomeUnidadeGeografica
+     * @param int $id PK of UnidadeGeografica
+     * @return Json the list of models
+     */
+    public function actionFindugbyprojeto($nomeUnidadeGeografica = null, $id = null,$idProjeto = null)
+    {
+        $out = [];
+
+        if (!is_null($nomeUnidadeGeografica))
+        {
+            $unidades = UnidadeGeografica::find()->andWhere(["like", "Nome", $nomeUnidadeGeografica])->andWhere(["idProjeto"=> $idProjeto])->all();
+            $json = [];
+            foreach ($unidades as $unidade)
+            {
+                $json[] = ["id" => $unidade->primaryKey, "text" => $unidade->getLabel()];
+            }
+            $out['results'] = $json;
+        } elseif ($id > 0)
+        {
+            $out['results'] = ['id' => $id, 'text' => UnidadeGeografica::findOne($id)->getLabel()];
+        } else if (!is_null($idProjeto))
+        {
+            $unidades = UnidadeGeografica::find()->where(["idProjeto"=> $idProjeto])->all();
             $json = [];
             foreach ($unidades as $unidade)
             {

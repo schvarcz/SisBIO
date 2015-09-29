@@ -10,7 +10,7 @@ use Yii;
  * @property integer $idUnidadeGeografica
  * @property string $Nome
  * @property string $shape
- * @property string $Data_Criacao
+ * @property string $Data_Coordenadas
  * @property integer $idProjeto
  * @property integer $idPesquisador
  * @property integer $idUnidadeGeograficaPai
@@ -48,7 +48,7 @@ class UnidadeGeografica extends \app\models\MActiveRecord
         return [
             [['Nome', 'shape', 'idProjeto', 'idPesquisador'], 'required'],
             [['shape'], 'string'],
-            [['Data_Criacao'], 'safe'],
+            [['Data_Coordenadas'], 'safe'],
             [['idProjeto', 'idPesquisador', 'idUnidadeGeograficaPai'], 'integer'],
             [['Nome'], 'string', 'max' => 255]
         ];
@@ -63,7 +63,7 @@ class UnidadeGeografica extends \app\models\MActiveRecord
             'idUnidadeGeografica' => Yii::t('app', 'Id Unidade Geografica'),
             'Nome' => Yii::t('app', 'Nome'),
             'shape' => Yii::t('app', 'Shape'),
-            'Data_Criacao' => Yii::t('app', 'Data  Criacao'),
+            'Data_Coordenadas' => Yii::t('app', 'Data  Coordenadas'),
             'idProjeto' => Yii::t('app', 'Id Projeto'),
             'idPesquisador' => Yii::t('app', 'Id Pesquisador'),
             'idUnidadeGeograficaPai' => Yii::t('app', 'Id Unidade Geografica Pai'),
