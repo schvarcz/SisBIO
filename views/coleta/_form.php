@@ -150,7 +150,7 @@ $this->registerJs($script);
         ]);
         ?>
         <?= $form->field($model, 'Observacao')->textarea(['rows' => 6]) ?>
-        <?php //$form->field($model, 'coordenadaGeografica')->textInput() ?>
+        <?= Html::hiddenInput("Coleta[coletaItems]"); ?>
 
         </p>
 

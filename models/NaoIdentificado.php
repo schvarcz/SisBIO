@@ -22,11 +22,16 @@ class NaoIdentificado extends \app\models\base\NaoIdentificado
     {
         return [
             'idNaoIdentificado' => Yii::t('app', 'Id Não Identificado'),
-            'idTipoOrganismo' => Yii::t('app', 'Tipo Organismo'),
-            'idEspecie' => Yii::t('app', 'Espécie'),
+            'idTipoOrganismo' => Yii::t('app', 'Tipo de Organismo'),
             'idPesquisadorIdentificacao' => Yii::t('app', 'Responsável pela identificação'),
             'Data_Registro' => Yii::t('app', 'Data de  Registro'),
             'Data_Identificacao' => Yii::t('app', 'Data de Identificação'),
+            'MorfoEspecie' => Yii::t('app', 'Morfo Espécie'),
+            'idFilo' => Yii::t('app', 'Filo'),
+            'idOrdem' => Yii::t('app', 'Ordem'),
+            'idFamilia' => Yii::t('app', 'Família'),
+            'idGenero' => Yii::t('app', 'Gênero'),
+            'idEspecie' => Yii::t('app', 'Espécie'),
         ];
     }
 
@@ -37,6 +42,14 @@ class NaoIdentificado extends \app\models\base\NaoIdentificado
             ColetaItem::updateAll(["idEspecie" => $this->idEspecie], ["idNaoIdentificado" => $this->primaryKey]);
         }
         return parent::afterSave($insert, $changedAttributes);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getColetas()
+    {
+        return $this->hasMany(\app\models\Coleta::className(), ['idColeta' => 'idColeta'])->viaTable('ColetaItem', ['idNaoIdentificado' => 'idNaoIdentificado']);
     }
 
 }

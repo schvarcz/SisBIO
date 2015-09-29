@@ -64,6 +64,7 @@ class DescritoresEspecie extends InputWidget
      */
     public function editColeta($model)
     {
+        srand(time());
         foreach ($model->getColetaItems()->select("ColetaItem.*")->joinWith(
                 "coletaItemPropriedades.idDescritor0", true, "INNER JOIN")->where(["idTipoDescritor" => $this->tipoDescritor])->all() as $coletaItem)
         {
@@ -80,9 +81,11 @@ class DescritoresEspecie extends InputWidget
             echo Html::label("&times;", null, ["class" => "btn-primary close-btn"]);
             echo Html::endTag("legend");
 
-            $this->hash = md5(time() + DescritoresEspecie::$key);
+            $this->hash = md5(rand() + DescritoresEspecie::$key);
             DescritoresEspecie::$key++;
 
+            if ($coletaItem->idEspecie0 == null && $coletaItem->idNaoIdentificado0 != null)
+                $this->fieldsNaoIdentificado($coletaItem->idColeta0,$coletaItem->idNaoIdentificado0);
             echo Html::activeHiddenInput($coletaItem, "idEspecie", ["name" => $this->getInputName($model, "coletaItems.idEspecie")]);
             echo Html::activeHiddenInput($coletaItem, "idNaoIdentificado", ["name" => $this->getInputName($model, "coletaItems.idNaoIdentificado")]);
             echo Html::hiddenInput("idTipoOrganismo", $coletaItem->idEspecie ? $coletaItem->idEspecie0->idTipo_Organismo : $coletaItem->idNaoIdentificado0->idTipoOrganismo, ["class" => "idTipoOrganismo"]);
@@ -111,7 +114,8 @@ class DescritoresEspecie extends InputWidget
         $coleta = new Coleta();
         $coletaItem = new ColetaItem();
         $coletaItem->idEspecie = $model;
-        $this->hash = md5(time());
+        srand(time());
+        $this->hash = md5(rand());
 
         echo Html::activeHiddenInput($coletaItem, "idEspecie", ["name" => $this->getInputName($coleta, "coletaItems.idEspecie")]);
         echo Html::hiddenInput("idTipoOrganismo", $coletaItem->idEspecie->idTipo_Organismo, ["class" => "idTipoOrganismo"]);
@@ -155,10 +159,13 @@ class DescritoresEspecie extends InputWidget
         $coletaItem = new ColetaItem();
         $naoIdentificado = new NaoIdentificado();
         $naoIdentificado->idTipoOrganismo = $model;
-        $this->hash = md5(time());
+        srand(time());
+        $this->hash = md5(rand());
 
         echo Html::activeHiddenInput($naoIdentificado, "idTipoOrganismo", ["name" => $this->getInputName($coleta, "coletaItems.idNaoIdentificado0.idTipoOrganismo"), "class" => "idTipoOrganismo"]);
-
+        
+        $this->fieldsNaoIdentificado($coleta,$naoIdentificado);
+        
         $descritores = $model->getIdDescritores()->where([
                     "idTipoDescritor" => $this->tipoDescritor
                 ])->all();
@@ -173,6 +180,19 @@ class DescritoresEspecie extends InputWidget
         }
         echo Html::endTag("fieldset");
     }
+    
+    public function fieldsNaoIdentificado($coleta,$naoIdentificado)
+    {
+        echo Html::beginTag("div", ["class" => "form-group"]);
+
+        echo Html::activeLabel($naoIdentificado, "MorfoEspecie", ["class" => "control-label col-sm-2"]);
+        echo Html::tag("div", 
+                Html::tag("div",
+                    Html::activeTextInput($naoIdentificado, "MorfoEspecie", ["name" => $this->getInputName($coleta, "coletaItems.idNaoIdentificado0.MorfoEspecie"), "class" => "MorfoEspecie form-control"])
+                , ["class" => "form-group"])
+            , ["class" => "col-sm-8"]);
+        echo Html::endTag("div");
+    }
 
     /**
      * @param TipoOrganismo $model the model object
@@ -186,7 +206,8 @@ class DescritoresEspecie extends InputWidget
         echo Html::label("&times;", null, ["class" => "btn-primary close-btn"]);
         echo Html::endTag("legend");
 
-        $this->hash = md5(time());
+        srand(time());
+        $this->hash = md5(rand());
 
 
         $coleta = new Coleta();

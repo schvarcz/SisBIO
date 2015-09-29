@@ -86,6 +86,8 @@ class ColetaController extends Controller
 
         if ($model->saveWithRelated($_POST))
         {
+            foreach(NaoIdentificado::find()->joinWith("coletaItems")->where("ColetaItem.idNaoIdentificado IS NULL")->all() as $NaoIdentificado)
+                $NaoIdentificado->delete();
             return $this->redirect(Url::previous());
         } else
         {

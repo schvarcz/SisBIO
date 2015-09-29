@@ -9,19 +9,27 @@ use Yii;
  *
  * @property integer $idNaoIdentificado
  * @property integer $idTipoOrganismo
- * @property integer $idEspecie
  * @property integer $idPesquisadorIdentificacao
  * @property string $Data_Registro
  * @property string $Data_Identificacao
+ * @property string $MorfoEspecie
+ * @property integer $idFilo
+ * @property integer $idOrdem
+ * @property integer $idFamilia
+ * @property integer $idGenero
+ * @property integer $idEspecie
  *
  * @property ColetaItem[] $coletaItems
+ * @property Familia $idFamilia0
+ * @property Filo $idFilo0
+ * @property Genero $idGenero0
+ * @property Ordem $idOrdem0
  * @property Especie $idEspecie0
  * @property Pesquisador $idPesquisadorIdentificacao0
  * @property TipoOrganismo $idTipoOrganismo0
  */
 class NaoIdentificado extends \app\models\MActiveRecord
 {
-
     /**
      * @inheritdoc
      */
@@ -29,7 +37,7 @@ class NaoIdentificado extends \app\models\MActiveRecord
     {
         return 'NaoIdentificado';
     }
-
+    
     /**
      * @inheritdoc
      */
@@ -45,8 +53,9 @@ class NaoIdentificado extends \app\models\MActiveRecord
     {
         return [
             [['idTipoOrganismo'], 'required'],
-            [['idTipoOrganismo', 'idEspecie', 'idPesquisadorIdentificacao'], 'integer'],
-            [['Data_Registro', 'Data_Identificacao'], 'safe']
+            [['idTipoOrganismo', 'idPesquisadorIdentificacao', 'idFilo', 'idOrdem', 'idFamilia', 'idGenero', 'idEspecie'], 'integer'],
+            [['Data_Registro', 'Data_Identificacao'], 'safe'],
+            [['MorfoEspecie'], 'string', 'max' => 255]
         ];
     }
 
@@ -58,10 +67,15 @@ class NaoIdentificado extends \app\models\MActiveRecord
         return [
             'idNaoIdentificado' => Yii::t('app', 'Id Nao Identificado'),
             'idTipoOrganismo' => Yii::t('app', 'Id Tipo Organismo'),
-            'idEspecie' => Yii::t('app', 'Id Especie'),
             'idPesquisadorIdentificacao' => Yii::t('app', 'Id Pesquisador Identificacao'),
             'Data_Registro' => Yii::t('app', 'Data  Registro'),
             'Data_Identificacao' => Yii::t('app', 'Data  Identificacao'),
+            'MorfoEspecie' => Yii::t('app', 'Morfo Especie'),
+            'idFilo' => Yii::t('app', 'Id Filo'),
+            'idOrdem' => Yii::t('app', 'Id Ordem'),
+            'idFamilia' => Yii::t('app', 'Id Familia'),
+            'idGenero' => Yii::t('app', 'Id Genero'),
+            'idEspecie' => Yii::t('app', 'Id Especie'),
         ];
     }
 
@@ -76,9 +90,33 @@ class NaoIdentificado extends \app\models\MActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getColetas()
+    public function getIdFamilia0()
     {
-        return $this->hasMany(\app\models\Coleta::className(), ['idColeta' => 'idColeta'])->viaTable('ColetaItem', ['idNaoIdentificado' => 'idNaoIdentificado']);
+        return $this->hasOne(\app\models\Familia::className(), ['idFamilia' => 'idFamilia']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getIdFilo0()
+    {
+        return $this->hasOne(\app\models\Filo::className(), ['idFilo' => 'idFilo']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getIdGenero0()
+    {
+        return $this->hasOne(\app\models\Genero::className(), ['idGenero' => 'idGenero']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getIdOrdem0()
+    {
+        return $this->hasOne(\app\models\Ordem::className(), ['idOrdem' => 'idOrdem']);
     }
 
     /**
@@ -104,5 +142,4 @@ class NaoIdentificado extends \app\models\MActiveRecord
     {
         return $this->hasOne(\app\models\TipoOrganismo::className(), ['idTipoOrganismo' => 'idTipoOrganismo']);
     }
-
 }

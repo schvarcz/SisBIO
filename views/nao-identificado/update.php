@@ -6,9 +6,9 @@ use yii\helpers\Html;
  * @var yii\web\View $this
  * @var app\models\NaoIdentificado $model
  */
-$this->title = 'Editar espécime não identificada: ' . $model->label . '';
+$this->title = 'Não Identificado Editar: ' . $model->getLabel() . '';
 $this->params['breadcrumbs'][] = ['label' => 'Não Identificados', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => (string) $model->label, 'url' => ['view', 'idNaoIdentificado' => $model->idNaoIdentificado]];
+$this->params['breadcrumbs'][] = ['label' => $model->getLabel(), 'url' => ['view', 'idNaoIdentificado' => $model->idNaoIdentificado]];
 $this->params['breadcrumbs'][] = 'Editar';
 ?>
 <div class="nao-identificado-update">

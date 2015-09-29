@@ -31,7 +31,7 @@ class MActiveRecord extends \yii\db\ActiveRecord
                         {
                             $this->unlink("$dataName", $modelRelation, true);
                         }
-
+                        
                         if (is_array($dataValue))
                         {
                             if (is_array($dataValue[array_keys($dataValue)[0]]))

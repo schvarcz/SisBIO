@@ -23,13 +23,23 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'idTipoOrganismo') ?>
 
-    <?= $form->field($model, 'idEspecie') ?>
-
     <?= $form->field($model, 'idPesquisadorIdentificacao') ?>
 
     <?= $form->field($model, 'Data_Registro') ?>
 
-    <?php // echo $form->field($model, 'Data_Identificacao')  ?>
+    <?= $form->field($model, 'Data_Identificacao') ?>
+
+    <?php // echo $form->field($model, 'MorfoEspecie') ?>
+
+    <?php // echo $form->field($model, 'idFilo') ?>
+
+    <?php // echo $form->field($model, 'idOrdem') ?>
+
+    <?php // echo $form->field($model, 'idFamilia') ?>
+
+    <?php // echo $form->field($model, 'idGenero') ?>
+
+    <?php // echo $form->field($model, 'idEspecie')  ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

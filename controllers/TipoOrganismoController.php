@@ -122,6 +122,42 @@ class TipoOrganismoController extends Controller
         }
     }
 
+
+    /**
+     * Finds the TipoOrganismo model based on its name.
+     * @param String $nomeOrganismo
+     * @param int $id PK of TipoOrganismo
+     * @return Json the list of models
+     */
+    public function actionFindtipoorganismo($nomeOrganismo = null, $id = null)
+    {
+        $out = [];
+
+        if (!is_null($nomeOrganismo))
+        {
+            $organismos = TipoOrganismo::find()->where(["like", "Nome", $nomeOrganismo])->all();
+            $json = [];
+            foreach ($organismos as $organismo)
+            {
+                $json[] = ["id" => $organismo->primaryKey, "text" => $organismo->getLabel()];
+            }
+            $out['results'] = $json;
+        } elseif ($id > 0)
+        {
+            $out['results'] = ['id' => $id, 'text' => TipoOrganismo::findOne($id)->getLabel()];
+        } else
+        {
+            $organismos = TipoOrganismo::find()->all();
+            $json = [];
+            foreach ($organismos as $organismo)
+            {
+                $json[] = ["id" => $organismo->primaryKey, "text" => $organismo->getLabel()];
+            }
+            $out['results'] = $json;
+        }
+        return \yii\helpers\Json::encode($out);
+    }
+
     /**
      * Finds the Éspecie model based on its name.
      * @param String $name

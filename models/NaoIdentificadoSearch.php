@@ -11,77 +11,86 @@ use app\models\NaoIdentificado;
  */
 class NaoIdentificadoSearch extends Model
 {
+	public $idNaoIdentificado;
+	public $idTipoOrganismo;
+	public $idPesquisadorIdentificacao;
+	public $Data_Registro;
+	public $Data_Identificacao;
+	public $MorfoEspecie;
+	public $idFilo;
+	public $idOrdem;
+	public $idFamilia;
+	public $idGenero;
+	public $idEspecie;
 
-    public $idNaoIdentificado;
-    public $idTipoOrganismo;
-    public $idEspecie;
-    public $idPesquisadorIdentificacao;
-    public $Data_Registro;
-    public $Data_Identificacao;
+	public function rules()
+	{
+		return [
+			[['idNaoIdentificado', 'idTipoOrganismo', 'idPesquisadorIdentificacao', 'idFilo', 'idOrdem', 'idFamilia', 'idGenero', 'idEspecie'], 'integer'],
+			[['Data_Registro', 'Data_Identificacao', 'MorfoEspecie'], 'safe'],
+		];
+	}
 
-    public function rules()
-    {
-        return [
-            [['idNaoIdentificado', 'idTipoOrganismo', 'idEspecie', 'idPesquisadorIdentificacao'], 'integer'],
-            [['Data_Registro', 'Data_Identificacao'], 'safe'],
-        ];
-    }
+	/**
+	 * @inheritdoc
+	 */
+	public function attributeLabels()
+	{
+		return [
+			'idNaoIdentificado' => 'Id Não Identificado',
+			'idTipoOrganismo' => 'Tipo Organismo',
+			'idPesquisadorIdentificacao' => 'Responsável pela identificação',
+			'Data_Registro' => 'Data de  Registro',
+			'Data_Identificacao' => 'Data de Identificação',
+			'MorfoEspecie' => 'Morfo Especie',
+			'idFilo' => 'Id Filo',
+			'idOrdem' => 'Id Ordem',
+			'idFamilia' => 'Id Familia',
+			'idGenero' => 'Id Genero',
+			'idEspecie' => 'Espécie',
+		];
+	}
 
-    /**
-     * @inheritdoc
-     */
-    public function attributeLabels()
-    {
-        return [
-            'idNaoIdentificado' => 'Id Nao Identificado',
-            'idTipoOrganismo' => 'Id Tipo Organismo',
-            'idEspecie' => 'Id Especie',
-            'idPesquisadorIdentificacao' => 'Id Pesquisador Identificacao',
-            'Data_Registro' => 'Data  Registro',
-            'Data_Identificacao' => 'Data  Identificacao',
-        ];
-    }
+	public function search($params)
+	{
+		$query = NaoIdentificado::find();
+		$dataProvider = new ActiveDataProvider([
+			'query' => $query,
+		]);
 
-    public function search($params)
-    {
-        $query = NaoIdentificado::find();
-        $query->where(["idEspecie" => NULL]);
-        
-        $dataProvider = new ActiveDataProvider([
-            'query' => $query,
-        ]);
+		if (!($this->load($params) && $this->validate())) {
+			return $dataProvider;
+		}
 
-        if (!($this->load($params) && $this->validate()))
-        {
-            return $dataProvider;
-        }
-
-        $query->andFilterWhere([
+		$query->andFilterWhere([
             'idNaoIdentificado' => $this->idNaoIdentificado,
             'idTipoOrganismo' => $this->idTipoOrganismo,
             'idPesquisadorIdentificacao' => $this->idPesquisadorIdentificacao,
             'Data_Registro' => $this->Data_Registro,
             'Data_Identificacao' => $this->Data_Identificacao,
+            'idFilo' => $this->idFilo,
+            'idOrdem' => $this->idOrdem,
+            'idFamilia' => $this->idFamilia,
+            'idGenero' => $this->idGenero,
+            'idEspecie' => $this->idEspecie,
         ]);
 
-        return $dataProvider;
-    }
+		$query->andFilterWhere(['like', 'MorfoEspecie', $this->MorfoEspecie]);
 
-    protected function addCondition($query, $attribute, $partialMatch = false)
-    {
-        $value = $this->$attribute;
-        if (trim($value) === '')
-        {
-            return;
-        }
-        if ($partialMatch)
-        {
-            $value = '%' . strtr($value, ['%' => '\%', '_' => '\_', '\\' => '\\\\']) . '%';
-            $query->andWhere(['like', $attribute, $value]);
-        } else
-        {
-            $query->andWhere([$attribute => $value]);
-        }
-    }
+		return $dataProvider;
+	}
 
+	protected function addCondition($query, $attribute, $partialMatch = false)
+	{
+		$value = $this->$attribute;
+		if (trim($value) === '') {
+			return;
+		}
+		if ($partialMatch) {
+			$value = '%' . strtr($value, ['%'=>'\%', '_'=>'\_', '\\'=>'\\\\']) . '%';
+			$query->andWhere(['like', $attribute, $value]);
+		} else {
+			$query->andWhere([$attribute => $value]);
+		}
+	}
 }
