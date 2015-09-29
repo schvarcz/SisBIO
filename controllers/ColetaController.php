@@ -198,8 +198,10 @@ class ColetaController extends Controller
      * @param String $name
      * @return Json the list of models
      */
-    public function actionAdddescritor($tipoDescritor, $primaryKey)
+    public function actionAdddescritor($tipoDescritor, $primaryKey=null)
     {
+        if (is_null($primaryKey) || !$primaryKey)
+            return;
         $entidade = $primaryKey[0];
         $primaryKey[0] = 0;
         $primaryKey = (int) $primaryKey;

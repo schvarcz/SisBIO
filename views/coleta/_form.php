@@ -380,11 +380,11 @@ $this->registerJs($script);
                     'items' => [ [
                             'label' => 'Individuo',
                             'content' => $this->blocks['individuo'],
-                            'active' => true,
+                            'active' => false,
                         ], [
                             'label' => 'População',
                             'content' => $this->blocks['populacao'],
-                            'active' => false,
+                            'active' => true,
                         ], [
                             'label' => 'Ecossistemas',
                             'content' => $this->blocks['ecossistemas'],
