@@ -14,6 +14,9 @@ $config = [
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
+        'authManager' => [
+            'class' => 'yii\rbac\PhpManager',
+        ],
         'user' => [
             'identityClass' => 'app\models\Pesquisador',
             'enableAutoLogin' => true,

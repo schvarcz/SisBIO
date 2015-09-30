@@ -12,12 +12,28 @@ use app\models\NaoIdentificado;
 use app\models\Descritor;
 use yii\helpers\Url;
 use app\widgets\DescritoresEspecie\DescritoresEspecie;
+use yii\filters\AccessControl;
 
 /**
  * ColetaController implements the CRUD actions for Coleta model.
  */
 class ColetaController extends Controller
 {
+    public function behaviors()
+    {
+        return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'actions' => ['index'],
+                        'roles' => ['admColetas'],
+                    ],
+                ],
+            ],
+        ];
+    }
 
     /**
      * Lists all Coleta models.
