@@ -22,16 +22,15 @@ class SiteController extends Controller
                 'only' => ['logout'],
                 'rules' => [
                     [
+                        'actions' => ['index', 'contato'],
+                        'allow' => true,
+                        'roles' => ['?'],
+                    ],
+                    [
                         'actions' => ['logout'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
-                ],
-            ],
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'logout' => ['post'],
                 ],
             ],
         ];

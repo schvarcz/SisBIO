@@ -37,25 +37,40 @@ AppAsset::register($this);
                 'options' => ['class' => 'navbar-nav navbar-right'],
                 'items' => [
                     ['label' => 'Home', 'url' => ['/site/index'], 'visible' => Yii::$app->user->isGuest],
-                    ['label' => '+ Coleta', 'url' => ['/coleta'], 'visible' => !Yii::$app->user->isGuest],
-                    ['label' => 'Não Identificados', 'url' => ['/nao-identificado'], 'visible' => !Yii::$app->user->isGuest],
-                    ['label' => 'Unidade Geográfica', 'url' => ['/unidade-geografica'], 'visible' => !Yii::$app->user->isGuest],
-                    ['label' => 'Tipos de Organismo', 'url' => ['/tipo-organismo'], 'visible' => !Yii::$app->user->isGuest],
+                    ['label' => '+ Coleta', 'url' => ['/coleta'], 'visible' => Yii::$app->user->can("admColetas")],
+                    ['label' => 'Não Identificados', 'url' => ['/nao-identificado'], 'visible' => Yii::$app->user->can("admColetas")],
+                    ['label' => 'Unidade Geográfica', 'url' => ['/unidade-geografica'], 'visible' => Yii::$app->user->can("adminUnidadeGeografica")],
+                    ['label' => 'Tipos de Organismo', 'url' => ['/tipo-organismo'], 'visible' => Yii::$app->user->can("adminOrganismo")],
                     ['label' => 'Taxonomia', 'items' => [
                             ['label' => 'Filo/Divisão', 'url' => ['/filo']],
                             ['label' => 'Ordem', 'url' => ['/ordem']],
                             ['label' => 'Família', 'url' => ['/familia']],
                             ['label' => 'Gênero', 'url' => ['/genero']],
                             ['label' => 'Espécie', 'url' => ['/especie']],
-                        ], 'visible' => !Yii::$app->user->isGuest],
+                        ], 'visible' => Yii::$app->user->can("adminTaxonomia")],
                     ['label' => 'Base', 'items' => [
-                            ['label' => 'Pesquisadores', 'url' => ['/pesquisador']],
-                            ['label' => 'Projetos', 'url' => ['/projeto']],
-                            ['label' => 'Descritores', 'url' => ['/descritor']],
-                            ['label' => 'Métodos de Coleta', 'url' => ['/metodo']],
-                            ['label' => 'Tipos de Descritor', 'url' => ['/tipo-descritor']],
-                            ['label' => 'Tipos de Dado', 'url' => ['/tipo-dado']],
-                        ], 'visible' => !Yii::$app->user->isGuest],
+                            ['label' => 'Pesquisadores', 'url' => ['/pesquisador'], 'visible' => Yii::$app->user->can("adminPesquisadores")],
+                            ['label' => 'Projetos', 'url' => ['/projeto'], 'visible' => 
+                                                                                    Yii::$app->user->can("adminProjetos")
+                                                                                    || Yii::$app->user->can("deletarProjetoProprio")
+                                                                                    || Yii::$app->user->can("criarSubprojeto")
+                                                                                    || Yii::$app->user->can("editarProjeto")
+                                                                                    || Yii::$app->user->can("adicionarOperadores")],
+                            ['label' => 'Descritores', 'url' => ['/descritor'], 'visible' => Yii::$app->user->can("adminDescritores")],
+                            ['label' => 'Métodos de Coleta', 'url' => ['/metodo'], 'visible' => Yii::$app->user->can("adminMetodos")],
+                            ['label' => 'Tipos de Descritor', 'url' => ['/tipo-descritor'], 'visible' => Yii::$app->user->can("adminDescritores")],
+                            ['label' => 'Tipos de Dado', 'url' => ['/tipo-dado'], 'visible' => Yii::$app->user->can("adminTipoDados")],
+                        ], 'visible' => 
+                                    Yii::$app->user->can("adminPesquisadores") 
+                                    || Yii::$app->user->can("adminCuradoria") 
+                                    || Yii::$app->user->can("adminProjetos")
+                                    || Yii::$app->user->can("deletarProjetoProprio")
+                                    || Yii::$app->user->can("criarSubprojeto")
+                                    || Yii::$app->user->can("editarProjeto")
+                                    || Yii::$app->user->can("adicionarOperadores")
+                                    || Yii::$app->user->can("adminMetodos")
+                                    || Yii::$app->user->can("adminDescritores")
+                                    || Yii::$app->user->can("adminTipoDados")],
                     ['label' => 'Contato', 'url' => ['/site/contato'], 'visible' => Yii::$app->user->isGuest],
                     Yii::$app->user->isGuest ?
                             ['label' => 'Login', 'url' => ['/site/login']] :

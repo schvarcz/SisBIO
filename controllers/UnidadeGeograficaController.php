@@ -6,7 +6,6 @@ use app\models\UnidadeGeografica;
 use app\models\UnidadeGeograficaSearch;
 use yii\web\Controller;
 use yii\web\HttpException;
-use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use yii\helpers\Url;
 
@@ -15,6 +14,27 @@ use yii\helpers\Url;
  */
 class UnidadeGeograficaController extends Controller
 {
+
+    public function behaviors()
+    {
+        return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'actions' => ['index', 'create','delete', 'update', 'view', 'findugbyprojeto'],
+                        'roles' => ['adminUnidadeGeografica'],
+                    ],
+                    [
+                        'allow' => true,
+                        'actions' => ['ugpolygon', 'findug'],
+                        'roles' => ['admColetas'],
+                    ],
+                ],
+            ],
+        ];
+    }
 
     /**
      * Lists all UnidadeGeografica models.

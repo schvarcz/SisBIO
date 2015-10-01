@@ -16,6 +16,22 @@ use yii\helpers\Url;
 class NaoIdentificadoController extends Controller
 {
 
+    public function behaviors()
+    {
+        return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'actions' => ['index', 'create','delete', 'update', 'view'],
+                        'roles' => ['admColetas'],
+                    ],
+                ],
+            ],
+        ];
+    }
+
     /**
      * Lists all NaoIdentificado models.
      * @return mixed

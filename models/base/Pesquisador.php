@@ -16,6 +16,7 @@ use Yii;
  * @property string $foto
  * @property string $Resumo
  * @property integer $idCronTask
+ * @property bool $isAdminBase
  *
  * @property ColetaHasPesquisador[] $coletaHasPesquisadores
  * @property Coleta[] $idColetas
@@ -53,7 +54,7 @@ class Pesquisador extends \app\models\MActiveRecord
         return [
             [['Nome', 'email'], 'required'],
             [['Resumo'], 'string'],
-            [['idCronTask'], 'integer'],
+            [['idCronTask', 'isAdminBase'], 'integer'],
             [['Nome', 'email', 'lattes', 'senha', 'foto'], 'string', 'max' => 255],
             [['authKey'], 'string', 'max' => 32]
         ];
@@ -74,6 +75,7 @@ class Pesquisador extends \app\models\MActiveRecord
             'foto' => Yii::t('app', 'Foto'),
             'Resumo' => Yii::t('app', 'Resumo'),
             'idCronTask' => Yii::t('app', 'Id Cron Task'),
+            'isAdminBase' => Yii::t('app', 'Is Admin Base'),
         ];
     }
 

@@ -6,7 +6,6 @@ use app\models\TipoOrganismo;
 use app\models\TipoOrganismoSearch;
 use yii\web\Controller;
 use yii\web\HttpException;
-use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use yii\helpers\Url;
 use app\models\Metodo;
@@ -16,6 +15,27 @@ use app\models\Metodo;
  */
 class TipoOrganismoController extends Controller
 {
+
+    public function behaviors()
+    {
+        return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'actions' => ['index', 'create','delete', 'update', 'view'],
+                        'roles' => ['adminOrganismo'],
+                    ],
+                    [
+                        'allow' => true,
+                        'actions' => ['findtipoorganismo', 'findmetodos'],
+                        'roles' => ['admColetas'],
+                    ],
+                ],
+            ],
+        ];
+    }
 
     /**
      * Lists all TipoOrganismo models.
@@ -159,7 +179,7 @@ class TipoOrganismoController extends Controller
     }
 
     /**
-     * Finds the Éspecie model based on its name.
+     * Finds the Metodos with his TipoOrganismo model based on its name.
      * @param String $name
      * @return Json the list of models
      */

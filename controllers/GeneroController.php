@@ -16,6 +16,22 @@ use yii\helpers\Url;
 class GeneroController extends Controller
 {
 
+    public function behaviors()
+    {
+        return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'actions' => ['index', 'create','delete', 'update', 'view'],
+                        'roles' => ['adminTaxonomia'],
+                    ],
+                ],
+            ],
+        ];
+    }
+
     /**
      * Lists all Genero models.
      * @return mixed

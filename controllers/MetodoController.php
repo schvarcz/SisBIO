@@ -16,6 +16,27 @@ use yii\helpers\Url;
 class MetodoController extends Controller
 {
 
+    public function behaviors()
+    {
+        return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'actions' => ['index', 'create','delete', 'update', 'view', 'findmetodo'],
+                        'roles' => ['adminMetodos'],
+                    ],
+                    [
+                        'allow' => true,
+                        'actions' => ['findmetodo'],
+                        'roles' => ['@'],
+                    ],
+                ],
+            ],
+        ];
+    }
+
     /**
      * Lists all Metodo models.
      * @return mixed

@@ -16,6 +16,22 @@ use yii\helpers\Url;
 class DescritorController extends Controller
 {
 
+    public function behaviors()
+    {
+        return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'actions' => ['index', 'create','delete', 'update', 'view'],
+                        'roles' => ['adminDescritores'],
+                    ],
+                ],
+            ],
+        ];
+    }
+    
     /**
      * Lists all Descritor models.
      * @return mixed

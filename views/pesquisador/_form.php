@@ -40,6 +40,7 @@ use kartik\widgets\FileInput;
             <?= $form->field($model, 'email')->textInput(['maxlength' => 255]) ?>
             <?= $form->field($model, 'lattes')->textInput(['maxlength' => 255]) ?>
             <?= $form->field($model, 'Resumo')->textarea(['rows' => 6]) ?>
+            <?= $form->field($model, 'isAdminBase')->checkbox() ?>
         </p>
         <?php $this->endBlock(); ?>
 

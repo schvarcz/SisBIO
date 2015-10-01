@@ -7,12 +7,33 @@ use app\models\PesquisadorSearch;
 use yii\web\Controller;
 use yii\web\HttpException;
 use yii\helpers\Url;
+use yii\filters\AccessControl;
 
 /**
  * PesquisadorController implements the CRUD actions for Pesquisador model.
  */
 class PesquisadorController extends Controller
 {
+    public function behaviors()
+    {
+        return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'actions' => ['index', 'create','delete', 'update', 'view'],
+                        'roles' => ['adminPesquisadores'],
+                    ],
+                    [
+                        'allow' => true,
+                        'actions' => ['findpesquisador', 'invitereset'],
+                        'roles' => ['@'],
+                    ],
+                ],
+            ],
+        ];
+    }
 
     /**
      * Lists all Pesquisador models.

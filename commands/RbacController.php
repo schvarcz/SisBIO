@@ -19,41 +19,37 @@ class RbacController extends Controller
 
         
         //Cria permissões
-        $adminDescritores = $auth->createPermission('adminDescritores');
-        $adminDescritores->description = 'Administrar descritores';
-        $auth->add($adminDescritores);
+        $adminProjeto = $auth->createPermission('adminProjetos');
+        $adminProjeto->description = 'Administrador de todos projetos';
+        $auth->add($adminProjeto);
         
-        $adminOrganismo = $auth->createPermission('adminOrganismo');
-        $adminOrganismo->description = 'Administrar Tipos de Organismo';
-        $auth->add($adminOrganismo);
+        $adminCuradoria = $auth->createPermission('adminCuradoria');
+        $adminCuradoria->description = 'Administrador de todas curadorias';
+        $auth->add($adminCuradoria);
         
-        $adminMetodos = $auth->createPermission('adminMetodos');
-        $adminMetodos->description = 'Administrar Métodos de Coleta';
-        $auth->add($adminMetodos);
+        $adminPesquisadores = $auth->createPermission('adminPesquisadores');
+        $adminPesquisadores->description = 'Administrador de todos pesquisadores';
+        $auth->add($adminPesquisadores);
         
-        $adminTaxonomia = $auth->createPermission('adminTaxonomia');
-        $adminTaxonomia->description = 'Administrar Taxonomia';
-        $auth->add($adminTaxonomia);
+        $admColetas = $auth->createPermission('admColetas');
+        $admColetas->description = 'Administrador de todas coletas';
+        $auth->add($admColetas);
+        
+        $adminUnidadeGeografica = $auth->createPermission('adminUnidadeGeografica');
+        $adminUnidadeGeografica->description = 'Administrador de todas Unidades Geográficas';
+        $auth->add($adminUnidadeGeografica);
+        
+        $adminTipoDados = $auth->createPermission('adminTipoDados');
+        $adminTipoDados->description = 'Administrar Tipos de dados';
+        $auth->add($adminTipoDados);
         
         
         
         
         
-        $adminColetaProjeto = $auth->createPermission('adminColetaProjeto');
-        $adminColetaProjeto->description = 'Administrar coletas do projeto';
-        $auth->add($adminColetaProjeto);
-        
-        $adminUnidadeGeograficaProjeto = $auth->createPermission('adminUnidadeGeograficaProjeto');
-        $adminUnidadeGeograficaProjeto->description = 'Administrar Uniidades Geográficas do projeto';
-        $auth->add($adminUnidadeGeograficaProjeto);
-        
-        $verProjeto = $auth->createPermission('verProjeto');
-        $verProjeto->description = 'Visualizar dados do projeto';
-        $auth->add($verProjeto);
-        
-        $exportar = $auth->createPermission('exportar');
-        $exportar->description = 'Exportação dados do projeto';
-        $auth->add($exportar);
+        $deletarProjetoProprio = $auth->createPermission('deletarProjetoProprio');
+        $deletarProjetoProprio->description = 'Deletar projeto';
+        $auth->add($deletarProjetoProprio);
         
         
         
@@ -77,50 +73,70 @@ class RbacController extends Controller
         
         
         
-        $deletarProjetoProprio = $auth->createPermission('deletarProjetoProprio');
-        $deletarProjetoProprio->description = 'Deletar projeto';
-        $auth->add($deletarProjetoProprio);
+        $adminColetaProjeto = $auth->createPermission('adminColetaProjeto');
+        $adminColetaProjeto->description = 'Administrar coletas do projeto';
+        $auth->add($adminColetaProjeto);
+        $auth->addChild($adminColetaProjeto,$admColetas);
+        
+        $adminUnidadeGeograficaProjeto = $auth->createPermission('adminUnidadeGeograficaProjeto');
+        $adminUnidadeGeograficaProjeto->description = 'Administrar Uniidades Geográficas do projeto';
+        $auth->add($adminUnidadeGeograficaProjeto);
+        $auth->addChild($adminUnidadeGeograficaProjeto,$adminUnidadeGeografica);
+        
+        $verProjeto = $auth->createPermission('verProjeto');
+        $verProjeto->description = 'Visualizar dados do projeto';
+        $auth->add($verProjeto);
+        
+        $exportar = $auth->createPermission('exportar');
+        $exportar->description = 'Exportação dados do projeto';
+        $auth->add($exportar);
         
         
         
         
-        $adminProjeto = $auth->createPermission('adminProjetos');
-        $adminProjeto->description = 'Administrador de todos projetos';
-        $auth->add($adminProjeto);
+        $adminDescritores = $auth->createPermission('adminDescritores');
+        $adminDescritores->description = 'Administrar descritores';
+        $auth->add($adminDescritores);
         
-        $adminCuradoria = $auth->createPermission('adminCuradoria');
-        $adminCuradoria->description = 'Administrador de todas curadorias';
-        $auth->add($adminCuradoria);
+        $adminOrganismo = $auth->createPermission('adminOrganismo');
+        $adminOrganismo->description = 'Administrar Tipos de Organismo';
+        $auth->add($adminOrganismo);
         
-        $adminPesquisadores = $auth->createPermission('adminPesquisadores');
-        $adminPesquisadores->description = 'Administrador de todos pesquisadores';
-        $auth->add($adminPesquisadores);
+        $adminMetodos = $auth->createPermission('adminMetodos');
+        $adminMetodos->description = 'Administrar Métodos de Coleta';
+        $auth->add($adminMetodos);
         
-        $admColetas = $auth->createPermission('admColetas');
-        $admColetas->description = 'Administrador de todas coletas';
-        $auth->add($admColetas);
-        
-        $adminUnidadeGeografica = $auth->createPermission('adminUnidadeGeografica');
-        $adminUnidadeGeografica->description = 'Administrador de todas Unidades Geográficas';
-        $auth->add($adminUnidadeGeografica);
+        $adminTaxonomia = $auth->createPermission('adminTaxonomia');
+        $adminTaxonomia->description = 'Administrar Taxonomia';
+        $auth->add($adminTaxonomia);
         
         
         
         
         // Cria todas "role" e hierarquia
-        $operador = $auth->createRole('operador');
-        $operador->description = "Operador da base";
-        $auth->add($operador);
+        $operadorColeta = $auth->createRole('operadorColeta');
+        $operadorColeta->description = "Operador da base";
+        $auth->add($operadorColeta);
+        
+        $operadorUnidadeGeografica = $auth->createRole('operadorUnidadeGeografica');
+        $operadorUnidadeGeografica->description = "Operador da base";
+        $auth->add($operadorUnidadeGeografica);
+        
+        $operadorVisualizador = $auth->createRole('operadorVisualizador');
+        $operadorVisualizador->description = "Operador da base: vizualização";
+        $auth->add($operadorVisualizador);
+        
+        $operadorExportar = $auth->createRole('operadorExportar');
+        $operadorExportar->description = "Operador da base";
+        $auth->add($operadorExportar);
         
         $colaboradorProjeto = $auth->createRole('colaboradorProjeto');
         $colaboradorProjeto->description = "Pesquisador Colaborador do projeto";
         $auth->add($colaboradorProjeto);
-        $auth->addChild($colaboradorProjeto, $operador);
         
         $adminProjetoRole = $auth->createRole('adminProjeto');
         $adminProjetoRole->description = "Administrador de projeto";
         $auth->add($adminProjetoRole);
-        $auth->addChild($adminProjetoRole, $colaboradorProjeto);
         
         $curador = $auth->createRole('curador');
         $curador->description = "Curador de Grupo Biologico";
@@ -129,16 +145,17 @@ class RbacController extends Controller
         $adminBase = $auth->createRole('adminBase');
         $adminBase->description = "Administrador da Base";
         $auth->add($adminBase);
-        $auth->addChild($adminBase, $adminProjetoRole);
-        $auth->addChild($adminBase, $curador);
         
         
         
         //Atribui permissoes
-        $auth->addChild($operador, $adminColetaProjeto);
-        $auth->addChild($operador, $adminUnidadeGeograficaProjeto);
-        $auth->addChild($operador, $verProjeto);
-        $auth->addChild($operador, $exportar);
+        $auth->addChild($operadorColeta, $adminColetaProjeto);
+        
+        $auth->addChild($operadorUnidadeGeografica, $adminUnidadeGeograficaProjeto);
+        
+        $auth->addChild($operadorVisualizador, $verProjeto);
+        
+        $auth->addChild($operadorExportar, $exportar);
         
         $auth->addChild($colaboradorProjeto, $enviarConvites);
         $auth->addChild($colaboradorProjeto, $adicionarOperadores);
@@ -147,13 +164,27 @@ class RbacController extends Controller
         
         $auth->addChild($adminProjetoRole, $deletarProjetoProprio);
         
+        $auth->addChild($curador, $adminDescritores);
+        $auth->addChild($curador, $adminOrganismo);
+        $auth->addChild($curador, $adminMetodos);
+        $auth->addChild($curador, $adminTaxonomia);
+        
         $auth->addChild($adminBase, $adminProjeto);
         $auth->addChild($adminBase, $adminCuradoria);
         $auth->addChild($adminBase, $adminPesquisadores);
         $auth->addChild($adminBase, $admColetas);
         $auth->addChild($adminBase, $adminUnidadeGeografica);
+        $auth->addChild($adminBase, $adminTipoDados);
         
-        $auth->assign($adminBase,1);
+        //Arruma hierarquia
+        $auth->addChild($colaboradorProjeto, $operadorColeta);
+        $auth->addChild($colaboradorProjeto, $operadorUnidadeGeografica);
+        $auth->addChild($colaboradorProjeto, $operadorVisualizador);
+        $auth->addChild($colaboradorProjeto, $operadorExportar);
         
+        $auth->addChild($adminProjetoRole, $colaboradorProjeto);
+        
+        $auth->addChild($adminBase, $adminProjetoRole);
+        $auth->addChild($adminBase, $curador);
     }
 }

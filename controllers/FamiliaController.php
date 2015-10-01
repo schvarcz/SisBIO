@@ -16,6 +16,22 @@ use yii\helpers\Url;
 class FamiliaController extends Controller
 {
 
+    public function behaviors()
+    {
+        return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'actions' => ['index', 'create','delete', 'update', 'view'],
+                        'roles' => ['adminTaxonomia'],
+                    ],
+                ],
+            ],
+        ];
+    }
+
     /**
      * Lists all Familia models.
      * @return mixed

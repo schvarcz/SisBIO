@@ -23,6 +23,7 @@ class Pesquisador extends \app\models\base\Pesquisador implements \yii\web\Ident
             'senha' => Yii::t('app', 'Senha'),
             'foto' => Yii::t('app', 'Foto'),
             'Resumo' => Yii::t('app', 'Resumo'),
+            'isAdminBase' => Yii::t('app', 'Administrador da Base'),
         ];
     }
 
