@@ -46,10 +46,17 @@ class RbacController extends Controller
         
         
         
-        
+        $responsavelProjetoRule = new \app\rbac\ResponsavelProjetoRule;
+        $auth->add($responsavelProjetoRule);
         $deletarProjetoProprio = $auth->createPermission('deletarProjetoProprio');
         $deletarProjetoProprio->description = 'Deletar projeto';
+        $deletarProjetoProprio->ruleName = $responsavelProjetoRule->name;
         $auth->add($deletarProjetoProprio);
+        
+        $trocarResponsavelProjeto = $auth->createPermission('trocarResponsavelProjeto');
+        $trocarResponsavelProjeto->description = 'Trocar reponsável por projeto';
+        $trocarResponsavelProjeto->ruleName = $responsavelProjetoRule->name;
+        $auth->add($trocarResponsavelProjeto);
         
         
         
@@ -58,34 +65,44 @@ class RbacController extends Controller
         $enviarConvites->description = 'Convidar novas pessoas ao sistema';
         $auth->add($enviarConvites);
         
+        $colaboradorProjetoRule = new \app\rbac\ColaboradorProjetoRule;
+        $auth->add($colaboradorProjetoRule);
+        
         $adicionarOperadores = $auth->createPermission('adicionarOperadores');
         $adicionarOperadores->description = 'Atribuir funções de operador da base';
+        $adicionarOperadores->ruleName = $colaboradorProjetoRule->name;
         $auth->add($adicionarOperadores);
         
         $editarProjeto = $auth->createPermission('editarProjeto');
         $editarProjeto->description = 'Editar projeto';
+        $editarProjeto->ruleName = $colaboradorProjetoRule->name;
         $auth->add($editarProjeto);
         
         $criarSubprojeto = $auth->createPermission('criarSubprojeto');
         $criarSubprojeto->description = 'Criar subprojetos';
+        $criarSubprojeto->ruleName = $colaboradorProjetoRule->name;
         $auth->add($criarSubprojeto);
         
         
         
         
+        
+        $visualizadorProjetoRule = new \app\rbac\VisualizadorProjetoRule;
+        $auth->add($visualizadorProjetoRule);
+        $verProjeto = $auth->createPermission('verProjeto');
+        $verProjeto->description = 'Visualizar dados do projeto';
+        $verProjeto->ruleName = $visualizadorProjetoRule->name;
+        $auth->add($verProjeto);
+        
         $adminColetaProjeto = $auth->createPermission('adminColetaProjeto');
         $adminColetaProjeto->description = 'Administrar coletas do projeto';
         $auth->add($adminColetaProjeto);
-        $auth->addChild($adminColetaProjeto,$admColetas);
+        $auth->addChild($adminColetaProjeto,$verProjeto);
         
         $adminUnidadeGeograficaProjeto = $auth->createPermission('adminUnidadeGeograficaProjeto');
         $adminUnidadeGeograficaProjeto->description = 'Administrar Uniidades Geográficas do projeto';
         $auth->add($adminUnidadeGeograficaProjeto);
-        $auth->addChild($adminUnidadeGeograficaProjeto,$adminUnidadeGeografica);
-        
-        $verProjeto = $auth->createPermission('verProjeto');
-        $verProjeto->description = 'Visualizar dados do projeto';
-        $auth->add($verProjeto);
+        $auth->addChild($adminUnidadeGeograficaProjeto,$verProjeto);
         
         $exportar = $auth->createPermission('exportar');
         $exportar->description = 'Exportação dados do projeto';
@@ -113,7 +130,7 @@ class RbacController extends Controller
         
         
         
-        // Cria todas "role" e hierarquia
+        // Cria todas "role"
         $operadorColeta = $auth->createRole('operadorColeta');
         $operadorColeta->description = "Operador da base";
         $auth->add($operadorColeta);
@@ -163,6 +180,7 @@ class RbacController extends Controller
         $auth->addChild($colaboradorProjeto, $criarSubprojeto);
         
         $auth->addChild($adminProjetoRole, $deletarProjetoProprio);
+        $auth->addChild($adminProjetoRole, $trocarResponsavelProjeto);
         
         $auth->addChild($curador, $adminDescritores);
         $auth->addChild($curador, $adminOrganismo);
@@ -186,5 +204,9 @@ class RbacController extends Controller
         
         $auth->addChild($adminBase, $adminProjetoRole);
         $auth->addChild($adminBase, $curador);
+        
+        
+        $auth->assign($adminBase,1);
+        $auth->assign($adminProjetoRole,1);
     }
 }

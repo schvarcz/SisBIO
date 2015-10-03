@@ -9,6 +9,7 @@ use Yii;
  */
 class Pesquisador extends \app\models\base\Pesquisador implements \yii\web\IdentityInterface
 {
+    private $mRoles;
 
     /**
      * @inheritdoc
@@ -122,6 +123,39 @@ class Pesquisador extends \app\models\base\Pesquisador implements \yii\web\Ident
     {
         $this->authKey = $this->getAuthKey();
         return $this->save();
+    }
+    
+    public function afterFind()
+    {
+        parent::afterFind();
+        $auth = \Yii::$app->authManager;
+        $this->mRoles = $auth->getRolesByUser($this->id);
+    }
+    
+    public function getRoles()
+    {
+        return $this->mRoles;
+    }
+    
+    /**
+     * Verify if this user has a role.
+     *
+     * @param  string|\yii\rbac\Role  $role 
+     * @return boolean if the user has the specified role
+     */
+    public function hasRole($role)
+    {
+        if (is_string($role))
+        {
+            $auth = \Yii::$app->authManager;
+            $role = $auth->getRole($role);
+        }
+        
+        if ($role instanceof \yii\rbac\Role)
+        {
+            return in_array($role, $this->mRoles);
+        }
+        return false;
     }
 
 }

@@ -19,7 +19,12 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <div class="clearfix">
         <p class="pull-left">
-            <?= Html::a('<span class="glyphicon glyphicon-plus"></span> Novo Projeto', ['create'], ['class' => 'btn btn-success']) ?>
+            <?php
+                if (\Yii::$app->user->can("adminBase"))
+                {
+                    echo Html::a('<span class="glyphicon glyphicon-plus"></span> Novo Projeto', ['create'], ['class' => 'btn btn-success']);
+                }
+            ?>
         </p>
 
         <div class="pull-right">
@@ -92,6 +97,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'idProjetoPai0.Nome:text:Projeto Pai',
             [
                 'class' => 'yii\grid\ActionColumn',
+                'template' => '{view}'.(\Yii::$app->user->can("editarProjeto")?' {update}':'').(\Yii::$app->user->can("adminBase")?' {delete}':''),
                 'urlCreator' => function($action, $model, $key, $index)
                 {
                     // using the column name as key, not mapping to 'id' like the standard generator

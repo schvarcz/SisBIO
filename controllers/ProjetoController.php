@@ -6,7 +6,6 @@ use app\models\Projeto;
 use app\models\ProjetoSearch;
 use yii\web\Controller;
 use yii\web\HttpException;
-use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use yii\helpers\Url;
 use app\models\Pesquisador;
@@ -26,13 +25,23 @@ class ProjetoController extends Controller
                 'rules' => [
                     [
                         'allow' => true,
-                        'actions' => ['index', 'create','delete', 'update', 'view', 'addpermissao'],
-                        'roles' => ['@'],
+                        'actions' => ['create'],
+                        'roles' => ['adminBase','adminProjeto', 'colaboradorProjeto'],
                     ],
                     [
                         'allow' => true,
-                        'actions' => ['findprojeto'],
-                        'roles' => ['@'],
+                        'actions' => ['index', 'view', 'findprojeto'],
+                        'roles' => ['adminBase','adminProjeto', 'colaboradorProjeto','verProjeto'],
+                    ],
+                    [
+                        'allow' => true,
+                        'actions' => ['update', 'addpermissao'],
+                        'roles' => ['adminBase','adminProjeto', 'colaboradorProjeto'],
+                    ],
+                    [
+                        'allow' => true,
+                        'actions' => ['delete'],
+                        'roles' => ['adminBase','adminProjeto'],
                     ],
                 ],
             ],
@@ -63,9 +72,14 @@ class ProjetoController extends Controller
     public function actionView($idProjeto)
     {
         Url::remember();
-        return $this->render('view', [
-                    'model' => $this->findModel($idProjeto),
-        ]);
+        $model = $this->findModel($idProjeto);
+        if(\Yii::$app->user->can("verProjeto",["projeto"=>$model]))
+        {
+            return $this->render('view', [
+                        'model' => $model,
+            ]);
+        }
+        throw new HttpException(403,"You are not allowed to perform this action.");
     }
 
     /**
@@ -75,6 +89,21 @@ class ProjetoController extends Controller
      */
     public function actionCreate()
     {
+        $user = \Yii::$app->user;
+        if(!$user->can("adminBase"))
+        {
+            if (isset($_REQUEST["Projeto"]) && isset($_REQUEST["Projeto"]["idProjetoPai"]))
+            {
+                $model = $this->findModel($_REQUEST["Projeto"]["idProjetoPai"]);
+                if (!$user->can("editarProjeto", ["projeto" => $model]))
+                {
+                    throw new HttpException(403, "You are not allowed to perform this action.");
+                }
+            } else
+            {
+                throw new HttpException(403, "You are not allowed to perform this action.");
+            }
+        }
         $model = new Projeto;
 
         try
@@ -104,15 +133,19 @@ class ProjetoController extends Controller
     {
         $model = $this->findModel($idProjeto);
         
-        if ($model->saveWithRelated($_POST))
+        if(\Yii::$app->user->can("editarProjeto",["projeto"=>$model]))
         {
-            return $this->redirect(Url::previous());
-        } else
-        {
-            return $this->render('update', [
-                        'model' => $model,
-            ]);
+            if ($model->saveWithRelated($_POST))
+            {
+                return $this->redirect(Url::previous());
+            } else
+            {
+                return $this->render('update', [
+                            'model' => $model,
+                ]);
+            }
         }
+        throw new HttpException(403,"You are not allowed to perform this action.");
     }
 
     /**
@@ -123,8 +156,13 @@ class ProjetoController extends Controller
      */
     public function actionDelete($idProjeto)
     {
-        $this->findModel($idProjeto)->delete();
-        return $this->redirect(Url::previous());
+        $model = $this->findModel($idProjeto);
+        if(\Yii::$app->user->can("deletarProjetoProprio",["projeto"=>$model]))
+        {
+            $model->delete();
+            return $this->redirect(Url::previous());
+        }
+        throw new HttpException(403,"You are not allowed to perform this action.");
     }
 
     /**

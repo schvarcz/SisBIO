@@ -46,7 +46,39 @@ class ProjetoSearch extends Model
 
     public function search($params)
     {
-        $query = Projeto::find();
+        $query = null;
+        
+        if (\Yii::$app->user->can("adminBase"))
+        {
+            $query = Projeto::find();
+        }
+        else
+        {
+            if (\Yii::$app->user->can("adminProjeto"))
+            {
+                $query = Projeto::find();
+                $query->orWhere(["idPesquisadorResponsavel" => \Yii::$app->user->id]);
+            }
+            if (\Yii::$app->user->can("colaboradorProjeto"))
+            {
+                if (is_null($query))
+                {
+                    $query = Projeto::find();
+                }
+                $query->joinWith("idPesquisadores");
+                $query->orWhere(["Pesquisador_has_Projeto.idPesquisador" => \Yii::$app->user->id]);
+            }
+            if (\Yii::$app->user->can("operadorColeta"))
+            {
+                if (is_null($query))
+                {
+                    $query = Projeto::find();
+                }
+                $query->joinWith("pesquisadorHasPermissoes");
+                $query->orWhere(["Pesquisador_has_Permissoes.idPesquisador" => \Yii::$app->user->id]);
+            }
+        }
+        
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
         ]);

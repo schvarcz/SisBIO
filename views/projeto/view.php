@@ -17,11 +17,21 @@ $this->params['breadcrumbs'][] = 'Detalhes';
 <div class="projeto-view">
 
     <p class='pull-left'>
-        <?= Html::a('<span class="glyphicon glyphicon-pencil"></span> Editar', ['update', 'idProjeto' => $model->idProjeto], ['class' => 'btn btn-info'])
+        <?php
+            if (\Yii::$app->user->can("editarProjeto", ["projeto" => $model]))
+            {
+                echo Html::a('<span class="glyphicon glyphicon-pencil"></span> Editar', ['update', 'idProjeto' => $model->idProjeto], ['class' => 'btn btn-info']);
+            }
         ?>
-        <?= Html::a('<span class="glyphicon glyphicon-plus"></span> Novo Projeto', ['create'], ['class' => 'btn
-        btn-success']) ?>
-    </p>
+        <?php
+            if (\Yii::$app->user->can("adminBase"))
+            {
+                echo Html::a('<span class="glyphicon glyphicon-plus"></span> Novo Projeto', ['create'], ['class' => 'btn
+            btn-success']);
+            }
+        ?>
+
+        </p>
 
     <p class='pull-right'>
         <?= Html::a('<span class="glyphicon glyphicon-list"></span> Lista', ['index'], ['class' => 'btn btn-default']) ?>
@@ -66,11 +76,13 @@ $this->params['breadcrumbs'][] = 'Detalhes';
     <hr/>
 
     <?php
-    echo Html::a('<span class="glyphicon glyphicon-trash"></span> Deletar', ['delete', 'idProjeto' => $model->idProjeto], [
-        'class' => 'btn btn-danger',
-        'data-confirm' => Yii::t('app', 'Tem certeza que quer deletar esse item?'),
-        'data-method' => 'post',
-    ]);
+    
+        if(\Yii::$app->user->can("deletarProjetoProprio",["projeto"=>$model]))
+            echo Html::a('<span class="glyphicon glyphicon-trash"></span> Deletar', ['delete', 'idProjeto' => $model->idProjeto], [
+                'class' => 'btn btn-danger',
+                'data-confirm' => Yii::t('app', 'Tem certeza que quer deletar esse item?'),
+                'data-method' => 'post',
+            ]);
     ?>
 
     <?php $this->endBlock(); ?>

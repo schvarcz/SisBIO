@@ -26,21 +26,35 @@ $this->registerJsFile(Yii::$app->homeUrl . "js/projeto.js", [ "depends" => ['yii
         <p>
 
             <?= Html::activeHiddenInput($model, 'idProjetoPai') ?>
-            <?= $form->field($model, 'Nome')->textInput(['maxlength' => 255]) ?>
-            <?=
-            $form->field($model, 'idPesquisadorResponsavel')->widget(\app\widgets\Select2Active\Select2Active::classname(), [
-                'pluginOptions' => [
-                    'allowClear' => true,
-                    'ajax' => [
-                        'url' => yii\helpers\Url::to(["pesquisador/findpesquisador"]),
-                        'dataType' => 'json',
-                        'data' => new JsExpression('function(term,page) { return {pesquisador:term.term}; }'),
-                        'results' => new JsExpression('function(data,page) { return {results:data.results}; }'),
+            <?php
+            if (\Yii::$app->user->can("trocarResponsavelProjeto", ["projeto" => $model])
+                    || (!is_null($model->idProjetoPai) && \Yii::$app->user->can("editarProjeto", ["projeto" => app\models\Projeto::findOne(["idProjeto" =>$model->idProjetoPai])]))
+                    )
+            {
+                echo $form->field($model, 'idPesquisadorResponsavel')->widget(\app\widgets\Select2Active\Select2Active::classname(), [
+                    'pluginOptions' => [
+                        'allowClear' => true,
+                        'ajax' => [
+                            'url' => yii\helpers\Url::to(["pesquisador/findpesquisador"]),
+                            'dataType' => 'json',
+                            'data' => new JsExpression('function(term,page) { return {pesquisador:term.term}; }'),
+                            'results' => new JsExpression('function(data,page) { return {results:data.results}; }'),
+                        ],
+                        'initSelection' => true
                     ],
-                    'initSelection' => true
-                ],
-            ]);
+                ]);
+            }
+            else
+            {
+                echo Html::tag("div",
+                        Html::activeLabel($model, 'idPesquisadorResponsavel', ["class" => "control-label col-sm-3"]).
+                        Html::tag("div",
+                                $model->idPesquisadorResponsavel0->label.Html::activeHiddenInput($model, 'idPesquisadorResponsavel')
+                                , ["class" => "col-sm-6", "style"=>"padding-top:7px"])
+                        ,["class" => "form-group field-projeto-idpesquisadorresponsavel"]);
+            }
             ?>
+            <?= $form->field($model, 'Nome')->textInput(['maxlength' => 255]) ?>
             <?=
             $form->field($model, 'idPesquisadores')->widget(\app\widgets\Select2Active\Select2Active::classname(), [
                 'options' => [
