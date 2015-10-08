@@ -20,7 +20,7 @@ class ColaboradorProjetoRule extends Rule
      */
     public function execute($user, $item, $params)
     {
-        if (\Yii::$app->user->can("deletarProjetoProprio",$params))
+        if (\Yii::$app->user->can("deletarProjeto",$params))
         {
             return true;
         }
@@ -32,6 +32,10 @@ class ColaboradorProjetoRule extends Rule
                 {
                     return true;
                 }
+            }
+            if ($params['projeto']->idProjetoPai)
+            {
+                return \Yii::$app->user->can("editarProjeto", ["projeto" => $params['projeto']->idProjetoPai0]);
             }
         }
         else

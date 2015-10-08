@@ -8,9 +8,9 @@ namespace app\rbac;
 
 use yii\rbac\Rule;
 
-class VisualizadorProjetoRule extends Rule
+class AdmUnidadeGeograficaRule extends Rule
 {
-    public $name = "VisualizadorProjeto";
+    public $name = "AdmUnidadeGeografica";
     
     /**
      * @param string|integer $user the user ID.
@@ -26,23 +26,17 @@ class VisualizadorProjetoRule extends Rule
         }
         if(isset($params['projeto']))
         {
-            foreach($params['projeto']->getPesquisadoresWhoHasPermissoes()->all() as $pesquisador)
+            //ver se ele está vinculado como operador de unidade geografica do projeto.
+            foreach($params['projeto']->getViewPesquisadorPermissoes()->andWhere(["idPesquisador" => \yii::$app->user->id])->all() as $permissao)
             {
-                if ($pesquisador->idPesquisador == $user)
+                if ($permissao->attributes["Administrar Unidades Geográficas"])
                 {
                     return true;
                 }
             }
             if ($params['projeto']->idProjetoPai)
             {
-                return \Yii::$app->user->can("verProjeto", ["projeto" => $params['projeto']->idProjetoPai0]);
-            }
-        }
-        else
-        {
-            if (\app\models\Projeto::find()->joinWith("pesquisadorHasPermissoes")->andWhere(["idPesquisador" => $user])->count() != 0)
-            {
-                return true;
+                return \Yii::$app->user->can("editarProjeto", ["projeto" => $params['projeto']->idProjetoPai0]);
             }
         }
         return false;

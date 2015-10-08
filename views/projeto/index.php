@@ -97,7 +97,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'idProjetoPai0.Nome:text:Projeto Pai',
             [
                 'class' => 'yii\grid\ActionColumn',
-                'template' => '{view}'.(\Yii::$app->user->can("editarProjeto")?' {update}':'').(\Yii::$app->user->can("adminBase")?' {delete}':''),
+                'template' => '{view}'.(\Yii::$app->user->can("editarProjeto")?' {update}':'').(\Yii::$app->user->can("deletarProjeto")?' {delete}':''),
                 'urlCreator' => function($action, $model, $key, $index)
                 {
                     // using the column name as key, not mapping to 'id' like the standard generator

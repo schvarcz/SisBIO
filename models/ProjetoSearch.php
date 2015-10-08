@@ -52,31 +52,16 @@ class ProjetoSearch extends Model
         {
             $query = Projeto::find();
         }
-        else
+        elseif (\Yii::$app->user->can("verProjeto"))
         {
-            if (\Yii::$app->user->can("adminProjeto"))
-            {
-                $query = Projeto::find();
-                $query->orWhere(["idPesquisadorResponsavel" => \Yii::$app->user->id]);
-            }
-            if (\Yii::$app->user->can("colaboradorProjeto"))
-            {
-                if (is_null($query))
-                {
-                    $query = Projeto::find();
-                }
-                $query->joinWith("idPesquisadores");
-                $query->orWhere(["Pesquisador_has_Projeto.idPesquisador" => \Yii::$app->user->id]);
-            }
-            if (\Yii::$app->user->can("operadorColeta"))
-            {
-                if (is_null($query))
-                {
-                    $query = Projeto::find();
-                }
-                $query->joinWith("pesquisadorHasPermissoes");
-                $query->orWhere(["Pesquisador_has_Permissoes.idPesquisador" => \Yii::$app->user->id]);
-            }
+            $query = Projeto::find();
+            $query->orWhere(["idPesquisadorResponsavel" => \Yii::$app->user->id]);
+            
+            $query->joinWith("idPesquisadores");
+            $query->orWhere(["Pesquisador_has_Projeto.idPesquisador" => \Yii::$app->user->id]);
+                
+            $query->joinWith("pesquisadorHasPermissoes");
+            $query->orWhere(["Pesquisador_has_Permissoes.idPesquisador" => \Yii::$app->user->id]);
         }
         
         $dataProvider = new ActiveDataProvider([

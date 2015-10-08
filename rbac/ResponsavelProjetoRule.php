@@ -20,9 +20,22 @@ class ResponsavelProjetoRule extends Rule
      */
     public function execute($user, $item, $params)
     {
+        if (\Yii::$app->user->can("adminBase"))
+        {
+            return true;
+        }
+        
         if (isset($params['projeto']))
         {
-            return (\Yii::$app->user->can("adminBase") || $params['projeto']->idPesquisadorResponsavel == $user);
+            if ($params['projeto']->idPesquisadorResponsavel == $user)
+            {
+                return true;
+            }
+
+            if ($params['projeto']->idProjetoPai)
+            {
+                return \Yii::$app->user->can("deletarProjeto", ["projeto" => $params['projeto']->idProjetoPai0]);
+            }
         }
         else
         {

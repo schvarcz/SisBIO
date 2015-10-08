@@ -35,9 +35,9 @@ class RbacController extends Controller
         $admColetas->description = 'Administrador de todas coletas';
         $auth->add($admColetas);
         
-        $adminUnidadeGeografica = $auth->createPermission('adminUnidadeGeografica');
-        $adminUnidadeGeografica->description = 'Administrador de todas Unidades Geográficas';
-        $auth->add($adminUnidadeGeografica);
+        $adminUnidadeGeograficaSUPER = $auth->createPermission('adminUnidadeGeograficaSUPER');
+        $adminUnidadeGeograficaSUPER->description = 'Administrador de todas Unidades Geográficas';
+        $auth->add($adminUnidadeGeograficaSUPER);
         
         $adminTipoDados = $auth->createPermission('adminTipoDados');
         $adminTipoDados->description = 'Administrar Tipos de dados';
@@ -48,7 +48,7 @@ class RbacController extends Controller
         
         $responsavelProjetoRule = new \app\rbac\ResponsavelProjetoRule;
         $auth->add($responsavelProjetoRule);
-        $deletarProjetoProprio = $auth->createPermission('deletarProjetoProprio');
+        $deletarProjetoProprio = $auth->createPermission('deletarProjeto');
         $deletarProjetoProprio->description = 'Deletar projeto';
         $deletarProjetoProprio->ruleName = $responsavelProjetoRule->name;
         $auth->add($deletarProjetoProprio);
@@ -99,10 +99,13 @@ class RbacController extends Controller
         $auth->add($adminColetaProjeto);
         $auth->addChild($adminColetaProjeto,$verProjeto);
         
-        $adminUnidadeGeograficaProjeto = $auth->createPermission('adminUnidadeGeograficaProjeto');
-        $adminUnidadeGeograficaProjeto->description = 'Administrar Uniidades Geográficas do projeto';
-        $auth->add($adminUnidadeGeograficaProjeto);
-        $auth->addChild($adminUnidadeGeograficaProjeto,$verProjeto);
+        $admUnidadeGeograficaRule = new \app\rbac\AdmUnidadeGeograficaRule;
+        $auth->add($admUnidadeGeograficaRule);
+        $adminUnidadeGeografica = $auth->createPermission('adminUnidadeGeografica');
+        $adminUnidadeGeografica->description = 'Administrar Uniidades Geográficas';
+        $adminUnidadeGeografica->ruleName = $admUnidadeGeograficaRule->name;
+        $auth->add($adminUnidadeGeografica);
+        $auth->addChild($adminUnidadeGeografica,$verProjeto);
         
         $exportar = $auth->createPermission('exportar');
         $exportar->description = 'Exportação dados do projeto';
@@ -168,7 +171,7 @@ class RbacController extends Controller
         //Atribui permissoes
         $auth->addChild($operadorColeta, $adminColetaProjeto);
         
-        $auth->addChild($operadorUnidadeGeografica, $adminUnidadeGeograficaProjeto);
+        $auth->addChild($operadorUnidadeGeografica, $adminUnidadeGeografica);
         
         $auth->addChild($operadorVisualizador, $verProjeto);
         
@@ -190,9 +193,9 @@ class RbacController extends Controller
         $auth->addChild($adminBase, $adminProjeto);
         $auth->addChild($adminBase, $adminCuradoria);
         $auth->addChild($adminBase, $adminPesquisadores);
-        $auth->addChild($adminBase, $admColetas);
-        $auth->addChild($adminBase, $adminUnidadeGeografica);
-        $auth->addChild($adminBase, $adminTipoDados);
+        $auth->addChild($adminBase, $admColetas); //Precisa?
+        $auth->addChild($adminBase, $adminUnidadeGeograficaSUPER);//Precisa?
+        $auth->addChild($adminBase, $adminTipoDados);//Precisa?
         
         //Arruma hierarquia
         $auth->addChild($colaboradorProjeto, $operadorColeta);
@@ -207,6 +210,6 @@ class RbacController extends Controller
         
         
         $auth->assign($adminBase,1);
-        $auth->assign($adminProjetoRole,1);
+        $auth->assign($adminProjetoRole,2);
     }
 }
