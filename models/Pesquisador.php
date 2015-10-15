@@ -28,7 +28,7 @@ class Pesquisador extends \app\models\base\Pesquisador implements \yii\web\Ident
 
     public function beforeSave($event)
     {
-        if ($this->senha != $this->oldAttributes["senha"])
+        if (array_key_exists("senha",$this->oldAttributes) && $this->senha != $this->oldAttributes["senha"])
         {
             $this->senha = md5($this->senha);
             $this->authKey = Null;
