@@ -43,15 +43,26 @@ var methodsMetodo = {
         $("#coleta-idtipoorganismo").val(idTipoOrganismo);
 
         $(".plus-coleta").coletaPlus("updateTipoOrganismo", idTipoOrganismo);
-        $("#coleta-idpesquisadores, .plus-coleta-input").prop("disabled", false);
+        $(".plus-coleta-input").prop("disabled", false);
         $('.plus-coleta-input').val(null).trigger("change");
     }, 
     unselect: function () {
         var idTipoOrganismo=null;
         $("#coleta-idtipoorganismo").val(idTipoOrganismo);
         $('.plus-coleta').coletaPlus('updateTipoOrganismo', idTipoOrganismo);
-        $('#coleta-idpesquisadores, .plus-coleta-input').prop('disabled', true);
+        $('.plus-coleta-input').prop('disabled', true);
         $('.plus-coleta-input').val(null).trigger("change"); 
+    }
+}
+
+var methodsProjeto = {
+    select: function (e) {
+        $("#coleta-idunidadegeografica").prop("disabled", false);
+        $('#coleta-idunidadegeografica').val(null).trigger("change");
+    }, 
+    unselect: function () {
+        $('#coleta-idunidadegeografica').prop('disabled', true);
+        $('#coleta-idunidadegeografica').val(null).trigger("change"); 
     }
 }
 

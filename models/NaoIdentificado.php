@@ -26,7 +26,7 @@ class NaoIdentificado extends \app\models\base\NaoIdentificado
             'idPesquisadorIdentificacao' => Yii::t('app', 'Responsável pela identificação'),
             'Data_Registro' => Yii::t('app', 'Data de  Registro'),
             'Data_Identificacao' => Yii::t('app', 'Data de Identificação'),
-            'MorfoEspecie' => Yii::t('app', 'Morfo Espécie'),
+            'MorfoEspecie' => Yii::t('app', 'Morfoespécie'),
             'idFilo' => Yii::t('app', 'Filo'),
             'idOrdem' => Yii::t('app', 'Ordem'),
             'idFamilia' => Yii::t('app', 'Família'),

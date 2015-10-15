@@ -24,6 +24,7 @@ class Coleta extends \app\models\base\Coleta
             'coordenadaGeografica' => Yii::t('app', 'Coordenada Geográfica'),
             'idPesquisadores' => Yii::t('app', 'Pesquisadores'),
             'idPesquisadorRegistro' => Yii::t('app', 'Pesquisador responsável pelo registro'),
+            'idProjeto' => Yii::t('app', 'Projeto'),
         ];
     }
 

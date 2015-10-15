@@ -128,7 +128,7 @@ class UnidadeGeograficaController extends Controller
      * @param int $id PK of UnidadeGeografica
      * @return Json the list of models
      */
-    public function actionFindug($nomeUnidadeGeografica = null, $id = null,$idProjeto = null)
+    public function actionFindug($nomeUnidadeGeografica = null, $id = null, $idProjeto = null)
     {
         $out = [];
 
@@ -163,29 +163,40 @@ class UnidadeGeograficaController extends Controller
      * @param int $id PK of UnidadeGeografica
      * @return Json the list of models
      */
-    public function actionFindugbyprojeto($nomeUnidadeGeografica = null, $id = null,$idProjeto = null)
+    public function actionFindugbyprojeto($nomeUnidadeGeografica = null, $id = null, $idProjeto = null)
     {
         $out = [];
 
         if (!is_null($nomeUnidadeGeografica))
         {
-            $unidades = UnidadeGeografica::find()->andWhere(["like", "Nome", $nomeUnidadeGeografica])->andWhere(["idProjeto"=> $idProjeto])->all();
+            $query = UnidadeGeografica::find()->andWhere(["like", "Nome", $nomeUnidadeGeografica]);
+            if (!(is_null($idProjeto) || empty($idProjeto)))
+            {
+                $query->andWhere(["idProjeto" => $idProjeto]);
+            }
+            $unidades = $query->all();
             $json = [];
             foreach ($unidades as $unidade)
             {
-                $json[] = ["id" => $unidade->primaryKey, "text" => $unidade->getLabel()];
+                $json[] = ["id" => $unidade->primaryKey, "text" => $unidade->getLabel(), "Projeto"=> ["id" => $unidade->idProjeto0->primaryKey, "text" => $unidade->idProjeto0->getLabel()]];
             }
             $out['results'] = $json;
         } elseif ($id > 0)
         {
-            $out['results'] = ['id' => $id, 'text' => UnidadeGeografica::findOne($id)->getLabel()];
-        } else if (!is_null($idProjeto))
+            $unidade = UnidadeGeografica::findOne($id);
+            $out['results'] = ['id' => $id, 'text' => $unidade->getLabel(), "Projeto"=> ["id" => $unidade->idProjeto0->primaryKey, "text" => $unidade->idProjeto0->getLabel()]];
+        } else
         {
-            $unidades = UnidadeGeografica::find()->where(["idProjeto"=> $idProjeto])->all();
+            $query = UnidadeGeografica::find();
+            if (!(is_null($idProjeto) || empty($idProjeto)))
+            {
+                $query->where(["idProjeto" => $idProjeto]);
+            }
+            $unidades = $query->all();
             $json = [];
             foreach ($unidades as $unidade)
             {
-                $json[] = ["id" => $unidade->primaryKey, "text" => $unidade->getLabel()];
+                $json[] = ["id" => $unidade->primaryKey, "text" => $unidade->getLabel(), "Projeto"=> ["id" => $unidade->idProjeto0->primaryKey, "text" => $unidade->idProjeto0->getLabel()]];
             }
             $out['results'] = $json;
         }

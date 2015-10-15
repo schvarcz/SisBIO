@@ -96,14 +96,36 @@ $this->registerJs($script);
         ]);
         ?>
         <?=
-        $form->field($model, 'idUnidadeGeografica')->widget(\app\widgets\Select2Active\Select2Active::classname(), [
-            'options' => ['placeholder' => 'Nome da unidade geográfica'],
+        $form->field($model, 'idProjeto')->widget(\app\widgets\Select2Active\Select2Active::classname(), [
+            'options' => ['placeholder' => 'Projeto da coleta'],
             'pluginOptions' => [
                 'allowClear' => true,
                 'ajax' => [
-                    'url' => yii\helpers\Url::to(["unidade-geografica/findug"]),
+                    'url' => yii\helpers\Url::to(["projeto/findprojeto"]),
                     'dataType' => 'json',
-                    'data' => new JsExpression('function(term,page) { return {nomeUnidadeGeografica:term.term}; }'),
+                    'data' => new JsExpression('function(term,page) { return {nomeProjeto:term.term}; }'),
+                    'results' => new JsExpression('function(data,page) { return {results:data.results}; }'),
+                ],
+                'initSelection' => true
+            ],
+            'pluginEvents' => [
+                'select2:select' => 'function(e) { methodsProjeto.select(e); }',
+                "select2:unselect" => "function(e) { methodsProjeto.unselect(); }"
+            ],
+        ]);
+        ?>
+        <?=
+        $form->field($model, 'idUnidadeGeografica')->widget(\app\widgets\Select2Active\Select2Active::classname(), [
+            'options' => [
+                'placeholder' => 'Nome da unidade geográfica',
+                'disabled' => $model->idProjeto == null
+            ],
+            'pluginOptions' => [
+                'allowClear' => true,
+                'ajax' => [
+                    'url' => yii\helpers\Url::to(["unidade-geografica/findugbyprojeto"]),
+                    'dataType' => 'json',
+                    'data' => new JsExpression('function(term,page) { return {nomeUnidadeGeografica:term.term,idProjeto: $("#coleta-idprojeto").val()}; }'),
                     'results' => new JsExpression('function(data,page) { return {results:data.results}; }'),
                 ],
                 'initSelection' => true
@@ -135,7 +157,6 @@ $this->registerJs($script);
         $form->field($model, 'idPesquisadores')->widget(\app\widgets\Select2Active\Select2Active::classname(), [
             'options' => [
                 "multiple" => true,
-                'disabled' => $model->idMetodo == null
             ],
             'pluginOptions' => [
                 'allowClear' => true,

@@ -15,18 +15,19 @@ use Yii;
  * @property integer $idTipoOrganismo
  * @property string $coordenadaGeografica
  * @property integer $idPesquisadorRegistro
+ * @property integer $idProjeto
  *
  * @property Metodo $idMetodo0
- * @property TipoOrganismo $idTipoOrganismo0
  * @property Pesquisador $idPesquisadorRegistro0
+ * @property Projeto $idProjeto0
+ * @property TipoOrganismo $idTipoOrganismo0
  * @property UnidadeGeografica $idUnidadeGeografica0
  * @property ColetaItem[] $coletaItems
- * @property ColetaHasPesquisador[] $coletaHasPesquisadors
+ * @property ColetaHasPesquisador[] $coletaHasPesquisadores
  * @property Pesquisador[] $idPesquisadores
  */
 class Coleta extends \app\models\MActiveRecord
 {
-
     /**
      * @inheritdoc
      */
@@ -34,7 +35,7 @@ class Coleta extends \app\models\MActiveRecord
     {
         return 'Coleta';
     }
-
+    
     /**
      * @inheritdoc
      */
@@ -49,10 +50,10 @@ class Coleta extends \app\models\MActiveRecord
     public function rules()
     {
         return [
-            [['Data_Coleta', 'idUnidadeGeografica', 'idPesquisadorRegistro'], 'required'],
+            [['Data_Coleta', 'idUnidadeGeografica', 'idMetodo', 'idTipoOrganismo', 'idPesquisadorRegistro', 'idProjeto'], 'required'],
             [['Data_Coleta'], 'safe'],
             [['Observacao', 'coordenadaGeografica'], 'string'],
-            [['idUnidadeGeografica', 'idMetodo', 'idTipoOrganismo', 'idPesquisadorRegistro'], 'integer']
+            [['idUnidadeGeografica', 'idMetodo', 'idTipoOrganismo', 'idPesquisadorRegistro', 'idProjeto'], 'integer']
         ];
     }
 
@@ -67,8 +68,10 @@ class Coleta extends \app\models\MActiveRecord
             'Observacao' => Yii::t('app', 'Observacao'),
             'idUnidadeGeografica' => Yii::t('app', 'Id Unidade Geografica'),
             'idMetodo' => Yii::t('app', 'Id Metodo'),
+            'idTipoOrganismo' => Yii::t('app', 'Id Tipo Organismo'),
             'coordenadaGeografica' => Yii::t('app', 'Coordenada Geografica'),
             'idPesquisadorRegistro' => Yii::t('app', 'Id Pesquisador Registro'),
+            'idProjeto' => Yii::t('app', 'Id Projeto'),
         ];
     }
 
@@ -83,17 +86,25 @@ class Coleta extends \app\models\MActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getIdTipoOrganismo0()
+    public function getIdPesquisadorRegistro0()
     {
-        return $this->hasOne(\app\models\TipoOrganismo::className(), ['idTipoOrganismo' => 'idTipoOrganismo']);
+        return $this->hasOne(\app\models\Pesquisador::className(), ['idPesquisador' => 'idPesquisadorRegistro']);
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getIdPesquisadorRegistro0()
+    public function getIdProjeto0()
     {
-        return $this->hasOne(\app\models\Pesquisador::className(), ['idPesquisador' => 'idPesquisadorRegistro']);
+        return $this->hasOne(\app\models\Projeto::className(), ['idProjeto' => 'idProjeto']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getIdTipoOrganismo0()
+    {
+        return $this->hasOne(\app\models\TipoOrganismo::className(), ['idTipoOrganismo' => 'idTipoOrganismo']);
     }
 
     /**
@@ -115,7 +126,7 @@ class Coleta extends \app\models\MActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getColetaHasPesquisadors()
+    public function getColetaHasPesquisadores()
     {
         return $this->hasMany(\app\models\ColetaHasPesquisador::className(), ['idColeta' => 'idColeta']);
     }
@@ -127,13 +138,4 @@ class Coleta extends \app\models\MActiveRecord
     {
         return $this->hasMany(\app\models\Pesquisador::className(), ['idPesquisador' => 'idPesquisador'])->viaTable('Coleta_has_Pesquisador', ['idColeta' => 'idColeta']);
     }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getColetaItemPropriedades()
-    {
-        return $this->hasMany(\app\models\ColetaItemPropriedade::className(), ['idColetaItem' => 'idColetaItem'])->viaTable('ColetaItem', ['idColeta' => 'idColeta']);
-    }
-
 }

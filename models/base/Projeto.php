@@ -16,8 +16,8 @@ use Yii;
  * @property string $Descricao
  * @property integer $idProjetoPai
  *
+ * @property Coleta[] $coletas
  * @property PesquisadorHasPermissoes[] $pesquisadorHasPermissoes
- * @property Pesquisador[] $pesquisadoresWhoHasPermissoes
  * @property PesquisadorHasProjeto[] $pesquisadorHasProjetos
  * @property Pesquisador[] $idPesquisadores
  * @property Pesquisador $idPesquisadorResponsavel0
@@ -27,7 +27,6 @@ use Yii;
  */
 class Projeto extends \app\models\MActiveRecord
 {
-
     /**
      * @inheritdoc
      */
@@ -35,7 +34,7 @@ class Projeto extends \app\models\MActiveRecord
     {
         return 'Projeto';
     }
-
+    
     /**
      * @inheritdoc
      */
@@ -78,17 +77,17 @@ class Projeto extends \app\models\MActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getPesquisadorHasPermissoes()
+    public function getColetas()
     {
-        return $this->hasMany(\app\models\PesquisadorHasPermissoes::className(), ['idProjeto' => 'idProjeto']);
+        return $this->hasMany(\app\models\Coleta::className(), ['idProjeto' => 'idProjeto']);
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getPesquisadoresWhoHasPermissoes()
+    public function getPesquisadorHasPermissoes()
     {
-        return $this->hasMany(\app\models\Pesquisador::className(), ['idPesquisador' => 'idPesquisador'])->viaTable("Pesquisador_has_Permissoes", ['idProjeto' => 'idProjeto']);
+        return $this->hasMany(\app\models\PesquisadorHasPermissoes::className(), ['idProjeto' => 'idProjeto']);
     }
 
     /**
@@ -138,5 +137,4 @@ class Projeto extends \app\models\MActiveRecord
     {
         return $this->hasMany(\app\models\UnidadeGeografica::className(), ['idProjeto' => 'idProjeto']);
     }
-
 }
