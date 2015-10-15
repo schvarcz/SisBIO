@@ -6,6 +6,7 @@ use Yii;
 
 /**
  * This is the model class for table "Projeto".
+ * @property Pesquisador[] $pesquisadoresWhoHasPermissoes
  */
 class Projeto extends \app\models\base\Projeto
 {
@@ -34,6 +35,14 @@ class Projeto extends \app\models\base\Projeto
     public function getViewPesquisadorPermissoes()
     {
         return $this->hasMany(\app\models\Viewpesquisadorpermissoes::className(), ['idProjeto' => 'idProjeto']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getPesquisadoresWhoHasPermissoes()
+    {
+        return $this->hasMany(\app\models\Pesquisador::className(), ['idPesquisador' => 'idPesquisador'])->viaTable("Pesquisador_has_Permissoes", ['idProjeto' => 'idProjeto']);
     }
 
 }
