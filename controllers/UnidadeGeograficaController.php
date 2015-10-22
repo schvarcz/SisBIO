@@ -60,9 +60,14 @@ class UnidadeGeograficaController extends Controller
     public function actionView($idUnidadeGeografica)
     {
         Url::remember();
-        return $this->render('view', [
-                    'model' => $this->findModel($idUnidadeGeografica),
-        ]);
+        $model = $this->findModel($idUnidadeGeografica);
+        if(\Yii::$app->user->can("adminUnidadeGeografica",["projeto"=>$model->idProjeto0]))
+        {
+            return $this->render('view', [
+                        'model' => $model,
+            ]);
+        }
+        throw new HttpException(403,"You are not allowed to perform this action.");
     }
 
     /**
@@ -72,6 +77,11 @@ class UnidadeGeograficaController extends Controller
      */
     public function actionCreate()
     {
+        
+        if(!\Yii::$app->user->can("adminUnidadeGeografica"))
+        {
+            throw new HttpException(403,"You are not allowed to perform this action.");
+        }
         $model = new UnidadeGeografica;
 
         try
@@ -100,16 +110,19 @@ class UnidadeGeograficaController extends Controller
     public function actionUpdate($idUnidadeGeografica)
     {
         $model = $this->findModel($idUnidadeGeografica);
-
-        if ($model->load($_POST) && $model->save())
+        if(\Yii::$app->user->can("adminUnidadeGeografica",["projeto"=>$model->idProjeto0]))
         {
-            return $this->redirect(Url::previous());
-        } else
-        {
-            return $this->render('update', [
-                        'model' => $model,
-            ]);
+            if ($model->load($_POST) && $model->save())
+            {
+                return $this->redirect(Url::previous());
+            } else
+            {
+                return $this->render('update', [
+                            'model' => $model,
+                ]);
+            }
         }
+        throw new HttpException(403,"You are not allowed to perform this action.");
     }
 
     /**
@@ -120,8 +133,13 @@ class UnidadeGeograficaController extends Controller
      */
     public function actionDelete($idUnidadeGeografica)
     {
-        $this->findModel($idUnidadeGeografica)->delete();
-        return $this->redirect(Url::previous());
+        $model = $this->findModel($idUnidadeGeografica);
+        if(\Yii::$app->user->can("adminUnidadeGeografica",["projeto"=>$model->idProjeto0]))
+        {
+            $model->delete();
+            return $this->redirect(Url::previous());
+        }
+        throw new HttpException(403,"You are not allowed to perform this action.");
     }
 
     /**
