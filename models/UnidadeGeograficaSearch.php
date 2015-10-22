@@ -45,7 +45,25 @@ class UnidadeGeograficaSearch extends Model
 
     public function search($params)
     {
-        $query = UnidadeGeografica::find();
+        $query = null;
+        
+        if (\Yii::$app->user->can("adminBase"))
+        {
+            $query = UnidadeGeografica::find();
+        }
+        elseif (\Yii::$app->user->can("adminUnidadeGeografica"))
+        {
+            $query = UnidadeGeografica::find();
+            $query->joinWith("idProjeto0");
+            $query->orWhere(["idPesquisadorResponsavel" => \Yii::$app->user->id]);
+            
+            $query->joinWith("idProjeto0.idPesquisadores");
+            $query->orWhere(["Pesquisador_has_Projeto.idPesquisador" => \Yii::$app->user->id]);
+                
+            $query->joinWith("idProjeto0.pesquisadorHasPermissoes");
+            $query->orWhere(["Pesquisador_has_Permissoes.idPesquisador" => \Yii::$app->user->id,"Pesquisador_has_Permissoes.idPermissoes" => 2]);
+        }
+        
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
         ]);

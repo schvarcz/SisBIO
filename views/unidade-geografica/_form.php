@@ -41,7 +41,7 @@ use yii\web\JsExpression;
                     'ajax' => [
                         'url' => yii\helpers\Url::to(["projeto/findprojeto"]),
                         'dataType' => 'json',
-                        'data' => new JsExpression('function(term,page) { return {nomeProjeto:term.term}; }'),
+                        'data' => new JsExpression('function(term,page) { return {nomeProjeto:term.term, action:2}; }'),
                         'results' => new JsExpression('function(data,page) { return {results:data.results}; }'),
                     ],
                     'initSelection' => true

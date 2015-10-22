@@ -37,6 +37,13 @@ class VisualizadorProjetoRule extends Rule
             {
                 return \Yii::$app->user->can("verProjeto", ["projeto" => $params['projeto']->idProjetoPai0]);
             }
+            foreach (\app\models\Projeto::find()->andWhere(["idProjetoPai" => $params['projeto']->primaryKey]) as $projetoFilho)
+            {
+                if (\Yii::$app->user->can("verProjeto",["projeto"=>$projetoFilho]))
+                {
+                    return true;
+                }
+            }
         }
         else
         {

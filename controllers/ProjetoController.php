@@ -199,15 +199,16 @@ class ProjetoController extends Controller
      * Finds the Projeto model based on its name.
      * @param String $nomeProjeto
      * @param int $id PK of Projeto
+     * @param int $action PK of Permissioes
      * @return Json the list of models
      */
-    public function actionFindprojeto($nomeProjeto = null, $id = null)
+    public function actionFindprojeto($nomeProjeto = null, $id = null, $action = null)
     {
         $out = [];
 
         if (!is_null($nomeProjeto))
         {
-            $projetos = Projeto::find()->where(["like", "Nome", $nomeProjeto])->all();
+            $projetos = $this->onylAllowedProjetos(Projeto::find()->where(["like", "Projeto.Nome", $nomeProjeto]), $action)->all();
             $json = [];
             foreach ($projetos as $projeto)
             {
@@ -219,7 +220,7 @@ class ProjetoController extends Controller
             $out['results'] = ['id' => $id, 'text' => Projeto::findOne($id)->getLabel()];
         } else
         {
-            $projetos = Projeto::find()->all();
+            $projetos = $this->onylAllowedProjetos(Projeto::find(), $action)->all();
             $json = [];
             foreach ($projetos as $projeto)
             {
@@ -228,5 +229,22 @@ class ProjetoController extends Controller
             $out['results'] = $json;
         }
         return \yii\helpers\Json::encode($out);
+    }
+    
+    private function onylAllowedProjetos($projetoQuery, $operadorLevel = null)
+    {
+        if(!\Yii::$app->user->can("adminBase"))
+        {
+            $projetoQuery
+                    ->orWhere(["idPesquisadorResponsavel" => \Yii::$app->user->id])
+                    ->joinWith("idPesquisadores")
+                    ->orWhere(["Pesquisador_has_Projeto.idPesquisador" => \Yii::$app->user->id])
+                    ->joinWith("pesquisadorHasPermissoes");
+            if ($operadorLevel)
+            {
+                $projetoQuery->orWhere(["Pesquisador_has_Permissoes.idPesquisador" => \Yii::$app->user->id, "Pesquisador_has_Permissoes.idPermissoes" => $operadorLevel]);
+            }
+        }
+        return $projetoQuery;
     }
 }

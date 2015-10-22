@@ -94,18 +94,21 @@ class RbacController extends Controller
         $verProjeto->ruleName = $visualizadorProjetoRule->name;
         $auth->add($verProjeto);
         
-        $adminColetaProjeto = $auth->createPermission('adminColetaProjeto');
+        $admColetaRule = new \app\rbac\AdmColetaProjetoRule;
+        $auth->add($admColetaRule);
+        $adminColetaProjeto = $auth->createPermission('adminColeta');
         $adminColetaProjeto->description = 'Administrar coletas do projeto';
+        $adminColetaProjeto->ruleName = $admColetaRule->name;
         $auth->add($adminColetaProjeto);
         $auth->addChild($adminColetaProjeto,$verProjeto);
         
         $admUnidadeGeograficaRule = new \app\rbac\AdmUnidadeGeograficaRule;
         $auth->add($admUnidadeGeograficaRule);
-        $adminUnidadeGeografica = $auth->createPermission('adminUnidadeGeografica');
-        $adminUnidadeGeografica->description = 'Administrar Uniidades Geográficas';
-        $adminUnidadeGeografica->ruleName = $admUnidadeGeograficaRule->name;
-        $auth->add($adminUnidadeGeografica);
-        $auth->addChild($adminUnidadeGeografica,$verProjeto);
+        $adminUnidadeGeograficaProjeto = $auth->createPermission('adminUnidadeGeografica');
+        $adminUnidadeGeograficaProjeto->description = 'Administrar Uniidades Geográficas';
+        $adminUnidadeGeograficaProjeto->ruleName = $admUnidadeGeograficaRule->name;
+        $auth->add($adminUnidadeGeograficaProjeto);
+        $auth->addChild($adminUnidadeGeograficaProjeto,$verProjeto);
         
         $exportar = $auth->createPermission('exportar');
         $exportar->description = 'Exportação dados do projeto';
@@ -169,11 +172,12 @@ class RbacController extends Controller
         
         
         //Atribui permissoes
+        $auth->addChild($operadorVisualizador, $verProjeto);
+        
         $auth->addChild($operadorColeta, $adminColetaProjeto);
         
-        $auth->addChild($operadorUnidadeGeografica, $adminUnidadeGeografica);
+        $auth->addChild($operadorUnidadeGeografica, $adminUnidadeGeograficaProjeto);
         
-        $auth->addChild($operadorVisualizador, $verProjeto);
         
         $auth->addChild($operadorExportar, $exportar);
         
@@ -198,6 +202,10 @@ class RbacController extends Controller
         $auth->addChild($adminBase, $adminTipoDados);//Precisa?
         
         //Arruma hierarquia
+        
+        $auth->addChild($operadorColeta, $verProjeto);
+        $auth->addChild($operadorUnidadeGeografica, $verProjeto);
+        
         $auth->addChild($colaboradorProjeto, $operadorColeta);
         $auth->addChild($colaboradorProjeto, $operadorUnidadeGeografica);
         $auth->addChild($colaboradorProjeto, $operadorVisualizador);
@@ -208,8 +216,53 @@ class RbacController extends Controller
         $auth->addChild($adminBase, $adminProjetoRole);
         $auth->addChild($adminBase, $curador);
         
+        $this->actionSetpermicoes();
+    }
+    
+    public function actionSetpermicoes()
+    {
+        $auth = \Yii::$app->authManager;
+       
+        $adminBase = $auth->getRole("adminBase");
+        $adminProjetoRole = $auth->getRole("adminProjeto");
+        $colaboradorProjeto = $auth->getRole("colaboradorProjeto");
+        $operadorColeta = $auth->getRole("operadorColeta");
+        $operadorUnidadeGeografica = $auth->getRole("operadorUnidadeGeografica");
         
-        $auth->assign($adminBase,1);
-        $auth->assign($adminProjetoRole,2);
+        
+        foreach(\app\models\Pesquisador::find()->andWhere(["isAdminBase" =>1])->all() as $pesquisador)
+        {
+            $auth->assign($adminBase,$pesquisador->idPesquisador);
+        }
+        
+        foreach(\app\models\Projeto::find()->all() as $projeto)
+        {
+            if(!$projeto->idPesquisadorResponsavel0->hasRole($adminProjetoRole))
+                $auth->assign($adminProjetoRole,$projeto->idPesquisadorResponsavel);
+            foreach($projeto->idPesquisadores as $colaborador)
+            {
+                if(!$colaborador->hasRole($colaboradorProjeto))
+                    $auth->assign($colaboradorProjeto,$colaborador->idPesquisador);
+            }
+            
+            foreach($projeto->getViewPesquisadorPermissoes()->all() as $permissao)
+            {
+                if ($permissao->attributes["Administrar Coletas"])
+                {
+                    if (!$permissao->idPesquisador0->hasRole($operadorColeta))
+                    {
+                        $auth->assign($operadorColeta, $permissao->idPesquisador);
+                    }
+                }
+                
+                if ($permissao->attributes["Administrar Unidades Geográficas"])
+                {
+                    if (!$permissao->idPesquisador0->hasRole($operadorUnidadeGeografica))
+                    {
+                        $auth->assign($operadorUnidadeGeografica, $permissao->idPesquisador);
+                    }
+                }
+            }
+        }
     }
 }

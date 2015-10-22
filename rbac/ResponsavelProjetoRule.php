@@ -34,7 +34,7 @@ class ResponsavelProjetoRule extends Rule
 
             if ($params['projeto']->idProjetoPai)
             {
-                return \Yii::$app->user->can("deletarProjeto", ["projeto" => $params['projeto']->idProjetoPai0]);
+                return \Yii::$app->user->can("editarProjeto", ["projeto" => $params['projeto']->idProjetoPai0]);
             }
         }
         else

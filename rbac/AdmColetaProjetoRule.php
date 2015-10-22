@@ -8,9 +8,9 @@ namespace app\rbac;
 
 use yii\rbac\Rule;
 
-class AdmUnidadeGeograficaRule extends Rule
+class AdmColetaProjetoRule extends Rule
 {
-    public $name = "AdmUnidadeGeografica";
+    public $name = "AdmColetaProjeto";
     
     /**
      * @param string|integer $user the user ID.
@@ -28,7 +28,7 @@ class AdmUnidadeGeograficaRule extends Rule
         {
             foreach($params['projeto']->getViewPesquisadorPermissoes()->andWhere(["idPesquisador" => $user])->all() as $permissao)
             {
-                if ($permissao->attributes["Administrar Unidades Geográficas"])
+                if ($permissao->attributes["Administrar Coletas"])
                 {
                     return true;
                 }
@@ -37,7 +37,7 @@ class AdmUnidadeGeograficaRule extends Rule
         else
         {
             if (\app\models\Projeto::find()->joinWith("pesquisadorHasPermissoes")
-                    ->andWhere(["idPesquisador" => $user,"idPermissoes" => 2]) //Adm coleta
+                    ->andWhere(["idPesquisador" => $user,"idPermissoes" => 1]) //Adm coleta
                     ->count() != 0)
             {
                 return true;
