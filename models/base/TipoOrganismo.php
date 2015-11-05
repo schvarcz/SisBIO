@@ -11,6 +11,9 @@ use Yii;
  * @property string $Nome
  * @property string $Descricao
  *
+ * @property Coleta[] $coletas
+ * @property Curadoria[] $curadorias
+ * @property Pesquisador[] $idPesquisadores
  * @property Especie[] $especies
  * @property NaoIdentificado[] $naoIdentificados
  * @property TipoOrganismoHasDescritor[] $tipoOrganismoHasDescritores
@@ -58,6 +61,30 @@ class TipoOrganismo extends \app\models\MActiveRecord
             'Nome' => Yii::t('app', 'Nome'),
             'Descricao' => Yii::t('app', 'Descricao'),
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getColetas()
+    {
+        return $this->hasMany(\app\models\Coleta::className(), ['idTipoOrganismo' => 'idTipoOrganismo']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getCuradorias()
+    {
+        return $this->hasMany(\app\models\Curadoria::className(), ['idTipoOrganismo' => 'idTipoOrganismo']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getIdPesquisadores()
+    {
+        return $this->hasMany(\app\models\Pesquisador::className(), ['idPesquisador' => 'idPesquisador'])->viaTable('Curadoria', ['idTipoOrganismo' => 'idTipoOrganismo']);
     }
 
     /**

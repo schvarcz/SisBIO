@@ -46,7 +46,15 @@ class EspecieSearch extends Model
 
     public function search($params)
     {
-        $query = Especie::find();
+        $query = null;
+        if (\Yii::$app->user->can("adminBase"))
+        {
+            $query = Especie::find();
+        }
+        elseif (\Yii::$app->user->can("curador"))
+        {
+            $query = Especie::find()->joinWith("idTipoOrganismo.curadorias")->where(["idPesquisador" => \Yii::$app->user->id]);
+        }
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
         ]);

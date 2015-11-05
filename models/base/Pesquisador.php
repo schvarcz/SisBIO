@@ -18,18 +18,23 @@ use Yii;
  * @property integer $idCronTask
  * @property bool $isAdminBase
  *
+ * @property Coleta[] $coletas
  * @property ColetaHasPesquisador[] $coletaHasPesquisadores
  * @property Coleta[] $idColetas
+ * @property Curadoria[] $curadorias
+ * @property TipoOrganismo[] $idTipoOrganismos
  * @property NaoIdentificado[] $naoIdentificados
  * @property CronTask $idCronTask0
+ * @property PesquisadorHasPermissoes[] $pesquisadorHasPermissoes
  * @property PesquisadorHasProjeto[] $pesquisadorHasProjetos
  * @property Projeto[] $idProjetos
  * @property Projeto[] $projetos
  * @property UnidadeGeografica[] $unidadeGeograficas
+ * @property AuthAssignment[] $authAssignments
+ * @property AuthItem[] $itemNames
  */
 class Pesquisador extends \app\models\MActiveRecord
 {
-
     /**
      * @inheritdoc
      */
@@ -37,7 +42,7 @@ class Pesquisador extends \app\models\MActiveRecord
     {
         return 'Pesquisador';
     }
-
+    
     /**
      * @inheritdoc
      */
@@ -82,6 +87,14 @@ class Pesquisador extends \app\models\MActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
+    public function getColetas()
+    {
+        return $this->hasMany(\app\models\Coleta::className(), ['idPesquisadorRegistro' => 'idPesquisador']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
     public function getColetaHasPesquisadores()
     {
         return $this->hasMany(\app\models\ColetaHasPesquisador::className(), ['idPesquisador' => 'idPesquisador']);
@@ -98,6 +111,22 @@ class Pesquisador extends \app\models\MActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
+    public function getCuradorias()
+    {
+        return $this->hasMany(\app\models\Curadoria::className(), ['idPesquisador' => 'idPesquisador']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getIdTipoOrganismos()
+    {
+        return $this->hasMany(\app\models\TipoOrganismo::className(), ['idTipoOrganismo' => 'idTipoOrganismo'])->viaTable('Curadoria', ['idPesquisador' => 'idPesquisador']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
     public function getNaoIdentificados()
     {
         return $this->hasMany(\app\models\NaoIdentificado::className(), ['idPesquisadorIdentificacao' => 'idPesquisador']);
@@ -109,6 +138,14 @@ class Pesquisador extends \app\models\MActiveRecord
     public function getIdCronTask0()
     {
         return $this->hasOne(\app\models\CronTask::className(), ['idCronTask' => 'idCronTask']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getPesquisadorHasPermissoes()
+    {
+        return $this->hasMany(\app\models\PesquisadorHasPermissoes::className(), ['idPesquisador' => 'idPesquisador']);
     }
 
     /**
@@ -143,4 +180,19 @@ class Pesquisador extends \app\models\MActiveRecord
         return $this->hasMany(\app\models\UnidadeGeografica::className(), ['idPesquisador' => 'idPesquisador']);
     }
 
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getAuthAssignments()
+    {
+        return $this->hasMany(\app\models\AuthAssignment::className(), ['user_id' => 'idPesquisador']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getItemNames()
+    {
+        return $this->hasMany(\app\models\AuthItem::className(), ['name' => 'item_name'])->viaTable('auth_assignment', ['user_id' => 'idPesquisador']);
+    }
 }

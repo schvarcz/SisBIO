@@ -15,10 +15,12 @@ class RbacController extends Controller
     public function actionCreate()
     {
         $auth = \Yii::$app->authManager;
+        echo "Removing old permissions settigns... ";
         $auth->removeAll();
 
         
         //Cria permissões
+        echo "done.\nCreating permissions... ";
         $adminProjeto = $auth->createPermission('adminProjetos');
         $adminProjeto->description = 'Administrador de todos projetos';
         $auth->add($adminProjeto);
@@ -116,27 +118,34 @@ class RbacController extends Controller
         
         
         
+        $curadoriaRule = new \app\rbac\CuradoriaRule;
+        $auth->add($curadoriaRule);
         
         $adminDescritores = $auth->createPermission('adminDescritores');
         $adminDescritores->description = 'Administrar descritores';
+        $adminDescritores->ruleName = $curadoriaRule->name;
         $auth->add($adminDescritores);
         
         $adminOrganismo = $auth->createPermission('adminOrganismo');
         $adminOrganismo->description = 'Administrar Tipos de Organismo';
+        $adminOrganismo->ruleName = $curadoriaRule->name;
         $auth->add($adminOrganismo);
         
         $adminMetodos = $auth->createPermission('adminMetodos');
         $adminMetodos->description = 'Administrar Métodos de Coleta';
+        $adminMetodos->ruleName = $curadoriaRule->name;
         $auth->add($adminMetodos);
         
         $adminTaxonomia = $auth->createPermission('adminTaxonomia');
         $adminTaxonomia->description = 'Administrar Taxonomia';
+        $adminTaxonomia->ruleName = $curadoriaRule->name;
         $auth->add($adminTaxonomia);
         
         
         
         
         // Cria todas "role"
+        echo "done.\nCreating roles... ";
         $operadorColeta = $auth->createRole('operadorColeta');
         $operadorColeta->description = "Operador da base";
         $auth->add($operadorColeta);
@@ -172,6 +181,7 @@ class RbacController extends Controller
         
         
         //Atribui permissoes
+        echo "done.\nAdding permissions to each role... ";
         $auth->addChild($operadorVisualizador, $verProjeto);
         
         $auth->addChild($operadorColeta, $adminColetaProjeto);
@@ -203,6 +213,7 @@ class RbacController extends Controller
         
         //Arruma hierarquia
         
+        echo "done.\nOrganizing the hierarchy... ";
         $auth->addChild($operadorColeta, $verProjeto);
         $auth->addChild($operadorUnidadeGeografica, $verProjeto);
         
@@ -221,10 +232,12 @@ class RbacController extends Controller
     
     public function actionSetpermicoes()
     {
+        echo "done.\nSetting permissions... ";
         $auth = \Yii::$app->authManager;
        
         $adminBase = $auth->getRole("adminBase");
         $adminProjetoRole = $auth->getRole("adminProjeto");
+        $curador = $auth->getRole("curador");
         $colaboradorProjeto = $auth->getRole("colaboradorProjeto");
         $operadorColeta = $auth->getRole("operadorColeta");
         $operadorUnidadeGeografica = $auth->getRole("operadorUnidadeGeografica");
@@ -233,6 +246,14 @@ class RbacController extends Controller
         foreach(\app\models\Pesquisador::find()->andWhere(["isAdminBase" =>1])->all() as $pesquisador)
         {
             $auth->assign($adminBase,$pesquisador->idPesquisador);
+        }
+        
+        foreach(\app\models\Curadoria::find()->all() as $curadoria)
+        {
+            if (!$curadoria->idPesquisador0->hasRole($curador))
+            {
+                $auth->assign($curador, $curadoria->idPesquisador);
+            }
         }
         
         foreach(\app\models\Projeto::find()->all() as $projeto)
@@ -264,5 +285,6 @@ class RbacController extends Controller
                 }
             }
         }
+        echo "done.\n";
     }
 }

@@ -50,6 +50,7 @@ AppAsset::register($this);
                         ], 'visible' => Yii::$app->user->can("adminTaxonomia")],
                     ['label' => 'Base', 'items' => [
                             ['label' => 'Pesquisadores', 'url' => ['/pesquisador'], 'visible' => Yii::$app->user->can("adminPesquisadores")],
+                            ['label' => 'Curadoria', 'url' => ['/curadoria'], 'visible' => Yii::$app->user->can("adminCuradoria")],
                             ['label' => 'Projetos', 'url' => ['/projeto'], 'visible' => Yii::$app->user->can("verProjeto")],
                             ['label' => 'Descritores', 'url' => ['/descritor'], 'visible' => Yii::$app->user->can("adminDescritores")],
                             ['label' => 'Métodos de Coleta', 'url' => ['/metodo'], 'visible' => Yii::$app->user->can("adminMetodos")],

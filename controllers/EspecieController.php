@@ -56,9 +56,14 @@ class EspecieController extends Controller
     public function actionView($idEspecie)
     {
         Url::remember();
-        return $this->render('view', [
-                    'model' => $this->findModel($idEspecie),
-        ]);
+        $model = $this->findModel($idEspecie);
+        if(\Yii::$app->user->can("adminOrganismo",["tipoOrganismo"=>$model->idTipoOrganismo]))
+        {
+            return $this->render('view', [
+                        'model' => $model,
+            ]);
+        }
+        throw new HttpException(403,"You are not allowed to perform this action.");
     }
 
     /**
@@ -97,15 +102,19 @@ class EspecieController extends Controller
     {
         $model = $this->findModel($idEspecie);
 
-        if ($model->load($_POST) && $model->save())
+        if(\Yii::$app->user->can("adminOrganismo",["tipoOrganismo"=>$model->idTipoOrganismo]))
         {
-            return $this->redirect(Url::previous());
-        } else
-        {
-            return $this->render('update', [
-                        'model' => $model,
-            ]);
+            if ($model->load($_POST) && $model->save())
+            {
+                return $this->redirect(Url::previous());
+            } else
+            {
+                return $this->render('update', [
+                            'model' => $model,
+                ]);
+            }
         }
+        throw new HttpException(403,"You are not allowed to perform this action.");
     }
 
     /**
@@ -116,8 +125,13 @@ class EspecieController extends Controller
      */
     public function actionDelete($idEspecie)
     {
-        $this->findModel($idEspecie)->delete();
-        return $this->redirect(Url::previous());
+        $model = $this->findModel($idEspecie);
+        if(\Yii::$app->user->can("adminOrganismo",["tipoOrganismo"=>$model->idTipoOrganismo]))
+        {
+            $model->delete();
+            return $this->redirect(Url::previous());
+        }
+        throw new HttpException(403,"You are not allowed to perform this action.");
     }
 
     /**

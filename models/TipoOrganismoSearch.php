@@ -38,7 +38,15 @@ class TipoOrganismoSearch extends Model
 
     public function search($params)
     {
-        $query = TipoOrganismo::find();
+        $query = null;
+        if (\Yii::$app->user->can("adminBase"))
+        {
+            $query = TipoOrganismo::find();
+        }
+        elseif (\Yii::$app->user->can("curador"))
+        {
+            $query = TipoOrganismo::find()->joinWith("curadorias")->where(["idPesquisador" => \Yii::$app->user->id]);
+        }
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
         ]);
