@@ -44,24 +44,27 @@ class Select2Active extends Select2
             if ($this->hasModel())
             {
                 $model = $this->model;
-                $relation = $model->getRelation($this->attribute, false);
-                if ($relation->multiple)
+                if ($model instanceof \yii\db\ActiveRecord)
                 {
-                    $attr = $this->attribute;
-                    $data = $model->$attr;
-                    $dataR = [];
+                    $relation = $model->getRelation($this->attribute, false);
+                    if ($relation->multiple)
+                    {
+                        $attr = $this->attribute;
+                        $data = $model->$attr;
+                        $dataR = [];
 
-                    foreach ($data as $modelRelation)
-                    {
-                        $dataR[$modelRelation->primaryKey] = $modelRelation->label;
+                        foreach ($data as $modelRelation)
+                        {
+                            $dataR[$modelRelation->primaryKey] = $modelRelation->label;
+                        }
+                        if ($dataR == [])
+                        {
+                            unset($this->pluginOptions['initSelection']);
+                            parent::init();
+                            return;
+                        }
+                        $this->data = $dataR;
                     }
-                    if ($dataR == [])
-                    {
-                        unset($this->pluginOptions['initSelection']);
-                        parent::init();
-                        return;
-                    }
-                    $this->data = $dataR;
                 }
             }
             $initScript = <<< SCRIPT
