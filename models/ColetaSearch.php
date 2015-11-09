@@ -46,7 +46,25 @@ class ColetaSearch extends Model
 
     public function search($params)
     {
-        $query = Coleta::find();
+        $query = null;
+        
+        if (\Yii::$app->user->can("adminBase"))
+        {
+            $query = Coleta::find();
+        }
+        elseif (\Yii::$app->user->can("adminColeta"))
+        {
+            $query = Coleta::find();
+            $query->joinWith("idUnidadeGeografica0.idProjeto0");
+            $query->orWhere(["idPesquisadorResponsavel" => \Yii::$app->user->id]);
+            
+            $query->joinWith("idUnidadeGeografica0.idProjeto0.idPesquisadores");
+            $query->orWhere(["Pesquisador_has_Projeto.idPesquisador" => \Yii::$app->user->id]);
+                
+            $query->joinWith("idUnidadeGeografica0.idProjeto0.pesquisadorHasPermissoes");
+            $query->orWhere(["Pesquisador_has_Permissoes.idPesquisador" => \Yii::$app->user->id,"Pesquisador_has_Permissoes.idPermissoes" => 1]);
+        }
+        
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
         ]);

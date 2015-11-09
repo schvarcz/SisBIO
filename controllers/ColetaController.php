@@ -28,7 +28,7 @@ class ColetaController extends Controller
                     [
                         'allow' => true,
                         'actions' => ['index', 'create','delete', 'update', 'view','findesp', 'findvariavelecossistemica', 'adddescritor', 'adddescritoresambiental'],
-                        'roles' => ['admColetas'],
+                        'roles' => ['adminColeta'],
                     ],
                 ],
             ],

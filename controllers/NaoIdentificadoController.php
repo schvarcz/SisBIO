@@ -25,7 +25,7 @@ class NaoIdentificadoController extends Controller
                     [
                         'allow' => true,
                         'actions' => ['index', 'create','delete', 'update', 'view'],
-                        'roles' => ['admColetas'],
+                        'roles' => ['adminColeta'],
                     ],
                 ],
             ],

@@ -47,8 +47,7 @@ use yii\helpers\ArrayHelper;
                                 'dataType' => 'json',
                                 'data' => new JsExpression('function(term,page) { return {pesquisador:term.term}; }'),
                                 'results' => new JsExpression('function(data,page) { return {results:data.results}; }'),
-                            ],
-                            'initSelection' => true
+                            ]
                         ],
                     ]);
                     ?>

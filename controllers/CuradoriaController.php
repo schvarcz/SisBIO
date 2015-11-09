@@ -47,6 +47,7 @@ class CuradoriaController extends Controller
                         $curador->idTipoOrganismo = $idTipoOrganismo;
                         $curador->idPesquisador = $idCurador;
                         $curador->save();
+                        return $this->redirect(Url::previous());
                     }
                 }
             }
