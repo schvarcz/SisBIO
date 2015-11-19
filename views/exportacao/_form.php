@@ -45,11 +45,11 @@ use yii\web\JsExpression;
                     ],
                 ]);
                 ?>
-                </div>
             </div>
-            <div class="form-group">
-                <label class="control-label col-sm-3">Unidade Geográfica</label>
-                <div class="col-sm-7">
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-3">Unidade Geográfica</label>
+            <div class="col-sm-7">
                 <?=
                 \app\widgets\Select2Active\Select2Active::widget([
                     'name' => 'unidade-geografica',
@@ -68,14 +68,14 @@ use yii\web\JsExpression;
                     ],
                 ]);
                 ?>
-                    <p style="font-weight: normal; color:#999999"><small><?= Html::checkbox("include-children",true,["label"=> 'Incluir unidades geográficas filhas a esta.']);?> </small></p>
-                </div>
+                <p style="font-weight: normal; color:#999999"><small><?= Html::checkbox("include-children", true, ["label" => 'Incluir unidades geográficas filhas a esta.']); ?> </small></p>
             </div>
-        
+        </div>
 
-            <div class="form-group">
-                <label class="control-label col-sm-3">Intervalo de data</label>
-                <div class = "col-sm-3">
+
+        <div class="form-group">
+            <label class="control-label col-sm-3">Intervalo de data</label>
+            <div class = "col-sm-3">
                 <?=
                 \app\widgets\DateTime\DatePicker::widget([
                     'name' => 'data-inicio',
@@ -87,11 +87,11 @@ use yii\web\JsExpression;
                     ]
                 ]);
                 ?>
-                </div>
-                <label class = "col-sm-1 control-label" style="text-align: center">
-                    à
-                </label>
-                <div class = "col-sm-3">
+            </div>
+            <label class = "col-sm-1 control-label" style="text-align: center">
+                à
+            </label>
+            <div class = "col-sm-3">
                 <?=
                 \app\widgets\DateTime\DatePicker::widget([
                     'name' => 'data-fim',
@@ -103,8 +103,8 @@ use yii\web\JsExpression;
                     ]
                 ]);
                 ?>
-                </div>
             </div>
+        </div>
 
         </p>
         <?php $this->endBlock(); ?>
@@ -129,7 +129,7 @@ use yii\web\JsExpression;
         ?>
 
         <?= Html::a('Cancelar', \yii\helpers\Url::previous(), ['class' => 'btn btn-default']) ?>
-<?php ActiveForm::end(); ?>
+        <?php ActiveForm::end(); ?>
 
     </div>
 

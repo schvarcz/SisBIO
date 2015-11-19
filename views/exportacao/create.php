@@ -73,6 +73,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             [
                 'class' => 'yii\grid\ActionColumn',
+                'template' => '{view}',
                 'urlCreator' => function($action, $model, $key, $index)
                 {
                     // using the column name as key, not mapping to 'id' like the standard generator

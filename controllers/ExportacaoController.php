@@ -6,8 +6,6 @@ use app\models\Exportacao;
 use app\models\ExportacaoSearch;
 use yii\web\Controller;
 use yii\web\HttpException;
-use yii\filters\VerbFilter;
-use yii\filters\AccessControl;
 use yii\helpers\Url;
 
 /**
@@ -40,28 +38,26 @@ class ExportacaoController extends Controller
         $searchModel = new ExportacaoSearch();
         $dataProvider = $searchModel->search($_GET);
 
+        if (isset($_GET["export"]))
+        {
+            $export = new Exportacao();
+            if ($export->load([
+                    "Exportacao"=>[
+                        "sql" => $_SERVER['QUERY_STRING'],
+                        "idPesquisador" => \Yii::$app->user->id
+                    ]
+            ]) && $export->save())
+            {
+                return $this->redirect(Url::toRoute("index"));
+            }
+            print_r($export);
+            exit();
+        }
+        
         return $this->render('create', [
                     'dataProvider' => $dataProvider,
                     'searchModel' => $searchModel
         ]);
-        
-//        $model = new Exportacao;
-//
-//        try
-//        {
-//            if ($model->load($_POST) && $model->save())
-//            {
-//                return $this->redirect(Url::previous());
-//            } elseif (!\Yii::$app->request->isPost)
-//            {
-//                $model->load($_GET);
-//            }
-//        } catch (\Exception $e)
-//        {
-//            $msg = (isset($e->errorInfo[2])) ? $e->errorInfo[2] : $e->getMessage();
-//            $model->addError('_exception', $msg);
-//        }
-//        return $this->render('create', ['model' => $model,]);
     }
 
     /**
@@ -70,9 +66,9 @@ class ExportacaoController extends Controller
      * @param integer $id
      * @return mixed
      */
-    public function actionDelete($idexportacoes)
+    public function actionDelete($idExportacao)
     {
-        $this->findModel($idexportacoes)->delete();
+        $this->findModel($idExportacao)->delete();
         return $this->redirect(Url::previous());
     }
 

@@ -7,7 +7,7 @@ use Yii;
 /**
  * This is the base-model class for table "exportacao".
  *
- * @property integer $idexportacoes
+ * @property integer $idExportacao
  * @property string $sql
  * @property integer $percent
  * @property string $file
@@ -20,7 +20,7 @@ class Exportacao extends \app\models\MActiveRecord
      */
     public static function tableName()
     {
-        return 'exportacao';
+        return 'Exportacao';
     }
     
     /**
@@ -37,8 +37,8 @@ class Exportacao extends \app\models\MActiveRecord
     public function rules()
     {
         return [
-            [['idexportacoes', 'idPesquisador'], 'required'],
-            [['idexportacoes', 'percent', 'idPesquisador'], 'integer'],
+            [['idPesquisador'], 'required'],
+            [['percent', 'idPesquisador'], 'integer'],
             [['sql'], 'string'],
             [['file'], 'string', 'max' => 45]
         ];
@@ -50,7 +50,7 @@ class Exportacao extends \app\models\MActiveRecord
     public function attributeLabels()
     {
         return [
-            'idexportacoes' => Yii::t('app', 'Idexportacoes'),
+            'idExportacao' => Yii::t('app', 'Id Exportacao'),
             'sql' => Yii::t('app', 'Sql'),
             'percent' => Yii::t('app', 'Percent'),
             'file' => Yii::t('app', 'File'),

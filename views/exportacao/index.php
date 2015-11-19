@@ -26,8 +26,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'columns' => [
 
-            'idexportacoes',
-            'sql:ntext',
+            'idExportacao',
             'percent',
             'file',
             [

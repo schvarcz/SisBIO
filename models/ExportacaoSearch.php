@@ -40,16 +40,13 @@ class ExportacaoSearch extends Model
         ];
     }
 
-    public function search($params)
+    public function searchQuery($params)
     {
         $query = Coleta::find();
-        $dataProvider = new ActiveDataProvider([
-            'query' => $query,
-        ]);
 
         if (!($this->load($params) && $this->validate()))
         {
-            return $dataProvider;
+            return $query;
         }
 
         $query->andFilterWhere([
@@ -73,8 +70,16 @@ class ExportacaoSearch extends Model
             $query->andFilterWhere(['<', 'Data_Coleta',
                 \DateTime::createFromFormat("d/m/Y", $this->dataFim)->format("Y-m-d H:i")]);
         }
+        
+        return $query;
 
-        return $dataProvider;
+    }
+    
+    public function search($params)
+    {
+        return new ActiveDataProvider([
+            'query' => $this->searchQuery($params),
+        ]);
     }
 
     public static function defaultSearch()

@@ -3,6 +3,9 @@
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 use yii\web\JsExpression;
+use yii\bootstrap\Modal;
+use yii\bootstrap\Button;
+use yii\bootstrap\Collapse;
 
 /**
  * @var yii\web\View $this
@@ -17,12 +20,17 @@ use yii\web\JsExpression;
     $form = ActiveForm::begin(['layout' => 'horizontal',
                 'action' => ['create'],
                 'method' => 'get',
+                'fieldConfig' => [
+                    'horizontalCssClasses' => [
+                        'wrapper' => 'col-sm-7',
+                    ],
+                ],
     ]);
     ?>
     
     <?=
     $form->field($model, 'idProjeto')->widget(\app\widgets\Select2Active\Select2Active::className(), [
-        'options' => ['placeholder' => 'Projeto'],
+        'options' => ['placeholder' => 'Projeto' , "class" => "col-sm-7"],
         'pluginOptions' => [
             'allowClear' => true,
             'ajax' => [
@@ -32,17 +40,13 @@ use yii\web\JsExpression;
                 'results' => new JsExpression('function(data,page) { return {results:data.results}; }'),
             ],
             'initSelection' => true
-        ],
-        'pluginEvents' => [
-            'select2:select' => 'function(e) { methodsProjeto.select(e); }',
-            "select2:unselect" => "function(e) { methodsProjeto.unselect(); }"
-        ],
+        ]
     ]);
     ?>
     
     <div class="form-group">
         <label class="control-label col-sm-3">Unidade Geográfica</label>
-        <div class="col-sm-6">
+        <div class="col-sm-7">
             <?=
             \app\widgets\Select2Active\Select2Active::widget([
                 'model' => $model,
@@ -101,9 +105,82 @@ use yii\web\JsExpression;
             ?>
         </div>
     </div>
+    
+    <div class="form-group">
+        <div class = "col-sm-4 col-sm-offset-2">
+            <?php
+            Modal::begin([
+                'header' => '<h2>Atributos da população</h2>',
+                'toggleButton' => ['label' => '<div>Atributos da funcionais que serão exportados.</div>', 'tag' => 'a'],
+                'footer' => Button::widget([
+                    'label' => 'Atualizar',
+                    'options' => [
+                        'class' => 'btn-primary updateFields',
+                        'data-dismiss' => 'modal'
+                    ]
+                ]),
+                'options' => [
+                    "class" => "modalColetaPopulacao"
+                ],
+            ]);
+            echo Html::tag("h5", "Selecionar todos os atributos que irá informar. ");
+            
+            $items = [];
+            $organismos = \app\models\TipoOrganismo::find()->all();
+            foreach ($organismos as $organismo)
+            {
+                $models = $organismo->getIdDescritores()->andWhere(["idTipoDescritor" => 1,])->all();
+                $items[] = [
+                    "label" => $organismo->label,
+                    "content" => $this->render('_descritores', ['models' => $models, "organismo" => $organismo]),
+                ];
+            }
+
+            echo Collapse::widget([
+                'items' => $items
+            ]);
+            Modal::end();
+            ?>
+        </div>
+        <div class = "col-sm-4">
+            <?php
+            Modal::begin([
+                'header' => '<h2>Atributos da população</h2>',
+                'toggleButton' => ['label' => '<div>Atributos da população que serão exportados.</div>', 'tag' => 'a'],
+                'footer' => Button::widget([
+                    'label' => 'Atualizar',
+                    'options' => [
+                        'class' => 'btn-primary updateFields',
+                        'data-dismiss' => 'modal'
+                    ]
+                ]),
+                'options' => [
+                    "class" => "modalColetaPopulacao"
+                ],
+            ]);
+            echo Html::tag("h5", "Selecionar todos os atributos que irá informar. ");
+            
+            $items = [];
+            $organismos = \app\models\TipoOrganismo::find()->all();
+            foreach ($organismos as $organismo)
+            {
+                $models = $organismo->getIdDescritores()->andWhere(["idTipoDescritor" => 2,])->all();
+                $items[] = [
+                    "label" => $organismo->label,
+                    "content" => $this->render('_descritores', ['models' => $models, "organismo" => $organismo]),
+                ];
+            }
+
+            echo Collapse::widget([
+                'items' => $items
+            ]);
+            Modal::end();
+            ?>
+        </div>
+    </div>
     <div class="form-group">
         <?= Html::submitButton('Atualizar', ['class' => 'btn btn-primary']) ?>
-        <?= Html::submitButton('Exportar', ['class' => 'btn btn-primary']) ?>
+        <?= Html::submitButton('Exportar', ['class' => 'btn btn-primary', 'name'=>'export']) ?>
         <?= Html::resetButton('Reset', ['class' => 'btn btn-default']) ?>
     </div>
 
