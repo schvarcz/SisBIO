@@ -129,7 +129,7 @@ use yii\bootstrap\Collapse;
             $organismos = \app\models\TipoOrganismo::find()->all();
             foreach ($organismos as $organismo)
             {
-                $models = $organismo->getIdDescritores()->andWhere(["idTipoDescritor" => 1,])->all();
+                $models = $organismo->getIdDescritores()->andWhere(["idTipoDescritor" => 1])->all();
                 $items[] = [
                     "label" => $organismo->label,
                     "content" => $this->render('_descritores', ['models' => $models, "organismo" => $organismo]),
@@ -164,7 +164,7 @@ use yii\bootstrap\Collapse;
             $organismos = \app\models\TipoOrganismo::find()->all();
             foreach ($organismos as $organismo)
             {
-                $models = $organismo->getIdDescritores()->andWhere(["idTipoDescritor" => 2,])->all();
+                $models = $organismo->getIdDescritores()->andWhere(["idTipoDescritor" => 2])->all();
                 $items[] = [
                     "label" => $organismo->label,
                     "content" => $this->render('_descritores', ['models' => $models, "organismo" => $organismo]),
