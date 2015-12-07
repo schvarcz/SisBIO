@@ -17,13 +17,15 @@ use yii\helpers\ArrayHelper;
 $this->registerJsFile(Yii::$app->homeUrl . "js/coletaPlugin.js", [ "depends" => ['yii\jui\JuiAsset']]);
 $this->registerJsFile(Yii::$app->homeUrl . "js/coleta.js", [ "depends" => ['yii\web\JqueryAsset']]);
 $this->registerCssFile(Yii::$app->homeUrl . "css/coleta.css");
+
+$baseUrl = Yii::$app->request->baseUrl;
 $script = <<<END
         jQuery(".plus-coleta-individuo").coletaPlus({
             container: ".coletaIndividuosContainer",
             modalAtributos: ".modalColetaIndividuos",
             inputName: "especie_add",
             ajax: {
-                url: "/sisbio/web/coleta/adddescritor?tipoDescritor=1"
+                url: "$baseUrl/coleta/adddescritor?tipoDescritor=1"
             }
         });
 END;
@@ -35,7 +37,7 @@ $script = <<<END
             modalAtributos: ".modalColetaPopulacao",
             inputName: "populacao_add",
             ajax: {
-                url: "/sisbio/web/coleta/adddescritor?tipoDescritor=2"
+                url: "$baseUrl/coleta/adddescritor?tipoDescritor=2"
             }
         });
 END;
@@ -48,7 +50,7 @@ $script = <<<END
             uniqueWidget:true,
             uniqueId: "#coletaitempropriedade-iddescritor",
             ajax: {
-                url: "/sisbio/web/coleta/adddescritoresambiental?tipoDescritor=3"
+                url: "$baseUrl/coleta/adddescritoresambiental?tipoDescritor=3"
             }
         });
 END;
