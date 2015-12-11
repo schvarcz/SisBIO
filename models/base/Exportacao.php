@@ -9,9 +9,10 @@ use Yii;
  *
  * @property integer $idExportacao
  * @property string $sql
- * @property integer $percent
+ * @property double $percent
  * @property string $file
  * @property integer $idPesquisador
+ * @property string $timestamp
  */
 class Exportacao extends \app\models\MActiveRecord
 {
@@ -20,7 +21,7 @@ class Exportacao extends \app\models\MActiveRecord
      */
     public static function tableName()
     {
-        return 'Exportacao';
+        return 'exportacao';
     }
     
     /**
@@ -37,9 +38,11 @@ class Exportacao extends \app\models\MActiveRecord
     public function rules()
     {
         return [
-            [['idPesquisador'], 'required'],
-            [['percent', 'idPesquisador'], 'integer'],
             [['sql'], 'string'],
+            [['percent'], 'number'],
+            [['idPesquisador'], 'required'],
+            [['idPesquisador'], 'integer'],
+            [['timestamp'], 'safe'],
             [['file'], 'string', 'max' => 45]
         ];
     }
@@ -55,6 +58,7 @@ class Exportacao extends \app\models\MActiveRecord
             'percent' => Yii::t('app', 'Percent'),
             'file' => Yii::t('app', 'File'),
             'idPesquisador' => Yii::t('app', 'Id Pesquisador'),
+            'timestamp' => Yii::t('app', 'Timestamp'),
         ];
     }
 }

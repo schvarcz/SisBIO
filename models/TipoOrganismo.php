@@ -17,7 +17,7 @@ class TipoOrganismo extends \app\models\base\TipoOrganismo
     {
         return [
             'idTipoOrganismo' => Yii::t('app', 'Identificador do Tipo de Organismo'),
-            'Nome' => Yii::t('app', 'Nome'),
+            'Nome' => Yii::t('app', 'Nome do Tipo de Organismo'),
             'Descricao' => Yii::t('app', 'Descrição'),
             'idDescritores' => Yii::t('app', 'Descritores'),
             'idMetodos' => Yii::t('app', 'Métodos de Coleta'),

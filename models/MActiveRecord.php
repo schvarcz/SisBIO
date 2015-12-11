@@ -86,7 +86,8 @@ class MActiveRecord extends \yii\db\ActiveRecord
                 if (isset($dateFormats[$type]))
                 {
                     $date = \DateTime::createFromFormat($dateFormats[$type], $value);
-                    $this->$name = $date->format("Y-m-d H:i");
+                    if ($date instanceof \DateTime)
+                        $this->$name = $date->format("Y-m-d H:i:s");
                 }
             }
         }
