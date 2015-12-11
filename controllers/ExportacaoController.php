@@ -5,6 +5,7 @@ namespace app\controllers;
 use app\models\Exportacao;
 use app\models\ExportacaoSearch;
 use yii\web\Controller;
+use yii\filters\AccessControl;
 use yii\web\HttpException;
 use yii\helpers\Url;
 
@@ -13,6 +14,21 @@ use yii\helpers\Url;
  */
 class ExportacaoController extends Controller
 {
+    public function behaviors()
+    {
+        return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'actions' => ['index', 'create', 'delete', 'view', 'exportacao-info'],
+                        'roles' => ['adminBase','adminProjeto', 'colaboradorProjeto'],
+                    ],
+                ],
+            ],
+        ];
+    }
 
     /**
      * Lists all Exportacao models.
@@ -48,10 +64,8 @@ class ExportacaoController extends Controller
                     ]
             ]) && $export->save())
             {
-                return $this->redirect(Url::toRoute("index"));
+                return $this->redirect(Url::toRoute(["view","idExportacao"=>$export->primaryKey]));
             }
-            print_r($export);
-            exit();
         }
         
         return $this->render('create', [
@@ -70,6 +84,21 @@ class ExportacaoController extends Controller
     {
         $this->findModel($idExportacao)->delete();
         return $this->redirect(Url::previous());
+    }
+    
+    public function actionView($idExportacao)
+    {
+        $model = $this->findModel($idExportacao);
+        return $this->render('view', [
+                    'model' => $model,
+        ]);
+    }
+    
+    public function actionExportacaoInfo($idExportacao)
+    {
+        $model = $this->findModel($idExportacao);
+        $model->file = \Yii::$app->request->baseUrl.$model->file;
+        return \yii\helpers\Json::encode($model);
     }
 
     /**

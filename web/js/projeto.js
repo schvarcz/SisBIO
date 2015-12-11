@@ -6,7 +6,7 @@
         if ($exist.size() == 0)
         {
             $.ajax({
-                url: "/sisbio/web/projeto/addpermissao",
+                url: baseUrl+"/projeto/addpermissao",
                 data: "idPesquisador=" + id,
                 success: function (data, status, jqXHR) {
                     $(".pesquisadoresPermissao").append(data);

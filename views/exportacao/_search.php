@@ -110,8 +110,8 @@ use yii\bootstrap\Collapse;
         <div class = "col-sm-4 col-sm-offset-2">
             <?php
             Modal::begin([
-                'header' => '<h2>Atributos da população</h2>',
-                'toggleButton' => ['label' => '<div>Atributos da funcionais que serão exportados.</div>', 'tag' => 'a'],
+                'header' => '<h2>Atributos Funcionais</h2>',
+                'toggleButton' => ['label' => '<div>Atributos funcionais que serão exportados.</div>', 'tag' => 'a'],
                 'footer' => Button::widget([
                     'label' => 'Atualizar',
                     'options' => [

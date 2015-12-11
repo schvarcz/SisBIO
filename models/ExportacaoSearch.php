@@ -84,7 +84,7 @@ class ExportacaoSearch extends Model
 
     public static function defaultSearch()
     {
-        $query = Exportacao::find();
+        $query = Exportacao::find()->andWhere(["idPesquisador" => \Yii::$app->user->id])->orderBy("timestamp DESC");
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
         ]);

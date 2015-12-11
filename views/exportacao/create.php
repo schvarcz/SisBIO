@@ -7,8 +7,8 @@ use yii\grid\GridView;
  * @var yii\web\View $this
  * @var app\models\Exportacao $model
  */
-$this->title = 'Novo';
-$this->params['breadcrumbs'][] = ['label' => 'Exportacaos', 'url' => ['index']];
+$this->title = 'Nova Exportação';
+$this->params['breadcrumbs'][] = ['label' => 'Exportação', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="exportacao-create">

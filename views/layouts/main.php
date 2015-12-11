@@ -10,6 +10,13 @@ use app\assets\AppAsset;
 /* @var $content string */
 
 AppAsset::register($this);
+
+
+$baseUrl = Yii::$app->request->baseUrl;
+$script = <<<END
+    var baseUrl = "$baseUrl";
+END;
+$this->registerJs($script, yii\web\View::POS_HEAD);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -49,13 +56,14 @@ AppAsset::register($this);
                             ['label' => 'Espécie', 'url' => ['/especie']],
                         ], 'visible' => Yii::$app->user->can("adminTaxonomia")],
                     ['label' => 'Base', 'items' => [
-                            ['label' => 'Pesquisadores', 'url' => ['/pesquisador'], 'visible' => Yii::$app->user->can("adminPesquisadores")],
                             ['label' => 'Curadoria', 'url' => ['/curadoria'], 'visible' => Yii::$app->user->can("adminCuradoria")],
-                            ['label' => 'Projetos', 'url' => ['/projeto'], 'visible' => Yii::$app->user->can("verProjeto")],
                             ['label' => 'Descritores', 'url' => ['/descritor'], 'visible' => Yii::$app->user->can("adminDescritores")],
+                            ['label' => 'Exportar', 'url' => ['/exportacao'], 'visible' => Yii::$app->user->can("exportar")],
                             ['label' => 'Métodos de Coleta', 'url' => ['/metodo'], 'visible' => Yii::$app->user->can("adminMetodos")],
-                            ['label' => 'Tipos de Descritor', 'url' => ['/tipo-descritor'], 'visible' => Yii::$app->user->can("adminDescritores")],
+                            ['label' => 'Pesquisadores', 'url' => ['/pesquisador'], 'visible' => Yii::$app->user->can("adminPesquisadores")],
+                            ['label' => 'Projetos', 'url' => ['/projeto'], 'visible' => Yii::$app->user->can("verProjeto")],
                             ['label' => 'Tipos de Dado', 'url' => ['/tipo-dado'], 'visible' => Yii::$app->user->can("adminTipoDados")],
+                            ['label' => 'Tipos de Descritor', 'url' => ['/tipo-descritor'], 'visible' => Yii::$app->user->can("adminDescritores")],
                         ], 'visible' => 
                                     Yii::$app->user->can("adminPesquisadores") 
                                     || Yii::$app->user->can("verProjeto")
