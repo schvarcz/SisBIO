@@ -16,9 +16,11 @@ use app\models\TipoOrganismo;
 
 class ExportacaoController extends Controller
 {
-    private $exportPath = __DIR__."/../exporting";
+    private $exportPath = "";
     public function actionExport()
     {
+        $this->exportPath = __DIR__."/../exporting";
+        echo "Exporting data at ".$this->exportPath." folder\n";
         while(true)
         {
             $exportacoes = Exportacao::find()->orWhere(["!=","percent",1])->orWhere(["percent"=>NULL])->all(); 
